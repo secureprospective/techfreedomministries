@@ -1,354 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free events. Real tools. Teaching people to own their digital lives.">
-  <meta name="theme-color" content="#F4F0E6">
-  <title>Tech Freedom Ministries — Coming Soon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech Freedom Ministries — Break from the digital grid.</title>
+  <link rel="stylesheet" href="/colors_and_type.css">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --tfm-parchment:      #F4F0E6;
-      --tfm-parchment-card: #ECE6D6;
-      --tfm-parchment-edge: #D9D0B8;
-      --tfm-near-black:     #1C1209;
-      --tfm-warm-brown:     #4A3F2F;
-      --tfm-gold-deep:      #8B6914;
-      --tfm-gold-bright:    #C4A84A;
-      --tfm-gold-muted:     #8B7355;
-      --tfm-serif: "EB Garamond", Georgia, serif;
-      --tfm-sans:  Inter, system-ui, sans-serif;
-    }
-
-    html {
-      min-height: 100%;
-    }
-
+    html, body { margin: 0; padding: 0; }
     body {
-      background-color: var(--tfm-parchment);
+      background: var(--tfm-parchment);
       color: var(--tfm-near-black);
       font-family: var(--tfm-sans);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 72px 24px;
     }
-
-    .page-wrap {
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
+    #root { min-height: 100vh; display: flex; flex-direction: column; }
+    main  { flex: 1; }
+    /* page enter transition */
+    .tfm-page {
+      animation: tfmRise 320ms cubic-bezier(.2,0,.2,1);
     }
-
-    /* ── Logo ─────────────────────────────────────────── */
-
-    .logo {
-      display: block;
-      width: 96px;
-      height: auto;
-      margin: 0 auto 48px;
-    }
-
-    /* ── Eyebrow ──────────────────────────────────────── */
-
-    .eyebrow {
-      font-family: var(--tfm-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: var(--tfm-gold-muted);
-      margin-bottom: 12px;
-    }
-
-    .short-rule {
-      width: 40px;
-      height: 1px;
-      background: var(--tfm-gold-bright);
-      margin: 0 auto 40px;
-    }
-
-    /* ── Headline ─────────────────────────────────────── */
-
-    .headline {
-      font-family: var(--tfm-serif);
-      font-size: clamp(32px, 8vw, 48px);
-      line-height: 1.18;
-      margin-bottom: 32px;
-    }
-
-    .headline-strong {
-      display: block;
-      font-weight: 700;
-      font-style: normal;
-      color: var(--tfm-near-black);
-    }
-
-    .headline-italic {
-      display: block;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--tfm-gold-deep);
-    }
-
-    /* ── Diamond ──────────────────────────────────────── */
-
-    .diamond {
-      display: block;
-      color: var(--tfm-gold-bright);
-      font-size: 12px;
-      margin-bottom: 24px;
-    }
-
-    /* ── Body ─────────────────────────────────────────── */
-
-    .body-text {
-      font-family: var(--tfm-sans);
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--tfm-warm-brown);
-      margin-bottom: 40px;
-    }
-
-    /* ── Email form ───────────────────────────────────── */
-
-    .email-form {
-      display: flex;
-      max-width: 420px;
-      margin: 0 auto 80px;
-    }
-
-    .email-input {
-      flex: 1;
-      padding: 12px 16px;
-      font-family: var(--tfm-sans);
-      font-size: 14px;
-      color: var(--tfm-near-black);
-      background: var(--tfm-parchment-card);
-      border: 1px solid var(--tfm-parchment-edge);
-      border-right: none;
-      border-radius: 0;
-      outline: none;
-      -webkit-appearance: none;
-      transition: border-color 0.15s ease;
-    }
-
-    .email-input::placeholder {
-      color: var(--tfm-gold-muted);
-      opacity: 1;
-    }
-
-    .email-input:focus {
-      border-color: var(--tfm-gold-deep);
-    }
-
-    .email-submit {
-      padding: 12px 20px;
-      font-family: var(--tfm-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--tfm-near-black);
-      border: 1px solid var(--tfm-near-black);
-      border-radius: 0;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .email-submit:hover {
-      background: var(--tfm-gold-deep);
-      border-color: var(--tfm-gold-deep);
-    }
-
-    .confirm-text {
-      font-family: var(--tfm-serif);
-      font-size: 17px;
-      font-style: italic;
-      color: var(--tfm-warm-brown);
-      text-align: center;
-      padding: 14px 0;
-    }
-
-    /* ── Scripture card with corner brackets ──────────── */
-
-    .scripture-wrap {
-      position: relative;
-      display: block;
-      padding: 28px 36px;
-      max-width: 440px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    /* Top-left bracket */
-    .scripture-wrap::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 18px;
-      height: 18px;
-      border-top: 1px solid var(--tfm-gold-bright);
-      border-left: 1px solid var(--tfm-gold-bright);
-    }
-
-    /* Bottom-right bracket */
-    .scripture-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 18px;
-      height: 18px;
-      border-bottom: 1px solid var(--tfm-gold-bright);
-      border-right: 1px solid var(--tfm-gold-bright);
-    }
-
-    /* Top-right and bottom-left brackets via inner element */
-    .scripture-inner {
-      position: relative;
-    }
-
-    .scripture-inner::before {
-      content: '';
-      position: absolute;
-      top: -28px;
-      right: -36px;
-      width: 18px;
-      height: 18px;
-      border-top: 1px solid var(--tfm-gold-bright);
-      border-right: 1px solid var(--tfm-gold-bright);
-    }
-
-    .scripture-inner::after {
-      content: '';
-      position: absolute;
-      bottom: -28px;
-      left: -36px;
-      width: 18px;
-      height: 18px;
-      border-bottom: 1px solid var(--tfm-gold-bright);
-      border-left: 1px solid var(--tfm-gold-bright);
-    }
-
-    .scripture-text {
-      font-family: Georgia, var(--tfm-serif);
-      font-size: 15px;
-      font-style: italic;
-      color: var(--tfm-warm-brown);
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-
-    .scripture-ref {
-      font-family: var(--tfm-sans);
-      font-size: 10px;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: var(--tfm-gold-muted);
-    }
-
-    /* ── Mobile ───────────────────────────────────────── */
-
-    @media (max-width: 480px) {
-      body {
-        padding: 48px 20px;
-        justify-content: flex-start;
-      }
-
-      .logo {
-        width: 80px;
-        margin-bottom: 40px;
-      }
-
-      .email-form {
-        flex-direction: column;
-        margin-bottom: 64px;
-      }
-
-      .email-input {
-        border-right: 1px solid var(--tfm-parchment-edge);
-        border-bottom: none;
-      }
-
-      .email-input:focus {
-        border-color: var(--tfm-gold-deep);
-      }
-
-      .scripture-wrap {
-        padding: 24px 28px;
-      }
-
-      .scripture-inner::before {
-        top: -24px;
-        right: -28px;
-      }
-
-      .scripture-inner::after {
-        bottom: -24px;
-        left: -28px;
-      }
+    @keyframes tfmRise {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: none; }
     }
   </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="page-wrap">
+  <div id="root"></div>
 
-    <img class="logo" src="TFM_logo_nearblack.png" alt="Tech Freedom Ministries" onerror="this.style.display='none'">
+  <!-- Atoms first; others depend on them -->
+  <script type="text/babel" src="Atoms.jsx"></script>
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="EventCard.jsx"></script>
+  <script type="text/babel" src="EventsList.jsx"></script>
+  <script type="text/babel" src="Roadmap.jsx"></script>
+  <script type="text/babel" src="Oath.jsx"></script>
+  <script type="text/babel" src="About.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+  <script type="text/babel" src="RsvpModal.jsx"></script>
 
-    <p class="eyebrow">A Faith-Backed Nonprofit &nbsp;·&nbsp; Free Linux Events</p>
-    <div class="short-rule"></div>
+  <script type="text/babel" data-presets="env,react">
+    const { useState, useEffect } = React;
 
-    <h1 class="headline">
-      <span class="headline-strong">Break from the Digital Grid.</span>
-      <span class="headline-italic">Own Your Machine.</span>
-    </h1>
+    function HomePage({ setRoute, onRsvp }) {
+      const featured = EVENTS.slice(0, 3);
+      return (
+        <div className="tfm-page">
+          <Hero
+            onFindEvent={() => setRoute("events")}
+            onReadOath={() => setRoute("oath")}
+          />
 
-    <span class="diamond">◆</span>
+          {/* Featured events */}
+          <section style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 36px 80px" }}>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 24 }}>
+              <div>
+                <Eyebrow>Next Three Events</Eyebrow>
+                <div style={{ height: 14 }} />
+                <Proclamation as="h2" size={32}
+                  strong="The next three."
+                  italic="Pick one."
+                />
+              </div>
+              <LinkButton onClick={() => setRoute("events")}>See all events →</LinkButton>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {featured.map(e => <EventCard key={e.id} event={e} onRsvp={onRsvp} />)}
+            </div>
+          </section>
 
-    <p class="body-text">Free events. Real tools. Coming soon.</p>
+          <Roadmap />
 
-    <form class="email-form" id="email-form">
-      <input
-        class="email-input"
-        type="email"
-        id="email-input"
-        placeholder="your@email.com"
-        aria-label="Email address"
-        autocomplete="email"
-        required
-      >
-      <button class="email-submit" type="submit">Notify Me</button>
-    </form>
+          {/* Call to action band */}
+          <section style={{
+            background: "var(--tfm-near-black)",
+            color: "var(--tfm-parchment)",
+            padding: "80px 36px",
+            textAlign: "center",
+          }}>
+            <div style={{ maxWidth: 720, margin: "0 auto" }}>
+              <div style={{
+                fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.22em",
+                textTransform: "uppercase", color: "var(--tfm-muted-gold)",
+              }}>
+                A note to whoever is reading this
+              </div>
+              <div style={{
+                width: 40, height: 1, background: "var(--tfm-bright-gold)",
+                margin: "14px auto 24px",
+              }} />
+              <h2 style={{
+                fontFamily: "var(--tfm-serif)", fontWeight: 700, fontSize: 38,
+                lineHeight: 1.15, margin: 0, color: "var(--tfm-parchment)",
+              }}>
+                This event cost you nothing.{" "}
+                <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--tfm-bright-gold)" }}>
+                  Help us reach the next city.
+                </em>
+              </h2>
+              <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28 }}>
+                <Button onClick={() => setRoute("events")} style={{ background: "var(--tfm-parchment)", color: "var(--tfm-near-black)" }}>
+                  Find an event
+                </Button>
+                <button
+                  onClick={() => setRoute("about")}
+                  style={{
+                    fontFamily: "var(--tfm-sans)", fontSize: 13, padding: "12px 22px",
+                    background: "transparent", color: "var(--tfm-parchment)",
+                    border: "1px solid rgba(244,240,230,0.4)", borderRadius: 2, cursor: "pointer",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  Learn about TFM
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      );
+    }
 
-    <div class="scripture-wrap">
-      <div class="scripture-inner">
-        <p class="scripture-text">"It is for freedom that Christ has set us free. Stand firm, then, and do not let yourselves be burdened again by a yoke of slavery."</p>
-        <p class="scripture-ref">Galatians 5:1</p>
-      </div>
-    </div>
+    function App() {
+      const [route, setRoute]   = useState("home");
+      const [rsvpFor, setRsvp]  = useState(null);
 
-  </div>
+      useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [route]);
 
-  <script>
-    document.getElementById('email-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.innerHTML = '<p class="confirm-text">You\'re on the list. We\'ll be in touch.</p>';
-    });
+      let page;
+      if (route === "home")    page = <HomePage setRoute={setRoute} onRsvp={setRsvp} />;
+      else if (route === "events")   page = <div className="tfm-page"><EventsList onRsvp={setRsvp} /></div>;
+      else if (route === "roadmap")  page = <div className="tfm-page"><Roadmap /></div>;
+      else if (route === "oath")     page = <div className="tfm-page"><Oath /></div>;
+      else if (route === "about")    page = <div className="tfm-page"><About /></div>;
+
+      return (
+        <React.Fragment>
+          <Nav route={route} setRoute={setRoute} />
+          <main>{page}</main>
+          <Footer setRoute={setRoute} />
+          {rsvpFor && <RsvpModal event={rsvpFor} onClose={() => setRsvp(null)} />}
+        </React.Fragment>
+      );
+    }
+
+    // Mount after all Babel scripts settle (small tick).
+    setTimeout(() => {
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    }, 80);
   </script>
 </body>
 </html>
