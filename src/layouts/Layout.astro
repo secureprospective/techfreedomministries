@@ -1,0 +1,113 @@
+---
+const { title = "Tech Freedom Ministries" } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free events. Real tools. Teaching people to escape Big Tech surveillance — for free." />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo-link">
+          <img
+            src="/TFM_logo_nearblack.png"
+            alt="Tech Freedom Ministries"
+            class="site-logo"
+            onerror="this.style.display='none'"
+          />
+        </a>
+        <nav class="site-nav">
+          <a href="/events">Events</a>
+          <span class="diamond">◆</span>
+          <a href="/roadmap">Roadmap</a>
+          <span class="diamond">◆</span>
+          <a href="/vanguard">Vanguard</a>
+          <span class="diamond">◆</span>
+          <a href="/donate">Give</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="eyebrow">Tech Freedom Ministries</p>
+        <p class="lead-italic">"It is for freedom that Christ has set us free." — Galatians 5:1</p>
+        <hr class="rule-short" />
+        <p>A registered 501(c)(3) nonprofit. Free events. Real tools. No catch.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+    padding: var(--s4) 0;
+    background: var(--tfm-parchment);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--s6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-logo {
+    height: 48px;
+    width: auto;
+  }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+  }
+  .site-nav a {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+    text-decoration: none;
+  }
+  .site-nav a:hover {
+    color: var(--tfm-gold-deep);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--s8) var(--s6);
+  }
+  .site-footer {
+    border-top: 1px solid var(--tfm-parchment-edge);
+    padding: var(--s8) 0;
+    background: var(--tfm-parchment);
+    text-align: center;
+  }
+  .site-footer .footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--s6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s3);
+  }
+  .site-footer p {
+    font-size: 13px;
+    color: var(--tfm-warm-brown-soft);
+  }
+</style>

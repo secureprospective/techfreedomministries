@@ -1,0 +1,149 @@
+/* TFM Design Tokens — from TFM_08 / TFM_09 */
+
+:root {
+  /* Color — Base */
+  --tfm-parchment: #F4F0E6;
+  --tfm-parchment-card: #ECE6D6;
+  --tfm-parchment-edge: #D9D0B8;
+  --tfm-near-black: #1C1209;
+  --tfm-warm-brown: #4A3F2F;
+  --tfm-warm-brown-soft: #6E5F4A;
+  --tfm-gold-deep: #8B6914;
+  --tfm-gold-bright: #C4A84A;
+  --tfm-gold-muted: #8B7355;
+
+  /* Color — Level System */
+  --tfm-level-1-bg: #1D4D2A;
+  --tfm-level-1-text: #A8D4B2;
+  --tfm-level-2-bg: #5C4500;
+  --tfm-level-2-text: #F0C85A;
+  --tfm-level-3-bg: #5C1A1A;
+  --tfm-level-3-text: #F0A8A8;
+  --tfm-level-4-bg: #2C2C1A;
+  --tfm-level-4-text: #C8C890;
+
+  /* Typography */
+  --tfm-serif: "EB Garamond", Georgia, serif;
+  --tfm-sans: Inter, system-ui, sans-serif;
+
+  /* Spacing — 4px base */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Base */
+html { font-size: 16px; background: var(--tfm-parchment); color: var(--tfm-warm-brown); }
+body { font-family: var(--tfm-sans); font-size: 15px; line-height: 1.65; letter-spacing: 0.01em; }
+
+/* Typography */
+h1, h2, h3, h4 { font-family: var(--tfm-serif); color: var(--tfm-near-black); line-height: 1.2; }
+h1 { font-size: 48px; font-weight: 700; }
+h2 { font-size: 36px; font-weight: 700; }
+h3 { font-size: 26px; font-weight: 700; }
+h4 { font-size: 19px; font-weight: 700; }
+
+.eyebrow {
+  font-family: var(--tfm-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--tfm-gold-muted);
+}
+
+.gold-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--tfm-gold-deep);
+}
+
+.lead-italic {
+  font-family: var(--tfm-serif);
+  font-size: 19px;
+  font-style: italic;
+  color: var(--tfm-warm-brown);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background: var(--tfm-near-black);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 0;
+  font-family: var(--tfm-sans);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--tfm-gold-deep); }
+
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--tfm-near-black);
+  padding: 12px 24px;
+  border: 1px solid var(--tfm-near-black);
+  border-radius: 0;
+  font-family: var(--tfm-sans);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-ghost:hover { border-color: var(--tfm-gold-deep); color: var(--tfm-gold-deep); }
+
+/* Cards */
+.card {
+  background: var(--tfm-parchment-card);
+  border: 1px solid var(--tfm-parchment-edge);
+  border-radius: 0;
+  padding: var(--s6);
+}
+.card:hover { border-color: var(--tfm-gold-deep); }
+
+/* Level Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--tfm-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+.badge-1 { background: var(--tfm-level-1-bg); color: var(--tfm-level-1-text); }
+.badge-2 { background: var(--tfm-level-2-bg); color: var(--tfm-level-2-text); }
+.badge-3 { background: var(--tfm-level-3-bg); color: var(--tfm-level-3-text); }
+.badge-4 { background: var(--tfm-level-4-bg); color: var(--tfm-level-4-text); }
+
+.badge-vanguard {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tfm-gold-bright);
+  color: var(--tfm-gold-deep);
+  font-family: var(--tfm-sans);
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+/* Decorative */
+.diamond { color: var(--tfm-gold-bright); font-size: 10px; }
+.rule-short { width: 40px; height: 1px; background: var(--tfm-gold-bright); border: none; margin: var(--s3) 0; }
+.rule-full { width: 100%; height: 1px; background: var(--tfm-parchment-edge); border: none; margin: var(--s7) 0; }
