@@ -25,7 +25,7 @@ function Nav({ route, setRoute }) {
           style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", borderBottom: 0 }}
         >
           <img
-            src="../../assets/tfm-logo-on-parchment.png"
+            src="/assets/tfm-logo-on-parchment.png"
             alt=""
             style={{ width: 40, height: 22, objectFit: "contain" }}
           />
