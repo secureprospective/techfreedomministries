@@ -1,0 +1,5 @@
+/assets/* /assets/:splat 200
+/fonts/* /fonts/:splat 200
+/*.jsx /:splat.jsx 200
+/colors_and_type.css /colors_and_type.css 200
+/* /index.html 200
