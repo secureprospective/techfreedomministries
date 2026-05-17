@@ -43,7 +43,7 @@ function Hero({ onFindEvent, onReadOath }) {
       }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, textAlign: "center" }}>
           <img
-            src="../../assets/tfm-logo-nearblack.png"
+            src="/assets/tfm-logo-nearblack.png"
             alt="TFM"
             style={{ width: 200, height: "auto" }}
           />
