@@ -15,7 +15,7 @@ function Footer({ setRoute }) {
         display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 48, alignItems: "start",
       }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          <img src="../../assets/tfm-logo-nearblack.png" alt="" style={{ width: 80, height: "auto" }} />
+          <img src="/assets/tfm-logo-nearblack.png" alt="" style={{ width: 80, height: "auto" }} />
           <Eyebrow>Tech Freedom Ministries</Eyebrow>
           <p style={{
             fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 14,
