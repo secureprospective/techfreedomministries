@@ -1,15 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Donate from '../components/Donate.jsx';
 ---
 <Layout title="Give — Tech Freedom Ministries">
-  <section style="padding: 96px 36px; max-width: 720px; margin: 0 auto; text-align: center;">
-    <div style="font-family: var(--tfm-sans); font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--tfm-gold-muted);">Give</div>
-    <div style="width: 40px; height: 1px; background: var(--tfm-gold-bright); margin: 14px auto 24px;"></div>
-    <h1 style="font-family: var(--tfm-serif); font-weight: 700; font-size: 42px; color: var(--tfm-near-black); margin: 0;">
-      Help us reach the next city. <em style="font-style: italic; font-weight: 400; color: var(--tfm-deep-gold);">Every event is free.</em>
-    </h1>
-    <p style="font-family: var(--tfm-sans); font-size: 15px; line-height: 1.65; color: var(--tfm-warm-brown); margin-top: 24px;">
-      Donation page coming soon. Every event we run is free. If that's worth something to you — help us reach the next city.
-    </p>
-  </section>
+  <Donate client:load />
 </Layout>
