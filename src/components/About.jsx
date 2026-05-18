@@ -1,6 +1,7 @@
-/* About — two-column doc: what TFM is / what TFM isn't. */
+import React from 'react';
+import { Eyebrow, Rule, Proclamation, Card, Diamond } from './Atoms.jsx';
 
-function About() {
+export default function About() {
   const is = [
     "A faith-backed nonprofit.",
     "A free, in-person Linux event in your city.",
@@ -70,5 +71,3 @@ function About() {
     </section>
   );
 }
-
-window.About = About;

@@ -1,6 +1,7 @@
-/* Event card — date stamp + level pill + Proclamation title + RSVP. */
+import React from 'react';
+import { Eyebrow, Proclamation, LevelBadge, Icon, Diamond, Button, Card } from './Atoms.jsx';
 
-function EventCard({ event, onRsvp }) {
+export default function EventCard({ event, onRsvp }) {
   return (
     <Card style={{ padding: "22px 26px" }}>
       <div style={{
@@ -61,5 +62,3 @@ function EventCard({ event, onRsvp }) {
     </Card>
   );
 }
-
-window.EventCard = EventCard;

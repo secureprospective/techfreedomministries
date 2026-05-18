@@ -1,6 +1,7 @@
-/* The Oath — italic Georgia, corner brackets. Layer 1 surface. */
+import React from 'react';
+import { Eyebrow, Rule, Proclamation, Brackets } from './Atoms.jsx';
 
-function Oath() {
+export default function Oath() {
   return (
     <section id="oath" style={{ padding: "96px 36px", maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
       <Eyebrow style={{ display: "inline-block" }}>The Vanguard Oath</Eyebrow>
@@ -56,5 +57,3 @@ function Oath() {
     </section>
   );
 }
-
-window.Oath = Oath;

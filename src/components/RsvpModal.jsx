@@ -1,4 +1,5 @@
-/* RSVP modal — multi-step demo. */
+import React, { useState, useEffect } from 'react';
+import { Eyebrow, Rule, Proclamation, Button, GhostButton, Icon } from './Atoms.jsx';
 
 function Field({ label, type = "text", value, onChange, placeholder }) {
   const [focus, setFocus] = useState(false);
@@ -7,7 +8,7 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <label style={{
         fontFamily: "var(--tfm-sans)", fontSize: 10, letterSpacing: "0.20em",
-        textTransform: "uppercase", color: "var(--tfm-muted-gold)",
+        textTransform: "uppercase", color: "var(--tfm-gold-muted)",
       }}>{label}</label>
       <InputTag
         type={type === "textarea" ? undefined : type}
@@ -32,7 +33,7 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
   );
 }
 
-function RsvpModal({ event, onClose }) {
+export default function RsvpModal({ event, onClose }) {
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -143,5 +144,3 @@ function RsvpModal({ event, onClose }) {
     </div>
   );
 }
-
-window.RsvpModal = RsvpModal;
