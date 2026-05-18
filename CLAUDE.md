@@ -151,15 +151,28 @@ targeted question about what he can see. One question. Precise.
 
 ---
 
+## Project Documents
+
+All TFM planning and reference documents live in `docs/`. Read these at the start of any website build session:
+
+- `docs/TFM_09_WEBSITE_BUILD.md` — technical spec and build sequence
+- `docs/TFM_10_BUILD_STATE.md` — live project status, known issues, what comes next
+- `docs/TFM_08_DESIGN_SYSTEM.md` — design tokens and visual rules (single source of truth)
+- `docs/TFM_05_WEBSITE_ARCHITECTURE.md` — page-by-page copy and content direction
+
+Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
+
+---
+
 ## Design Constraints (Non-Negotiable)
 
-- Framework: Astro only. No React, no Vue, no framework.
+- Framework: Astro (target). Live site currently runs browser-compiled React via index.html — migration is planned.
 - Styling: CSS custom properties from src/styles/tokens.css only.
   No Tailwind. No component libraries.
-- Fonts: EB Garamond self-hosted from public/fonts/. Georgia fallback.
+- Fonts: EB Garamond. Self-hosted files in public/fonts/. Currently loading from Google CDN via src/styles/fonts.css — self-hosted wiring is a known pending item.
 - Border radius: 0px default. 2px on buttons and badges only.
 - No glass effects. No gradients. No dark mode.
-- Reference document: TFM_09_WEBSITE_BUILD.md for all design decisions.
+- Design reference: docs/TFM_08_DESIGN_SYSTEM.md
 
 ---
 
