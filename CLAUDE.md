@@ -19,7 +19,7 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/vanguard-donate)
+## Actual Repo Structure (Clean — as of session/integrations)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
@@ -35,16 +35,17 @@ techfreedomministries/
 │   ├── components/         — ALL JSX components (ES modules with named exports)
 │   │   ├── About.jsx
 │   │   ├── Atoms.jsx       — primitive components, exported as named exports
+│   │   ├── BrevoSignup.jsx — email capture widget (footer, every page — Brevo list 3)
 │   │   ├── Donate.jsx      — give page: three tiers + placeholder button
 │   │   ├── EventCard.jsx
-│   │   ├── EventsList.jsx  — includes RSVP modal state management
+│   │   ├── EventsList.jsx  — single Install Party placeholder (real data TBD)
 │   │   ├── Footer.jsx      — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Hero.jsx
 │   │   ├── Nav.jsx         — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Oath.jsx
 │   │   ├── Roadmap.jsx
 │   │   ├── RsvpModal.jsx
-│   │   └── Vanguard.jsx    — recruit page: cards + application form (Formspree — needs ID)
+│   │   └── Vanguard.jsx    — recruit page: cards + application form (Formspree mvzyorgw — live)
 │   ├── env.d.ts
 │   ├── layouts/
 │   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot
@@ -69,30 +70,30 @@ techfreedomministries/
 ## Current Build State
 
 - npm run build: CLEAN (7 pages built)
-- Live site: on main — verify Cloudflare Pages build config is set (see TFM_10_BUILD_STATE.md)
+- Live site: CONFIRMED live at techfreedomministries.com
+- Cloudflare Pages build config: CONFIRMED correct (npm run build / dist)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
 Phase 1 (site foundation): COMPLETE
 Phase 2 (home page): COMPLETE
-Phase 3 (events page): COMPLETE (mock data)
+Phase 3 (events page): COMPLETE (Install Party placeholder — real data TBD)
 Phase 4 (roadmap page): COMPLETE
-Phase 5 (vanguard page): COMPLETE (Formspree endpoint is a placeholder — wire before launch)
+Phase 5 (vanguard page): COMPLETE (Formspree mvzyorgw — live and confirmed)
 Phase 6 (donate page): COMPLETE (donate button is a placeholder — wire once EIN arrives)
+Phase 7 (integrations): COMPLETE — Formspree + Brevo live and confirmed
 
-## Next Session — Live Data + Integrations
+## Next Session — Real Event Data + RSVP
 
-Branch: session/integrations (suggested)
+Branch: session/event-data (suggested)
 
 Prerequisites:
-- Confirm live site is rendering correctly at techfreedomministries.com
-- Christopher provides Formspree form ID for Vanguard application form
+- Christopher has confirmed date, venue, and city for the first Install Party
 
 Goal (in priority order):
-1. Wire Formspree: replace PLACEHOLDER in src/components/Vanguard.jsx line 7
-2. Add Brevo email capture (footer or hero — email list for event announcements)
-3. Replace mock event data in EventsList.jsx with first real Install Party details
-4. Wire RsvpModal to Formspree (or same form as Vanguard, separate endpoint)
+1. Replace TBD fields in src/components/EventsList.jsx with real Install Party details
+2. Wire RsvpModal to Formspree (separate endpoint from Vanguard form)
+3. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
 
 ---
 

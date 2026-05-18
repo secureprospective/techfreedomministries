@@ -9,27 +9,16 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-18 — Session 4 (Vanguard + Donate pages)
+**Last updated:** 2026-05-18 — Session 5 (Formspree + Brevo integrations)
 
 **Live URL:** https://techfreedomministries.com
 **Repo:** https://github.com/secureprospective/techfreedomministries
-**Active branch:** main (session/vanguard-donate merged — PR #2)
+**Active branch:** main (session/integrations merged — PR #3)
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
 
 ---
 
-## Critical: Cloudflare Build Config
-
-If not already done, update Cloudflare Pages settings before verifying the live site:
-- Build command: `npm run build`
-- Output directory: `dist`
-- Root directory: (leave blank)
-
-Without this, Cloudflare serves the repo root instead of the Astro build output.
-
----
-
-## Stack (As of Session 4)
+## Stack (As of Session 5)
 
 | Item | Spec (TFM_09) | Actual |
 |---|---|---|
@@ -38,9 +27,11 @@ Without this, Cloudflare serves the repo root instead of the Astro build output.
 | Fonts | Self-hosted EB Garamond | Self-hosted from /fonts/ ✓ |
 | JS | Astro + React islands | @astrojs/react — client:load for interactive components |
 | Routing | Astro pages | Real URL routing ✓ |
-| Deployment | Astro build → dist/ | dist/ output ready |
+| Deployment | Astro build → dist/ | dist/ output — Cloudflare config confirmed ✓ |
 | Build command | npm run build | ✓ — 7 pages, clean build |
 | Build output dir | dist/ | dist/ ✓ |
+| Formspree | Vanguard application form | Live — endpoint mvzyorgw ✓ |
+| Brevo | Email capture (footer) | Live — list ID 3, env vars in Cloudflare ✓ |
 
 ---
 
@@ -49,9 +40,9 @@ Without this, Cloudflare serves the repo root instead of the Astro build output.
 | Page | TFM_09 Spec | Built | Route | Status |
 |---|---|---|---|---|
 | Home | ✓ | ✓ | `/` | Complete ✓ |
-| Events | ✓ | ✓ | `/events` | Complete ✓ (mock data) |
+| Events | ✓ | ✓ | `/events` | Complete ✓ — Install Party placeholder (real data TBD) |
 | Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ |
-| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — form needs Formspree ID |
+| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Formspree live (mvzyorgw) |
 | Donate | ✓ | ✓ | `/donate` | Complete ✓ — button placeholder until EIN |
 | The Oath | Not in spec | ✓ | `/oath` | Built (not in nav) |
 | About | Not in spec | ✓ | `/about` | Built (not in nav) |
@@ -70,12 +61,10 @@ The Oath and About exist at `/oath` and `/about` but are not in the main nav.
 
 | Issue | Priority | Detail |
 |---|---|---|
-| Cloudflare build config | Critical | Verify build command + output dir are set in dashboard if not done yet. |
-| Formspree endpoint not wired | High | Replace `PLACEHOLDER` in `src/components/Vanguard.jsx` line 7 with real form ID. |
 | No EIN / donate button disabled | High | Swap placeholder in `src/components/Donate.jsx` for Stripe/PayPal link once 501(c)(3) filed. |
-| No email capture | High | Brevo integration never completed. Add to footer or hero. |
-| Mock event data | Medium | EventsList.jsx has placeholder events. Replace before first Install Party. |
-| No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree or equivalent. |
+| Install Party details TBD | High | `src/components/EventsList.jsx` — replace TBD fields with real date, venue, city before launch. |
+| No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree endpoint (separate from Vanguard). |
+| Brevo API key exposed in bundle | Medium | Key is not in repo but is visible in browser JS bundle. Deferred to security upgrade session. |
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
 | assets/ at repo root | Low | Canonical location is public/assets/. Root assets/ can be deleted once confirmed. |
 | _headers at repo root | Low | Canonical location is public/_headers. Root _headers can be deleted once confirmed. |
@@ -84,16 +73,14 @@ The Oath and About exist at `/oath` and `/about` but are not in the main nav.
 
 ## What Comes Next (In Order)
 
-1. Verify live site at techfreedomministries.com (confirm Cloudflare config is set)
-2. Wire Formspree: replace `PLACEHOLDER` in `src/components/Vanguard.jsx` line 7
-3. Wire donate button: swap placeholder for Stripe/PayPal link once EIN arrives
-4. Add email capture (Brevo integration) — footer or hero
-5. Replace mock event data with real first event
-6. Wire RsvpModal to Formspree
-7. Add EIN to footer once 501(c)(3) is filed
-8. Delete legacy files: root assets/, root _headers (after confirming live site is clean)
+1. Fill in Install Party details in `src/components/EventsList.jsx` (date, venue, city)
+2. Wire RsvpModal to Formspree (separate endpoint from Vanguard)
+3. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
+4. Wire donate button — swap placeholder for Stripe/PayPal link once EIN arrives
+5. Add EIN to footer once 501(c)(3) is filed
+6. Delete legacy files: root assets/, root _headers (after confirming live site is clean)
 
 ---
 
-*Last updated: 2026-05-18 — Session 4*
+*Last updated: 2026-05-18 — Session 5*
 *Built by: Christopher Campbell + Claude (Anthropic)*
