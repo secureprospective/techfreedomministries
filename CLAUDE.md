@@ -19,66 +19,42 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Current — Needs Cleanup)
+## Actual Repo Structure (Clean — as of session/structural-cleanup)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
-├── .astro/                 — Astro build cache
+├── .astro/                 — Astro build cache (gitignored)
 ├── assets/                 — logo files (correct location)
-├── dist/                   — BUILD OUTPUT — should not be in repo
-├── fonts/                  — DUPLICATE — belongs in public/fonts/ only
-├── node_modules/           — should not be in repo
+│   ├── tfm-logo-nearblack.png
+│   ├── tfm-logo-on-dark.png
+│   ├── tfm-logo-on-parchment.png
+│   └── tfm-logo-on-white.png
+├── dist/                   — build output (gitignored)
+├── node_modules/           — dependencies (gitignored)
 ├── public/                 — static assets served at root
-│   ├── About.jsx           — DUPLICATE — delete, belongs in src/components/
-│   ├── Atoms.jsx           — DUPLICATE — delete, belongs in src/components/
-│   ├── EventCard.jsx       — DUPLICATE — delete, belongs in src/components/
-│   ├── EventsList.jsx      — DUPLICATE — delete, belongs in src/components/
-│   ├── Footer.jsx          — DUPLICATE — delete, belongs in src/components/
-│   ├── Hero.jsx            — DUPLICATE — delete, belongs in src/components/
-│   ├── Nav.jsx             — DUPLICATE — delete, belongs in src/components/
-│   ├── Oath.jsx            — DUPLICATE — delete, belongs in src/components/
-│   ├── Roadmap.jsx         — DUPLICATE — delete, belongs in src/components/
-│   ├── RsvpModal.jsx       — DUPLICATE — delete, belongs in src/components/
-│   ├── assets/             — DUPLICATE logo files — delete
-│   ├── colors_and_type.css — DUPLICATE — delete
-│   ├── fonts/              — CORRECT LOCATION for font files
-│   └── tfm-site.html       — old static fallback — delete after cleanup verified
+│   └── fonts/              — self-hosted EB Garamond (correct location)
 ├── src/
-│   ├── About.jsx           — WRONG LEVEL — move to src/components/
-│   ├── Atoms.jsx           — WRONG LEVEL — move to src/components/
-│   ├── EventCard.jsx       — WRONG LEVEL — move to src/components/
-│   ├── EventsList.jsx      — WRONG LEVEL — move to src/components/
-│   ├── Footer.jsx          — WRONG LEVEL — move to src/components/
-│   ├── Hero.jsx            — WRONG LEVEL — move to src/components/
-│   ├── Nav.jsx             — WRONG LEVEL — move to src/components/
-│   ├── Oath.jsx            — WRONG LEVEL — move to src/components/
-│   ├── Roadmap.jsx         — WRONG LEVEL — move to src/components/
-│   ├── RsvpModal.jsx       — WRONG LEVEL — move to src/components/
+│   ├── components/         — ALL JSX components live here
+│   │   ├── About.jsx
+│   │   ├── Atoms.jsx
+│   │   ├── EventCard.jsx
+│   │   ├── EventsList.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Nav.jsx
+│   │   ├── Oath.jsx
+│   │   ├── Roadmap.jsx
+│   │   └── RsvpModal.jsx
 │   ├── env.d.ts
-│   ├── index.html          — DUPLICATE of root index.html — delete
 │   ├── layouts/
-│   │   └── Layout.astro    — CORRECT
+│   │   └── Layout.astro    — shell layout with header, footer, slot
 │   ├── pages/
-│   │   └── index.astro     — CORRECT — currently a redirect stub
+│   │   └── index.astro     — STUB — redirect to deleted file, needs real page
 │   └── styles/
-│       ├── fonts.css       — CORRECT
-│       └── tokens.css      — CORRECT
-├── About.jsx               — WRONG LOCATION — delete after src/components/ confirmed
-├── Atoms.jsx               — WRONG LOCATION — delete after src/components/ confirmed
-├── EventCard.jsx           — WRONG LOCATION — delete after src/components/ confirmed
-├── EventsList.jsx          — WRONG LOCATION — delete after src/components/ confirmed
-├── Footer.jsx              — WRONG LOCATION — delete after src/components/ confirmed
-├── Hero.jsx                — WRONG LOCATION — delete after src/components/ confirmed
-├── Nav.jsx                 — WRONG LOCATION — delete after src/components/ confirmed
-├── Oath.jsx                — WRONG LOCATION — delete after src/components/ confirmed
-├── Roadmap.jsx             — WRONG LOCATION — delete after src/components/ confirmed
-├── RsvpModal.jsx           — WRONG LOCATION — delete after src/components/ confirmed
+│       ├── fonts.css       — @font-face declarations
+│       └── tokens.css      — CSS custom properties (single source of truth)
 ├── _headers                — Cloudflare headers config — DO NOT TOUCH
-├── _redirects              — Cloudflare redirects config — DO NOT TOUCH
-├── astro.config.mjs        — Astro config — review before cleanup
-├── colors_and_type.css     — WRONG LOCATION — move to src/styles/
-├── fonts/                  — WRONG LOCATION — content already in public/fonts/
-│   └── EB_Garamond.zip     — DELETE — binary zip has no place in a git repo
+├── astro.config.mjs        — Astro config
 ├── index.html              — current live static page served by Cloudflare
 ├── package.json
 └── README.md
@@ -87,52 +63,51 @@ techfreedomministries/
 
 ## What Is Wrong (Priority Order)
 
-1. dist/ and node_modules/ are not in .gitignore — they should never be committed
-2. JSX components exist in four locations: repo root, public/, src/, src/components/ missing entirely
-3. fonts/ at repo root duplicates public/fonts/ and includes a 7MB zip file
-4. colors_and_type.css at repo root duplicates src/styles/tokens.css
-5. index.astro is a redirect stub — not a real page
-6. The site currently works because index.html at root serves everything statically
-   Astro is being bypassed entirely for the live site
+1. index.astro is a redirect stub pointing to /tfm-site.html — that file is now deleted.
+   The redirect is a dead link. Astro must be replaced with a real page.
+2. The site currently works because index.html at root serves everything statically.
+   Astro is being bypassed entirely for the live site.
+3. JSX components in src/components/ are not imported or used by any Astro page yet.
+4. TFM_09_WEBSITE_BUILD.md (design reference) is not in the repo — Christopher must
+   supply it before any design or content work begins.
 
 ---
 
 ## Current Build State
 
 - npm run build: CLEAN (1 page built — index.astro redirect stub only)
-- Live site: WORKING at techfreedomministries.com
+- Live site: WORKING at techfreedomministries.com (served via index.html, Astro bypassed)
 - Astro telemetry: DISABLED
 - node_modules: installed
 
 Phase 0 (coming-soon): REPLACED by Phase 1 work — site is live with hero
-Phase 1 (site foundation): PARTIALLY built — structure is broken, content exists
+Phase 1 (site foundation): Structure clean. Components exist. Astro page not yet built.
 Phase 2-6: NOT started
 
 ---
 
-## Next Session — Structural Cleanup
+## Next Session — Build Real Astro Page
 
-Branch: session/structural-cleanup
+Branch: session/astro-page-build
 
-Do these steps in exact order. Verify build after each move before proceeding.
+Prerequisites before starting:
+- Christopher must provide TFM_09_WEBSITE_BUILD.md (design reference)
+- Confirm which components from src/components/ are ready to use
 
-1. Fix .gitignore — add dist/ and node_modules/
-2. Create src/components/ directory
-3. Move src/*.jsx files into src/components/
-4. Update all import paths in Layout.astro and index.astro
-5. Run build — verify clean
-6. Delete duplicate JSX from repo root
-7. Delete duplicate JSX from public/
-8. Delete public/assets/ (logos already in assets/ at root)
-9. Delete fonts/ at repo root (content already in public/fonts/)
-10. Delete EB_Garamond.zip from public/fonts/
-11. Delete colors_and_type.css at repo root
-12. Delete public/colors_and_type.css
-13. Delete src/index.html
-14. Delete public/tfm-site.html
-15. Run build — verify clean
-16. Commit and push
-17. Verify live site unchanged at techfreedomministries.com
+Goal: Replace the index.astro redirect stub with a real Astro page that uses
+Layout.astro and the components in src/components/. When this session is done,
+the live site should serve via Astro, not index.html.
+
+Steps (rough order — refine once TFM_09_WEBSITE_BUILD.md is in hand):
+
+1. Review TFM_09_WEBSITE_BUILD.md for page structure and content requirements
+2. Audit each component in src/components/ — what does it render, what props does it need
+3. Rewrite src/pages/index.astro as a real page using Layout.astro
+4. Wire in components one at a time, verify build after each
+5. Confirm live site visual matches index.html before removing index.html
+6. Remove index.html from repo root once Astro is serving correctly
+7. Commit and push
+8. Verify live site at techfreedomministries.com
 
 ---
 
