@@ -1,6 +1,9 @@
-/* Events list + city filter chips. */
+import React, { useState } from 'react';
+import { Eyebrow, Rule, Proclamation } from './Atoms.jsx';
+import EventCard from './EventCard.jsx';
+import RsvpModal from './RsvpModal.jsx';
 
-const EVENTS = [
+export const EVENTS = [
   { id: 1, month: "TBD", day: "tbd", dow: "Saturday", time: "1pm",
     level: 1, city: "St. Louis, MO",
     venue: "Tower Grove Library", duration: "3 hours",
@@ -23,52 +26,62 @@ const EVENTS = [
     titleStrong: "An Exodus Night.", titleItalic: "Install Linux." },
 ];
 
-function EventsList({ onRsvp }) {
+/* preview=true shows first 3 events without filter chips or section header */
+export default function EventsList({ preview }) {
   const [filter, setFilter] = useState("all");
+  const [rsvpFor, setRsvpFor] = useState(null);
+
   const cities = ["all", ...new Set(EVENTS.map(e => e.city))];
-  const shown = filter === "all" ? EVENTS : EVENTS.filter(e => e.city === filter);
+  const shown = preview
+    ? EVENTS.slice(0, 3)
+    : (filter === "all" ? EVENTS : EVENTS.filter(e => e.city === filter));
 
   return (
-    <section style={{ padding: "64px 36px 96px", maxWidth: 1100, margin: "0 auto" }}>
-      <Eyebrow>Upcoming Events</Eyebrow>
-      <Rule style={{ margin: "14px 0 20px" }} />
-      <Proclamation as="h2" size={42}
-        strong="Every event is free."
-        italic="Every event is real."
-      />
-      <p style={{
-        fontFamily: "var(--tfm-sans)", fontSize: 15, lineHeight: 1.65,
-        color: "var(--tfm-warm-brown)", maxWidth: "60ch", marginTop: 18,
-      }}>
-        Three hours, in a real room, with a real person who has done this before. Bring a laptop and a USB stick. We supply the rest.
-      </p>
+    <>
+      <section style={{ padding: preview ? "0" : "64px 36px 96px", maxWidth: 1100, margin: "0 auto" }}>
+        {!preview && (
+          <>
+            <Eyebrow>Upcoming Events</Eyebrow>
+            <Rule style={{ margin: "14px 0 20px" }} />
+            <Proclamation as="h2" size={42}
+              strong="Every event is free."
+              italic="Every event is real."
+            />
+            <p style={{
+              fontFamily: "var(--tfm-sans)", fontSize: 15, lineHeight: 1.65,
+              color: "var(--tfm-warm-brown)", maxWidth: "60ch", marginTop: 18,
+            }}>
+              Three hours, in a real room, with a real person who has done this before. Bring a laptop and a USB stick. We supply the rest.
+            </p>
 
-      {/* Filter chips */}
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "32px 0 24px" }}>
-        {cities.map(c => (
-          <button key={c}
-            onClick={() => setFilter(c)}
-            style={{
-              fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.20em",
-              textTransform: "uppercase", padding: "8px 14px", borderRadius: 2,
-              border: `1px solid ${filter === c ? "var(--tfm-near-black)" : "var(--tfm-parchment-edge)"}`,
-              background: filter === c ? "var(--tfm-near-black)" : "transparent",
-              color: filter === c ? "var(--tfm-parchment)" : "var(--tfm-warm-brown)",
-              cursor: "pointer",
-              transition: "all 220ms cubic-bezier(.2,0,.2,1)",
-            }}
-          >
-            {c === "all" ? "All cities" : c}
-          </button>
-        ))}
-      </div>
+            {/* Filter chips */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "32px 0 24px" }}>
+              {cities.map(c => (
+                <button key={c}
+                  onClick={() => setFilter(c)}
+                  style={{
+                    fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.20em",
+                    textTransform: "uppercase", padding: "8px 14px", borderRadius: 2,
+                    border: `1px solid ${filter === c ? "var(--tfm-near-black)" : "var(--tfm-parchment-edge)"}`,
+                    background: filter === c ? "var(--tfm-near-black)" : "transparent",
+                    color: filter === c ? "var(--tfm-parchment)" : "var(--tfm-warm-brown)",
+                    cursor: "pointer",
+                    transition: "all 220ms cubic-bezier(.2,0,.2,1)",
+                  }}
+                >
+                  {c === "all" ? "All cities" : c}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-        {shown.map(ev => <EventCard key={ev.id} event={ev} onRsvp={onRsvp} />)}
-      </div>
-    </section>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          {shown.map(ev => <EventCard key={ev.id} event={ev} onRsvp={setRsvpFor} />)}
+        </div>
+      </section>
+
+      {rsvpFor && <RsvpModal event={rsvpFor} onClose={() => setRsvpFor(null)} />}
+    </>
   );
 }
-
-window.EventsList = EventsList;
-window.EVENTS = EVENTS;

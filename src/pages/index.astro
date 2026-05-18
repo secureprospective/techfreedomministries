@@ -1,9 +1,178 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.jsx';
+import EventsList from '../components/EventsList.jsx';
+import Roadmap from '../components/Roadmap.jsx';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/tfm-site.html" />
-  </head>
-  <body></body>
-</html>
+<Layout title="Tech Freedom Ministries — Break from the digital grid.">
+
+  <Hero client:load />
+
+  <!-- Featured events -->
+  <section class="home-events">
+    <div class="home-events-header">
+      <div>
+        <div class="eyebrow">Next Three Events</div>
+        <div style="height: 14px;"></div>
+        <h2 class="proclamation">
+          The next three. <em>Pick one.</em>
+        </h2>
+      </div>
+      <a href="/events" class="see-all-link">See all events →</a>
+    </div>
+    <EventsList preview={true} client:load />
+  </section>
+
+  <Roadmap />
+
+  <!-- Donation CTA band -->
+  <section class="cta-band">
+    <div class="cta-inner">
+      <div class="eyebrow cta-eyebrow">A note to whoever is reading this</div>
+      <div class="cta-rule"></div>
+      <h2 class="cta-headline">
+        This event cost you nothing.{" "}
+        <em>Help us reach the next city.</em>
+      </h2>
+      <div class="cta-buttons">
+        <a href="/events" class="cta-btn-primary">Find an event</a>
+        <a href="/donate" class="cta-btn-ghost">Give now</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .home-events {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 36px 80px;
+  }
+
+  .home-events-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+    line-height: 1;
+  }
+
+  .proclamation {
+    font-family: var(--tfm-serif);
+    font-weight: 700;
+    color: var(--tfm-near-black);
+    font-size: 32px;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .proclamation em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--tfm-deep-gold);
+  }
+
+  .see-all-link {
+    font-family: var(--tfm-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tfm-deep-gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139,105,20,.35);
+    padding-bottom: 2px;
+    white-space: nowrap;
+    transition: all 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .see-all-link:hover {
+    color: var(--tfm-near-black);
+    border-bottom-color: var(--tfm-near-black);
+  }
+
+  /* CTA Band */
+  .cta-band {
+    background: var(--tfm-near-black);
+    color: var(--tfm-parchment);
+    padding: 80px 36px;
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cta-eyebrow {
+    color: var(--tfm-gold-muted);
+  }
+
+  .cta-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--tfm-gold-bright);
+    margin: 14px auto 24px;
+  }
+
+  .cta-headline {
+    font-family: var(--tfm-serif);
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--tfm-parchment);
+  }
+
+  .cta-headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--tfm-gold-bright);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .cta-btn-primary {
+    font-family: var(--tfm-sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 22px;
+    background: var(--tfm-parchment);
+    color: var(--tfm-near-black);
+    text-decoration: none;
+    border-radius: 2px;
+    letter-spacing: 0.01em;
+    transition: background 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .cta-btn-primary:hover { background: #ECE6D6; }
+
+  .cta-btn-ghost {
+    font-family: var(--tfm-sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 22px;
+    background: transparent;
+    color: var(--tfm-parchment);
+    text-decoration: none;
+    border: 1px solid rgba(244,240,230,0.4);
+    border-radius: 2px;
+    letter-spacing: 0.01em;
+    transition: border-color 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .cta-btn-ghost:hover { border-color: rgba(244,240,230,0.8); }
+</style>

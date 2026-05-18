@@ -9,101 +9,75 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-18 — Session 2 (structural cleanup)
+**Last updated:** 2026-05-18 — Session 3 (Astro page build)
 
 **Live URL:** https://techfreedomministries.com
 **Repo:** https://github.com/secureprospective/techfreedomministries
-**Active branch:** main
+**Active branch:** session/astro-page-build (pending merge to main)
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
 
 ---
 
-## Critical: Actual Stack vs. Spec
+## Critical: Cloudflare Build Config Must Be Updated
 
-TFM_09 specifies Astro as the framework. **The live site does not use Astro.** Read this section before touching anything.
+The live site currently deploys from the repo root (no build command). Merging this branch to main will NOT break the live site immediately — Cloudflare will just serve the repo root, which no longer has an index.html.
 
-| Item | Spec (TFM_09) | Actual Live Site |
-|---|---|---|
-| Framework | Astro | None — vanilla HTML + browser-compiled React |
-| CSS | tokens.css (custom built) | colors_and_type.css (from Claude Design export) — file now deleted from repo, live via index.html |
-| Fonts | Self-hosted EB Garamond | Self-hosted EB Garamond — files in `public/fonts/` |
-| JS | Astro components | JSX files compiled by Babel in the browser at runtime |
-| Routing | Astro pages | In-memory React state in index.html |
-| Deployment | Astro build → dist/ | Cloudflare serves repo root directly, no build |
-| Build command | npm run build | None set in Cloudflare |
-| Build output dir | dist/ | None set — defaults to repo root |
+**Before merging to main, update Cloudflare Pages settings:**
+- Build command: `npm run build`
+- Output directory: `dist`
+- Root directory: (leave blank)
 
-### Why the Stack Differs
-
-A Claude Design session built a complete working React UI kit before the Astro build was finished. Rather than rebuild what already existed, we extracted the Claude Design files, fixed their paths, and deployed them directly. Astro remains installed in the repo but is not part of the live site. Migration to a proper build pipeline is a future session item.
+Until Cloudflare is configured with the build command, the live site will serve a blank page after merge.
 
 ---
 
-## Current File Structure
+## Stack (As of Session 3)
 
-### Repo Root — What Cloudflare Serves
+| Item | Spec (TFM_09) | Actual |
+|---|---|---|
+| Framework | Astro | Astro ✓ — 7 pages built |
+| CSS | tokens.css (custom built) | tokens.css — imported via Layout.astro ✓ |
+| Fonts | Self-hosted EB Garamond | Self-hosted from /fonts/ ✓ |
+| JS | Astro + React islands | @astrojs/react — client:load for interactive components |
+| Routing | Astro pages | Real URL routing ✓ |
+| Deployment | Astro build → dist/ | dist/ output ready — Cloudflare config pending |
+| Build command | npm run build | ✓ — 7 pages, clean build |
+| Build output dir | dist/ | dist/ ✓ |
+
+---
+
+## File Structure (As of Session 3)
+
+### Repo Root
 
 ```
 / (repo root)
-├── index.html              ← ENTRY POINT. Loads React, Babel, all JSX. Contains App + routing.
-├── assets/                 ← Logo files served at /assets/
-│   ├── tfm-logo-nearblack.png
-│   ├── tfm-logo-on-dark.png
-│   ├── tfm-logo-on-parchment.png
-│   └── tfm-logo-on-white.png
-├── _headers                ← Cloudflare headers config — DO NOT TOUCH
-├── CLAUDE.md               ← Session ground truth — read every session
-├── docs/                   ← All TFM project documents
-└── public/fonts/           ← EB Garamond font files (canonical location)
+├── assets/                 ← Logo files — legacy location, kept for reference
+│   └── *.png               ← Canonical location is now public/assets/
+├── public/                 ← Astro static assets — copied to dist/ on build
+│   ├── assets/             ← Logo files served at /assets/ ✓
+│   ├── fonts/              ← EB Garamond TTF files served at /fonts/ ✓
+│   └── _headers            ← Cloudflare headers config — served from dist/ ✓
+├── src/
+│   ├── components/         ← All JSX components — ES modules with named exports
+│   ├── layouts/
+│   │   └── Layout.astro    ← Shell layout with nav, footer, CSS import ✓
+│   ├── pages/
+│   │   ├── index.astro     ← Home page ✓
+│   │   ├── events.astro    ← Events page ✓
+│   │   ├── roadmap.astro   ← Roadmap page ✓
+│   │   ├── oath.astro      ← The Oath page ✓
+│   │   ├── about.astro     ← About page ✓
+│   │   ├── vanguard.astro  ← Stub (Coming Soon) ✓
+│   │   └── donate.astro    ← Stub (Coming Soon) ✓
+│   └── styles/
+│       ├── fonts.css       ← Self-hosted @font-face rules ✓
+│       └── tokens.css      ← CSS custom properties + aliases ✓
+├── _headers                ← Legacy location — canonical is now public/_headers
+├── astro.config.mjs        ← Astro + @astrojs/react ✓
+├── CLAUDE.md               ← Session ground truth
+└── package.json            ← astro + @astrojs/react + react + react-dom
 ```
-
-### src/ — Astro Project (Installed, Not Serving Live)
-
-```
-src/
-├── components/             ← All JSX components (single source of truth)
-│   ├── About.jsx
-│   ├── Atoms.jsx
-│   ├── EventCard.jsx
-│   ├── EventsList.jsx
-│   ├── Footer.jsx
-│   ├── Hero.jsx
-│   ├── Nav.jsx
-│   ├── Oath.jsx
-│   ├── Roadmap.jsx
-│   └── RsvpModal.jsx
-├── env.d.ts
-├── layouts/
-│   └── Layout.astro        ← Shell layout — not used by live site
-├── pages/
-│   └── index.astro         ← Redirect stub — currently points to deleted file
-└── styles/
-    ├── fonts.css
-    └── tokens.css
-```
-
----
-
-## How index.html Works
-
-index.html at the repo root is the live site entry point. It:
-1. Loads React 18.3.1, ReactDOM 18.3.1, and Babel standalone 7.29.0 from unpkg CDN
-2. Loads each JSX component as `<script type="text/babel" src="/File.jsx">` — Babel compiles in-browser
-3. Defines the App component, routing logic, and mounts React to `<div id="root">`
-
-**Component load order matters** (files are loaded sequentially):
-1. Atoms.jsx — base components, must be first
-2. Nav.jsx
-3. Hero.jsx
-4. EventCard.jsx
-5. EventsList.jsx
-6. Roadmap.jsx
-7. Oath.jsx
-8. About.jsx
-9. Footer.jsx
-10. RsvpModal.jsx
-
-**Note:** The live site currently loads JSX from the repo root via `src="/ComponentName.jsx"`. After the structural cleanup (Session 2), the JSX files were moved to `src/components/`. The index.html script tags have **not yet been updated** to reflect the new paths. This is the first item in Known Issues.
 
 ---
 
@@ -111,13 +85,21 @@ index.html at the repo root is the live site entry point. It:
 
 | Page | TFM_09 Spec | Built | Route | Status |
 |---|---|---|---|---|
-| Home | ✓ | ✓ | `home` | Live |
-| Events | ✓ | ✓ | `events` | Live — mock data only |
-| Roadmap | ✓ | ✓ | `roadmap` | Live |
-| Vanguard | ✓ | ✗ | — | Not built |
-| Donate | ✓ | ✗ | — | Not built |
-| The Oath | Not in spec | ✓ | `oath` | Live |
-| About | Not in spec | ✓ | `about` | Live |
+| Home | ✓ | ✓ | `/` | Built — Astro ✓ |
+| Events | ✓ | ✓ | `/events` | Built — Astro ✓ (mock data) |
+| Roadmap | ✓ | ✓ | `/roadmap` | Built — Astro ✓ |
+| Vanguard | ✓ | stub | `/vanguard` | Stub page |
+| Donate | ✓ | stub | `/donate` | Stub page |
+| The Oath | Not in spec | ✓ | `/oath` | Built — Astro ✓ (not in nav) |
+| About | Not in spec | ✓ | `/about` | Built — Astro ✓ (not in nav) |
+
+---
+
+## Navigation (As Built)
+
+`EVENTS ◆ ROADMAP ◆ VANGUARD ◆ GIVE` — per TFM_09 spec.
+
+Note: The Oath and About exist as pages at `/oath` and `/about` but are not in the main nav.
 
 ---
 
@@ -125,36 +107,33 @@ index.html at the repo root is the live site entry point. It:
 
 | Issue | Priority | Detail |
 |---|---|---|
-| index.html script paths broken | Critical | JSX moved to src/components/ in Session 2. index.html still loads from root (e.g. `/Atoms.jsx`). Paths must be updated to `/src/components/Atoms.jsx` or files served differently. Verify and fix before next session proceeds. |
-| index.astro redirect is dead | High | index.astro redirects to `/tfm-site.html` which was deleted in Session 2. Replace with real Astro page. |
-| No Vanguard page | High | Per TFM_09 spec. Add Vanguard.jsx + route. |
-| No Donate page | High | Per TFM_09 spec. Add Donate.jsx + route + payment integration. |
-| No email capture | High | Brevo integration never completed. Site has no email capture. Add to footer or hero. |
-| Nav logo unverified | High | Nav.jsx may have broken logo path. Verify with DevTools Network tab. |
+| Cloudflare build config not set | Critical | Must set build command + output dir before merge. See above. |
+| assets/ at repo root | Low | Canonical location is now public/assets/. Old assets/ folder can be deleted once Cloudflare config confirmed working. |
+| _headers at repo root | Low | Canonical location is now public/_headers. Old root _headers can be deleted once confirmed. |
+| No Vanguard page | High | Stub exists. Per TFM_09 spec — build next session. |
+| No Donate page | High | Stub exists. Per TFM_09 spec — build next session. |
+| No email capture | High | Brevo integration never completed. Add to footer or hero. |
 | Mock event data | Medium | EventsList.jsx has placeholder events. Replace before first Install Party. |
 | No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree or equivalent. |
-| No EIN in footer | Medium | Add real EIN to Footer.jsx once 501(c)(3) is filed. |
-| Fonts loading unverified | Medium | Verify EB Garamond loading in DevTools Network tab. |
-| Browser-side Babel | Low | Slower initial load. Acceptable for now. Address when migrating to build pipeline. |
-| No URL routing | Low | Inner pages have no unique URLs. Back button and bookmarks do not work. |
+| No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
+| No URL routing in Nav.jsx / Footer.jsx | Low | These legacy files are no longer used by Astro. Nav/Footer now live in Layout.astro. |
 
 ---
 
 ## What Comes Next (In Order)
 
-1. Verify live site after Session 2 structural cleanup — confirm index.html script paths still resolve
-2. Fix any broken paths in index.html
-3. Verify Nav.jsx logo path in DevTools
-4. Verify fonts loading in DevTools Network tab
-5. Add Vanguard page
-6. Add Donate page with payment integration
-7. Add email capture to site
-8. Replace mock event data with real first event
-9. Wire RsvpModal to real form backend (Formspree)
-10. Add EIN to footer once 501(c)(3) is filed
-11. Migrate to proper build pipeline (Astro or Vite) when content stabilizes
+1. Update Cloudflare Pages build config (build command + output dir) — Christopher does this in dashboard
+2. Merge session/astro-page-build to main
+3. Verify live site at techfreedomministries.com
+4. Build Vanguard page (src/pages/vanguard.astro + Vanguard.jsx)
+5. Build Donate page (src/pages/donate.astro + Donate.jsx + payment integration)
+6. Add email capture to site (Brevo integration)
+7. Replace mock event data with real first event
+8. Wire RsvpModal to real form backend (Formspree)
+9. Add EIN to footer once 501(c)(3) is filed
+10. Delete legacy files: assets/ at root, _headers at root, Nav.jsx, Footer.jsx (if confirmed unused)
 
 ---
 
-*Last updated: 2026-05-18 — Session 2*
+*Last updated: 2026-05-18 — Session 3*
 *Built by: Christopher Campbell + Claude (Anthropic)*

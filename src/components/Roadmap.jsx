@@ -1,4 +1,5 @@
-/* Roadmap — the four levels stacked, each on its level-color ground. */
+import React from 'react';
+import { Eyebrow, Rule, Proclamation, Diamond, LEVELS } from './Atoms.jsx';
 
 const LEVEL_COPY = [
   { steps: ["Install Linux on a real machine.", "Replace one cloud account.", "Leave the room with a working laptop."],
@@ -32,7 +33,7 @@ function LevelCard({ level }) {
           fontFamily: "var(--tfm-serif)", fontWeight: 700, fontSize: 36,
           lineHeight: 1.05, marginTop: 14,
         }}>
-          {L.name.replace(/^The /, "The ")}
+          {L.name}
         </div>
       </div>
       <p style={{
@@ -62,7 +63,7 @@ function LevelCard({ level }) {
   );
 }
 
-function Roadmap() {
+export default function Roadmap() {
   return (
     <section id="roadmap" style={{ padding: "64px 0 96px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 36px 40px" }}>
@@ -97,6 +98,3 @@ function Roadmap() {
     </section>
   );
 }
-
-window.LevelCard = LevelCard;
-window.Roadmap = Roadmap;

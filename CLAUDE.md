@@ -19,95 +19,74 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/structural-cleanup)
+## Actual Repo Structure (Clean — as of session/astro-page-build)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
 ├── .astro/                 — Astro build cache (gitignored)
-├── assets/                 — logo files (correct location)
-│   ├── tfm-logo-nearblack.png
-│   ├── tfm-logo-on-dark.png
-│   ├── tfm-logo-on-parchment.png
-│   └── tfm-logo-on-white.png
+├── assets/                 — legacy logo location (kept; canonical is public/assets/)
 ├── dist/                   — build output (gitignored)
 ├── node_modules/           — dependencies (gitignored)
-├── public/                 — static assets served at root
-│   └── fonts/              — self-hosted EB Garamond (correct location)
+├── public/
+│   ├── assets/             — logo files served at /assets/ (canonical location)
+│   ├── fonts/              — self-hosted EB Garamond (canonical location)
+│   └── _headers            — Cloudflare headers config (canonical location)
 ├── src/
-│   ├── components/         — ALL JSX components live here
+│   ├── components/         — ALL JSX components (ES modules with named exports)
 │   │   ├── About.jsx
-│   │   ├── Atoms.jsx
+│   │   ├── Atoms.jsx       — primitive components, exported as named exports
 │   │   ├── EventCard.jsx
-│   │   ├── EventsList.jsx
-│   │   ├── Footer.jsx
+│   │   ├── EventsList.jsx  — includes RSVP modal state management
+│   │   ├── Footer.jsx      — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Hero.jsx
-│   │   ├── Nav.jsx
+│   │   ├── Nav.jsx         — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Oath.jsx
 │   │   ├── Roadmap.jsx
 │   │   └── RsvpModal.jsx
 │   ├── env.d.ts
 │   ├── layouts/
-│   │   └── Layout.astro    — shell layout with header, footer, slot
+│   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot
 │   ├── pages/
-│   │   └── index.astro     — STUB — redirect to deleted file, needs real page
+│   │   ├── index.astro     — home page (Hero + events preview + Roadmap + CTA)
+│   │   ├── events.astro    — full events list
+│   │   ├── roadmap.astro   — four level cards
+│   │   ├── oath.astro      — Vanguard Oath
+│   │   ├── about.astro     — TFM is/isn't
+│   │   ├── vanguard.astro  — stub (Coming Soon)
+│   │   └── donate.astro    — stub (Coming Soon)
 │   └── styles/
-│       ├── fonts.css       — @font-face declarations
+│       ├── fonts.css       — self-hosted @font-face rules (no CDN)
 │       └── tokens.css      — CSS custom properties (single source of truth)
-├── _headers                — Cloudflare headers config — DO NOT TOUCH
-├── astro.config.mjs        — Astro config
-├── index.html              — current live static page served by Cloudflare
-├── package.json
+├── _headers                — legacy location (canonical is public/_headers)
+├── astro.config.mjs        — Astro + @astrojs/react
+├── package.json            — astro, @astrojs/react, react, react-dom
 └── README.md
-
----
-
-## What Is Wrong (Priority Order)
-
-1. index.astro is a redirect stub pointing to /tfm-site.html — that file is now deleted.
-   The redirect is a dead link. Astro must be replaced with a real page.
-2. The site currently works because index.html at root serves everything statically.
-   Astro is being bypassed entirely for the live site.
-3. JSX components in src/components/ are not imported or used by any Astro page yet.
-4. TFM_09_WEBSITE_BUILD.md (design reference) is not in the repo — Christopher must
-   supply it before any design or content work begins.
 
 ---
 
 ## Current Build State
 
-- npm run build: CLEAN (1 page built — index.astro redirect stub only)
-- Live site: WORKING at techfreedomministries.com (served via index.html, Astro bypassed)
-- Astro telemetry: DISABLED
-- node_modules: installed
+- npm run build: CLEAN (7 pages built)
+- Live site: Cloudflare config update REQUIRED before merge — see TFM_10_BUILD_STATE.md
+- index.html: REMOVED — Astro is now the site
+- Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
-Phase 0 (coming-soon): REPLACED by Phase 1 work — site is live with hero
-Phase 1 (site foundation): Structure clean. Components exist. Astro page not yet built.
-Phase 2-6: NOT started
+Phase 1 (site foundation): COMPLETE
+Phase 2 (home page): COMPLETE
+Phase 3 (events page): COMPLETE (mock data)
+Phase 4 (roadmap page): COMPLETE
+Phase 5 (vanguard page): STUB
+Phase 6 (donate page): STUB
 
----
+## Next Session — Vanguard + Donate Pages
 
-## Next Session — Build Real Astro Page
+Branch: session/vanguard-donate
 
-Branch: session/astro-page-build
+Prerequisites:
+- Christopher must update Cloudflare Pages build config (build command + output dir)
+- Merge session/astro-page-build to main, verify live site
 
-Prerequisites before starting:
-- Christopher must provide TFM_09_WEBSITE_BUILD.md (design reference)
-- Confirm which components from src/components/ are ready to use
-
-Goal: Replace the index.astro redirect stub with a real Astro page that uses
-Layout.astro and the components in src/components/. When this session is done,
-the live site should serve via Astro, not index.html.
-
-Steps (rough order — refine once TFM_09_WEBSITE_BUILD.md is in hand):
-
-1. Review TFM_09_WEBSITE_BUILD.md for page structure and content requirements
-2. Audit each component in src/components/ — what does it render, what props does it need
-3. Rewrite src/pages/index.astro as a real page using Layout.astro
-4. Wire in components one at a time, verify build after each
-5. Confirm live site visual matches index.html before removing index.html
-6. Remove index.html from repo root once Astro is serving correctly
-7. Commit and push
-8. Verify live site at techfreedomministries.com
+Goal: Build real Vanguard and Donate pages. See TFM_09 Phase 5 and Phase 6.
 
 ---
 
@@ -166,10 +145,10 @@ Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
 
 ## Design Constraints (Non-Negotiable)
 
-- Framework: Astro (target). Live site currently runs browser-compiled React via index.html — migration is planned.
+- Framework: Astro + @astrojs/react for interactive islands. No other JS frameworks.
 - Styling: CSS custom properties from src/styles/tokens.css only.
   No Tailwind. No component libraries.
-- Fonts: EB Garamond. Self-hosted files in public/fonts/. Currently loading from Google CDN via src/styles/fonts.css — self-hosted wiring is a known pending item.
+- Fonts: EB Garamond. Self-hosted from public/fonts/ via @font-face in src/styles/fonts.css.
 - Border radius: 0px default. 2px on buttons and badges only.
 - No glass effects. No gradients. No dark mode.
 - Design reference: docs/TFM_08_DESIGN_SYSTEM.md

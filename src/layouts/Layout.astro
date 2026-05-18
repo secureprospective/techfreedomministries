@@ -1,5 +1,16 @@
 ---
-const { title = "Tech Freedom Ministries" } = Astro.props;
+import '../styles/fonts.css';
+import '../styles/tokens.css';
+
+const { title = "Tech Freedom Ministries — Break from the digital grid." } = Astro.props;
+const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: '/events',  label: 'Events' },
+  { href: '/roadmap', label: 'Roadmap' },
+  { href: '/vanguard', label: 'Vanguard' },
+  { href: '/donate',  label: 'Give' },
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -8,30 +19,31 @@ const { title = "Tech Freedom Ministries" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Free events. Real tools. Teaching people to escape Big Tech surveillance — for free." />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/fonts.css" />
-    <link rel="stylesheet" href="/styles/tokens.css" />
   </head>
   <body>
 
     <header class="site-header">
       <div class="header-inner">
         <a href="/" class="logo-link">
-          <img
-            src="/TFM_logo_nearblack.png"
-            alt="Tech Freedom Ministries"
-            class="site-logo"
-            onerror="this.style.display='none'"
-          />
+          <img src="/assets/tfm-logo-nearblack.png" alt="" class="site-logo" />
+          <span class="wordmark">Tech Freedom Ministries</span>
         </a>
+
         <nav class="site-nav">
-          <a href="/events">Events</a>
-          <span class="diamond">◆</span>
-          <a href="/roadmap">Roadmap</a>
-          <span class="diamond">◆</span>
-          <a href="/vanguard">Vanguard</a>
-          <span class="diamond">◆</span>
-          <a href="/donate">Give</a>
+          {navLinks.map((link, i) => (
+            <>
+              {i > 0 && <span class="diamond">◆</span>}
+              <a
+                href={link.href}
+                class:list={['nav-link', { active: pathname === link.href || pathname.startsWith(link.href + '/') }]}
+              >
+                {link.label}
+              </a>
+            </>
+          ))}
         </nav>
+
+        <a href="/events" class="header-cta">Find an event</a>
       </div>
     </header>
 
@@ -41,10 +53,27 @@ const { title = "Tech Freedom Ministries" } = Astro.props;
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="eyebrow">Tech Freedom Ministries</p>
-        <p class="lead-italic">"It is for freedom that Christ has set us free." — Galatians 5:1</p>
-        <hr class="rule-short" />
-        <p>A registered 501(c)(3) nonprofit. Free events. Real tools. No catch.</p>
+        <div class="footer-brand">
+          <img src="/assets/tfm-logo-nearblack.png" alt="" class="footer-logo" />
+          <span class="footer-wordmark">Tech Freedom Ministries</span>
+          <p class="footer-galatians">
+            For freedom Christ has set us free.<br />— Galatians 5:1
+          </p>
+        </div>
+
+        <nav class="footer-nav">
+          {navLinks.map((link, i) => (
+            <>
+              {i > 0 && <span class="diamond">◆</span>}
+              <a href={link.href} class="footer-link">{link.label}</a>
+            </>
+          ))}
+        </nav>
+
+        <div class="footer-meta">
+          <span class="footer-layer">Layer 2 — Public</span>
+          <span class="footer-version">v2026.05 · MMXXVI</span>
+        </div>
       </div>
     </footer>
 
@@ -52,62 +81,194 @@ const { title = "Tech Freedom Ministries" } = Astro.props;
 </html>
 
 <style>
-  .site-header {
-    border-bottom: 1px solid var(--tfm-parchment-edge);
-    padding: var(--s4) 0;
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
     background: var(--tfm-parchment);
+    color: var(--tfm-near-black);
+    font-family: var(--tfm-sans);
+    min-height: 100vh;
   }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main { flex: 1; }
+
+  /* ── Header ── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(244, 240, 230, 0.98);
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+  }
+
   .header-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--s6);
+    padding: 18px 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
   }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
   .site-logo {
-    height: 48px;
-    width: auto;
+    width: 40px;
+    height: 22px;
+    object-fit: contain;
   }
+
+  .wordmark {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tfm-near-black);
+    font-weight: 500;
+  }
+
   .site-nav {
     display: flex;
     align-items: center;
-    gap: var(--s4);
+    gap: 14px;
   }
-  .site-nav a {
+
+  .nav-link {
     font-family: var(--tfm-sans);
     font-size: 11px;
-    font-weight: 400;
     letter-spacing: 0.20em;
     text-transform: uppercase;
     color: var(--tfm-gold-muted);
     text-decoration: none;
+    font-weight: 400;
+    transition: color 220ms cubic-bezier(.2,0,.2,1);
   }
-  .site-nav a:hover {
-    color: var(--tfm-gold-deep);
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--tfm-near-black);
+    font-weight: 500;
   }
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: var(--s8) var(--s6);
+
+  .diamond {
+    color: var(--tfm-gold-bright);
+    font-size: 8px;
+    line-height: 1;
   }
+
+  .header-cta {
+    font-family: var(--tfm-sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 18px;
+    background: var(--tfm-near-black);
+    color: var(--tfm-parchment);
+    text-decoration: none;
+    border-radius: 2px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: background 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .header-cta:hover { background: #2C2014; }
+
+  /* ── Footer ── */
   .site-footer {
     border-top: 1px solid var(--tfm-parchment-edge);
-    padding: var(--s8) 0;
     background: var(--tfm-parchment);
-    text-align: center;
+    padding: 56px 36px 40px;
   }
-  .site-footer .footer-inner {
-    max-width: 600px;
+
+  .footer-inner {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 var(--s6);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .footer-brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: var(--s3);
+    gap: 14px;
   }
-  .site-footer p {
-    font-size: 13px;
+
+  .footer-logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-wordmark {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+  }
+
+  .footer-galatians {
+    font-family: var(--tfm-serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--tfm-warm-brown);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+    text-decoration: none;
+    transition: color 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .footer-link:hover { color: var(--tfm-near-black); }
+
+  .footer-meta {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-layer {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+  }
+
+  .footer-version {
+    font-family: var(--tfm-mono);
+    font-size: 11px;
     color: var(--tfm-warm-brown-soft);
   }
 </style>

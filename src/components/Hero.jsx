@@ -1,6 +1,7 @@
-/* Hero — Proclamation block. Layer 2 (secular) tone. */
+import React from 'react';
+import { Eyebrow, Rule, Diamond, Proclamation, Button, GhostButton, Icon, Brackets } from './Atoms.jsx';
 
-function Hero({ onFindEvent, onReadOath }) {
+export default function Hero() {
   return (
     <section style={{
       padding: "96px 36px 64px",
@@ -29,21 +30,21 @@ function Hero({ onFindEvent, onReadOath }) {
           if you have one.
         </p>
         <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
-          <Button onClick={onFindEvent}>
+          <Button onClick={() => window.location.href = '/events'}>
             Find an event near you <Icon name="arrow" size={14} />
           </Button>
-          <GhostButton onClick={onReadOath}>Read the Oath</GhostButton>
+          <GhostButton onClick={() => window.location.href = '/oath'}>Read the Oath</GhostButton>
         </div>
       </div>
 
-      {/* Right column: a "credential-style" pull-out featuring the logo and Galatians */}
+      {/* Credential-style pull-out: logo + Galatians */}
       <Brackets style={{
         background: "var(--tfm-parchment-2)",
         padding: 44,
       }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, textAlign: "center" }}>
           <img
-            src="../../assets/tfm-logo-nearblack.png"
+            src="/assets/tfm-logo-nearblack.png"
             alt="TFM"
             style={{ width: 200, height: "auto" }}
           />
@@ -60,5 +61,3 @@ function Hero({ onFindEvent, onReadOath }) {
     </section>
   );
 }
-
-window.Hero = Hero;

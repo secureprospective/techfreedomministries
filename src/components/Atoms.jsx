@@ -1,10 +1,7 @@
-/* TFM Atoms — primitive components for the website kit.
-   Loaded via Babel; exposes its symbols on window for sibling scripts. */
-
-const { useState, useEffect, useRef } = React;
+import React, { useState } from 'react';
 
 /* ---------- Eyebrow ---------- */
-function Eyebrow({ children, color, style, ...rest }) {
+export function Eyebrow({ children, color, style, ...rest }) {
   return (
     <div
       {...rest}
@@ -14,7 +11,7 @@ function Eyebrow({ children, color, style, ...rest }) {
         fontWeight: 400,
         letterSpacing: "0.20em",
         textTransform: "uppercase",
-        color: color || "var(--tfm-muted-gold)",
+        color: color || "var(--tfm-gold-muted)",
         lineHeight: 1,
         ...style,
       }}
@@ -25,13 +22,13 @@ function Eyebrow({ children, color, style, ...rest }) {
 }
 
 /* ---------- Rule ---------- */
-function Rule({ width = 40, color, style }) {
+export function Rule({ width = 40, color, style }) {
   return (
     <div
       style={{
         width: width === "full" ? "100%" : width,
         height: 1,
-        background: color || "var(--tfm-bright-gold)",
+        background: color || "var(--tfm-gold-bright)",
         ...style,
       }}
     />
@@ -39,11 +36,11 @@ function Rule({ width = 40, color, style }) {
 }
 
 /* ---------- Diamond ◆ ---------- */
-function Diamond({ size = 10, color, style }) {
+export function Diamond({ size = 10, color, style }) {
   return (
     <span
       style={{
-        color: color || "var(--tfm-bright-gold)",
+        color: color || "var(--tfm-gold-bright)",
         fontSize: size,
         lineHeight: 1,
         display: "inline-block",
@@ -58,7 +55,7 @@ function Diamond({ size = 10, color, style }) {
 /* ---------- Proclamation headline ----------
    Usage: <Proclamation strong="Break from the Digital Grid." italic="Own Your Machine." size={48} />
 */
-function Proclamation({ strong, italic, size = 44, as = "h2", style }) {
+export function Proclamation({ strong, italic, size = 44, as = "h2", style }) {
   const Tag = as;
   return (
     <Tag
@@ -105,7 +102,7 @@ const btnBase = {
   whiteSpace: "nowrap",
 };
 
-function Button({ children, onClick, disabled, type = "button", style }) {
+export function Button({ children, onClick, disabled, type = "button", style }) {
   const [hover, setHover] = useState(false);
   const [press, setPress] = useState(false);
   return (
@@ -132,7 +129,7 @@ function Button({ children, onClick, disabled, type = "button", style }) {
   );
 }
 
-function GhostButton({ children, onClick, disabled, style }) {
+export function GhostButton({ children, onClick, disabled, style }) {
   const [hover, setHover] = useState(false);
   const [press, setPress] = useState(false);
   return (
@@ -159,7 +156,7 @@ function GhostButton({ children, onClick, disabled, style }) {
   );
 }
 
-function LinkButton({ children, onClick, style }) {
+export function LinkButton({ children, onClick, style }) {
   const [hover, setHover] = useState(false);
   return (
     <button
@@ -187,14 +184,14 @@ function LinkButton({ children, onClick, style }) {
 }
 
 /* ---------- Level badge ---------- */
-const LEVELS = [
+export const LEVELS = [
   { n: 1, name: "The Exodus",           bg: "#1D4D2A", fg: "#A8D4B2" },
   { n: 2, name: "The Catechism",        bg: "#5C4500", fg: "#F0C85A" },
   { n: 3, name: "The Homestead",        bg: "#5C1A1A", fg: "#F0A8A8" },
   { n: 4, name: "The Great Commission", bg: "#2C2C1A", fg: "#C8C890" },
 ];
 
-function LevelBadge({ level, vanguard, style }) {
+export function LevelBadge({ level, vanguard, style }) {
   if (vanguard) {
     return (
       <span style={{
@@ -218,7 +215,7 @@ function LevelBadge({ level, vanguard, style }) {
 }
 
 /* ---------- Brackets — for credential-adjacent surfaces ---------- */
-function Brackets({ children, padding = 28, style }) {
+export function Brackets({ children, padding = 28, style }) {
   const armSize = 18;
   const corner = (top, left) => ({
     position: "absolute",
@@ -242,7 +239,7 @@ function Brackets({ children, padding = 28, style }) {
 }
 
 /* ---------- Icon (Lucide-style inline stroke) ---------- */
-function Icon({ name, size = 16, color = "currentColor", style }) {
+export function Icon({ name, size = 16, color = "currentColor", style }) {
   const stroke = {
     fill: "none", stroke: color, strokeWidth: 1.6,
     strokeLinecap: "round", strokeLinejoin: "round",
@@ -264,7 +261,7 @@ function Icon({ name, size = 16, color = "currentColor", style }) {
 }
 
 /* ---------- Card ---------- */
-function Card({ children, hover: hoverable = true, style }) {
+export function Card({ children, hover: hoverable = true, style }) {
   const [hover, setHover] = useState(false);
   return (
     <div
@@ -283,9 +280,3 @@ function Card({ children, hover: hoverable = true, style }) {
     </div>
   );
 }
-
-Object.assign(window, {
-  Eyebrow, Rule, Diamond, Proclamation,
-  Button, GhostButton, LinkButton,
-  LevelBadge, LEVELS, Brackets, Icon, Card,
-});
