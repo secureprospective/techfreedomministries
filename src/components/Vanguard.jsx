@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Eyebrow, Rule, Proclamation, Card, Diamond, Button } from './Atoms.jsx';
 
 // Replace this with your Formspree form ID: https://formspree.io/f/YOUR_FORM_ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/PLACEHOLDER';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzyorgw';
 
 const inputStyle = {
   fontFamily: "var(--tfm-sans)",

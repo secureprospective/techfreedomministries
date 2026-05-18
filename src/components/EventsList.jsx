@@ -3,27 +3,22 @@ import { Eyebrow, Rule, Proclamation } from './Atoms.jsx';
 import EventCard from './EventCard.jsx';
 import RsvpModal from './RsvpModal.jsx';
 
+// TODO: Replace placeholder fields with real Install Party details before launch.
+// Each field that needs a real value is marked with TODO.
 export const EVENTS = [
-  { id: 1, month: "TBD", day: "tbd", dow: "Saturday", time: "1pm",
-    level: 1, city: "St. Louis, MO",
-    venue: "Tower Grove Library", duration: "3 hours",
-    titleStrong: "An Exodus Night.", titleItalic: "Install Linux." },
-  { id: 2, month: "TBD", day: "tbd", dow: "Sunday", time: "10am",
-    level: 2, city: "Springfield, IL",
-    venue: "First Presbyterian Hall", duration: "4 hours",
-    titleStrong: "The Catechism, Part I.", titleItalic: "Why we left." },
-  { id: 3, month: "TBD", day: "tbd", dow: "Saturday", time: "1pm",
-    level: 3, city: "Bloomington, IN",
-    venue: "Monroe County Makerspace", duration: "5 hours",
-    titleStrong: "Homestead Lab.", titleItalic: "Self-host your photos." },
-  { id: 4, month: "July", day: 19, dow: "Saturday", time: "9am",
-    level: 4, city: "St. Louis, MO",
-    venue: "Tower Grove Library", duration: "Full day",
-    titleStrong: "Vanguard Workshop.", titleItalic: "Run your own Exodus." },
-  { id: 5, month: "Aug", day: 2, dow: "Saturday", time: "1pm",
-    level: 1, city: "Columbia, MO",
-    venue: "Daniel Boone Regional", duration: "3 hours",
-    titleStrong: "An Exodus Night.", titleItalic: "Install Linux." },
+  {
+    id: 1,
+    month: "TBD",       // TODO: e.g. "June"
+    day: "TBD",         // TODO: e.g. 14
+    dow: "Saturday",    // TODO: day of week
+    time: "1pm",        // TODO: start time
+    level: 1,
+    city: "TBD",        // TODO: e.g. "St. Louis, MO"
+    venue: "TBD",       // TODO: venue name
+    duration: "3 hours",// TODO: duration
+    titleStrong: "An Exodus Night.",
+    titleItalic: "Install Linux.",
+  },
 ];
 
 /* preview=true shows first 3 events without filter chips or section header */
