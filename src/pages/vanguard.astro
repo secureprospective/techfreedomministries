@@ -1,15 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Vanguard from '../components/Vanguard.jsx';
 ---
 <Layout title="Vanguard — Tech Freedom Ministries">
-  <section style="padding: 96px 36px; max-width: 720px; margin: 0 auto; text-align: center;">
-    <div style="font-family: var(--tfm-sans); font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--tfm-gold-muted);">Coming Soon</div>
-    <div style="width: 40px; height: 1px; background: var(--tfm-gold-bright); margin: 14px auto 24px;"></div>
-    <h1 style="font-family: var(--tfm-serif); font-weight: 700; font-size: 42px; color: var(--tfm-near-black); margin: 0;">
-      You already know how to fix this. <em style="font-style: italic; font-weight: 400; color: var(--tfm-deep-gold);">Most people don't.</em>
-    </h1>
-    <p style="font-family: var(--tfm-sans); font-size: 15px; line-height: 1.65; color: var(--tfm-warm-brown); margin-top: 24px;">
-      The Vanguard page is coming. In the meantime, <a href="/events" style="color: var(--tfm-deep-gold);">find an event near you</a>.
-    </p>
-  </section>
+  <Vanguard client:load />
 </Layout>
