@@ -19,7 +19,7 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/astro-page-build)
+## Actual Repo Structure (Clean — as of session/vanguard-donate)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
@@ -35,6 +35,7 @@ techfreedomministries/
 │   ├── components/         — ALL JSX components (ES modules with named exports)
 │   │   ├── About.jsx
 │   │   ├── Atoms.jsx       — primitive components, exported as named exports
+│   │   ├── Donate.jsx      — give page: three tiers + placeholder button
 │   │   ├── EventCard.jsx
 │   │   ├── EventsList.jsx  — includes RSVP modal state management
 │   │   ├── Footer.jsx      — legacy, not used by Astro (nav/footer in Layout.astro)
@@ -42,7 +43,8 @@ techfreedomministries/
 │   │   ├── Nav.jsx         — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Oath.jsx
 │   │   ├── Roadmap.jsx
-│   │   └── RsvpModal.jsx
+│   │   ├── RsvpModal.jsx
+│   │   └── Vanguard.jsx    — recruit page: cards + application form (Formspree — needs ID)
 │   ├── env.d.ts
 │   ├── layouts/
 │   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot
@@ -52,8 +54,8 @@ techfreedomministries/
 │   │   ├── roadmap.astro   — four level cards
 │   │   ├── oath.astro      — Vanguard Oath
 │   │   ├── about.astro     — TFM is/isn't
-│   │   ├── vanguard.astro  — stub (Coming Soon)
-│   │   └── donate.astro    — stub (Coming Soon)
+│   │   ├── vanguard.astro  — Vanguard recruit page (real)
+│   │   └── donate.astro    — Give page (real — button placeholder until EIN)
 │   └── styles/
 │       ├── fonts.css       — self-hosted @font-face rules (no CDN)
 │       └── tokens.css      — CSS custom properties (single source of truth)
@@ -67,7 +69,7 @@ techfreedomministries/
 ## Current Build State
 
 - npm run build: CLEAN (7 pages built)
-- Live site: Cloudflare config update REQUIRED before merge — see TFM_10_BUILD_STATE.md
+- Live site: on main — verify Cloudflare Pages build config is set (see TFM_10_BUILD_STATE.md)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
@@ -75,18 +77,22 @@ Phase 1 (site foundation): COMPLETE
 Phase 2 (home page): COMPLETE
 Phase 3 (events page): COMPLETE (mock data)
 Phase 4 (roadmap page): COMPLETE
-Phase 5 (vanguard page): STUB
-Phase 6 (donate page): STUB
+Phase 5 (vanguard page): COMPLETE (Formspree endpoint is a placeholder — wire before launch)
+Phase 6 (donate page): COMPLETE (donate button is a placeholder — wire once EIN arrives)
 
-## Next Session — Vanguard + Donate Pages
+## Next Session — Live Data + Integrations
 
-Branch: session/vanguard-donate
+Branch: session/integrations (suggested)
 
 Prerequisites:
-- Christopher must update Cloudflare Pages build config (build command + output dir)
-- Merge session/astro-page-build to main, verify live site
+- Confirm live site is rendering correctly at techfreedomministries.com
+- Christopher provides Formspree form ID for Vanguard application form
 
-Goal: Build real Vanguard and Donate pages. See TFM_09 Phase 5 and Phase 6.
+Goal (in priority order):
+1. Wire Formspree: replace PLACEHOLDER in src/components/Vanguard.jsx line 7
+2. Add Brevo email capture (footer or hero — email list for event announcements)
+3. Replace mock event data in EventsList.jsx with first real Install Party details
+4. Wire RsvpModal to Formspree (or same form as Vanguard, separate endpoint)
 
 ---
 
