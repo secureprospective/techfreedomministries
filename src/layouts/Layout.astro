@@ -1,6 +1,7 @@
 ---
 import '../styles/fonts.css';
 import '../styles/tokens.css';
+import BrevoSignup from '../components/BrevoSignup.jsx';
 
 const { title = "Tech Freedom Ministries — Break from the digital grid." } = Astro.props;
 const { pathname } = Astro.url;
@@ -52,6 +53,9 @@ const navLinks = [
     </main>
 
     <footer class="site-footer">
+      <div class="footer-email-row">
+        <BrevoSignup client:visible />
+      </div>
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="/assets/tfm-logo-nearblack.png" alt="" class="footer-logo" />
@@ -190,7 +194,15 @@ const navLinks = [
   .site-footer {
     border-top: 1px solid var(--tfm-parchment-edge);
     background: var(--tfm-parchment);
-    padding: 56px 36px 40px;
+    padding: 48px 36px 40px;
+  }
+
+  .footer-email-row {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--tfm-parchment-edge);
   }
 
   .footer-inner {
