@@ -55,10 +55,11 @@ export function Diamond({ size = 10, color, style }) {
 /* ---------- Proclamation headline ----------
    Usage: <Proclamation strong="Break from the Digital Grid." italic="Own Your Machine." size={48} />
 */
-export function Proclamation({ strong, italic, size = 44, as = "h2", style }) {
+export function Proclamation({ strong, italic, size = 44, as = "h2", style, className }) {
   const Tag = as;
   return (
     <Tag
+      className={className}
       style={{
         fontFamily: "var(--tfm-serif)",
         fontWeight: 700,

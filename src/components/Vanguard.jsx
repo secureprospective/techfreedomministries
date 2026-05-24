@@ -129,6 +129,7 @@ export default function Vanguard() {
       <Proclamation
         as="h2"
         size={32}
+        className="tfm-ledger-rule"
         strong="Ready to come back"
         italic="and help someone start?"
       />

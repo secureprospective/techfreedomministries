@@ -22,6 +22,7 @@ export default function About() {
       <Eyebrow>About TFM</Eyebrow>
       <Rule style={{ margin: "14px 0 20px" }} />
       <Proclamation as="h2" size={42}
+        className="tfm-ledger-rule"
         strong="We teach people to own their machines."
         italic="Then we teach them to teach others."
       />

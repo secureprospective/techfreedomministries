@@ -39,6 +39,7 @@ export default function EventsList({ preview }) {
             <Eyebrow>Upcoming Events</Eyebrow>
             <Rule style={{ margin: "14px 0 20px" }} />
             <Proclamation as="h2" size={42}
+              className="tfm-ledger-rule"
               strong="Every event is free."
               italic="Every event is real."
             />

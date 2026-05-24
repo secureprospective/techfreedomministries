@@ -70,6 +70,7 @@ export default function Roadmap() {
         <Eyebrow>The Member Journey</Eyebrow>
         <Rule style={{ margin: "14px 0 20px" }} />
         <Proclamation as="h2" size={42}
+          className="tfm-ledger-rule"
           strong="From Digital Subject"
           italic="to Digital Steward."
         />

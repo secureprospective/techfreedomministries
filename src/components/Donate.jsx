@@ -160,6 +160,7 @@ export default function Donate() {
         <Proclamation
           as="h2"
           size={36}
+          className="tfm-ledger-rule"
           strong="A working laptop"
           italic="is the best thing you can give."
         />
@@ -263,6 +264,7 @@ export default function Donate() {
         <Proclamation
           as="h2"
           size={36}
+          className="tfm-ledger-rule"
           strong="Can't give hardware?"
           italic="Cash buys the drives."
         />
