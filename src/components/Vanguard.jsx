@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eyebrow, Rule, Proclamation, Card, Diamond, Button } from './Atoms.jsx';
+import { Eyebrow, Rule, Proclamation, Card, Diamond, Button, Brackets } from './Atoms.jsx';
 
 // Replace this with your Formspree form ID: https://formspree.io/f/YOUR_FORM_ID
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzyorgw';
@@ -107,7 +107,11 @@ export default function Vanguard() {
             ))}
           </ul>
         </Card>
-        <Card hover={false} style={{ padding: "32px 36px" }}>
+        <Brackets style={{
+          background: "var(--tfm-parchment-card)",
+          border: "1px solid var(--tfm-gold-bright)",
+          padding: "32px 36px",
+        }}>
           <Eyebrow>What You Get</Eyebrow>
           <div style={{ height: 12 }} />
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
@@ -120,7 +124,7 @@ export default function Vanguard() {
               </li>
             ))}
           </ul>
-        </Card>
+        </Brackets>
       </div>
 
       {/* Application Form */}
