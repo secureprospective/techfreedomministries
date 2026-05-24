@@ -20,7 +20,7 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/integrations)
+## Actual Repo Structure (Clean — as of session/styling-pass)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
@@ -60,7 +60,8 @@ techfreedomministries/
 │   │   └── donate.astro    — Give page (real — button placeholder until EIN)
 │   └── styles/
 │       ├── fonts.css       — self-hosted @font-face rules (no CDN)
-│       └── tokens.css      — CSS custom properties (single source of truth)
+│       ├── tokens.css      — CSS custom properties (single source of truth)
+│       └── accents.css     — Gilded Spine accent system (ledger rule, ref mark, stamp, gilt edge)
 ├── _headers                — legacy location (canonical is public/_headers)
 ├── astro.config.mjs        — Astro + @astrojs/react
 ├── package.json            — astro, @astrojs/react, react, react-dom
@@ -71,7 +72,7 @@ techfreedomministries/
 ## Current Build State
 
 - npm run build: CLEAN (7 pages built)
-- Live site: CONFIRMED live at techfreedomministries.com
+- Live site: CONFIRMED live at techfreedomministries.org
 - Cloudflare Pages build config: CONFIRMED correct (npm run build / dist)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
@@ -83,6 +84,7 @@ Phase 4 (roadmap page): COMPLETE
 Phase 5 (vanguard page): COMPLETE (Formspree mvzyorgw — live and confirmed)
 Phase 6 (donate page): COMPLETE (donate button is a placeholder — wire once EIN arrives)
 Phase 7 (integrations): COMPLETE — Formspree + Brevo live and confirmed
+Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
@@ -121,17 +123,25 @@ Never lead with specs. Stakes first, specs second.
 
 ---
 
-## Next Session — Real Event Data + RSVP
+## Open Items — What Comes Next
 
-Branch: session/event-data (suggested)
+### Blocked on external input
+| Item | Blocked on | File |
+|---|---|---|
+| Install Party details | Christopher confirms date, venue, city | `src/components/EventsList.jsx` |
+| Donate button | EIN arrives (501c3 filing in progress) | `src/components/Donate.jsx` |
+| EIN in footer | 501c3 approved | `src/layouts/Layout.astro` |
 
-Prerequisites:
-- Christopher has confirmed date, venue, and city for the first Install Party
+### Ready to build (no external dependency)
+| Item | Priority | Notes |
+|---|---|---|
+| Wire RsvpModal to Formspree | High | Needs separate endpoint from Vanguard form (mvzyorgw) |
+| Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
+| Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
+| Delete legacy files | Low | Root `assets/` and root `_headers` — confirm live site clean first |
 
-Goal (in priority order):
-1. Replace TBD fields in src/components/EventsList.jsx with real Install Party details
-2. Wire RsvpModal to Formspree (separate endpoint from Vanguard form)
-3. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
+### Suggested next branch
+`session/event-data` — once Install Party date/venue/city confirmed
 
 ---
 
@@ -182,6 +192,7 @@ All TFM planning and reference documents live in `docs/`. Read these at the star
 - `docs/TFM_09_WEBSITE_BUILD.md` — technical spec and build sequence
 - `docs/TFM_10_BUILD_STATE.md` — live project status, known issues, what comes next
 - `docs/TFM_08_DESIGN_SYSTEM.md` — design tokens and visual rules (single source of truth)
+- `docs/TFM_11_BIBLE_THEME.md` — Gilded Spine theme layer (tokens, elements, application)
 - `docs/TFM_05_WEBSITE_ARCHITECTURE.md` — page-by-page copy and content direction
 
 Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
@@ -193,10 +204,12 @@ Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
 - Framework: Astro + @astrojs/react for interactive islands. No other JS frameworks.
 - Styling: CSS custom properties from src/styles/tokens.css only.
   No Tailwind. No component libraries.
-- Fonts: EB Garamond. Self-hosted from public/fonts/ via @font-face in src/styles/fonts.css.
+- Fonts: EB Garamond (self-hosted) + Cinzel (Google Fonts — header colophon only).
 - Border radius: 0px default. 2px on buttons and badges only.
-- No glass effects. No gradients. No dark mode.
+- No glass effects. No dark mode.
+- Gradients: permitted only for Gilded Spine theme elements (ribbon, spine, gilt edge, colophon rules, hemp texture). Not for general UI.
 - Design reference: docs/TFM_08_DESIGN_SYSTEM.md
+- Theme reference: docs/TFM_11_BIBLE_THEME.md
 
 ---
 
