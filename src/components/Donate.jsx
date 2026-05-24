@@ -22,8 +22,60 @@ const tiers = [
   },
 ];
 
-const hardware = [
-  "Laptops from 2015 or newer. 4GB RAM minimum, 8GB preferred.",
+const hardwareTiers = [
+  {
+    rank: "01",
+    name: "Laptops",
+    note: "Best choice. Portable, self-contained, and ready to use at an event.",
+    items: [
+      "ThinkPad, Dell Latitude, HP EliteBook — 2015 or newer.",
+      "4GB RAM minimum. 8GB preferred.",
+      "Working display and keyboard required. Charger included if possible.",
+    ],
+  },
+  {
+    rank: "02",
+    name: "Workstation PCs",
+    note: "Good for lab stations. Runs anything. Takes up more space.",
+    items: [
+      "Dell Precision, HP Z-series, Lenovo ThinkStation — 2014 or newer.",
+      "8GB RAM minimum.",
+      "Include power cable and keyboard if possible.",
+    ],
+  },
+  {
+    rank: "03",
+    name: "Mini PCs",
+    note: "Excellent for home server builds. Low power, small footprint.",
+    items: [
+      "Intel NUC, Beelink, HP EliteDesk Mini — 2016 or newer.",
+      "4GB RAM minimum. 8GB preferred.",
+      "Include power adapter if you have it.",
+    ],
+  },
+  {
+    rank: "04",
+    name: "Old Gaming Desktops",
+    note: "Powerful and often donated when someone upgrades. Any tower works.",
+    items: [
+      "Any mid-tower or full tower from 2014 or newer.",
+      "8GB RAM minimum.",
+      "Dedicated GPU not required — onboard graphics is fine.",
+    ],
+  },
+  {
+    rank: "05",
+    name: "Tablets",
+    note: "Limited use. Can't run full Linux, but useful for basic training.",
+    items: [
+      "Android tablets from 2018 or newer preferred.",
+      "iPad accepted — limited Linux compatibility, still useful.",
+      "Include charger and any accessories.",
+    ],
+  },
+];
+
+const accessories = [
   "USB drives (8GB or larger).",
   "USB-to-Ethernet adapters.",
   "Power bricks and cables for common laptop models.",
@@ -109,19 +161,62 @@ export default function Donate() {
           A refurbished ThinkPad or Dell from 2015 or newer runs Linux well.
           Wipe it or don't — we handle that on event day.
         </p>
-        <ul style={{
-          listStyle: "none", padding: 0, margin: "28px 0 0",
-          display: "flex", flexDirection: "column", gap: 14, maxWidth: "52ch",
-        }}>
-          {hardware.map((item, i) => (
-            <li key={i} style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 12, alignItems: "baseline" }}>
-              <Diamond size={9} style={{ paddingTop: 2 }} />
-              <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 15, color: "var(--tfm-near-black)", lineHeight: 1.55 }}>
-                {item}
-              </span>
-            </li>
+        <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 36 }}>
+          {hardwareTiers.map((tier) => (
+            <div key={tier.rank}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 6 }}>
+                <span style={{
+                  fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 13,
+                  color: "var(--tfm-deep-gold)", lineHeight: 1, minWidth: 20,
+                }}>
+                  {tier.rank}
+                </span>
+                <span style={{
+                  fontFamily: "var(--tfm-sans)", fontSize: 15, fontWeight: 600,
+                  color: "var(--tfm-near-black)", letterSpacing: "0.01em",
+                }}>
+                  {tier.name}
+                </span>
+              </div>
+              <p style={{
+                fontFamily: "var(--tfm-sans)", fontStyle: "italic", fontSize: 13,
+                color: "var(--tfm-warm-brown)", margin: "0 0 12px", paddingLeft: 34,
+              }}>
+                {tier.note}
+              </p>
+              <ul style={{ listStyle: "none", padding: "0 0 0 34px", margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+                {tier.items.map((item, i) => (
+                  <li key={i} style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 10, alignItems: "baseline" }}>
+                    <Diamond size={8} style={{ paddingTop: 2 }} />
+                    <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, color: "var(--tfm-near-black)", lineHeight: 1.55 }}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
+
+        {/* Accessories */}
+        <div style={{ marginTop: 36 }}>
+          <div style={{
+            fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.20em",
+            textTransform: "uppercase", color: "var(--tfm-gold-muted)", marginBottom: 14,
+          }}>
+            Also needed
+          </div>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+            {accessories.map((item, i) => (
+              <li key={i} style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 12, alignItems: "baseline" }}>
+                <Diamond size={8} style={{ paddingTop: 2 }} />
+                <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, color: "var(--tfm-near-black)", lineHeight: 1.55 }}>
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Hardware contact */}
         <div style={{ marginTop: 40 }}>
