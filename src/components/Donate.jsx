@@ -167,9 +167,10 @@ export default function Donate() {
           fontFamily: "var(--tfm-sans)", fontSize: 16, lineHeight: 1.7,
           color: "var(--tfm-warm-brown)", maxWidth: "62ch", marginTop: 20,
         }}>
-          Every Install Party needs machines for people who show up without one.
-          A refurbished ThinkPad or Dell from 2015 or newer runs Linux well.
-          Wipe it or don't — we handle that on event day.
+          Without donated hardware, someone shows up to an Install Party with nothing
+          and leaves the same way. With it, they leave with a machine they own. Every
+          refurbished ThinkPad or Dell from 2015 or newer is a reason for someone to
+          walk through the door.
         </p>
         <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 36 }}>
           {hardwareTiers.map((tier) => (
@@ -272,6 +273,58 @@ export default function Donate() {
           Your donation funds the materials, the drives, and the next room full of
           people who don't know yet that this is possible.
         </p>
+      </div>
+
+      {/* Impact block */}
+      <div style={{ marginTop: 40, border: "1px solid var(--tfm-parchment-edge)" }}>
+        {/* Column headers */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+          <div style={{
+            background: "var(--tfm-near-black)",
+            padding: "14px 24px",
+            fontFamily: "var(--tfm-sans)", fontSize: 10, fontWeight: 400,
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            color: "rgba(244,240,230,0.5)",
+          }}>
+            Without your donation
+          </div>
+          <div style={{
+            background: "var(--tfm-parchment-card)",
+            padding: "14px 24px",
+            borderLeft: "1px solid var(--tfm-parchment-edge)",
+            fontFamily: "var(--tfm-sans)", fontSize: 10, fontWeight: 400,
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+          }}>
+            With your donation
+          </div>
+        </div>
+        {/* Rows */}
+        {[
+          ["We can't give a free laptop.", "Someone leaves with a machine they own."],
+          ["We can't build homelabs.", "More people reach Level 2 and 3."],
+          ["We can't train the next wave.", "The Great Commission keeps moving."],
+        ].map(([without, with_], i) => (
+          <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderTop: "1px solid rgba(244,240,230,0.08)" }}>
+            <div style={{
+              background: "var(--tfm-near-black)",
+              padding: "18px 24px",
+              fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.5,
+              color: "var(--tfm-parchment)",
+            }}>
+              {without}
+            </div>
+            <div style={{
+              background: "var(--tfm-parchment-card)",
+              padding: "18px 24px",
+              borderLeft: "1px solid var(--tfm-parchment-edge)",
+              fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.5,
+              color: "var(--tfm-near-black)",
+            }}>
+              {with_}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Giving Tiers */}
