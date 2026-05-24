@@ -3,7 +3,7 @@ import { Eyebrow, Rule, Proclamation, Diamond, LEVELS } from './Atoms.jsx';
 
 const LEVEL_COPY = [
   { steps: ["Install Linux on a real machine.", "Replace one cloud account.", "Leave the room with a working laptop."],
-    blurb: "The first event. Three hours. You walk in and walk out with a laptop you actually own — made possible by people who donated machines so someone else could have a first one." },
+    blurb: "The first event. Three hours. You walk in and walk out with a laptop you actually own. Made possible by people who donated machines so someone else could have a first one." },
   { steps: ["Learn to navigate the terminal.", "Understand what sudo means and when to use it.", "Install software without a mouse."],
     blurb: "The why behind the how. Stewardship, sovereignty, surveillance, and the long arc of how we got here." },
   { steps: ["Stand up a home server.", "Self-host your photos and files.", "Cut your last consumer cloud account."],

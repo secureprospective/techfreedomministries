@@ -5,7 +5,7 @@ export default function About() {
   const is = [
     "A faith-backed nonprofit.",
     "A free, in-person Linux event in your city.",
-    "A four-level member journey — earned, never bought.",
+    "A four-level member journey. Earned, never bought.",
     "A community of teachers who were once students.",
     "Open to anyone, regardless of background or belief.",
   ];

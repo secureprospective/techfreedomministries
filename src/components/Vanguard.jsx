@@ -28,7 +28,7 @@ const labelStyle = {
 };
 
 const expected = [
-  "Level 3 — The Homestead — complete.",
+  "Level 3: The Homestead. Complete.",
   "Minimum 2 events per year. Show up and teach.",
   "Complete the TFM Field Manual at your own pace.",
   "Be reachable between events for people in your city.",
@@ -86,7 +86,7 @@ export default function Vanguard() {
         fontFamily: "var(--tfm-sans)", fontSize: 16, lineHeight: 1.7,
         color: "var(--tfm-warm-brown)", maxWidth: "64ch", marginTop: 20,
       }}>
-        A Vanguard is the person who has been where the new student is — and came back.
+        A Vanguard is the person who has been where the new student is. And came back.
       </p>
 
       <div style={{ width: "100%", height: 1, background: "var(--tfm-parchment-edge)", margin: "60px 0" }} />
@@ -199,7 +199,7 @@ export default function Vanguard() {
               style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
             >
               <option value="">Select one</option>
-              <option value="new">New to Linux — just getting started</option>
+              <option value="new">New to Linux. Just getting started.</option>
               <option value="home">Used it at home for a while</option>
               <option value="daily">Daily driver for over a year</option>
               <option value="pro">I run servers or contribute to FOSS projects</option>

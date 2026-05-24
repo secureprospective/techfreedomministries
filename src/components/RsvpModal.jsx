@@ -100,7 +100,7 @@ export default function RsvpModal({ event, onClose }) {
               <Field label="Your name"  value={name}  onChange={setName}  placeholder="Christopher Campbell" />
               <Field label="Email"      value={email} onChange={setEmail} placeholder="you@example.org" type="email" />
               <Field label="Why are you coming?" value={why} onChange={setWhy} type="textarea"
-                placeholder="One or two sentences — optional." />
+                placeholder="One or two sentences. Optional." />
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 28 }}>
               <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 12, color: "var(--tfm-warm-brown-soft)" }}>
