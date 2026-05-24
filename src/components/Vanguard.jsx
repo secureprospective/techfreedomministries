@@ -28,15 +28,16 @@ const labelStyle = {
 };
 
 const expected = [
-  "Minimum 2 events per year — show up and teach.",
+  "Level 3 — The Homestead — complete.",
+  "Minimum 2 events per year. Show up and teach.",
   "Complete the TFM Field Manual at your own pace.",
-  "Answer questions from your community cohort.",
+  "Be reachable between events for people in your city.",
 ];
 
 const benefits = [
   "Your name on the Roadmap cards you hand out.",
-  "Vanguard credential card — hard stock, gold accent.",
-  "Community access: early event intel, coordination channel.",
+  "A Vanguard credential card. Hard stock, gold accent.",
+  "Early access to event intel and the Vanguard coordination channel.",
   "First Vanguard in your city if no one else is there yet.",
 ];
 
@@ -84,9 +85,7 @@ export default function Vanguard() {
         fontFamily: "var(--tfm-sans)", fontSize: 16, lineHeight: 1.7,
         color: "var(--tfm-warm-brown)", maxWidth: "64ch", marginTop: 20,
       }}>
-        Tech Freedom Ministries is what happens when that knowledge gets aimed at
-        something that matters. A Vanguard is the person who has been where the
-        new student is — and came back.
+        A Vanguard is the person who has been where the new student is — and came back.
       </p>
 
       <div style={{ width: "100%", height: 1, background: "var(--tfm-parchment-edge)", margin: "60px 0" }} />
@@ -206,7 +205,7 @@ export default function Vanguard() {
             </select>
           </div>
           <div>
-            <Button type="submit">Submit application</Button>
+            <Button type="submit">Apply to be a Vanguard</Button>
           </div>
           {error && (
             <p style={{
