@@ -137,10 +137,10 @@ export default function Donate() {
           }}>
             Email us at{" "}
             <a
-              href="mailto:hardware@techfreedomministries.com"
+              href="mailto:techfreedomministries@proton.me"
               style={{ color: "var(--tfm-deep-gold)", textDecoration: "none", borderBottom: "1px solid rgba(139,105,20,.35)" }}
             >
-              hardware@techfreedomministries.com
+              techfreedomministries@proton.me
             </a>
             . Tell us what you have and where you are. We will coordinate pickup
             or a ship-to address for the next event in your area.
