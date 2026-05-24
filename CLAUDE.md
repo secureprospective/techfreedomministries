@@ -20,7 +20,7 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/styling-pass)
+## Actual Repo Structure (Clean — as of session/mobile-logo-swap)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
@@ -30,6 +30,11 @@ techfreedomministries/
 ├── node_modules/           — dependencies (gitignored)
 ├── public/
 │   ├── assets/             — logo files served at /assets/ (canonical location)
+│   │   ├── tfm-logo-nearblack.png
+│   │   ├── tfm-logo-on-dark.png
+│   │   ├── tfm-logo-on-parchment.png
+│   │   ├── tfm-logo-on-white.png
+│   │   └── tfm-logo-on-white-zero.png  — mobile header logo mark (Session 9)
 │   ├── fonts/              — self-hosted EB Garamond (canonical location)
 │   └── _headers            — Cloudflare headers config (canonical location)
 ├── src/
@@ -37,27 +42,27 @@ techfreedomministries/
 │   │   ├── About.jsx
 │   │   ├── Atoms.jsx       — primitive components, exported as named exports
 │   │   ├── BrevoSignup.jsx — email capture widget (footer, every page — Brevo list 3)
-│   │   ├── Donate.jsx      — give page: three tiers + placeholder button
-│   │   ├── EventCard.jsx
+│   │   ├── Donate.jsx      — give page: 6-section Studio layout, TODO: STRIPE + TODO: 501C3 markers
+│   │   ├── EventCard.jsx   — mobile className hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action
 │   │   ├── EventsList.jsx  — single Install Party placeholder (real data TBD)
 │   │   ├── Footer.jsx      — legacy, not used by Astro (nav/footer in Layout.astro)
-│   │   ├── Hero.jsx
+│   │   ├── Hero.jsx        — two-column flex layout, MOBILE_STYLES const, dissolution hook
 │   │   ├── Nav.jsx         — legacy, not used by Astro (nav/footer in Layout.astro)
 │   │   ├── Oath.jsx
-│   │   ├── Roadmap.jsx
+│   │   ├── Roadmap.jsx     — mobile className hooks: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout
 │   │   ├── RsvpModal.jsx
-│   │   └── Vanguard.jsx    — recruit page: cards + application form (Formspree mvzyorgw — live)
+│   │   └── Vanguard.jsx    — Studio redesign; application now mailto: vanguard@techfreedomministries.com (Formspree removed)
 │   ├── env.d.ts
 │   ├── layouts/
-│   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot
+│   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot + mobile nav CSS
 │   ├── pages/
-│   │   ├── index.astro     — home page (Hero + events preview + Roadmap + CTA)
+│   │   ├── index.astro     — home page (Hero + events preview + Roadmap + CTA + mobile explainer fix)
 │   │   ├── events.astro    — full events list
 │   │   ├── roadmap.astro   — four level cards
 │   │   ├── oath.astro      — Vanguard Oath
 │   │   ├── about.astro     — TFM is/isn't
-│   │   ├── vanguard.astro  — Vanguard recruit page (real)
-│   │   └── donate.astro    — Give page (real — button placeholder until EIN)
+│   │   ├── vanguard.astro  — Vanguard recruit page
+│   │   └── donate.astro    — Give page (button placeholder until EIN)
 │   └── styles/
 │       ├── fonts.css       — self-hosted @font-face rules (no CDN)
 │       ├── tokens.css      — CSS custom properties (single source of truth)
@@ -81,10 +86,11 @@ Phase 1 (site foundation): COMPLETE
 Phase 2 (home page): COMPLETE
 Phase 3 (events page): COMPLETE (Install Party placeholder — real data TBD)
 Phase 4 (roadmap page): COMPLETE
-Phase 5 (vanguard page): COMPLETE (Formspree mvzyorgw — live and confirmed)
-Phase 6 (donate page): COMPLETE (donate button is a placeholder — wire once EIN arrives)
-Phase 7 (integrations): COMPLETE — Formspree + Brevo live and confirmed
+Phase 5 (vanguard page): COMPLETE (Formspree form replaced by email CTA in Session 9)
+Phase 6 (donate page): COMPLETE (donate button placeholder until EIN — TODO: STRIPE markers in Donate.jsx)
+Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no longer in Vanguard UI
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
+Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
@@ -135,7 +141,9 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
-| Wire RsvpModal to Formspree | High | Needs separate endpoint from Vanguard form (mvzyorgw) |
+| Mobile pass — Vanguard + Donate sections | High | Both pages still have 64-72px horizontal padding and unbreakpointed multi-column grids |
+| Vanguard application — confirm email-only | High | Formspree form (mvzyorgw) removed in Studio redesign. Confirm email CTA is intentional or re-wire |
+| Wire RsvpModal to Formspree | Medium | Events RSVP form goes nowhere. Needs new Formspree endpoint (old mvzyorgw was Vanguard) |
 | Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
 | Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
 | Delete legacy files | Low | Root `assets/` and root `_headers` — confirm live site clean first |

@@ -9,17 +9,17 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-24 — Session 8 (Gilded Spine theme + accent system)
+**Last updated:** 2026-05-24 — Session 9 (Studio component redesigns + mobile responsiveness)
 
 **Live URL:** https://techfreedomministries.org
 **Redirect:** techfreedomministries.com → techfreedomministries.org (301, all variants — naked + www)
 **Repo:** https://github.com/secureprospective/techfreedomministries
-**Active branch:** main (session/styling-pass merged)
+**Active branch:** main
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
 
 ---
 
-## Stack (As of Session 7)
+## Stack (As of Session 9)
 
 | Item | Spec (TFM_09) | Actual |
 |---|---|---|
@@ -31,7 +31,7 @@ Full session history is in git log.
 | Deployment | Astro build → dist/ | dist/ output — Cloudflare config confirmed ✓ |
 | Build command | npm run build | ✓ — 7 pages, clean build |
 | Build output dir | dist/ | dist/ ✓ |
-| Formspree | Vanguard application form | Live — endpoint mvzyorgw ✓ |
+| Formspree | Vanguard application form | ⚠️ REPLACED — Vanguard now uses email CTA (vanguard@techfreedomministries.com). Formspree endpoint mvzyorgw no longer active in the UI. |
 | Brevo | Email capture (footer) | Live — list ID 3, env vars in Cloudflare ✓ |
 | Node version | Pinned | .nvmrc → 20 ✓ |
 | Domain | techfreedomministries.org | .com redirects 301 to .org — all variants ✓ |
@@ -42,13 +42,13 @@ Full session history is in git log.
 
 | Page | TFM_09 Spec | Built | Route | Status |
 |---|---|---|---|---|
-| Home | ✓ | ✓ | `/` | Complete ✓ — copy locked, narrative pass done |
+| Home | ✓ | ✓ | `/` | Complete ✓ — mobile responsive |
 | Events | ✓ | ✓ | `/events` | Placeholder ✓ — real data TBD |
-| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ — copy locked, narrative pass done |
-| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Formspree live, copy locked |
-| Donate | ✓ | ✓ | `/donate` | Complete ✓ — hardware-first restructure, button placeholder until EIN |
+| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ — mobile responsive |
+| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Studio redesign, email CTA |
+| Donate | ✓ | ✓ | `/donate` | Complete ✓ — Studio redesign, button placeholder until EIN |
 | The Oath | Not in spec | ✓ | `/oath` | Built (not in nav) |
-| About | Not in spec | ✓ | `/about` | Complete ✓ — copy locked |
+| About | Not in spec | ✓ | `/about` | Complete ✓ |
 
 ---
 
@@ -56,7 +56,62 @@ Full session history is in git log.
 
 `EVENTS ◆ ROADMAP ◆ VANGUARD ◆ GIVE` — per TFM_09 spec.
 
+Mobile nav: logo mark (tfm-logo-on-white-zero.png) left, four links right, diamonds hidden, CTA hidden.
+
 The Oath and About exist at `/oath` and `/about` but are not in the main nav.
+
+---
+
+## Session 9 — What Changed
+
+**Studio component redesigns (two-AI loop: Claude.ai visual direction + Claude Code implementation):**
+
+Hero.jsx — full replacement:
+- Two-column flex layout: HeroLeft (copy) + HeroRight (dark bg, logo, Brackets scripture stamp)
+- Eyebrow: gold rule span + mixed-case statement ("Your laptop. Their data. Not for long.")
+- Logo: tfm-logo-on-dark.png, data-tfm-animate="dissolution" (Three.js hook — implementation deferred)
+- MOBILE_STYLES const: flex-direction column, padding collapse, h1 → 32px, CTA buttons stacked
+
+Vanguard.jsx — full replacement:
+- Dark leather hero section with credential stamp (Brackets component)
+- "What Vanguard Means" — three numbered gilt-edge cards
+- "How You Get Here" — four numbered steps list
+- Conditional roster grid (ROSTER array — hidden until populated)
+- Dark leather Apply section with conditions list + email CTA
+- **Formspree application form removed** — replaced by mailto: vanguard@techfreedomministries.com
+- zIndex: 0 on s.page (stacking context fix for sticky header)
+
+Donate.jsx — full replacement:
+- Six-section layout: Hero, LoopSection, HardwareSection, CashSection, NotDoingSection, CloseSection
+- Hardware-first hierarchy throughout all sections
+- TODO: STRIPE markers on all three cash tier buttons
+- TODO: 501C3 disclosure block pending EIN
+- zIndex: 0 on outermost div (stacking context fix for sticky header)
+
+EventCard.jsx — redesign with mobile className hooks:
+- className="tfm-ec-grid" — three-column grid with mobile collapse
+- className="tfm-ec-date" — date stamp with mobile horizontal reflow
+- className="tfm-ec-day" — day number with mobile font-size override
+- className="tfm-ec-action" — RSVP button full-width on mobile
+
+Roadmap.jsx — redesign with mobile className hooks:
+- className="tfm-rm-level-card" — three-column grid with mobile single-column collapse
+- className="tfm-rm-level-name" — level name with mobile font-size override
+- className="tfm-rm-callout" — completion callout maintained full-width
+
+**Mobile responsiveness pass:**
+
+Layout.astro additions:
+- Mobile nav CSS block: header fixed, logo mark shown, ornament/wordmark hidden, nav compact row, CTA hidden, body offset 48px
+- `<img class="header-logo-mark" />` added as first child of .colophon-link
+- Mobile logo: tfm-logo-on-white-zero.png (new asset, copied to public/assets/)
+- Footer mobile CSS: single column, centered, tighter padding
+- `overflow-x: hidden` moved from `body` to `html` (fixes position: sticky clipping on Vanguard/Donate)
+
+index.astro:
+- `.explainer-steps` — `grid-template-columns: 1fr` at max-width: 768px
+
+New asset: `public/assets/tfm-logo-on-white-zero.png`
 
 ---
 
@@ -65,49 +120,16 @@ The Oath and About exist at `/oath` and `/about` but are not in the main nav.
 **Gilded Spine theme (two-AI loop: Claude.ai visual direction + Claude Code implementation):**
 
 Accent system — `src/styles/accents.css` (new file):
-- `.tfm-ledger-rule` — 1px parchment-edge rule under all section-opening H2s
-- `.tfm-ref-mark` — ◆ glyph before doctrinal content (Galatians, Oath)
-- `.tfm-stamp` / corner span system — 4-corner certification frame
-- `.tfm-gilt-edge` — gold gradient right edge on all cards
+- `.tfm-ledger-rule`, `.tfm-ref-mark`, `.tfm-stamp` / corner span system, `.tfm-gilt-edge`
 
 Signature elements:
-- Dark leather header (`#2A1F0E`) with crosshatch texture and gold seam border
-- Colophon: fading gold rules ◆ rules + "TECH FREEDOM MINISTRIES" in Cinzel (20px)
-- Crimson ribbon bookmark — fixed right edge, 216px, pointed bottom, scrolls fixed
-- Gold spine strip — fixed left edge, full viewport height, gold gradient
+- Dark leather header, colophon (Cinzel 20px), crimson ribbon bookmark, gold spine strip
 
-Extended theme:
-- Hemp page texture on body (barely-visible woven grid)
-- Gilt edge on all Card components + Roadmap level articles
-- Vanguard "What You Get" — Brackets component with gold border (credential frame)
-- Roadmap level callouts — one per level, bold italic declarative copy in level color
-- Roadmap + Atoms.jsx: `Proclamation` now accepts `className` prop
+Extended theme: hemp texture, gilt card edges, Brackets credential frame, level callouts
 
 New tokens: `--tfm-leather`, `--tfm-leather-mid`, `--tfm-crimson`, `--tfm-crimson-deep`, `--tfm-gilt`, `--tfm-gilt-deep`, `--tfm-cinzel`
 
 New doc: `docs/TFM_11_BIBLE_THEME.md` — canonical Gilded Spine theme record
-
----
-
-## Session 7 — What Changed
-
-**Copy rewrite (Claude.ai loop — one page, one commit):**
-- Home: CTA button order, email capture headline, debug label removed
-- About: new headline, body, both card lists (layer jargon removed, plain language)
-- Roadmap: hero body split, Level 2 milestones rewritten as skills, Level 4 close tightened
-- Vanguard: hero body, Level 3 gate moved to card, button label, cards cleaned
-- Donate: full restructure — hardware-first hierarchy, 6-tier hardware list with specs, SBCs added, impact block, stakes-first body
-
-**Narrative pass (hardware donation loop woven through all pages):**
-- Home Step 1: "Bring your laptop" → conditional offer, hardware pool mentioned
-- Home CTA band: body added (hardware-first ask), CTAs route to donate anchors
-- Roadmap Level 1: donation chain acknowledged in the promise
-- Roadmap Level 3: TFM hardware pool mentioned for home server builds
-- Vanguard What You Get: hardware coordination support added as item 4
-
-**Em dash purge:**
-- 13 instances removed from visitor-facing copy across 6 files
-- Left unchanged: Galatians attribution, What TFM Isn't bullet marker, page title tags
 
 ---
 
@@ -123,12 +145,7 @@ The self-feeding loop:
 4. Student becomes a Vanguard, runs their own events
 5. Those events need hardware — loop restarts
 
-Hardware feeds all four Roadmap levels, not just Level 1:
-- Level 1: The donated machine someone leaves with
-- Level 2: The terminal they learn on
-- Level 3: The home server built from donated SBCs/mini PCs
-- Level 4: The machines a Vanguard needs to run their own Exodus event
-
+Hardware feeds all four Roadmap levels, not just Level 1.
 Contact for hardware donations: techfreedomministries@proton.me
 
 ---
@@ -137,11 +154,14 @@ Contact for hardware donations: techfreedomministries@proton.me
 
 | Issue | Priority | Detail |
 |---|---|---|
-| No EIN / donate button disabled | High | Swap placeholder in `src/components/Donate.jsx` for Stripe/PayPal link once 501(c)(3) filed. |
+| No EIN / donate button disabled | High | TODO: STRIPE markers in `src/components/Donate.jsx` — swap for Stripe/PayPal once 501(c)(3) filed. |
 | Install Party details TBD | High | `src/components/EventsList.jsx` — replace TBD fields with real date, venue, city before launch. |
-| No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree endpoint (separate from Vanguard). |
+| Vanguard application — email only | High | Formspree form (mvzyorgw) removed in Studio redesign. Now mailto: vanguard@techfreedomministries.com. Re-wire to Formspree if form submission tracking is needed. |
+| No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree endpoint (separate from old Vanguard endpoint). |
 | Brevo API key exposed in bundle | Medium | Key is not in repo but is visible in browser JS bundle. Deferred to security upgrade session. |
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
+| Mobile — remaining pages | Medium | Vanguard and Donate pages need full mobile pass (sections still have 64-72px horizontal padding, multi-column grids not yet collapsed on mobile). |
+| Cinzel font (Google CDN) | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy. |
 | assets/ at repo root | Low | Canonical location is public/assets/. Root assets/ can be deleted once confirmed. |
 | _headers at repo root | Low | Canonical location is public/_headers. Root _headers can be deleted once confirmed. |
 
@@ -150,13 +170,15 @@ Contact for hardware donations: techfreedomministries@proton.me
 ## What Comes Next (In Order)
 
 1. Fill in Install Party details in `src/components/EventsList.jsx` (date, venue, city)
-2. Wire RsvpModal to Formspree (separate endpoint from Vanguard)
-3. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
-4. Wire donate button — swap placeholder for Stripe/PayPal link once EIN arrives
-5. Add EIN to footer once 501(c)(3) is filed
-6. Delete legacy files: root assets/, root _headers (after confirming live site is clean)
+2. Mobile pass — Vanguard and Donate page sections (padding, multi-column grids)
+3. Re-wire Vanguard application to Formspree (or confirm email-only is intentional)
+4. Wire RsvpModal to Formspree (new endpoint — old endpoint was Vanguard)
+5. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
+6. Wire donate button — swap TODO: STRIPE placeholders once EIN arrives
+7. Add EIN to footer once 501(c)(3) is filed
+8. Delete legacy files: root assets/, root _headers (after confirming live site is clean)
 
 ---
 
-*Last updated: 2026-05-24 — Session 7*
+*Last updated: 2026-05-24 — Session 9*
 *Built by: Christopher Campbell + Claude (Anthropic)*
