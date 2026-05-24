@@ -261,6 +261,37 @@ export function Icon({ name, size = 16, color = "currentColor", style }) {
   );
 }
 
+/* ---------- GiltCard — 3-side parchment border, gilt-gradient right edge ---------- */
+export function GiltCard({ children, style }) {
+  return (
+    <div style={{
+      backgroundColor: "var(--tfm-parchment)",
+      borderTop: "1px solid var(--tfm-parchment-edge)",
+      borderBottom: "1px solid var(--tfm-parchment-edge)",
+      borderLeft: "1px solid var(--tfm-parchment-edge)",
+      borderRight: "2px solid transparent",
+      borderImage: "linear-gradient(180deg, var(--tfm-gold-bright), var(--tfm-gold-deep), var(--tfm-gold-bright)) 1",
+      padding: "28px 24px",
+      ...style,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+/* ---------- SectionEyebrow — 40px gold rule + eyebrow label ---------- */
+export function SectionEyebrow({ children }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <span
+        style={{ display: "block", width: 40, height: 1, backgroundColor: "var(--tfm-gold-bright)", flexShrink: 0 }}
+        aria-hidden="true"
+      />
+      <Eyebrow>{children}</Eyebrow>
+    </div>
+  );
+}
+
 /* ---------- Card ---------- */
 export function Card({ children, hover: hoverable = true, style }) {
   const [hover, setHover] = useState(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eyebrow, Rule, Diamond, Proclamation, Brackets, Icon } from './Atoms.jsx';
+import { Eyebrow, Rule, Diamond, Proclamation, Brackets, Icon, GiltCard, SectionEyebrow } from './Atoms.jsx';
 
 // Vanguard roster — replace with real data when first members are confirmed.
 // When this array is empty the roster section does not render.
@@ -48,35 +48,6 @@ const s = {
     flexShrink: 0,
   },
 };
-
-// ── Sub-components ────────────────────────────────────────────────────────────
-
-function SectionEyebrow({ children }) {
-  return (
-    <div style={s.eyebrowRow}>
-      <span style={s.eyebrowRule} aria-hidden="true" />
-      <Eyebrow>{children}</Eyebrow>
-    </div>
-  );
-}
-
-// Gilt-edge card: 1px border on three sides, 2px gold-gradient on right
-function GiltCard({ children, style }) {
-  return (
-    <div style={{
-      backgroundColor: "var(--tfm-parchment)",
-      borderTop: "1px solid var(--tfm-parchment-edge)",
-      borderBottom: "1px solid var(--tfm-parchment-edge)",
-      borderLeft: "1px solid var(--tfm-parchment-edge)",
-      borderRight: "2px solid transparent",
-      borderImage: "linear-gradient(180deg, var(--tfm-gold-bright), var(--tfm-gold-deep), var(--tfm-gold-bright)) 1",
-      padding: "28px 24px",
-      ...style,
-    }}>
-      {children}
-    </div>
-  );
-}
 
 // ── Section: Hero ─────────────────────────────────────────────────────────────
 

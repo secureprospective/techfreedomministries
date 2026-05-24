@@ -80,29 +80,6 @@ const MOBILE_STYLES = `
   }
 `;
 
-// ── Sub-components ────────────────────────────────────────────────────────────
-
-// ColophonOrnament: centered diamond flanked by fading rules.
-// Matches the colophon in Layout.astro — used here only if the Hero is
-// rendered standalone (e.g. Storybook). In production, Layout owns this.
-function ColophonOrnament() {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      <div style={{
-        width: 48,
-        height: 1,
-        background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))",
-      }} />
-      <Diamond size={10} color="var(--tfm-gold-bright)" />
-      <div style={{
-        width: 48,
-        height: 1,
-        background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))",
-      }} />
-    </div>
-  );
-}
-
 // ── Left column: copy ─────────────────────────────────────────────────────────
 
 function HeroLeft() {

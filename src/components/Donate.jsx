@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eyebrow, Rule, Diamond, Proclamation } from './Atoms.jsx';
+import { Eyebrow, Rule, Diamond, Proclamation, GiltCard, SectionEyebrow } from './Atoms.jsx';
 
 // ── Notes ─────────────────────────────────────────────────────────────────────
 //
@@ -61,20 +61,6 @@ const s = {
     margin: "20px 0 0",
   },
 
-  // Gilt-edge card — 1px border three sides, 2px gold-gradient right edge
-  giltCard: {
-    backgroundColor: "var(--tfm-parchment)",
-    borderTop: "1px solid var(--tfm-parchment-edge)",
-    borderBottom: "1px solid var(--tfm-parchment-edge)",
-    borderLeft: "1px solid var(--tfm-parchment-edge)",
-    borderRight: "2px solid transparent",
-    borderImage: "linear-gradient(180deg, var(--tfm-gold-bright), var(--tfm-gold-deep), var(--tfm-gold-bright)) 1",
-    padding: "28px 24px",
-    display: "flex",
-    flexDirection: "column",
-    gap: 12,
-  },
-
   bodyText: {
     fontFamily: "var(--tfm-sans)",
     fontSize: 15,
@@ -116,33 +102,6 @@ const s = {
     whiteSpace: "nowrap",
   },
 };
-
-// ── Sub-components ────────────────────────────────────────────────────────────
-
-function SectionEyebrow({ children, dark = false }) {
-  return (
-    <div style={s.eyebrowRow}>
-      <span
-        style={{
-          ...s.eyebrowRule,
-          backgroundColor: dark ? "var(--tfm-gold-bright)" : "var(--tfm-gold-bright)",
-        }}
-        aria-hidden="true"
-      />
-      <Eyebrow color={dark ? "var(--tfm-gold-muted)" : undefined}>
-        {children}
-      </Eyebrow>
-    </div>
-  );
-}
-
-function GiltCard({ children, style }) {
-  return (
-    <div style={{ ...s.giltCard, ...style }}>
-      {children}
-    </div>
-  );
-}
 
 // ── Section: Hero ─────────────────────────────────────────────────────────────
 
@@ -480,7 +439,7 @@ function CashSection() {
       {/* Three tier cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
         {tiers.map((tier) => (
-          <GiltCard key={tier.amount}>
+          <GiltCard key={tier.amount} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {/* Amount */}
             <div style={{
               fontFamily: "var(--tfm-serif)",
