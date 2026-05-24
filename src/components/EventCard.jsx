@@ -123,7 +123,7 @@ export default function EventCard({ event, onRsvp }) {
                 {event.duration}
               </span>
               <Diamond size={7} />
-              <span style={{ color: "var(--tfm-deep-gold)", fontWeight: 500 }}>Free</span>
+              <span style={{ color: "var(--tfm-gold-deep)", fontWeight: 500 }}>Free</span>
             </div>
           </div>
 

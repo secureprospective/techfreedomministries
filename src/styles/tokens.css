@@ -26,12 +26,6 @@
   --tfm-serif: "EB Garamond", Georgia, serif;
   --tfm-sans: Inter, system-ui, sans-serif;
 
-  /* Aliases — components use both naming conventions */
-  --tfm-deep-gold: #8B6914;
-  --tfm-muted-gold: #8B7355;
-  --tfm-bright-gold: #C4A84A;
-  --tfm-parchment-2: #ECE6D6;
-  --tfm-mono: 'Courier New', Courier, monospace;
 
   /* Gilded Spine theme tokens */
   --tfm-leather: #2A1F0E;

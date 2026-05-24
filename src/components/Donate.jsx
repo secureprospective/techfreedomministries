@@ -167,7 +167,7 @@ function HeroSection() {
         <span style={{ fontWeight: 700, color: "var(--tfm-near-black)", display: "block" }}>
           We cannot give free laptops
         </span>
-        <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-deep-gold)", display: "block", marginTop: 6 }}>
+        <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-gold-deep)", display: "block", marginTop: 6 }}>
           without hardware you no longer need.
         </em>
       </h1>
@@ -513,7 +513,7 @@ function CashSection() {
                 fontSize: 10,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "var(--tfm-deep-gold)",
+                color: "var(--tfm-gold-deep)",
                 backgroundColor: "transparent",
                 border: "1px solid var(--tfm-gold-bright)",
                 padding: "10px 18px",

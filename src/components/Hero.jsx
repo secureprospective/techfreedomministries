@@ -162,7 +162,7 @@ function HeroLeft() {
         <em style={{
           fontWeight: 400,
           fontStyle: "italic",
-          color: "var(--tfm-deep-gold)",
+          color: "var(--tfm-gold-deep)",
           display: "block",
           marginTop: 4,
         }}>
@@ -218,7 +218,7 @@ function HeroLeft() {
             fontSize: 11,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--tfm-deep-gold)",
+            color: "var(--tfm-gold-deep)",
             backgroundColor: "transparent",
             border: "1px solid var(--tfm-gold-bright)",
             padding: "13px 28px",
@@ -300,7 +300,7 @@ function HeroRight() {
             fontSize: 11,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "var(--tfm-deep-gold)",
+            color: "var(--tfm-gold-deep)",
           }}>
             Galatians 5:1
           </span>

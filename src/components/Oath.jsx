@@ -14,7 +14,7 @@ export default function Oath() {
         style={{ textAlign: "center" }}
       />
       <div style={{ height: 28 }} />
-      <Brackets style={{ background: "var(--tfm-parchment-2)", padding: "48px 56px", textAlign: "left" }}>
+      <Brackets style={{ background: "var(--tfm-parchment-card)", padding: "48px 56px", textAlign: "left" }}>
         <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 26 }}>
           {[
             "I will not sell what was given to me freely.",
@@ -26,7 +26,7 @@ export default function Oath() {
             <li key={i} style={{ display: "grid", gridTemplateColumns: "40px 1fr", gap: 18, alignItems: "baseline" }}>
               <span style={{
                 fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 18,
-                color: "var(--tfm-deep-gold)", textAlign: "right",
+                color: "var(--tfm-gold-deep)", textAlign: "right",
               }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -49,7 +49,7 @@ export default function Oath() {
           "For freedom Christ has set us free; stand firm, therefore, and do not submit again to a yoke of slavery."
           <span style={{ display: "block", marginTop: 6, fontStyle: "normal",
             fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.20em",
-            textTransform: "uppercase", color: "var(--tfm-deep-gold)" }}>
+            textTransform: "uppercase", color: "var(--tfm-gold-deep)" }}>
             Galatians 5:1
           </span>
         </p>

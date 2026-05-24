@@ -77,7 +77,7 @@ export function Proclamation({ strong, italic, size = 44, as = "h2", style, clas
         style={{
           fontStyle: "italic",
           fontWeight: 400,
-          color: "var(--tfm-deep-gold)",
+          color: "var(--tfm-gold-deep)",
         }}
       >
         {italic}
@@ -145,7 +145,7 @@ export function GhostButton({ children, onClick, disabled, style }) {
         ...btnBase,
         background: "transparent",
         color: "var(--tfm-near-black)",
-        borderColor: hover ? "var(--tfm-deep-gold)" : "var(--tfm-parchment-edge)",
+        borderColor: hover ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)",
         opacity: disabled ? 0.45 : 1,
         transform: press ? "scale(0.99)" : "scale(1)",
         cursor: disabled ? "not-allowed" : "pointer",
@@ -172,7 +172,7 @@ export function LinkButton({ children, onClick, style }) {
         border: 0,
         padding: "0 0 2px",
         borderBottom: `1px solid ${hover ? "var(--tfm-near-black)" : "rgba(139,105,20,.35)"}`,
-        color: hover ? "var(--tfm-near-black)" : "var(--tfm-deep-gold)",
+        color: hover ? "var(--tfm-near-black)" : "var(--tfm-gold-deep)",
         cursor: "pointer",
         letterSpacing: "0.01em",
         transition: "all 220ms cubic-bezier(.2,0,.2,1)",
@@ -198,7 +198,7 @@ export function LevelBadge({ level, vanguard, style }) {
       <span style={{
         fontFamily: "var(--tfm-sans)", fontSize: 10, letterSpacing: "0.20em",
         textTransform: "uppercase", padding: "6px 14px", borderRadius: 999,
-        border: "1px solid var(--tfm-deep-gold)", color: "var(--tfm-deep-gold)",
+        border: "1px solid var(--tfm-gold-deep)", color: "var(--tfm-gold-deep)",
         background: "transparent", ...style,
       }}>Vanguard</span>
     );
@@ -223,10 +223,10 @@ export function Brackets({ children, padding = 28, style }) {
     width: armSize, height: armSize,
     [top ? "top" : "bottom"]: 10,
     [left ? "left" : "right"]: 10,
-    borderTop:    top  ? "1px solid var(--tfm-bright-gold)" : 0,
-    borderBottom: !top ? "1px solid var(--tfm-bright-gold)" : 0,
-    borderLeft:   left ? "1px solid var(--tfm-bright-gold)" : 0,
-    borderRight:  !left ? "1px solid var(--tfm-bright-gold)" : 0,
+    borderTop:    top  ? "1px solid var(--tfm-gold-bright)" : 0,
+    borderBottom: !top ? "1px solid var(--tfm-gold-bright)" : 0,
+    borderLeft:   left ? "1px solid var(--tfm-gold-bright)" : 0,
+    borderRight:  !left ? "1px solid var(--tfm-gold-bright)" : 0,
   });
   return (
     <div style={{ position: "relative", padding, ...style }}>
@@ -271,8 +271,8 @@ export function Card({ children, hover: hoverable = true, style }) {
       onMouseLeave={() => setHover(false)}
       style={{
         position: "relative",
-        background: "var(--tfm-parchment-2)",
-        border: `1px solid ${hover ? "var(--tfm-deep-gold)" : "var(--tfm-parchment-edge)"}`,
+        background: "var(--tfm-parchment-card)",
+        border: `1px solid ${hover ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)"}`,
         boxShadow: "0 1px 0 rgba(28,18,9,.04), 0 1px 2px rgba(28,18,9,.06)",
         padding: "22px 24px",
         transition: "border-color 220ms cubic-bezier(.2,0,.2,1)",

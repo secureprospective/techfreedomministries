@@ -22,7 +22,7 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
           fontFamily: "var(--tfm-sans)", fontSize: 14,
           padding: "11px 14px",
           background: "var(--tfm-parchment)",
-          border: `1px solid ${focus ? "var(--tfm-deep-gold)" : "var(--tfm-parchment-edge)"}`,
+          border: `1px solid ${focus ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)"}`,
           color: "var(--tfm-near-black)",
           borderRadius: 2, outline: "none",
           transition: "border-color 220ms cubic-bezier(.2,0,.2,1)",

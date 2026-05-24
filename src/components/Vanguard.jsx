@@ -178,7 +178,7 @@ function HeroSection() {
               fontSize: 11,
               letterSpacing: "0.20em",
               textTransform: "uppercase",
-              color: "var(--tfm-deep-gold)",
+              color: "var(--tfm-gold-deep)",
               border: "1px solid var(--tfm-gold-bright)",
               padding: "6px 18px",
             }}>

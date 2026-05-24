@@ -37,7 +37,7 @@ export default function BrevoSignup() {
       </div>
       <p style={{ fontFamily: 'var(--tfm-serif)', fontSize: 22, fontWeight: 700, color: 'var(--tfm-near-black)', lineHeight: 1.15, margin: '0 0 2px' }}>
         No events near you yet.{' '}
-        <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--tfm-deep-gold)' }}>Be first to know when that changes.</em>
+        <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--tfm-gold-deep)' }}>Be first to know when that changes.</em>
       </p>
       <label htmlFor="brevo-email" style={{ display: 'none' }}>Email address</label>
       <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
