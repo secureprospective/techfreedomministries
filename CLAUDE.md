@@ -84,6 +84,43 @@ Phase 5 (vanguard page): COMPLETE (Formspree mvzyorgw — live and confirmed)
 Phase 6 (donate page): COMPLETE (donate button is a placeholder — wire once EIN arrives)
 Phase 7 (integrations): COMPLETE — Formspree + Brevo live and confirmed
 
+## Hardware Donation Strategy — Read Before Any Donate or Events Work
+
+The primary donation ask is hardware, not cash. This is a strategic decision, not a secondary note.
+
+**The conditional promise:**
+TFM cannot guarantee a free laptop at every Install Party without a hardware supply.
+The correct framing is: "We can't give free laptops without your generosity."
+Never write copy that makes the free laptop a guarantee — it is a donation-enabled promise.
+
+**The self-feeding loop:**
+1. Donor gives obsolete hardware (what Big Tech deems obsolete = someone's first computer)
+2. TFM runs an Install Party — "free laptop for your time and attention" is the hook
+3. Student follows the Roadmap
+4. Student becomes a Vanguard, runs their own events
+5. Those events need hardware — the loop restarts
+
+**Hardware feeds all four Roadmap levels — not just Level 1:**
+- Level 1 (Exodus): The donated machine someone leaves with
+- Level 2 (Catechism): The terminal they learn on
+- Level 3 (Homestead): Home server built from donated SBCs or mini PCs
+- Level 4 (Great Commission): Machines a Vanguard needs to run their own Exodus event
+
+**The church/rural model:**
+A church anywhere can host TFM events if TFM can supply the hardware.
+The venue, community, and faith context are already there. TFM provides machines and model.
+This is how TFM scales without a central org running everything.
+
+**Hardware contact:** techfreedomministries@proton.me
+**Accepted hardware tiers (in priority order):**
+Laptops → Workstation PCs → Mini PCs → Old gaming desktops → Tablets → SBCs
+
+**Voice rule:**
+Lead with what is impossible without the donation. Then state what becomes possible with it.
+Never lead with specs. Stakes first, specs second.
+
+---
+
 ## Next Session — Real Event Data + RSVP
 
 Branch: session/event-data (suggested)
