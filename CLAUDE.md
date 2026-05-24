@@ -20,12 +20,11 @@ Local path: /mnt/storage/claudebox/techfreedomministries/
 
 ---
 
-## Actual Repo Structure (Clean — as of session/mobile-logo-swap)
+## Actual Repo Structure (Clean — as of session/full-code-audit)
 
 techfreedomministries/
 ├── CLAUDE.md               — this file
 ├── .astro/                 — Astro build cache (gitignored)
-├── assets/                 — legacy logo location (kept; canonical is public/assets/)
 ├── dist/                   — build output (gitignored)
 ├── node_modules/           — dependencies (gitignored)
 ├── public/
@@ -34,40 +33,39 @@ techfreedomministries/
 │   │   ├── tfm-logo-on-dark.png
 │   │   ├── tfm-logo-on-parchment.png
 │   │   ├── tfm-logo-on-white.png
-│   │   └── tfm-logo-on-white-zero.png  — mobile header logo mark (Session 9)
-│   ├── fonts/              — self-hosted EB Garamond (canonical location)
+│   │   └── tfm-logo-on-white-zero.png  — mobile header logo mark
+│   ├── fonts/              — self-hosted EB Garamond (4 variants only: Regular, Italic, Bold, BoldItalic)
 │   └── _headers            — Cloudflare headers config (canonical location)
 ├── src/
 │   ├── components/         — ALL JSX components (ES modules with named exports)
 │   │   ├── About.jsx
-│   │   ├── Atoms.jsx       — primitive components, exported as named exports
+│   │   ├── Atoms.jsx       — primitives: Eyebrow, Rule, Diamond, Proclamation, Button, GhostButton,
+│   │   │                     LinkButton, LevelBadge, Brackets, Icon, Card, GiltCard, SectionEyebrow
 │   │   ├── BrevoSignup.jsx — email capture widget (footer, every page — Brevo list 3)
-│   │   ├── Donate.jsx      — give page: 6-section Studio layout, TODO: STRIPE + TODO: 501C3 markers
-│   │   ├── EventCard.jsx   — mobile className hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action
+│   │   ├── Donate.jsx      — give page: 6-section layout, TODO: STRIPE + TODO: 501C3 markers
+│   │   ├── EventCard.jsx   — mobile className hooks in responsive.css: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action
 │   │   ├── EventsList.jsx  — single Install Party placeholder (real data TBD)
-│   │   ├── Footer.jsx      — legacy, not used by Astro (nav/footer in Layout.astro)
-│   │   ├── Hero.jsx        — two-column flex layout, MOBILE_STYLES const, dissolution hook
-│   │   ├── Nav.jsx         — legacy, not used by Astro (nav/footer in Layout.astro)
+│   │   ├── Hero.jsx        — two-column flex layout, dissolution hook (data-tfm-animate)
 │   │   ├── Oath.jsx
-│   │   ├── Roadmap.jsx     — mobile className hooks: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout
-│   │   ├── RsvpModal.jsx
-│   │   └── Vanguard.jsx    — Studio redesign; application now mailto: vanguard@techfreedomministries.com (Formspree removed)
+│   │   ├── Roadmap.jsx     — mobile className hooks in responsive.css: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout
+│   │   ├── RsvpModal.jsx   — RSVP form UI (currently submits nowhere — see Open Items)
+│   │   └── Vanguard.jsx    — application via mailto: vanguard@techfreedomministries.com
 │   ├── env.d.ts
 │   ├── layouts/
-│   │   └── Layout.astro    — shell layout: nav + footer + CSS import + slot + mobile nav CSS
+│   │   └── Layout.astro    — shell layout: nav + footer + all CSS imports + slot + single mobile breakpoint block
 │   ├── pages/
-│   │   ├── index.astro     — home page (Hero + events preview + Roadmap + CTA + mobile explainer fix)
+│   │   ├── index.astro     — home page
 │   │   ├── events.astro    — full events list
 │   │   ├── roadmap.astro   — four level cards
-│   │   ├── oath.astro      — Vanguard Oath
-│   │   ├── about.astro     — TFM is/isn't
+│   │   ├── oath.astro      — Vanguard Oath (orphan — not yet in nav, see Open Items)
+│   │   ├── about.astro     — TFM is/isn't (orphan — not yet in nav, see Open Items)
 │   │   ├── vanguard.astro  — Vanguard recruit page
 │   │   └── donate.astro    — Give page (button placeholder until EIN)
 │   └── styles/
 │       ├── fonts.css       — self-hosted @font-face rules (no CDN)
 │       ├── tokens.css      — CSS custom properties (single source of truth)
-│       └── accents.css     — Gilded Spine accent system (ledger rule, ref mark, stamp, gilt edge)
-├── _headers                — legacy location (canonical is public/_headers)
+│       ├── accents.css     — Gilded Spine accent system (ledger rule, ref mark, stamp, gilt edge)
+│       └── responsive.css  — all component mobile breakpoints (loaded once, never injected in components)
 ├── astro.config.mjs        — Astro + @astrojs/react
 ├── package.json            — astro, @astrojs/react, react, react-dom
 └── README.md
@@ -79,6 +77,7 @@ techfreedomministries/
 - npm run build: CLEAN (7 pages built)
 - Live site: CONFIRMED live at techfreedomministries.org
 - Cloudflare Pages build config: CONFIRMED correct (npm run build / dist)
+- Active branch: session/full-code-audit (4 of 6 audit phases complete — NOT merged to main yet)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
@@ -91,6 +90,17 @@ Phase 6 (donate page): COMPLETE (donate button placeholder until EIN — TODO: S
 Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no longer in Vanguard UI
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
 Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer
+Phase 10 (full code audit): IN PROGRESS — branch session/full-code-audit
+
+### Audit Phase Status (Phase 10)
+| Audit Phase | Status | Notes |
+|---|---|---|
+| 1 — Dead file deletion | ✅ DONE | Nav.jsx, Footer.jsx, src/README.md, root _headers, root assets/, 6 unused fonts |
+| 2 — Token consolidation | ✅ DONE | 4 duplicate token pairs unified, --tfm-mono removed |
+| 3 — Component consolidation | ✅ DONE | GiltCard + SectionEyebrow into Atoms.jsx, ColophonOrnament deleted |
+| 4 — CSS architecture | ✅ DONE | responsive.css created, MOBILE_STYLES removed from components, Layout.astro cleaned |
+| 5 — Navigation gaps | ⏳ NEXT | About and Oath are built but not linked from nav or footer |
+| 6 — Broken behavior | ⏳ NEXT | public/_headers dead rules, RsvpModal submits nowhere, filter chip shows "TBD" |
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
@@ -141,12 +151,12 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
+| Audit Phase 5 — Nav gaps | High | Add About and Oath to nav or footer. Decision needed: where do they land? |
+| Audit Phase 6 — Broken behavior | High | Fix public/_headers dead rules; RsvpModal wire or disable honestly; filter chip |
 | Mobile pass — Vanguard + Donate sections | High | Both pages still have 64-72px horizontal padding and unbreakpointed multi-column grids |
-| Vanguard application — confirm email-only | High | Formspree form (mvzyorgw) removed in Studio redesign. Confirm email CTA is intentional or re-wire |
 | Wire RsvpModal to Formspree | Medium | Events RSVP form goes nowhere. Needs new Formspree endpoint (old mvzyorgw was Vanguard) |
 | Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
 | Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
-| Delete legacy files | Low | Root `assets/` and root `_headers` — confirm live site clean first |
 
 ### Suggested next branch
 `session/event-data` — once Install Party date/venue/city confirmed
