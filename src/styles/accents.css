@@ -80,7 +80,20 @@
    It reads as military coordinates. Fits TFM's field manual tone.
    ─────────────────────────────────────────────────────────────── */
 
-/* Full stamp — border + diagonal brackets */
+/* Full stamp — border + 4 corner brackets */
+/*
+   Structure:
+     <div class="tfm-stamp">
+       <span class="tfm-stamp-tl"></span>
+       <span class="tfm-stamp-tr"></span>
+       <span class="tfm-stamp-bl"></span>
+       <span class="tfm-stamp-br"></span>
+       [content]
+     </div>
+
+   Or use the Brackets component from Atoms.jsx directly —
+   it handles the 4-corner structure and accepts style props.
+*/
 .tfm-stamp {
   position: relative;
   border: 1px solid var(--tfm-gold-bright);
@@ -88,29 +101,22 @@
   margin: 32px 0;
 }
 
-.tfm-stamp::before {
-  content: "";
+.tfm-stamp-tl,
+.tfm-stamp-tr,
+.tfm-stamp-bl,
+.tfm-stamp-br {
   position: absolute;
-  top: -5px;
-  left: -5px;
   width: 12px;
   height: 12px;
-  border-top: 2px solid var(--tfm-gold-bright);
-  border-left: 2px solid var(--tfm-gold-bright);
+  border-color: var(--tfm-gold-bright);
+  border-style: solid;
   border-radius: 0;
 }
 
-.tfm-stamp::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid var(--tfm-gold-bright);
-  border-right: 2px solid var(--tfm-gold-bright);
-  border-radius: 0;
-}
+.tfm-stamp-tl { top: -5px;    left: -5px;  border-width: 2px 0 0 2px; }
+.tfm-stamp-tr { top: -5px;    right: -5px; border-width: 2px 2px 0 0; }
+.tfm-stamp-bl { bottom: -5px; left: -5px;  border-width: 0 0 2px 2px; }
+.tfm-stamp-br { bottom: -5px; right: -5px; border-width: 0 2px 2px 0; }
 
 /* Light stamp — brackets only, no full border */
 .tfm-stamp--light {
