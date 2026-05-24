@@ -5,34 +5,34 @@ export default function About() {
   const is = [
     "A faith-backed nonprofit.",
     "A free, in-person Linux event in your city.",
+    "A four-level member journey — earned, never bought.",
     "A community of teachers who were once students.",
-    "A four-level Roadmap that is earned, never bought.",
-    "Layer-aware: faith context, public context, member context.",
+    "Open to anyone, regardless of background or belief.",
   ];
   const isnt = [
     "A subscription service.",
-    "A SaaS product, a CRM, a launchpad.",
+    "A product that sells you something after the free part.",
     "An anti-tech grievance movement.",
-    "A church (we work with churches; we are not one).",
+    "A church. We work with churches. We are not one.",
     "Funded by donations from any platform we teach you to leave.",
   ];
 
   return (
     <section id="about" style={{ padding: "96px 36px", maxWidth: 1100, margin: "0 auto" }}>
-      <Eyebrow>About</Eyebrow>
+      <Eyebrow>About TFM</Eyebrow>
       <Rule style={{ margin: "14px 0 20px" }} />
       <Proclamation as="h2" size={42}
-        strong="You already know how to fix this."
-        italic="Most people don't."
+        strong="We teach people to own their machines."
+        italic="Then we teach them to teach others."
       />
       <p style={{
         fontFamily: "var(--tfm-sans)", fontSize: 16, lineHeight: 1.7,
         color: "var(--tfm-warm-brown)", maxWidth: "62ch", marginTop: 20,
       }}>
-        TFM was founded on the conviction that digital sovereignty is a stewardship
+        TFM was founded on a simple conviction: digital sovereignty is a stewardship
         question, not a consumer question. We don't sell software. We don't sell
-        anything. What we offer is three hours of your time, a small room, and a
-        person who will sit beside you while you install Linux on a real machine.
+        anything. What we offer is three hours, a small room, and someone who will
+        sit beside you while you install Linux on a real machine.
       </p>
 
       <div style={{
