@@ -9,17 +9,17 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-24 — Session 6 (domain migration + Cloudflare audit)
+**Last updated:** 2026-05-24 — Session 7 (full site copy rewrite + narrative pass)
 
 **Live URL:** https://techfreedomministries.org
 **Redirect:** techfreedomministries.com → techfreedomministries.org (301, all variants — naked + www)
 **Repo:** https://github.com/secureprospective/techfreedomministries
-**Active branch:** main (session/integrations merged — PR #3)
+**Active branch:** main (session/narrative-pass merged)
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
 
 ---
 
-## Stack (As of Session 5)
+## Stack (As of Session 7)
 
 | Item | Spec (TFM_09) | Actual |
 |---|---|---|
@@ -33,7 +33,7 @@ Full session history is in git log.
 | Build output dir | dist/ | dist/ ✓ |
 | Formspree | Vanguard application form | Live — endpoint mvzyorgw ✓ |
 | Brevo | Email capture (footer) | Live — list ID 3, env vars in Cloudflare ✓ |
-| Node version | Pinned | .nvmrc → 20 (added session 6) ✓ |
+| Node version | Pinned | .nvmrc → 20 ✓ |
 | Domain | techfreedomministries.org | .com redirects 301 to .org — all variants ✓ |
 
 ---
@@ -42,13 +42,13 @@ Full session history is in git log.
 
 | Page | TFM_09 Spec | Built | Route | Status |
 |---|---|---|---|---|
-| Home | ✓ | ✓ | `/` | Complete ✓ |
-| Events | ✓ | ✓ | `/events` | Complete ✓ — Install Party placeholder (real data TBD) |
-| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ |
-| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Formspree live (mvzyorgw) |
-| Donate | ✓ | ✓ | `/donate` | Complete ✓ — button placeholder until EIN |
+| Home | ✓ | ✓ | `/` | Complete ✓ — copy locked, narrative pass done |
+| Events | ✓ | ✓ | `/events` | Placeholder ✓ — real data TBD |
+| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ — copy locked, narrative pass done |
+| Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Formspree live, copy locked |
+| Donate | ✓ | ✓ | `/donate` | Complete ✓ — hardware-first restructure, button placeholder until EIN |
 | The Oath | Not in spec | ✓ | `/oath` | Built (not in nav) |
-| About | Not in spec | ✓ | `/about` | Built (not in nav) |
+| About | Not in spec | ✓ | `/about` | Complete ✓ — copy locked |
 
 ---
 
@@ -57,6 +57,50 @@ Full session history is in git log.
 `EVENTS ◆ ROADMAP ◆ VANGUARD ◆ GIVE` — per TFM_09 spec.
 
 The Oath and About exist at `/oath` and `/about` but are not in the main nav.
+
+---
+
+## Session 7 — What Changed
+
+**Copy rewrite (Claude.ai loop — one page, one commit):**
+- Home: CTA button order, email capture headline, debug label removed
+- About: new headline, body, both card lists (layer jargon removed, plain language)
+- Roadmap: hero body split, Level 2 milestones rewritten as skills, Level 4 close tightened
+- Vanguard: hero body, Level 3 gate moved to card, button label, cards cleaned
+- Donate: full restructure — hardware-first hierarchy, 6-tier hardware list with specs, SBCs added, impact block, stakes-first body
+
+**Narrative pass (hardware donation loop woven through all pages):**
+- Home Step 1: "Bring your laptop" → conditional offer, hardware pool mentioned
+- Home CTA band: body added (hardware-first ask), CTAs route to donate anchors
+- Roadmap Level 1: donation chain acknowledged in the promise
+- Roadmap Level 3: TFM hardware pool mentioned for home server builds
+- Vanguard What You Get: hardware coordination support added as item 4
+
+**Em dash purge:**
+- 13 instances removed from visitor-facing copy across 6 files
+- Left unchanged: Galatians attribution, What TFM Isn't bullet marker, page title tags
+
+---
+
+## Hardware Donation Strategy (Session 7 — Key Context)
+
+The primary ask is hardware, not cash. Hardware enables the conditional promise:
+"We can't give free laptops without your generosity."
+
+The self-feeding loop:
+1. Donor gives obsolete hardware
+2. TFM runs Install Party — "free laptop for your time and attention"
+3. Student follows the Roadmap
+4. Student becomes a Vanguard, runs their own events
+5. Those events need hardware — loop restarts
+
+Hardware feeds all four Roadmap levels, not just Level 1:
+- Level 1: The donated machine someone leaves with
+- Level 2: The terminal they learn on
+- Level 3: The home server built from donated SBCs/mini PCs
+- Level 4: The machines a Vanguard needs to run their own Exodus event
+
+Contact for hardware donations: techfreedomministries@proton.me
 
 ---
 
@@ -85,5 +129,5 @@ The Oath and About exist at `/oath` and `/about` but are not in the main nav.
 
 ---
 
-*Last updated: 2026-05-24 — Session 6*
+*Last updated: 2026-05-24 — Session 7*
 *Built by: Christopher Campbell + Claude (Anthropic)*
