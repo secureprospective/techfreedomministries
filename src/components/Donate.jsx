@@ -73,6 +73,16 @@ const hardwareTiers = [
       "Include charger and any accessories.",
     ],
   },
+  {
+    rank: "06",
+    name: "Single Board Computers",
+    note: "Great for home server and self-hosting projects at Level 2 and beyond.",
+    items: [
+      "Raspberry Pi 3B or newer. Pi 4 and Pi 5 preferred.",
+      "Include power supply, SD card, and case if you have them.",
+      "Other SBCs accepted — Orange Pi, Rock Pi, BeagleBone.",
+    ],
+  },
 ];
 
 const accessories = [
