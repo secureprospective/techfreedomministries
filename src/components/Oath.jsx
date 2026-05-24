@@ -42,7 +42,7 @@ export default function Oath() {
         <div style={{ height: 32 }} />
         <Rule width="full" />
         <div style={{ height: 18 }} />
-        <p style={{
+        <p className="tfm-ref-mark" style={{
           fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 15,
           color: "var(--tfm-warm-brown)", margin: 0,
         }}>
