@@ -3,11 +3,11 @@ import { Eyebrow, Rule, Proclamation, Diamond, LEVELS } from './Atoms.jsx';
 
 const LEVEL_COPY = [
   { steps: ["Install Linux on a real machine.", "Replace one cloud account.", "Leave the room with a working laptop."],
-    blurb: "The first event. Three hours. You walk in with a phone that reports on you and walk out with a laptop you actually own." },
+    blurb: "The first event. Three hours. You walk in and walk out with a laptop you actually own. Made possible by people who donated machines so someone else could have a first one." },
   { steps: ["Learn to navigate the terminal.", "Understand what sudo means and when to use it.", "Install software without a mouse."],
     blurb: "The why behind the how. Stewardship, sovereignty, surveillance, and the long arc of how we got here." },
   { steps: ["Stand up a home server.", "Self-host your photos and files.", "Cut your last consumer cloud account."],
-    blurb: "You stop renting. You start owning. The Homestead is where the muscle memory becomes a way of life." },
+    blurb: "You stop renting. You start owning. The Homestead is where the muscle memory becomes a way of life. Donated hardware from the TFM pool is available for members building their first home server." },
   { steps: ["Run an Exodus event.", "Teach one full Catechism cycle.", "Take the Vanguard oath."],
     blurb: "The student becomes the teacher. The mission continues because of you." },
 ];

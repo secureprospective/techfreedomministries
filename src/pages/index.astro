@@ -22,7 +22,7 @@ import Roadmap from '../components/Roadmap.jsx';
         <div class="step-marker">◆</div>
         <p class="step-copy">
           <strong>Come to an Install Party.</strong>{" "}
-          Bring your laptop. We replace the software that reports on you with tools you actually own. Free. No experience needed.
+          Bring a laptop if you have one. If you don't, tell us when you RSVP. We keep a hardware pool from donated machines for exactly that reason. No experience needed.
         </p>
       </div>
       <div class="explainer-step">
@@ -36,7 +36,7 @@ import Roadmap from '../components/Roadmap.jsx';
         <div class="step-marker">◆</div>
         <p class="step-copy">
           <strong>Become a Vanguard.</strong>{" "}
-          Once you have the skills, you come back and give them away. That is how TFM grows — graduate to graduate, city to city.
+          Once you have the skills, you come back and give them away. That is how TFM grows. Graduate to graduate, city to city.
         </p>
       </div>
     </div>
@@ -68,9 +68,12 @@ import Roadmap from '../components/Roadmap.jsx';
         This event cost you nothing.{" "}
         <em>Help us reach the next city.</em>
       </h2>
+      <p class="cta-body">
+        The most useful thing you can give is a working laptop. It becomes the reason someone shows up. If you have hardware, that is where to start. If you want to give financially, that funds the drives and the room.
+      </p>
       <div class="cta-buttons">
-        <a href="/donate" class="cta-btn-primary">Give now</a>
-        <a href="/events" class="cta-btn-ghost">Find an event</a>
+        <a href="/donate#hardware-donation" class="cta-btn-primary">Donate hardware</a>
+        <a href="/donate#give-financially" class="cta-btn-ghost">Give now</a>
       </div>
     </div>
   </section>
@@ -224,6 +227,15 @@ import Roadmap from '../components/Roadmap.jsx';
     font-style: italic;
     font-weight: 400;
     color: var(--tfm-gold-bright);
+  }
+
+  .cta-body {
+    font-family: var(--tfm-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(244, 240, 230, 0.75);
+    max-width: 52ch;
+    margin: 20px auto 0;
   }
 
   .cta-buttons {

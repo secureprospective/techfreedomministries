@@ -28,7 +28,7 @@ const hardwareTiers = [
     name: "Laptops",
     note: "Best choice. Portable, self-contained, and ready to use at an event.",
     items: [
-      "ThinkPad, Dell Latitude, HP EliteBook — 2015 or newer.",
+      "ThinkPad, Dell Latitude, HP EliteBook. 2015 or newer.",
       "4GB RAM minimum. 8GB preferred.",
       "Working display and keyboard required. Charger included if possible.",
     ],
@@ -38,7 +38,7 @@ const hardwareTiers = [
     name: "Workstation PCs",
     note: "Good for lab stations. Runs anything. Takes up more space.",
     items: [
-      "Dell Precision, HP Z-series, Lenovo ThinkStation — 2014 or newer.",
+      "Dell Precision, HP Z-series, Lenovo ThinkStation. 2014 or newer.",
       "8GB RAM minimum.",
       "Include power cable and keyboard if possible.",
     ],
@@ -48,7 +48,7 @@ const hardwareTiers = [
     name: "Mini PCs",
     note: "Excellent for home server builds. Low power, small footprint.",
     items: [
-      "Intel NUC, Beelink, HP EliteDesk Mini — 2016 or newer.",
+      "Intel NUC, Beelink, HP EliteDesk Mini. 2016 or newer.",
       "4GB RAM minimum. 8GB preferred.",
       "Include power adapter if you have it.",
     ],
@@ -60,7 +60,7 @@ const hardwareTiers = [
     items: [
       "Any mid-tower or full tower from 2014 or newer.",
       "8GB RAM minimum.",
-      "Dedicated GPU not required — onboard graphics is fine.",
+      "Dedicated GPU not required. Onboard graphics is fine.",
     ],
   },
   {
@@ -69,7 +69,7 @@ const hardwareTiers = [
     note: "Limited use. Can't run full Linux, but useful for basic training.",
     items: [
       "Android tablets from 2018 or newer preferred.",
-      "iPad accepted — limited Linux compatibility, still useful.",
+      "iPad accepted. Limited Linux compatibility, still useful.",
       "Include charger and any accessories.",
     ],
   },
@@ -80,7 +80,7 @@ const hardwareTiers = [
     items: [
       "Raspberry Pi 3B or newer. Pi 4 and Pi 5 preferred.",
       "Include power supply, SD card, and case if you have them.",
-      "Other SBCs accepted — Orange Pi, Rock Pi, BeagleBone.",
+      "Other SBCs accepted: Orange Pi, Rock Pi, BeagleBone.",
     ],
   },
 ];
@@ -371,7 +371,7 @@ export default function Donate() {
           letterSpacing: "0.04em",
           color: "var(--tfm-gold-muted)",
         }}>
-          Donation processing coming soon — 501(c)(3) filing in progress.
+          Donation processing coming soon. 501(c)(3) filing in progress.
         </div>
       </div>
 
@@ -380,7 +380,7 @@ export default function Donate() {
         fontFamily: "var(--tfm-sans)", fontSize: 13, lineHeight: 1.7,
         color: "var(--tfm-warm-brown-soft)", maxWidth: "56ch", margin: "20px 0 0",
       }}>
-        Tech Freedom Ministries is a 501(c)(3) nonprofit — filing in progress.
+        Tech Freedom Ministries is a 501(c)(3) nonprofit. Filing in progress.
         Once approved, your donation will be tax-deductible. We don't sell data.
         We don't run ads. We teach people to protect themselves from the people who do.
       </p>
