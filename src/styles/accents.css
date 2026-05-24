@@ -143,6 +143,39 @@
   border-radius: 0;
 }
 
+/* ── GILT EDGE ──────────────────────────────────────────────────
+   Simulates the gilt page edge of a leather-bound Bible.
+   A 2px gold gradient strip on the right side of every card.
+
+   Requires position: relative on the host element (Card already
+   sets this — for non-Card elements add it manually).
+
+   The element hangs 2px outside the card's right border so it
+   reads as a separate material, not part of the card surface.
+   ─────────────────────────────────────────────────────────────── */
+
+.tfm-gilt-edge {
+  position: relative;
+}
+
+.tfm-gilt-edge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    var(--tfm-gilt-deep) 0%,
+    var(--tfm-gilt) 30%,
+    var(--tfm-gilt-deep) 55%,
+    var(--tfm-gilt) 80%,
+    var(--tfm-gilt-deep) 100%
+  );
+  pointer-events: none;
+}
+
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .tfm-stamp {

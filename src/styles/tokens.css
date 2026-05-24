@@ -33,6 +33,15 @@
   --tfm-parchment-2: #ECE6D6;
   --tfm-mono: 'Courier New', Courier, monospace;
 
+  /* Gilded Spine theme tokens */
+  --tfm-leather: #2A1F0E;
+  --tfm-leather-mid: #1E160A;
+  --tfm-crimson: #8B1A1A;
+  --tfm-crimson-deep: #6B1212;
+  --tfm-gilt: #C4A84A;
+  --tfm-gilt-deep: #8B6914;
+  --tfm-cinzel: 'Cinzel', 'Trajan Pro', Georgia, serif;
+
   /* Spacing — 4px base */
   --s1: 4px;
   --s2: 8px;
@@ -50,7 +59,15 @@
 
 /* Base */
 html { font-size: 16px; background: var(--tfm-parchment); color: var(--tfm-warm-brown); }
-body { font-family: var(--tfm-sans); font-size: 15px; line-height: 1.65; letter-spacing: 0.01em; }
+body {
+  font-family: var(--tfm-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,160,100,0.055) 39px, rgba(180,160,100,0.055) 40px),
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,100,0.045) 27px, rgba(180,160,100,0.045) 28px);
+}
 
 /* Typography */
 h1, h2, h3, h4 { font-family: var(--tfm-serif); color: var(--tfm-near-black); line-height: 1.2; }
