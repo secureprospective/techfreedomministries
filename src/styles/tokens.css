@@ -77,6 +77,7 @@ h4 { font-size: 19px; font-weight: 700; }
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--tfm-gold-muted);
+  line-height: 1;
 }
 
 .gold-italic {

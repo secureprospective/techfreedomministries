@@ -1,57 +1,15 @@
 import React from 'react';
 import { Eyebrow, Proclamation, LevelBadge, Icon, Diamond, Button, Card } from './Atoms.jsx';
 
-// ── Mobile styles ─────────────────────────────────────────────────────────────
-//
-// The desktop card uses a three-column grid: 104px date stamp | 1fr meta | auto button.
-// On mobile this collapses to a single column: date stamp row on top, meta block
-// below, RSVP button full width at the bottom.
-// classNames used as hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-meta, tfm-ec-action.
-
-const MOBILE_STYLES = `
-  @media (max-width: 768px) {
-
-    /* Collapse three-column grid to single column */
-    .tfm-ec-grid {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-    }
-
-    /* Date stamp: remove right border, go horizontal —
-       month / day / weekday+time in a single compact row */
-    .tfm-ec-date {
-      border-right: none !important;
-      border-bottom: 1px solid var(--tfm-parchment-edge);
-      padding-right: 0 !important;
-      padding-bottom: 16px !important;
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: baseline !important;
-      gap: 10px !important;
-    }
-
-    /* Day number: smaller on mobile */
-    .tfm-ec-day {
-      font-size: 32px !important;
-    }
-
-    /* Action column: full-width button */
-    .tfm-ec-action button,
-    .tfm-ec-action a {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-`;
-
 // ── Component ─────────────────────────────────────────────────────────────────
+//
+// Desktop layout: three-column grid — 104px date stamp | 1fr meta | auto button.
+// Mobile overrides live in src/styles/responsive.css.
+// Class name hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action.
 
 export default function EventCard({ event, onRsvp }) {
   return (
-    <>
-      <style>{MOBILE_STYLES}</style>
-
-      <Card style={{ padding: "22px 26px" }}>
+    <Card style={{ padding: "22px 26px" }}>
         <div
           className="tfm-ec-grid"
           style={{
@@ -134,6 +92,5 @@ export default function EventCard({ event, onRsvp }) {
 
         </div>
       </Card>
-    </>
   );
 }

@@ -1,37 +1,8 @@
 import React from 'react';
 import { Eyebrow, Rule, Proclamation, Diamond, LEVELS } from './Atoms.jsx';
 
-// ── Mobile styles ─────────────────────────────────────────────────────────────
-//
-// Desktop LevelCard uses gridTemplateColumns: "180px 1fr 1fr".
-// On mobile: single column, all sections full width, padding collapses.
-// classNames used as hooks:
-//   tfm-rm-level-card   — the article grid
-//   tfm-rm-callout      — the completion callout row
-
-const MOBILE_STYLES = `
-  @media (max-width: 768px) {
-
-    /* Collapse three-column level card to single column */
-    .tfm-rm-level-card {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
-      padding: 24px 20px !important;
-    }
-
-    /* Level name: reduce size on mobile */
-    .tfm-rm-level-name {
-      font-size: 28px !important;
-    }
-
-    /* Completion callout: full width, already spans via grid-column
-       but re-declared for single-column context */
-    .tfm-rm-callout {
-      grid-column: 1 / -1;
-      margin-top: 8px;
-    }
-  }
-`;
+// Mobile overrides live in src/styles/responsive.css.
+// Class name hooks: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout.
 
 // ── Level copy ────────────────────────────────────────────────────────────────
 
@@ -215,10 +186,7 @@ function LevelCard({ level }) {
 
 export default function Roadmap() {
   return (
-    <>
-      <style>{MOBILE_STYLES}</style>
-
-      <section id="roadmap" style={{ padding: "64px 0 96px" }}>
+    <section id="roadmap" style={{ padding: "64px 0 96px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 36px 40px" }}>
           <Eyebrow>The Member Journey</Eyebrow>
           <Rule style={{ margin: "14px 0 20px" }} />
@@ -266,6 +234,5 @@ export default function Roadmap() {
           ))}
         </div>
       </section>
-    </>
   );
 }

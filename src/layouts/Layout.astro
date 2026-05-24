@@ -2,6 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/tokens.css';
 import '../styles/accents.css';
+import '../styles/responsive.css';
 import BrevoSignup from '../components/BrevoSignup.jsx';
 
 const { title = "Tech Freedom Ministries — Break from the digital grid." } = Astro.props;
@@ -103,8 +104,6 @@ const navLinks = [
 </html>
 
 <style>
-  *, *::before, *::after { box-sizing: border-box; }
-
   html {
     overflow-x: hidden;
   }
@@ -367,14 +366,17 @@ const navLinks = [
     color: var(--tfm-warm-brown-soft);
   }
 
-  /* ============================================================
-     MOBILE NAVIGATION — appended after all existing rules.
-     Breakpoint: 768px and below.
-     ============================================================ */
+  /* ── Desktop: hide the header logo mark (mobile only) ── */
+  @media (min-width: 769px) {
+    .header-logo-mark {
+      display: none;
+    }
+  }
 
+  /* ── Mobile: 768px and below ── */
   @media (max-width: 768px) {
 
-    /* ── Header shell ── */
+    /* Header shell */
     .site-header {
       min-height: 48px;
       position: fixed;
@@ -386,7 +388,7 @@ const navLinks = [
       border-bottom: 1px solid rgba(196, 168, 74, 0.35);
     }
 
-    /* ── Header inner: logo left, nav right, single row ── */
+    /* Header inner: logo left, nav right, single row */
     .header-inner {
       min-height: 48px;
       padding: 0 16px 0 12px;
@@ -397,14 +399,9 @@ const navLinks = [
       max-width: none;
     }
 
-    /* ── Colophon: hide wordmark and ornament, show logo mark only ── */
-    .colophon-ornament {
-      display: none;
-    }
-
-    .colophon-wordmark {
-      display: none;
-    }
+    /* Colophon: hide wordmark and ornament, show logo mark only */
+    .colophon-ornament { display: none; }
+    .colophon-wordmark { display: none; }
 
     .colophon-link {
       flex-direction: row;
@@ -418,17 +415,13 @@ const navLinks = [
       width: auto;
     }
 
-    /* ── Desktop CTA button: hide on mobile ── */
-    .header-cta {
-      display: none;
-    }
+    /* Desktop CTA button: hide on mobile */
+    .header-cta { display: none; }
 
-    /* ── Nav: remove diamond separators ── */
-    .site-nav .diamond {
-      display: none;
-    }
+    /* Nav: remove diamond separators */
+    .site-nav .diamond { display: none; }
 
-    /* ── Nav: reflow as a tight right-aligned row ── */
+    /* Nav: tight right-aligned row */
     .site-nav {
       display: flex;
       flex-direction: row;
@@ -438,7 +431,7 @@ const navLinks = [
       justify-content: flex-end;
     }
 
-    /* ── All nav links: eyebrow type treatment ── */
+    /* Nav links */
     .nav-link {
       font-family: var(--tfm-sans);
       font-size: 11px;
@@ -450,10 +443,8 @@ const navLinks = [
       white-space: nowrap;
     }
 
-    /* EVENTS link — primary visual anchor, deep gold weight. */
-    .site-nav .nav-link:first-of-type {
-      color: var(--tfm-gold-deep);
-    }
+    /* Events link — primary visual anchor */
+    .site-nav .nav-link:first-of-type { color: var(--tfm-gold-deep); }
 
     /* Active state */
     .nav-link.active {
@@ -461,42 +452,17 @@ const navLinks = [
       font-weight: 500;
     }
 
-    /* ── Body offset: push page content below fixed header ── */
-    body {
-      padding-top: 48px;
-    }
+    /* Push page content below fixed header */
+    body { padding-top: 48px; }
 
-    /* ── Spine strip: hide on mobile per TFM_11 ── */
-    .tfm-spine {
-      display: none;
-    }
+    /* Spine and ribbon: hide on mobile per TFM_11 */
+    .tfm-spine  { display: none; }
+    .tfm-ribbon { display: none; }
 
-    /* ── Ribbon: hide on mobile per TFM_11 ── */
-    .tfm-ribbon {
-      display: none;
-    }
+    /* Footer shell */
+    .site-footer { padding: 32px 20px; }
 
-  }
-
-  /* ── Desktop: hide the header logo mark (added for mobile only) ── */
-  @media (min-width: 769px) {
-    .header-logo-mark {
-      display: none;
-    }
-  }
-
-  /* ============================================================
-     FIX 3 — MOBILE FOOTER
-     ============================================================ */
-
-  @media (max-width: 768px) {
-
-    /* Footer shell: collapse padding */
-    .site-footer {
-      padding: 32px 20px;
-    }
-
-    /* Email signup row: full width, already block — just tighten spacing */
+    /* Email signup row */
     .footer-email-row {
       padding-bottom: 28px;
       margin-bottom: 28px;
@@ -509,25 +475,13 @@ const navLinks = [
       text-align: center;
     }
 
-    /* Brand block: center logo and text */
-    .footer-brand {
-      align-items: center;
-    }
+    /* Brand block */
+    .footer-brand { align-items: center; }
+    .footer-logo  { margin: 0 auto; }
 
-    .footer-logo {
-      margin: 0 auto;
-    }
-
-    /* Nav: center the links */
-    .footer-nav {
-      justify-content: center;
-    }
-
-    /* Meta: center copyright */
-    .footer-meta {
-      text-align: center;
-      align-items: center;
-    }
+    /* Nav and meta */
+    .footer-nav  { justify-content: center; }
+    .footer-meta { text-align: center; align-items: center; }
 
   }
 </style>

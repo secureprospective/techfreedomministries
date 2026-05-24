@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════════════════════════
+   TFM RESPONSIVE STYLES
+   Single breakpoint file. One @media block per breakpoint.
+   All component mobile overrides live here — never injected
+   inside a component render.
+
+   Breakpoint: 768px (mobile) matches Layout.astro nav/footer.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Hero ────────────────────────────────────────────────────
+     Hooks: tfm-hero-section, tfm-hero-left, tfm-hero-h1,
+            tfm-hero-cta-row, tfm-hero-right, tfm-hero-logo     */
+
+  .tfm-hero-section {
+    flex-direction: column;
+    min-height: unset;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .tfm-hero-left {
+    flex: unset;
+    width: 100%;
+    padding: 24px 20px;
+    justify-content: flex-start;
+  }
+
+  .tfm-hero-h1 {
+    font-size: 32px !important;
+  }
+
+  .tfm-hero-cta-row {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .tfm-hero-cta-row a {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .tfm-hero-right {
+    flex: unset;
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  .tfm-hero-logo {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto;
+  }
+
+  /* ── EventCard ───────────────────────────────────────────────
+     Hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action */
+
+  .tfm-ec-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .tfm-ec-date {
+    border-right: none !important;
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 10px !important;
+  }
+
+  .tfm-ec-day {
+    font-size: 32px !important;
+  }
+
+  .tfm-ec-action button,
+  .tfm-ec-action a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Roadmap ─────────────────────────────────────────────────
+     Hooks: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout */
+
+  .tfm-rm-level-card {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 24px 20px !important;
+  }
+
+  .tfm-rm-level-name {
+    font-size: 28px !important;
+  }
+
+  .tfm-rm-callout {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+  }
+
+}

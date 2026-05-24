@@ -17,68 +17,14 @@ import { Rule, Diamond, Brackets } from './Atoms.jsx';
 // The animation implementation is a separate session. The static PNG renders
 // as fallback when Three.js is absent or fails to load.
 //
-// Mobile media queries are handled via a <style> tag rendered inside the
-// component. Inline styles cannot carry media queries; this is the correct
-// pattern for a .jsx file with no CSS-in-JS library in the stack.
+// Mobile media queries live in src/styles/responsive.css — loaded globally
+// via Layout.astro. Class name hooks: tfm-hero-section, tfm-hero-left,
+// tfm-hero-h1, tfm-hero-cta-row, tfm-hero-right, tfm-hero-logo.
 
 // ── Shared style constants ────────────────────────────────────────────────────
 
 const DARK_BODY   = "rgba(244,240,230,0.75)"; // parchment at 75% on near-black
 const GOLD_DIM_25 = "rgba(196,168,74,0.25)";  // gold-bright at 25% — seam line
-
-// ── Mobile styles ─────────────────────────────────────────────────────────────
-
-const MOBILE_STYLES = `
-  @media (max-width: 768px) {
-
-    /* Fix 1a — Stack the two-column hero layout vertically */
-    .tfm-hero-section {
-      flex-direction: column;
-      min-height: unset;
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    /* Fix 1b — HeroLeft: collapse padding */
-    .tfm-hero-left {
-      flex: unset;
-      width: 100%;
-      padding: 24px 20px;
-      justify-content: flex-start;
-    }
-
-    /* Fix 1c — H1: reduce font size */
-    .tfm-hero-h1 {
-      font-size: 32px !important;
-    }
-
-    /* Fix 1d — CTA row: stack vertically, full width */
-    .tfm-hero-cta-row {
-      flex-direction: column;
-      gap: 8px;
-      align-items: stretch;
-    }
-
-    .tfm-hero-cta-row a {
-      text-align: center;
-      white-space: normal;
-    }
-
-    /* Fix 1e — HeroRight: collapse padding, center logo */
-    .tfm-hero-right {
-      flex: unset;
-      width: 100%;
-      padding: 24px 20px;
-    }
-
-    /* Fix 1f — Logo: responsive width, centered */
-    .tfm-hero-logo {
-      width: 100% !important;
-      max-width: 280px !important;
-      margin: 0 auto;
-    }
-  }
-`;
 
 // ── Left column: copy ─────────────────────────────────────────────────────────
 
@@ -291,22 +237,17 @@ function HeroRight() {
 
 export default function Hero() {
   return (
-    <>
-      {/* Mobile media queries — see MOBILE_STYLES constant above */}
-      <style>{MOBILE_STYLES}</style>
-
-      <section
-        className="tfm-hero-section"
-        aria-label="Tech Freedom Ministries — Break from the Digital Grid. Own Your Machine."
-        style={{
-          display: "flex",
-          minHeight: 536,
-          position: "relative",
-        }}
-      >
-        <HeroLeft />
-        <HeroRight />
-      </section>
-    </>
+    <section
+      className="tfm-hero-section"
+      aria-label="Tech Freedom Ministries — Break from the Digital Grid. Own Your Machine."
+      style={{
+        display: "flex",
+        minHeight: 536,
+        position: "relative",
+      }}
+    >
+      <HeroLeft />
+      <HeroRight />
+    </section>
   );
 }
