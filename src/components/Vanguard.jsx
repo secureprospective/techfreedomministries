@@ -12,6 +12,7 @@ const s = {
     fontFamily: "var(--tfm-sans)",
     backgroundColor: "var(--tfm-parchment)",
     position: "relative",
+    zIndex: 0,
   },
 
   // Section padding shared across all light-background sections

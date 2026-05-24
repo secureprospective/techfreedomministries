@@ -16,11 +16,69 @@ import { Rule, Diamond, Brackets } from './Atoms.jsx';
 // data-tfm-animate="dissolution" on the logo element is the Three.js hook.
 // The animation implementation is a separate session. The static PNG renders
 // as fallback when Three.js is absent or fails to load.
+//
+// Mobile media queries are handled via a <style> tag rendered inside the
+// component. Inline styles cannot carry media queries; this is the correct
+// pattern for a .jsx file with no CSS-in-JS library in the stack.
 
 // ── Shared style constants ────────────────────────────────────────────────────
 
-const DARK_BODY    = "rgba(244,240,230,0.75)"; // parchment at 75% on near-black
-const GOLD_DIM_25  = "rgba(196,168,74,0.25)";  // gold-bright at 25% — seam line
+const DARK_BODY   = "rgba(244,240,230,0.75)"; // parchment at 75% on near-black
+const GOLD_DIM_25 = "rgba(196,168,74,0.25)";  // gold-bright at 25% — seam line
+
+// ── Mobile styles ─────────────────────────────────────────────────────────────
+
+const MOBILE_STYLES = `
+  @media (max-width: 768px) {
+
+    /* Fix 1a — Stack the two-column hero layout vertically */
+    .tfm-hero-section {
+      flex-direction: column;
+      min-height: unset;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Fix 1b — HeroLeft: collapse padding */
+    .tfm-hero-left {
+      flex: unset;
+      width: 100%;
+      padding: 24px 20px;
+      justify-content: flex-start;
+    }
+
+    /* Fix 1c — H1: reduce font size */
+    .tfm-hero-h1 {
+      font-size: 32px !important;
+    }
+
+    /* Fix 1d — CTA row: stack vertically, full width */
+    .tfm-hero-cta-row {
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .tfm-hero-cta-row a {
+      text-align: center;
+      white-space: normal;
+    }
+
+    /* Fix 1e — HeroRight: collapse padding, center logo */
+    .tfm-hero-right {
+      flex: unset;
+      width: 100%;
+      padding: 24px 20px;
+    }
+
+    /* Fix 1f — Logo: responsive width, centered */
+    .tfm-hero-logo {
+      width: 100% !important;
+      max-width: 280px !important;
+      margin: 0 auto;
+    }
+  }
+`;
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
@@ -49,14 +107,16 @@ function ColophonOrnament() {
 
 function HeroLeft() {
   return (
-    <div style={{
-      flex: "1.1",
-      padding: "72px 48px 72px 56px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-    }}>
-
+    <div
+      className="tfm-hero-left"
+      style={{
+        flex: "1.1",
+        padding: "72px 48px 72px 56px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
       {/* Eyebrow — statement, not label. Mixed case. Approved copy. */}
       <div style={{
         display: "flex",
@@ -83,15 +143,19 @@ function HeroLeft() {
         </span>
       </div>
 
-      {/* H1 — Proclamation pattern, but as a raw h1 for correct semantics */}
-      <h1 style={{
-        fontFamily: "var(--tfm-serif)",
-        fontSize: 46,
-        lineHeight: 1.12,
-        margin: "0 0 8px",
-        letterSpacing: "-0.005em",
-        textWrap: "pretty",
-      }}>
+      {/* H1 — Proclamation pattern, raw h1 for correct semantics.
+          className carries the mobile font-size override. */}
+      <h1
+        className="tfm-hero-h1"
+        style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 46,
+          lineHeight: 1.12,
+          margin: "0 0 8px",
+          letterSpacing: "-0.005em",
+          textWrap: "pretty",
+        }}
+      >
         <span style={{ fontWeight: 700, color: "var(--tfm-near-black)", display: "block" }}>
           Break from the Digital Grid.
         </span>
@@ -124,8 +188,11 @@ function HeroLeft() {
         experience needed. No cost. Ever.
       </p>
 
-      {/* CTAs */}
-      <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+      {/* CTAs — className carries the mobile stacking rules */}
+      <div
+        className="tfm-hero-cta-row"
+        style={{ display: "flex", gap: 16, alignItems: "center" }}
+      >
         <a
           href="/events"
           style={{
@@ -171,23 +238,27 @@ function HeroLeft() {
 
 function HeroRight() {
   return (
-    <div style={{
-      flex: "0.9",
-      backgroundColor: "var(--tfm-near-black)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "56px 48px",
-      gap: 32,
-    }}>
-
-      {/* Logo — data-tfm-animate is the Three.js dissolution hook */}
+    <div
+      className="tfm-hero-right"
+      style={{
+        flex: "0.9",
+        backgroundColor: "var(--tfm-near-black)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "56px 48px",
+        gap: 32,
+      }}
+    >
+      {/* Logo — data-tfm-animate is the Three.js dissolution hook.
+          className carries the mobile width/centering rules. */}
       <img
+        className="tfm-hero-logo"
         src="/assets/tfm-logo-on-dark.png"
         alt="Tech Freedom Ministries — a cross rising from a dissolving circuit board hill"
         data-tfm-animate="dissolution"
-        style={{ width: 450, height: "auto", display: "block" }}
+        style={{ width: 220, height: "auto", display: "block" }}
       />
 
       {/* Galatians 5:1 in certification stamp frame */}
@@ -243,18 +314,22 @@ function HeroRight() {
 
 export default function Hero() {
   return (
-    <section
-      aria-label="Tech Freedom Ministries — Break from the Digital Grid. Own Your Machine."
-      style={{
-        display: "flex",
-        minHeight: 536,
-        position: "relative",
-        maxWidth: 1200,
-        margin: "0 auto",
-      }}
-    >
-      <HeroLeft />
-      <HeroRight />
-    </section>
+    <>
+      {/* Mobile media queries — see MOBILE_STYLES constant above */}
+      <style>{MOBILE_STYLES}</style>
+
+      <section
+        className="tfm-hero-section"
+        aria-label="Tech Freedom Ministries — Break from the Digital Grid. Own Your Machine."
+        style={{
+          display: "flex",
+          minHeight: 536,
+          position: "relative",
+        }}
+      >
+        <HeroLeft />
+        <HeroRight />
+      </section>
+    </>
   );
 }

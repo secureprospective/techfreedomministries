@@ -672,7 +672,7 @@ function CloseSection() {
 
 export default function Donate() {
   return (
-    <div style={{ fontFamily: "var(--tfm-sans)", position: "relative" }}>
+    <div style={{ fontFamily: "var(--tfm-sans)", position: "relative", zIndex: 0 }}>
       <HeroSection />
       <LoopSection />
       <HardwareSection />

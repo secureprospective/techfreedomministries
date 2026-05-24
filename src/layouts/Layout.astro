@@ -36,6 +36,11 @@ const navLinks = [
 
         <!-- Colophon: diamond ornament + Cinzel wordmark -->
         <a href="/" class="colophon-link" aria-label="Tech Freedom Ministries — Home">
+          <img
+            src="/assets/tfm-logo-nearblack.png"
+            alt="Tech Freedom Ministries"
+            class="header-logo-mark"
+          />
           <div class="colophon-ornament">
             <div class="colophon-rule colophon-rule--left"></div>
             <span class="colophon-diamond">◆</span>
@@ -99,6 +104,10 @@ const navLinks = [
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    overflow-x: hidden;
+  }
 
   html, body {
     margin: 0;
@@ -356,5 +365,169 @@ const navLinks = [
     font-size: 11px;
     letter-spacing: 0.10em;
     color: var(--tfm-warm-brown-soft);
+  }
+
+  /* ============================================================
+     MOBILE NAVIGATION — appended after all existing rules.
+     Breakpoint: 768px and below.
+     ============================================================ */
+
+  @media (max-width: 768px) {
+
+    /* ── Header shell ── */
+    .site-header {
+      min-height: 48px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background-color: var(--tfm-leather);
+      border-bottom: 1px solid rgba(196, 168, 74, 0.35);
+    }
+
+    /* ── Header inner: logo left, nav right, single row ── */
+    .header-inner {
+      min-height: 48px;
+      padding: 0 16px 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: none;
+    }
+
+    /* ── Colophon: hide wordmark and ornament, show logo mark only ── */
+    .colophon-ornament {
+      display: none;
+    }
+
+    .colophon-wordmark {
+      display: none;
+    }
+
+    .colophon-link {
+      flex-direction: row;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .header-logo-mark {
+      display: block;
+      height: 32px;
+      width: auto;
+    }
+
+    /* ── Desktop CTA button: hide on mobile ── */
+    .header-cta {
+      display: none;
+    }
+
+    /* ── Nav: remove diamond separators ── */
+    .site-nav .diamond {
+      display: none;
+    }
+
+    /* ── Nav: reflow as a tight right-aligned row ── */
+    .site-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* ── All nav links: eyebrow type treatment ── */
+    .nav-link {
+      font-family: var(--tfm-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--tfm-gold-muted);
+      white-space: nowrap;
+    }
+
+    /* EVENTS link — primary visual anchor, deep gold weight. */
+    .site-nav .nav-link:first-of-type {
+      color: var(--tfm-gold-deep);
+    }
+
+    /* Active state */
+    .nav-link.active {
+      color: var(--tfm-parchment);
+      font-weight: 500;
+    }
+
+    /* ── Body offset: push page content below fixed header ── */
+    body {
+      padding-top: 48px;
+    }
+
+    /* ── Spine strip: hide on mobile per TFM_11 ── */
+    .tfm-spine {
+      display: none;
+    }
+
+    /* ── Ribbon: hide on mobile per TFM_11 ── */
+    .tfm-ribbon {
+      display: none;
+    }
+
+  }
+
+  /* ── Desktop: hide the header logo mark (added for mobile only) ── */
+  @media (min-width: 769px) {
+    .header-logo-mark {
+      display: none;
+    }
+  }
+
+  /* ============================================================
+     FIX 3 — MOBILE FOOTER
+     ============================================================ */
+
+  @media (max-width: 768px) {
+
+    /* Footer shell: collapse padding */
+    .site-footer {
+      padding: 32px 20px;
+    }
+
+    /* Email signup row: full width, already block — just tighten spacing */
+    .footer-email-row {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+
+    /* Footer inner: single column, centered */
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      text-align: center;
+    }
+
+    /* Brand block: center logo and text */
+    .footer-brand {
+      align-items: center;
+    }
+
+    .footer-logo {
+      margin: 0 auto;
+    }
+
+    /* Nav: center the links */
+    .footer-nav {
+      justify-content: center;
+    }
+
+    /* Meta: center copyright */
+    .footer-meta {
+      text-align: center;
+      align-items: center;
+    }
+
   }
 </style>
