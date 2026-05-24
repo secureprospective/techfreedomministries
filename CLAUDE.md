@@ -13,7 +13,8 @@ today's student into tomorrow's teacher.
 
 Scriptural anchor: Galatians 5:1
 Tagline: "Giving freedom with a fishing pole."
-Domain: techfreedomministries.com (live — Cloudflare Pages, auto-deploy from main)
+Domain: techfreedomministries.org (live — Cloudflare Pages, auto-deploy from main)
+Redirect: techfreedomministries.com → techfreedomministries.org (301, all variants)
 Repo: github.com/secureprospective/techfreedomministries
 Local path: /mnt/storage/claudebox/techfreedomministries/
 
