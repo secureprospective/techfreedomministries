@@ -38,6 +38,7 @@ const benefits = [
   "Your name on the Roadmap cards you hand out.",
   "A Vanguard credential card. Hard stock, gold accent.",
   "Early access to event intel and the Vanguard coordination channel.",
+  "Hardware coordination support for the events you run. You do not source machines alone.",
   "First Vanguard in your city if no one else is there yet.",
 ];
 
