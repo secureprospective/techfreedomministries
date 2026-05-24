@@ -32,9 +32,14 @@ export default function BrevoSignup() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <label htmlFor="brevo-email" style={{ fontFamily: 'var(--tfm-sans)', fontSize: 11, letterSpacing: '0.20em', textTransform: 'uppercase', color: 'var(--tfm-gold-muted)' }}>
+      <div style={{ fontFamily: 'var(--tfm-sans)', fontSize: 11, letterSpacing: '0.20em', textTransform: 'uppercase', color: 'var(--tfm-gold-muted)', marginBottom: 4 }}>
         Stay in the loop
-      </label>
+      </div>
+      <p style={{ fontFamily: 'var(--tfm-serif)', fontSize: 22, fontWeight: 700, color: 'var(--tfm-near-black)', lineHeight: 1.15, margin: '0 0 2px' }}>
+        No events near you yet.{' '}
+        <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--tfm-deep-gold)' }}>Be first to know when that changes.</em>
+      </p>
+      <label htmlFor="brevo-email" style={{ display: 'none' }}>Email address</label>
       <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
         <input
           id="brevo-email"
