@@ -33,7 +33,7 @@ export default function BrevoSignup() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       <label htmlFor="brevo-email" style={{ fontFamily: 'var(--tfm-sans)', fontSize: 11, letterSpacing: '0.20em', textTransform: 'uppercase', color: 'var(--tfm-gold-muted)' }}>
-        Get event announcements
+        Stay in the loop
       </label>
       <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
         <input

@@ -25,15 +25,16 @@ export default function Hero() {
           color: "var(--tfm-warm-brown)", maxWidth: "52ch", margin: 0,
         }}>
           Your phone reports on you to people you've never met. We run a free
-          three-hour event that ends with a working laptop you actually own —
-          no fee, no upsell, no follow-up emails. Bring a ten-year-old ThinkPad
-          if you have one.
+          three-hour event that ends with a working laptop you actually own.
+          No fee. No upsell. No follow-up emails. Bring whatever machine you have.
         </p>
         <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
           <Button onClick={() => window.location.href = '/events'}>
             Find an event near you <Icon name="arrow" size={14} />
           </Button>
-          <GhostButton onClick={() => window.location.href = '/oath'}>Read the Oath</GhostButton>
+          <GhostButton onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}>
+            See how it works
+          </GhostButton>
         </div>
       </div>
 
