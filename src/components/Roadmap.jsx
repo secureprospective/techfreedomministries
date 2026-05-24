@@ -4,12 +4,12 @@ import { Eyebrow, Rule, Proclamation, Diamond, LEVELS } from './Atoms.jsx';
 const LEVEL_COPY = [
   { steps: ["Install Linux on a real machine.", "Replace one cloud account.", "Leave the room with a working laptop."],
     blurb: "The first event. Three hours. You walk in with a phone that reports on you and walk out with a laptop you actually own." },
-  { steps: ["Read the six readings.", "Attend three lab nights.", "Write one short essay."],
+  { steps: ["Learn to navigate the terminal.", "Understand what sudo means and when to use it.", "Install software without a mouse."],
     blurb: "The why behind the how. Stewardship, sovereignty, surveillance, and the long arc of how we got here." },
   { steps: ["Stand up a home server.", "Self-host your photos and files.", "Cut your last consumer cloud account."],
     blurb: "You stop renting. You start owning. The Homestead is where the muscle memory becomes a way of life." },
   { steps: ["Run an Exodus event.", "Teach one full Catechism cycle.", "Take the Vanguard oath."],
-    blurb: "The student becomes the teacher. The community survives because of you." },
+    blurb: "The student becomes the teacher. The mission continues because of you." },
 ];
 
 function LevelCard({ level }) {
@@ -77,7 +77,7 @@ export default function Roadmap() {
           fontFamily: "var(--tfm-sans)", fontSize: 15, lineHeight: 1.65,
           color: "var(--tfm-warm-brown)", maxWidth: "60ch", marginTop: 18,
         }}>
-          Four levels, in order. Each one is earned, never bought. The Roadmap card you take home from your first event tracks all four.
+          Four levels. Each one earned, never bought. You move at your own pace. The physical card you take home from your first event tracks every milestone.
         </p>
       </div>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 36px", display: "flex", flexDirection: "column" }}>
