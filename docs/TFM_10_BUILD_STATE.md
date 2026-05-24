@@ -9,9 +9,10 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-18 — Session 5 (Formspree + Brevo integrations)
+**Last updated:** 2026-05-24 — Session 6 (domain migration + Cloudflare audit)
 
-**Live URL:** https://techfreedomministries.com
+**Live URL:** https://techfreedomministries.org
+**Redirect:** techfreedomministries.com → techfreedomministries.org (301, all variants — naked + www)
 **Repo:** https://github.com/secureprospective/techfreedomministries
 **Active branch:** main (session/integrations merged — PR #3)
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
@@ -32,6 +33,8 @@ Full session history is in git log.
 | Build output dir | dist/ | dist/ ✓ |
 | Formspree | Vanguard application form | Live — endpoint mvzyorgw ✓ |
 | Brevo | Email capture (footer) | Live — list ID 3, env vars in Cloudflare ✓ |
+| Node version | Pinned | .nvmrc → 20 (added session 6) ✓ |
+| Domain | techfreedomministries.org | .com redirects 301 to .org — all variants ✓ |
 
 ---
 
@@ -82,5 +85,5 @@ The Oath and About exist at `/oath` and `/about` but are not in the main nav.
 
 ---
 
-*Last updated: 2026-05-18 — Session 5*
+*Last updated: 2026-05-24 — Session 6*
 *Built by: Christopher Campbell + Claude (Anthropic)*

@@ -8,6 +8,40 @@ import Roadmap from '../components/Roadmap.jsx';
 
   <Hero client:load />
 
+  <!-- How it works — three-step explainer -->
+  <section id="how-it-works" class="explainer">
+    <div class="explainer-header">
+      <div class="eyebrow">How It Works</div>
+      <div class="explainer-rule"></div>
+      <h2 class="proclamation">
+        Three steps. <em>One direction.</em>
+      </h2>
+    </div>
+    <div class="explainer-steps">
+      <div class="explainer-step">
+        <div class="step-marker">◆</div>
+        <p class="step-copy">
+          <strong>Come to an Install Party.</strong>{" "}
+          Bring your laptop. We replace the software that reports on you with tools you actually own. Free. No experience needed.
+        </p>
+      </div>
+      <div class="explainer-step">
+        <div class="step-marker">◆</div>
+        <p class="step-copy">
+          <strong>Follow the Roadmap.</strong>{" "}
+          Four levels. Each one earned, not bought. You move at your pace with a community behind you.
+        </p>
+      </div>
+      <div class="explainer-step">
+        <div class="step-marker">◆</div>
+        <p class="step-copy">
+          <strong>Become a Vanguard.</strong>{" "}
+          Once you have the skills, you come back and give them away. That is how TFM grows — graduate to graduate, city to city.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Featured events -->
   <section class="home-events">
     <div class="home-events-header">
@@ -44,6 +78,60 @@ import Roadmap from '../components/Roadmap.jsx';
 </Layout>
 
 <style>
+  /* Explainer — three steps */
+  .explainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 36px;
+    border-top: 1px solid var(--tfm-parchment-edge);
+  }
+
+  .explainer-header {
+    max-width: 520px;
+  }
+
+  .explainer-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--tfm-gold-bright);
+    margin: 14px 0 20px;
+  }
+
+  .explainer-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 56px;
+  }
+
+  .explainer-step {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .step-marker {
+    color: var(--tfm-gold-bright);
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .step-copy {
+    font-family: var(--tfm-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--tfm-warm-brown);
+    margin: 0;
+  }
+
+  .step-copy strong {
+    font-weight: 600;
+    color: var(--tfm-near-black);
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+
   .home-events {
     max-width: 1100px;
     margin: 0 auto;
