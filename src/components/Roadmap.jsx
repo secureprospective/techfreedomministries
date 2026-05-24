@@ -20,7 +20,8 @@ function LevelCard({ level }) {
   const L = LEVELS[level - 1];
   const copy = LEVEL_COPY[level - 1];
   return (
-    <article style={{
+    <article className="tfm-gilt-edge" style={{
+      position: "relative",
       background: L.bg, color: L.fg,
       padding: "44px 48px",
       display: "grid", gridTemplateColumns: "180px 1fr 1fr", gap: 48,

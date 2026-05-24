@@ -266,9 +266,11 @@ export function Card({ children, hover: hoverable = true, style }) {
   const [hover, setHover] = useState(false);
   return (
     <div
+      className="tfm-gilt-edge"
       onMouseEnter={() => hoverable && setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
+        position: "relative",
         background: "var(--tfm-parchment-2)",
         border: `1px solid ${hover ? "var(--tfm-deep-gold)" : "var(--tfm-parchment-edge)"}`,
         boxShadow: "0 1px 0 rgba(28,18,9,.04), 0 1px 2px rgba(28,18,9,.06)",
