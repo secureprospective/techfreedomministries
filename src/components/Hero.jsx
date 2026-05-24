@@ -9,8 +9,21 @@ export default function Hero() {
       display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 64, alignItems: "center",
     }}>
       <div>
-        <Eyebrow>A Faith-Backed Nonprofit · Free Linux Events</Eyebrow>
-        <Rule style={{ margin: "16px 0 24px" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+          <span style={{
+            display: "block", width: 40, height: 1,
+            backgroundColor: "var(--tfm-gold-bright)", flexShrink: 0,
+          }} />
+          <span style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 13,
+            fontWeight: 400,
+            color: "var(--tfm-gold-muted)",
+            letterSpacing: "0.04em",
+          }}>
+            Your laptop. Their data. Not for long.
+          </span>
+        </div>
         <Proclamation
           as="h1"
           size={56}
@@ -24,9 +37,9 @@ export default function Hero() {
           fontFamily: "var(--tfm-sans)", fontSize: 16, lineHeight: 1.65,
           color: "var(--tfm-warm-brown)", maxWidth: "52ch", margin: 0,
         }}>
-          Your phone reports on you to people you've never met. We run a free
-          three-hour event that ends with a working laptop you actually own.
-          No fee. No upsell. No follow-up emails. Bring whatever machine you have.
+          Every device you own reports back. Google, Apple, Microsoft — the operating
+          system is the product. We run free events that replace it. You bring a laptop.
+          You leave owning it. No experience needed. No cost. Ever.
         </p>
         <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
           <Button onClick={() => window.location.href = '/events'}>
@@ -45,8 +58,9 @@ export default function Hero() {
       }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, textAlign: "center" }}>
           <img
-            src="/assets/tfm-logo-nearblack.png"
+            src="/assets/tfm-logo-on-dark.png"
             alt="TFM"
+            data-tfm-animate="dissolution"
             style={{ width: 200, height: "auto" }}
           />
           <Rule width={40} />
