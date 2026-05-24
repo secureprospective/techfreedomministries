@@ -9,12 +9,12 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-24 — Session 7 (full site copy rewrite + narrative pass)
+**Last updated:** 2026-05-24 — Session 8 (Gilded Spine theme + accent system)
 
 **Live URL:** https://techfreedomministries.org
 **Redirect:** techfreedomministries.com → techfreedomministries.org (301, all variants — naked + www)
 **Repo:** https://github.com/secureprospective/techfreedomministries
-**Active branch:** main (session/narrative-pass merged)
+**Active branch:** main (session/styling-pass merged)
 **Deployment:** Cloudflare Pages — auto-deploys on every push to main
 
 ---
@@ -57,6 +57,35 @@ Full session history is in git log.
 `EVENTS ◆ ROADMAP ◆ VANGUARD ◆ GIVE` — per TFM_09 spec.
 
 The Oath and About exist at `/oath` and `/about` but are not in the main nav.
+
+---
+
+## Session 8 — What Changed
+
+**Gilded Spine theme (two-AI loop: Claude.ai visual direction + Claude Code implementation):**
+
+Accent system — `src/styles/accents.css` (new file):
+- `.tfm-ledger-rule` — 1px parchment-edge rule under all section-opening H2s
+- `.tfm-ref-mark` — ◆ glyph before doctrinal content (Galatians, Oath)
+- `.tfm-stamp` / corner span system — 4-corner certification frame
+- `.tfm-gilt-edge` — gold gradient right edge on all cards
+
+Signature elements:
+- Dark leather header (`#2A1F0E`) with crosshatch texture and gold seam border
+- Colophon: fading gold rules ◆ rules + "TECH FREEDOM MINISTRIES" in Cinzel (20px)
+- Crimson ribbon bookmark — fixed right edge, 216px, pointed bottom, scrolls fixed
+- Gold spine strip — fixed left edge, full viewport height, gold gradient
+
+Extended theme:
+- Hemp page texture on body (barely-visible woven grid)
+- Gilt edge on all Card components + Roadmap level articles
+- Vanguard "What You Get" — Brackets component with gold border (credential frame)
+- Roadmap level callouts — one per level, bold italic declarative copy in level color
+- Roadmap + Atoms.jsx: `Proclamation` now accepts `className` prop
+
+New tokens: `--tfm-leather`, `--tfm-leather-mid`, `--tfm-crimson`, `--tfm-crimson-deep`, `--tfm-gilt`, `--tfm-gilt-deep`, `--tfm-cinzel`
+
+New doc: `docs/TFM_11_BIBLE_THEME.md` — canonical Gilded Spine theme record
 
 ---
 
