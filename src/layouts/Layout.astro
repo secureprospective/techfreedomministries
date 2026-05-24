@@ -21,14 +21,27 @@ const navLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Free events. Real tools. Teaching people to escape Big Tech surveillance — for free." />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
   </head>
   <body>
 
+    <!-- Gilded Spine: fixed structural elements -->
+    <div class="tfm-spine" aria-hidden="true"></div>
+    <div class="tfm-ribbon" aria-hidden="true"></div>
+
     <header class="site-header">
       <div class="header-inner">
-        <a href="/" class="logo-link">
-          <img src="/assets/tfm-logo-nearblack.png" alt="" class="site-logo" />
-          <span class="wordmark">Tech Freedom Ministries</span>
+
+        <!-- Colophon: diamond ornament + Cinzel wordmark -->
+        <a href="/" class="colophon-link" aria-label="Tech Freedom Ministries — Home">
+          <div class="colophon-ornament">
+            <div class="colophon-rule colophon-rule--left"></div>
+            <span class="colophon-diamond">◆</span>
+            <div class="colophon-rule colophon-rule--right"></div>
+          </div>
+          <div class="colophon-wordmark">Tech Freedom Ministries</div>
         </a>
 
         <nav class="site-nav">
@@ -104,47 +117,110 @@ const navLinks = [
 
   main { flex: 1; }
 
-  /* ── Header ── */
+  /* ── Gilded Spine: Fixed structural elements ── */
+  .tfm-spine {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg,
+      var(--tfm-gilt-deep) 0%,
+      var(--tfm-gilt) 35%,
+      var(--tfm-gilt-deep) 65%,
+      var(--tfm-gilt) 85%,
+      var(--tfm-gilt-deep) 100%
+    );
+    z-index: 200;
+    pointer-events: none;
+  }
+
+  .tfm-ribbon {
+    position: fixed;
+    right: 48px;
+    top: 0;
+    width: 18px;
+    height: 72px;
+    background: linear-gradient(180deg, var(--tfm-crimson-deep) 0%, var(--tfm-crimson) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%);
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .tfm-spine { display: none; }
+    .tfm-ribbon { display: none; }
+  }
+
+  /* ── Header — Dark Leather ── */
   .site-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(244, 240, 230, 0.98);
-    border-bottom: 1px solid var(--tfm-parchment-edge);
+    background-color: var(--tfm-leather);
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(196,168,74,0.03) 18px, rgba(196,168,74,0.03) 19px),
+      repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(196,168,74,0.03) 18px, rgba(196,168,74,0.03) 19px);
+    border-bottom: 1px solid rgba(196,168,74,0.35);
+    min-height: 56px;
   }
 
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 18px 36px;
+    padding: 16px 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
   }
 
-  .logo-link {
+  /* ── Colophon ── */
+  .colophon-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .colophon-ornament {
     display: flex;
     align-items: center;
-    gap: 12px;
-    text-decoration: none;
+    gap: 10px;
   }
 
-  .site-logo {
-    width: 40px;
-    height: 22px;
-    object-fit: contain;
+  .colophon-rule {
+    height: 1px;
+    width: 48px;
+    flex-shrink: 0;
   }
 
-  .wordmark {
-    font-family: var(--tfm-sans);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+  .colophon-rule--left {
+    background: linear-gradient(to right, transparent, var(--tfm-gilt));
+  }
+
+  .colophon-rule--right {
+    background: linear-gradient(to left, transparent, var(--tfm-gilt));
+  }
+
+  .colophon-diamond {
+    color: var(--tfm-gilt);
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .colophon-wordmark {
+    font-family: var(--tfm-cinzel);
+    font-size: 10px;
+    letter-spacing: 0.30em;
     text-transform: uppercase;
-    color: var(--tfm-near-black);
-    font-weight: 500;
+    color: var(--tfm-gold-muted);
+    white-space: nowrap;
   }
 
+  /* ── Nav on leather ── */
   .site-nav {
     display: flex;
     align-items: center;
@@ -156,7 +232,7 @@ const navLinks = [
     font-size: 11px;
     letter-spacing: 0.20em;
     text-transform: uppercase;
-    color: var(--tfm-gold-muted);
+    color: rgba(196, 168, 74, 0.55);
     text-decoration: none;
     font-weight: 400;
     transition: color 220ms cubic-bezier(.2,0,.2,1);
@@ -164,12 +240,12 @@ const navLinks = [
 
   .nav-link:hover,
   .nav-link.active {
-    color: var(--tfm-near-black);
+    color: var(--tfm-gilt);
     font-weight: 500;
   }
 
   .diamond {
-    color: var(--tfm-gold-bright);
+    color: rgba(196, 168, 74, 0.4);
     font-size: 8px;
     line-height: 1;
   }
@@ -178,17 +254,22 @@ const navLinks = [
     font-family: var(--tfm-sans);
     font-size: 12px;
     font-weight: 500;
-    padding: 10px 18px;
-    background: var(--tfm-near-black);
-    color: var(--tfm-parchment);
+    padding: 9px 18px;
+    background: rgba(196, 168, 74, 0.1);
+    color: var(--tfm-gilt);
     text-decoration: none;
+    border: 1px solid rgba(196, 168, 74, 0.35);
     border-radius: 2px;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.04em;
     white-space: nowrap;
-    transition: background 220ms cubic-bezier(.2,0,.2,1);
+    transition: all 220ms cubic-bezier(.2,0,.2,1);
   }
 
-  .header-cta:hover { background: #2C2014; }
+  .header-cta:hover {
+    background: rgba(196, 168, 74, 0.18);
+    border-color: rgba(196, 168, 74, 0.6);
+    color: #D4B85A;
+  }
 
   /* ── Footer ── */
   .site-footer {
