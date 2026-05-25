@@ -65,14 +65,14 @@ function HeroSection() {
       <div>
         <div style={{ ...s.eyebrowRow, marginBottom: 16 }}>
           <span style={s.eyebrowRule} aria-hidden="true" />
-          <Eyebrow>Vanguard</Eyebrow>
+          <Eyebrow color="var(--tfm-gold-bright)" style={{ fontSize: 13 }}>Vanguard</Eyebrow>
         </div>
 
         <h1 className="tfm-vg-hero-h1" style={{
           fontFamily: "var(--tfm-serif)",
-          fontSize: 46,
-          lineHeight: 1.1,
-          margin: "0 0 24px",
+          fontSize: 36,
+          lineHeight: 1.3,
+          margin: "0 0 0",
         }}>
           <span style={{ fontWeight: 700, color: "var(--tfm-parchment)", display: "block" }}>
             You know what most people don't.
@@ -82,13 +82,14 @@ function HeroSection() {
           </em>
         </h1>
 
-        <div style={{ width: "100%", height: 1, backgroundColor: "rgba(196,168,74,0.25)", margin: "0 0 24px" }} />
+        {/* Ledger rule — muted gold, 16px below headline */}
+        <div style={{ width: "100%", height: 1, backgroundColor: "var(--tfm-gold-muted)", margin: "16px 0 20px" }} />
 
         <p style={{
           fontFamily: "var(--tfm-sans)",
-          fontSize: 15,
-          lineHeight: 1.7,
-          color: "rgba(244,240,230,0.75)",
+          fontSize: 16,
+          lineHeight: 1.6,
+          color: "var(--tfm-parchment)",
           maxWidth: "44ch",
           margin: "0 0 36px",
         }}>
@@ -104,7 +105,8 @@ function HeroSection() {
             alignItems: "center",
             gap: 8,
             fontFamily: "var(--tfm-sans)",
-            fontSize: 11,
+            fontSize: 14,
+            fontWeight: 700,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
             color: "var(--tfm-near-black)",
@@ -128,15 +130,16 @@ function HeroSection() {
         <div style={{
           border: "1px solid var(--tfm-gold-bright)",
           padding: "32px 28px",
-          backgroundColor: "rgba(196,168,74,0.05)",
+          backgroundColor: "var(--tfm-parchment-card)",
         }}>
           {/* Cinzel wordmark — credential context only */}
           <div style={{
             fontFamily: "var(--tfm-cinzel)",
-            fontSize: 9,
-            letterSpacing: "0.28em",
+            fontSize: 14,
+            fontWeight: 700,
+            letterSpacing: "0.20em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-near-black)",
             textAlign: "center",
             marginBottom: 20,
           }}>
@@ -147,10 +150,11 @@ function HeroSection() {
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
             <span style={{
               fontFamily: "var(--tfm-sans)",
-              fontSize: 11,
+              fontSize: 15,
+              fontWeight: 700,
               letterSpacing: "0.20em",
               textTransform: "uppercase",
-              color: "var(--tfm-gold-deep)",
+              color: "var(--tfm-warm-brown)",
               border: "1px solid var(--tfm-gold-bright)",
               padding: "6px 18px",
             }}>
@@ -160,9 +164,9 @@ function HeroSection() {
 
           {/* Divider */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(196,168,74,0.3)" }} />
-            <Diamond size={9} />
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(196,168,74,0.3)" }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: "var(--tfm-parchment-edge)" }} />
+            <Diamond size={9} color="var(--tfm-gold-bright)" />
+            <div style={{ flex: 1, height: 1, backgroundColor: "var(--tfm-parchment-edge)" }} />
           </div>
 
           {/* Oath */}
@@ -170,7 +174,7 @@ function HeroSection() {
             fontFamily: "var(--tfm-serif)",
             fontSize: 14,
             fontStyle: "italic",
-            color: "rgba(244,240,230,0.75)",
+            color: "var(--tfm-warm-brown)",
             lineHeight: 1.65,
             textAlign: "center",
             margin: "0 0 20px",
@@ -181,17 +185,18 @@ function HeroSection() {
 
           {/* Divider */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(196,168,74,0.3)" }} />
-            <Diamond size={9} />
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(196,168,74,0.3)" }} />
+            <div style={{ flex: 1, height: 1, backgroundColor: "var(--tfm-parchment-edge)" }} />
+            <Diamond size={9} color="var(--tfm-gold-bright)" />
+            <div style={{ flex: 1, height: 1, backgroundColor: "var(--tfm-parchment-edge)" }} />
           </div>
 
           <div style={{
             fontFamily: "var(--tfm-sans)",
-            fontSize: 10,
+            fontSize: 15,
+            fontWeight: 700,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-warm-brown)",
             textAlign: "center",
           }}>
             The Vanguard Oath
@@ -229,41 +234,40 @@ function MeansSection() {
       <SectionEyebrow>What Vanguard Means</SectionEyebrow>
       <Proclamation
         as="h2"
-        size={34}
+        size={32}
         strong="The levels were preparation."
         italic="This is the work."
-        style={{ margin: "16px 0 8px" }}
+        style={{ margin: "16px 0 0" }}
       />
-      <div style={s.sectionRule} />
 
-      <div className="tfm-vg-means-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
+      {/* Ledger rule — muted gold, 16px below headline */}
+      <div style={{
+        width: "100%",
+        height: 1,
+        backgroundColor: "var(--tfm-gold-muted)",
+        margin: "16px 0 36px",
+      }} />
+
+      <div className="tfm-vg-means-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
         {cards.map((c) => (
-          <GiltCard key={c.n}>
-            <div style={{
-              fontFamily: "var(--tfm-serif)",
-              fontSize: 36,
-              fontWeight: 700,
-              color: "var(--tfm-gold-bright)",
-              lineHeight: 1,
-              marginBottom: 12,
-            }}>
-              {c.n}
-            </div>
-            <div style={{
-              fontFamily: "var(--tfm-sans)",
-              fontSize: 13,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--tfm-near-black)",
-              fontWeight: 500,
-              marginBottom: 8,
-            }}>
-              {c.title}
+          <GiltCard key={c.n} style={{ padding: 32, backgroundColor: "var(--tfm-parchment-card)" }}>
+            {/* Ref mark + title */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1, flexShrink: 0 }}>◆</span>
+              <div style={{
+                fontFamily: "var(--tfm-serif)",
+                fontSize: 22,
+                fontWeight: 700,
+                color: "var(--tfm-near-black)",
+                lineHeight: 1.1,
+              }}>
+                {c.title}
+              </div>
             </div>
             <p style={{
               fontFamily: "var(--tfm-sans)",
-              fontSize: 14,
-              lineHeight: 1.65,
+              fontSize: 15,
+              lineHeight: 1.6,
               color: "var(--tfm-warm-brown)",
               margin: 0,
             }}>
@@ -307,12 +311,20 @@ function PathSection() {
       <SectionEyebrow>How You Get Here</SectionEyebrow>
       <Proclamation
         as="h2"
-        size={34}
+        size={32}
         strong="The path is already behind you."
         italic="One step remains."
-        style={{ margin: "16px 0 8px" }}
+        style={{ margin: "16px 0 0" }}
       />
-      <div style={s.sectionRule} />
+
+      {/* Ledger rule — muted gold, 16px below headline */}
+      <div style={{
+        width: "100%",
+        maxWidth: 640,
+        height: 1,
+        backgroundColor: "var(--tfm-gold-muted)",
+        margin: "16px 0 0",
+      }} />
 
       <div style={{ display: "flex", flexDirection: "column", maxWidth: 640 }}>
         {steps.map((step, i) => (
@@ -320,37 +332,35 @@ function PathSection() {
             key={step.n}
             style={{
               display: "grid",
-              gridTemplateColumns: "48px 1fr",
-              gap: 20,
+              gridTemplateColumns: "16px 1fr",
+              gap: 16,
               padding: "24px 0",
-              borderBottom: i < steps.length - 1 ? "1px solid var(--tfm-parchment-edge)" : "none",
+              borderBottom: i < steps.length - 1
+                ? "1px solid var(--tfm-gold-muted)"
+                : "none",
             }}
           >
-            <div style={{
-              fontFamily: "var(--tfm-serif)",
-              fontSize: 28,
-              fontWeight: 700,
+            <span style={{
               color: "var(--tfm-gold-bright)",
-              lineHeight: 1,
-              paddingTop: 2,
-            }}>
-              {step.n}
-            </div>
+              fontSize: 12,
+              lineHeight: 1.8,
+              flexShrink: 0,
+            }}>◆</span>
             <div>
               <div style={{
-                fontFamily: "var(--tfm-sans)",
-                fontSize: 14,
-                fontWeight: 600,
+                fontFamily: "var(--tfm-serif)",
+                fontSize: 20,
+                fontWeight: 700,
                 color: "var(--tfm-near-black)",
-                marginBottom: 5,
-                letterSpacing: "0.01em",
+                lineHeight: 1.2,
+                marginBottom: 8,
               }}>
-                {step.title}
+                {step.n} — {step.title}
               </div>
               <p style={{
                 fontFamily: "var(--tfm-sans)",
-                fontSize: 14,
-                lineHeight: 1.65,
+                fontSize: 15,
+                lineHeight: 1.6,
                 color: "var(--tfm-warm-brown)",
                 margin: 0,
               }}>
