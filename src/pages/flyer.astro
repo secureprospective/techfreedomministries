@@ -1,0 +1,223 @@
+---
+// Standalone flyer page — no Layout wrapper.
+// URL: techfreedomministries.org/flyer
+// QR code: place file at public/assets/qr-code.png
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware Donation Flyer — Tech Freedom Ministries</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { background: #777; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; min-height: 100vh; gap: 20px; }
+
+    /* Print toolbar — hidden when printing */
+    .print-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .print-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      background: #C4A84A;
+      color: #1C1209;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .back-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: rgba(244,240,230,0.60);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+    .back-link:hover { color: rgba(244,240,230,0.90); }
+
+    @media print {
+      body { background: none; padding: 0; gap: 0; }
+      .print-bar { display: none; }
+      .flyer { box-shadow: none; }
+    }
+
+    /* ── Flyer ── */
+    .flyer {
+      position: relative;
+      width: 550px;
+      background: #F4F0E6;
+      color: #1C1209;
+      font-family: 'Inter', sans-serif;
+      padding: 44px 52px 36px 66px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.38);
+      overflow: hidden;
+    }
+    .flyer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,160,100,0.06) 39px, rgba(180,160,100,0.06) 40px),
+        repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,100,0.05) 27px, rgba(180,160,100,0.05) 28px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .spine {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, #8B6914 0%, #C4A84A 35%, #8B6914 65%, #C4A84A 85%, #8B6914 100%);
+      z-index: 10;
+    }
+    .c { position: relative; z-index: 1; }
+
+    .eb { font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: #8B7355; text-align: center; margin-bottom: 12px; }
+
+    .drow { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+    .dr { width: 44px; height: 1px; }
+    .dr.l { background: linear-gradient(90deg, transparent, #C4A84A); }
+    .dr.r { background: linear-gradient(90deg, #C4A84A, transparent); }
+    .dg { color: #C4A84A; font-size: 10px; line-height: 1; }
+
+    h1 { font-family: 'EB Garamond', Georgia, serif; font-size: 25px; font-weight: 700; line-height: 1.2; text-align: center; color: #1C1209; margin: 0 0 10px; letter-spacing: -.005em; }
+    .sh { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; font-style: italic; color: #8B6914; text-align: center; margin: 0 0 20px; line-height: 1.3; }
+
+    .lr { width: 100%; height: 1px; background: #8B7355; opacity: .4; margin-bottom: 20px; }
+
+    .loop-block {
+      background: #2A1F0E;
+      margin: 0 -52px 20px -66px;
+      padding: 22px 52px 22px 66px;
+    }
+    .loop-eyebrow { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #8B7355; margin-bottom: 10px; }
+    .loop-head { font-family: 'EB Garamond', Georgia, serif; font-size: 19px; font-weight: 700; color: #F4F0E6; line-height: 1.15; margin: 0 0 2px; }
+    .loop-sub { font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-style: italic; color: #C4A84A; margin: 0 0 14px; }
+    .loop-rule { width: 100%; height: 1px; background: #8B7355; opacity: .3; margin-bottom: 14px; }
+    .loop-item { display: flex; gap: 9px; margin-bottom: 8px; align-items: flex-start; }
+    .li-diamond { color: #C4A84A; font-size: 9px; margin-top: 3px; flex-shrink: 0; }
+    .li-strong { font-family: 'EB Garamond', Georgia, serif; font-size: 12.5px; font-weight: 700; color: #F4F0E6; line-height: 1.2; }
+    .li-sub { font-size: 9.5px; color: #8B7355; line-height: 1.45; margin-top: 1px; }
+
+    .stamp-outer { position: relative; margin-bottom: 20px; }
+    .sb { position: absolute; width: 13px; height: 13px; }
+    .sb.tl { top: -4px; left: -4px; border-top: 1px solid #C4A84A; border-left: 1px solid #C4A84A; }
+    .sb.tr { top: -4px; right: -4px; border-top: 1px solid #C4A84A; border-right: 1px solid #C4A84A; }
+    .sb.bl { bottom: -4px; left: -4px; border-bottom: 1px solid #C4A84A; border-left: 1px solid #C4A84A; }
+    .sb.br { bottom: -4px; right: -4px; border-bottom: 1px solid #C4A84A; border-right: 1px solid #C4A84A; }
+    .stamp-inner { padding: 14px 18px; }
+    .p-eyebrow { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #8B7355; margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+    .p-eyebrow .dg { font-size: 8px; }
+    .p-item { display: flex; gap: 10px; align-items: baseline; padding: 5px 0; border-bottom: 1px solid rgba(139,115,85,.18); }
+    .p-item:last-child { border-bottom: none; }
+    .p-num { font-size: 9px; color: #8B7355; letter-spacing: .06em; min-width: 16px; }
+    .p-name { font-size: 10.5px; font-weight: 500; color: #1C1209; flex: 1; }
+    .p-desc { font-size: 9.5px; color: #4A3F2F; text-align: right; }
+
+    .cta { text-align: center; margin-bottom: 4px; }
+    .cta-top { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; font-weight: 700; color: #1C1209; margin-bottom: 2px; }
+    .cta-top em { font-style: italic; font-weight: 400; color: #8B6914; }
+    .cta-body { font-size: 10px; color: #4A3F2F; line-height: 1.55; margin-bottom: 14px; }
+    .qr-wrap { display: flex; justify-content: center; margin-bottom: 12px; }
+    .qr-box { width: 88px; height: 88px; border: 1px solid #D9D0B8; padding: 3px; background: #fff; }
+    .qr-box img { width: 82px; height: 82px; object-fit: contain; display: block; }
+    .contact { font-size: 9.5px; color: #4A3F2F; line-height: 1.7; }
+    .contact a { color: #8B6914; font-weight: 500; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    .footer-rule { width: 100%; height: 1px; background: #8B7355; opacity: .4; margin: 18px 0 12px; }
+    .footer { font-family: 'EB Garamond', Georgia, serif; font-size: 11.5px; font-style: italic; color: #4A3F2F; text-align: center; display: flex; align-items: center; justify-content: center; gap: 7px; }
+    .footer .dg { font-style: normal; font-size: 8px; }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">Print Flyer</button>
+    <a href="/vault" class="back-link">← Back to Vault</a>
+  </div>
+
+  <div class="flyer">
+    <div class="spine"></div>
+    <div class="c">
+
+      <div class="eb">Tech Freedom Ministries · Hardware Donation</div>
+      <div class="drow">
+        <div class="dr l"></div>
+        <span class="dg">◆</span>
+        <div class="dr r"></div>
+      </div>
+
+      <h1>Without your donated hardware,<br>we cannot guarantee a free laptop<br>at every Install Party.</h1>
+      <p class="sh">What Big Tech calls end-of-life, we call a first computer.</p>
+      <div class="lr"></div>
+
+      <div class="loop-block">
+        <div class="loop-eyebrow">How it works</div>
+        <div class="loop-head">Not a charity model.</div>
+        <div class="loop-sub">A closed loop.</div>
+        <div class="loop-rule"></div>
+        <div class="loop-item">
+          <span class="li-diamond">◆</span>
+          <div><div class="li-strong">You give a laptop.</div><div class="li-sub">One you were going to retire. One the corporation already wrote off.</div></div>
+        </div>
+        <div class="loop-item">
+          <span class="li-diamond">◆</span>
+          <div><div class="li-strong">TFM runs an Install Party.</div><div class="li-sub">Free room. Free instruction. Free machine for anyone who shows up without one.</div></div>
+        </div>
+        <div class="loop-item">
+          <span class="li-diamond">◆</span>
+          <div><div class="li-strong">Someone leaves owning a machine.</div><div class="li-sub">They follow the Roadmap. They learn the terminal. They stop renting their data.</div></div>
+        </div>
+        <div class="loop-item" style="margin-bottom:0">
+          <span class="li-diamond">◆</span>
+          <div><div class="li-strong">The loop restarts.</div><div class="li-sub">No central org required. The Vanguard in the city is TFM in that city.</div></div>
+        </div>
+      </div>
+
+      <div class="stamp-outer">
+        <span class="sb tl"></span><span class="sb tr"></span>
+        <span class="sb bl"></span><span class="sb br"></span>
+        <div class="stamp-inner">
+          <div class="p-eyebrow"><span class="dg">◆</span> Priority Order</div>
+          <div class="p-item"><span class="p-num">01</span><span class="p-name">Laptops</span><span class="p-desc">Best choice. Self-contained.</span></div>
+          <div class="p-item"><span class="p-num">02</span><span class="p-name">Workstation PCs</span><span class="p-desc">Lab stations. Powerful.</span></div>
+          <div class="p-item"><span class="p-num">03</span><span class="p-name">Mini PCs</span><span class="p-desc">Level 3 home server builds.</span></div>
+          <div class="p-item"><span class="p-num">04</span><span class="p-name">Old gaming desktops</span><span class="p-desc">Often donated on upgrade.</span></div>
+          <div class="p-item"><span class="p-num">05</span><span class="p-name">USB drives, cables, adapters</span><span class="p-desc">8GB+. Always needed.</span></div>
+        </div>
+      </div>
+
+      <div class="lr"></div>
+
+      <div class="cta">
+        <div class="cta-top">Give what you have. <em>Either one reaches someone.</em></div>
+        <p class="cta-body">Clean out your closet. Email us to coordinate a local drop-off.</p>
+        <div class="qr-wrap">
+          <div class="qr-box">
+            <img src="/assets/qr-code.png" alt="Scan to visit techfreedomministries.org" />
+          </div>
+        </div>
+        <div class="contact">
+          <a href="mailto:techfreedomministries@proton.me">techfreedomministries@proton.me</a><br>
+          <a href="https://techfreedomministries.org">techfreedomministries.org</a>
+        </div>
+      </div>
+
+      <div class="footer-rule"></div>
+      <div class="footer">
+        "Giving freedom with a fishing pole." <span class="dg">◆</span> Galatians 5:1
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

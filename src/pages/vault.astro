@@ -33,7 +33,18 @@ import Layout from '../layouts/Layout.astro';
        ═══════════════════════════════════════════════════════ -->
   <section class="vault-content">
 
-    <!-- FLYER SLOT — HTML flyer goes here -->
+    <!-- Print Assets -->
+    <div class="vault-asset-grid">
+      <a href="/flyer" class="vault-asset-card">
+        <span class="tfm-stamp-tl"></span>
+        <span class="tfm-stamp-tr"></span>
+        <span class="tfm-stamp-bl"></span>
+        <span class="tfm-stamp-br"></span>
+        <div class="vault-asset-eyebrow">Print Asset</div>
+        <div class="vault-asset-title">Hardware Donation Flyer</div>
+        <div class="vault-asset-meta">Half-sheet · 5.5″ × 8.5″ · Print or share</div>
+      </a>
+    </div>
 
   </section>
 
@@ -114,6 +125,51 @@ import Layout from '../layouts/Layout.astro';
     margin: 0 auto;
     padding: 64px 36px;
     min-height: 320px;
+  }
+
+  /* ── Asset grid ── */
+  .vault-asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .vault-asset-card {
+    position: relative;
+    display: block;
+    padding: 28px 32px;
+    background: var(--tfm-parchment-card);
+    border: 1px solid var(--tfm-parchment-edge);
+    text-decoration: none;
+    transition: border-color 220ms cubic-bezier(.2,0,.2,1);
+  }
+
+  .vault-asset-card:hover {
+    border-color: var(--tfm-gold-deep);
+  }
+
+  .vault-asset-eyebrow {
+    font-family: var(--tfm-sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+    margin-bottom: 10px;
+  }
+
+  .vault-asset-title {
+    font-family: var(--tfm-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--tfm-near-black);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .vault-asset-meta {
+    font-family: var(--tfm-sans);
+    font-size: 12px;
+    color: var(--tfm-warm-brown-soft);
   }
 
   /* ── Mobile ── */
