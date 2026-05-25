@@ -5,9 +5,9 @@
 
 ## Mission Statement
 
-Teaching people to escape Big Tech surveillance — for free — through community events, hands-on training, and a repeating growth model that turns today's student into tomorrow's teacher.
+People cannot escape Big Tech surveillance without hands-on training and independent hardware. With faith as our backbone and an open door for everyone, Tech Freedom Ministries runs free Install Parties where people walk out owning a laptop that is actually theirs — at zero cost. Every student follows a four-level Roadmap; the ones who go all the way become Vanguards — teachers who take the mission to their own city and run their own events. **We give freedom with a fishing pole because Christ has set us free;** *what Big Tech calls end-of-life, we call a first computer.*
 
-**One-sentence version:** Giving freedom with a fishing pole.
+**Tagline:** Giving freedom with a fishing pole.
 
 ---
 

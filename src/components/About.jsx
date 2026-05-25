@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eyebrow, Rule, Proclamation, Card, Diamond } from './Atoms.jsx';
+import { Eyebrow, Rule, Proclamation, Card, Diamond, Brackets } from './Atoms.jsx';
 
 export default function About() {
   const is = [
@@ -36,8 +36,41 @@ export default function About() {
         sit beside you while you install Linux on a real machine.
       </p>
 
+      {/* Mission Statement */}
+      <div style={{ marginTop: 48, marginBottom: 56 }}>
+        <Eyebrow style={{ marginBottom: 16 }}>Mission Statement</Eyebrow>
+        <Brackets padding={40} style={{ maxWidth: 760 }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 16,
+            lineHeight: 1.75,
+            color: "var(--tfm-warm-brown)",
+            margin: "0 0 20px",
+          }}>
+            People cannot escape Big Tech surveillance without hands-on training and
+            independent hardware. With faith as our backbone and an open door for everyone,
+            Tech Freedom Ministries runs free Install Parties where people walk out owning
+            a laptop that is actually theirs — at zero cost. Every student follows a
+            four-level Roadmap; the ones who go all the way become Vanguards — teachers
+            who take the mission to their own city and run their own events.
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 20,
+            lineHeight: 1.55,
+            margin: 0,
+          }}>
+            <strong style={{ fontWeight: 700, color: "var(--tfm-near-black)" }}>
+              We give freedom with a fishing pole because Christ has set us free;
+            </strong>{" "}
+            <em style={{ fontStyle: "italic", color: "var(--tfm-gold-deep)" }}>
+              what Big Tech calls end-of-life, we call a first computer.
+            </em>
+          </p>
+        </Brackets>
+      </div>
+
       <div style={{
-        marginTop: 56,
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28,
       }}>
         <Card hover={false} style={{ padding: "32px 36px" }}>
