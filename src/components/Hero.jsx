@@ -97,18 +97,15 @@ function HeroLeft() {
 
       <p style={{
         fontFamily: "var(--tfm-sans)",
-        fontSize: 15,
-        lineHeight: 1.65,
-        color: "var(--tfm-warm-brown)",
-        maxWidth: "420px",
+        fontSize: 16,
+        lineHeight: 1.6,
+        color: "var(--tfm-near-black)",
+        maxWidth: "480px",
         margin: "0 0 40px",
       }}>
-        Every device you own reports back. Google, Apple, Microsoft —{" "}
-        <strong style={{ color: "var(--tfm-near-black)", fontWeight: 600 }}>
-          the operating system is the product.
-        </strong>{" "}
-        We run free events that replace it. You bring a laptop. You leave owning it. No
-        experience needed. No cost. Ever.
+        Every device you think you own reports back. Your phone, computer and even your car —
+        do not belong to you. We run free events that replace it. You bring a laptop. You leave
+        owning it. No experience needed. No cost. Ever.
       </p>
 
       {/* CTAs — className carries the mobile stacking rules */}
@@ -181,33 +178,34 @@ function HeroRight() {
         src="/assets/tfm-logo-on-dark.png"
         alt="Tech Freedom Ministries — a cross rising from a dissolving circuit board hill"
         data-tfm-animate="dissolution"
-        style={{ width: 220, height: "auto", display: "block" }}
+        style={{ width: "100%", maxWidth: 765, height: "auto", display: "block" }}
       />
 
       {/* Galatians 5:1 in certification stamp frame */}
       <Brackets
-        padding={20}
+        padding={40}
         style={{
           border: "1px solid var(--tfm-gold-bright)",
-          maxWidth: 280,
+          width: "100%",
+          maxWidth: 560,
           textAlign: "center",
         }}
       >
         <span style={{
           fontFamily: "var(--tfm-sans)",
-          fontSize: 10,
+          fontSize: 14,
           letterSpacing: "0.05em",
           textTransform: "uppercase",
           color: "var(--tfm-gold-bright)",
           display: "block",
-          marginBottom: 8,
+          marginBottom: 12,
         }}>
           ◆ &nbsp; Galatians 5:1
         </span>
 
         <p style={{
           fontFamily: "var(--tfm-serif)",
-          fontSize: 14,
+          fontSize: 22,
           fontStyle: "italic",
           color: "var(--tfm-gold-muted)",
           lineHeight: 1.6,
@@ -217,10 +215,10 @@ function HeroRight() {
           yourselves be burdened again by a yoke of slavery.
           <span style={{
             display: "block",
-            marginTop: 8,
+            marginTop: 12,
             fontStyle: "normal",
             fontFamily: "var(--tfm-sans)",
-            fontSize: 11,
+            fontSize: 15,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
             color: "var(--tfm-gold-deep)",
