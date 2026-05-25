@@ -170,6 +170,60 @@ The result: faster iteration, lower cost, and a codebase that only gets touched 
 
 ---
 
+## Opening Session Prompt Template
+
+Christopher pastes this at the start of any dual-AI implementation session.
+Fill in the brackets. Everything else is fixed.
+
+```
+SESSION: [brief description — e.g., Give page mobile pass]
+
+DESIGN CONSULTANT OUTPUT:
+[Paste the external AI's plain-English layout instructions here — unedited]
+
+TARGET FILES:
+- [e.g., src/components/Donate.jsx]
+- [e.g., src/styles/responsive.css]
+
+VIEWPORT: [375px mobile / 1440px desktop / both]
+
+BEFORE TOUCHING ANYTHING:
+1. Read the target files listed above
+2. Read docs/TFM_14_DUAL_AI_WORKFLOW.md for the verification gate
+3. Cross-reference the design consultant output against the actual code
+4. State what is already done vs. what is genuinely new work
+5. Present a plan — wait for my confirmation before writing a single line
+
+EXECUTION CONSTRAINTS:
+- Token values from src/styles/tokens.css only — no invented colors or spacing
+- All mobile overrides in src/styles/responsive.css — never inline in components
+- className hook naming: tfm-[page-prefix]-[section]-[element]
+- Brackets component does not accept className — wrap in a div
+- 0px border-radius everywhere except buttons and badges (2px max)
+- EB Garamond: headings and proclamations only
+- Inter: body copy and buttons
+- Cinzel: header colophon and wordmarks only
+- No Tailwind. No component libraries. No glass effects.
+
+VERIFICATION GATE — one section at a time:
+1. Implement one section's changes
+2. Run: npm run build — confirm 7 pages, no errors
+3. Signal me before moving to the next section
+
+BRANCH RULE: No work on main. Branch first: session/[description]
+```
+
+### Notes on the template
+
+**Why CLAUDE.md is not listed** — Claude Code loads it automatically at session start. Listing it again adds noise.
+
+**Why git diff is not in the verification gate** — `npm run build` is the integrity check. If it compiles clean, the changes are sound. Diff inspection is for Christopher's review, not a gate.
+
+**Why "one section at a time"** — Multi-file batch changes with a single build at the end are how bugs hide. One section, one build, one signal to the pilot. This keeps Christopher in the loop and catches problems before they compound.
+
+---
+
 *Document created: May 2026*
+*Updated: May 2026 — added opening session prompt template*
 *Built from: post-session notes from both AI systems + Christopher Campbell*
 *Next doc: TFM_01_MASTER_FRAMEWORK.md for full project index*
