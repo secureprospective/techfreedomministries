@@ -9,7 +9,6 @@ const { title = "Tech Freedom Ministries — Break from the digital grid." } = A
 const { pathname } = Astro.url;
 
 const navLinks = [
-  { href: '/events',  label: 'Events' },
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/vanguard', label: 'Vanguard' },
   { href: '/donate',  label: 'Give' },
@@ -17,9 +16,9 @@ const navLinks = [
 ];
 
 const footerLinks = [
+  { href: '/events',  label: 'Events' },
   ...navLinks,
-  { href: '/about', label: 'About' },
-  { href: '/oath',  label: 'The Oath' },
+  { href: '/oath',    label: 'The Oath' },
 ];
 ---
 <!DOCTYPE html>
