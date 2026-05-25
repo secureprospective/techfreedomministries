@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eyebrow, Rule, Diamond, Proclamation, GiltCard, SectionEyebrow } from './Atoms.jsx';
+import { Eyebrow, Rule, Diamond, Proclamation, GiltCard, SectionEyebrow, Brackets } from './Atoms.jsx';
 
 // ── Notes ─────────────────────────────────────────────────────────────────────
 //
@@ -111,37 +111,50 @@ function HeroSection() {
       id="give"
       className="tfm-dn-hero-section"
       style={{
-        padding: "80px 64px 80px 72px",
+        padding: "80px 36px",
         borderBottom: "1px solid var(--tfm-parchment-edge)",
       }}
     >
-      <SectionEyebrow>Give</SectionEyebrow>
+      <div style={{ maxWidth: 760, margin: "0 auto" }}>
+        <Brackets padding={40}>
 
-      <h1 className="tfm-dn-hero-h1" style={{
-        fontFamily: "var(--tfm-serif)",
-        fontSize: 50,
-        lineHeight: 1.08,
-        margin: "16px 0 24px",
-        maxWidth: "18ch",
-      }}>
-        <span style={{ fontWeight: 700, color: "var(--tfm-near-black)", display: "block" }}>
-          We cannot give free laptops
-        </span>
-        <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-gold-deep)", display: "block", marginTop: 6 }}>
-          without hardware you no longer need.
-        </em>
-      </h1>
+          {/* Ref mark */}
+          <div style={{
+            textAlign: "center",
+            color: "var(--tfm-gold-bright)",
+            fontSize: 16,
+            lineHeight: 1,
+            marginBottom: 24,
+          }}>◆</div>
 
-      <Rule width="full" style={{ margin: "0 0 28px" }} />
+          <h1 className="tfm-dn-hero-h1" style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 36,
+            lineHeight: 1.3,
+            margin: "0 0 24px",
+            textAlign: "center",
+          }}>
+            <span style={{ fontWeight: 700, color: "var(--tfm-near-black)", display: "block" }}>
+              We cannot give free laptops.
+            </span>
+            <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-gold-deep)", display: "block", marginTop: 6 }}>
+              We need the hardware you no longer use.
+            </em>
+          </h1>
 
-      <p style={{ ...s.bodyText, maxWidth: "52ch", fontSize: 16 }}>
-        Every Install Party runs on donated machines. The laptop someone walks out with was a
-        laptop someone else stopped using.{" "}
-        <strong style={{ color: "var(--tfm-near-black)", fontWeight: 600 }}>
-          What Big Tech calls end-of-life, we call a first computer.
-        </strong>{" "}
-        Give hardware if you have it. Give cash if you don't. Both extend the loop.
-      </p>
+          <Rule width="full" style={{ margin: "0 0 20px" }} />
+
+          <p style={{ ...s.bodyText, fontSize: 16, textAlign: "center" }}>
+            Every Install Party runs on donated machines. The laptop someone walks out with was a
+            laptop someone else stopped using.{" "}
+            <strong style={{ color: "var(--tfm-near-black)", fontWeight: 600 }}>
+              What Big Tech calls end-of-life, we call a first computer.
+            </strong>{" "}
+            Give hardware if you have it. Give cash if you don't. Both extend the loop.
+          </p>
+
+        </Brackets>
+      </div>
     </section>
   );
 }
@@ -197,59 +210,73 @@ function LoopSection() {
         margin: "20px 0 44px",
       }} />
 
-      <div style={{ display: "flex", flexDirection: "column", maxWidth: 560 }}>
-        {steps.map((step, i) => (
-          <div
-            key={i}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "24px 1fr",
-              gap: 16,
-              alignItems: "start",
-              padding: "16px 0",
-              borderBottom: i < steps.length - 1
-                ? `1px solid ${GOLD_DIM}`
-                : "none",
-            }}
-          >
-            <Diamond size={10} color="var(--tfm-gold-bright)" style={{ paddingTop: 3 }} />
-            <p style={{
-              fontFamily: "var(--tfm-sans)",
-              fontSize: 15,
-              lineHeight: 1.6,
-              color: DARK_BODY_HI,
-              margin: 0,
-            }}>
-              <strong style={{ color: "var(--tfm-parchment)", fontWeight: 600 }}>
-                {step.strong}
-              </strong>
-              {step.rest}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Loop payoff aside */}
-      <div style={{
-        marginTop: 44,
-        padding: "24px 28px",
-        border: `1px solid ${GOLD_DIM_30}`,
-        maxWidth: 560,
+      {/* Two-column: steps left, quote right */}
+      <div className="tfm-dn-loop-grid" style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 64,
+        alignItems: "start",
       }}>
-        <p style={{
-          fontFamily: "var(--tfm-serif)",
-          fontSize: 16,
-          fontStyle: "italic",
-          color: "rgba(244,240,230,0.70)",
-          lineHeight: 1.65,
-          margin: 0,
-        }}>
-          One donated laptop can travel through{" "}
-          <strong style={{ fontStyle: "normal", color: "var(--tfm-gold-bright)" }}>
-            all four levels of the Roadmap
-          </strong>{" "}
-          before it retires. That is the return on a machine you were going to throw away.
-        </p>
+
+        {/* Left: 5-step loop */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "20px 1fr",
+                gap: 16,
+                alignItems: "start",
+              }}
+            >
+              <Diamond size={14} color="var(--tfm-gold-bright)" style={{ paddingTop: 3 }} />
+              <div>
+                <div style={{
+                  fontFamily: "var(--tfm-serif)",
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "var(--tfm-parchment)",
+                  lineHeight: 1.2,
+                  marginBottom: 6,
+                }}>
+                  {step.strong}
+                </div>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 15,
+                  lineHeight: 1.5,
+                  color: "var(--tfm-gold-bright)",
+                  margin: 0,
+                }}>
+                  {step.rest.trim()}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right: quote block in Brackets */}
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Brackets padding={36} style={{ width: "100%" }}>
+            <p style={{
+              fontFamily: "var(--tfm-serif)",
+              fontSize: 24,
+              fontStyle: "italic",
+              color: "var(--tfm-parchment)",
+              lineHeight: 1.6,
+              margin: 0,
+              textAlign: "center",
+            }}>
+              One donated laptop can travel through{" "}
+              <strong style={{ fontStyle: "normal", color: "var(--tfm-gold-bright)" }}>
+                all four levels of the Roadmap
+              </strong>{" "}
+              before it retires. That is the return on a machine you were going to throw away.
+            </p>
+          </Brackets>
+        </div>
+
       </div>
     </section>
   );
@@ -272,37 +299,55 @@ function HardwareSection() {
 
       <Proclamation
         as="h2"
-        size={34}
+        size={28}
         strong="The machine you are done with"
         italic="is someone's first one."
-        style={{ margin: "16px 0 8px" }}
+        style={{ margin: "16px 0 0" }}
       />
 
-      <div style={s.sectionRule} />
+      {/* Ledger rule — muted gold, 12px below headline */}
+      <div style={{
+        width: "100%",
+        height: 1,
+        backgroundColor: "var(--tfm-gold-muted)",
+        margin: "12px 0 36px",
+      }} />
 
       <div style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: 48,
-        marginTop: 36,
+        gap: 32,
         alignItems: "start",
       }}>
         {/* Left: copy */}
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <p style={{ ...s.bodyText, fontSize: 16 }}>
+          <p style={{ ...s.bodyText, fontSize: 15, lineHeight: 1.6 }}>
             A ThinkPad from 2015 runs Linux beautifully. The corporation that retired it never
             knew that. It was going to a landfill. Instead it goes to a person who has never
             owned a machine that was actually theirs.
           </p>
-          <p style={{ ...s.bodyText, fontSize: 16 }}>
+          <p style={{ ...s.bodyText, fontSize: 15, lineHeight: 1.6 }}>
             Giving it to TFM is a vote against three things at once: planned obsolescence,
             surveillance capitalism, and the idea that ordinary people cannot own their tools.
           </p>
         </div>
 
-        {/* Right: priority list */}
-        <div>
-          <Eyebrow style={{ marginBottom: 16 }}>Priority Order</Eyebrow>
+        {/* Right: priority manifest in GiltCard */}
+        <GiltCard>
+          {/* Title with ref mark */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+            <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1 }}>◆</span>
+            <div style={{
+              fontFamily: "var(--tfm-serif)",
+              fontSize: 20,
+              fontWeight: 700,
+              color: "var(--tfm-near-black)",
+              lineHeight: 1.1,
+            }}>
+              Priority Order
+            </div>
+          </div>
+
           <div style={{ display: "flex", flexDirection: "column" }}>
             {priorities.map((p, i) => (
               <div
@@ -330,7 +375,7 @@ function HardwareSection() {
                 <div>
                   <div style={{
                     fontFamily: "var(--tfm-sans)",
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: 500,
                     color: "var(--tfm-near-black)",
                   }}>
@@ -348,19 +393,15 @@ function HardwareSection() {
               </div>
             ))}
           </div>
-        </div>
+        </GiltCard>
       </div>
 
-      {/* Hardware CTA bar */}
+      {/* Hardware CTA bar — top and bottom muted gold rules */}
       <div style={{
         marginTop: 40,
         padding: "28px 32px",
-        backgroundColor: "var(--tfm-parchment-card)",
-        borderTop: "1px solid var(--tfm-parchment-edge)",
-        borderBottom: "1px solid var(--tfm-parchment-edge)",
-        borderLeft: "1px solid var(--tfm-parchment-edge)",
-        borderRight: "2px solid transparent",
-        borderImage: "linear-gradient(180deg, var(--tfm-gold-bright), var(--tfm-gold-deep), var(--tfm-gold-bright)) 1",
+        borderTop: "1px solid var(--tfm-gold-muted)",
+        borderBottom: "1px solid var(--tfm-gold-muted)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -424,11 +465,19 @@ function CashSection() {
 
       <Proclamation
         as="h2"
-        size={34}
+        size={32}
         strong="Hardware fills the room."
         italic="Cash makes the room possible."
-        style={{ margin: "16px 0 8px" }}
+        style={{ margin: "16px 0 0" }}
       />
+
+      {/* Ledger rule — muted gold, 16px below headline */}
+      <div style={{
+        width: "100%",
+        height: 1,
+        backgroundColor: "var(--tfm-gold-muted)",
+        margin: "16px 0 0",
+      }} />
 
       <p style={{ ...s.bodyText, maxWidth: "52ch", margin: "18px 0 40px" }}>
         Money funds the USB drives loaded with Linux installers, the printed Roadmap cards
@@ -438,24 +487,31 @@ function CashSection() {
       </p>
 
       {/* Three tier cards */}
-      <div className="tfm-dn-cash-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
+      <div className="tfm-dn-cash-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
         {tiers.map((tier) => (
-          <GiltCard key={tier.amount} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {/* Amount */}
-            <div style={{
-              fontFamily: "var(--tfm-serif)",
-              fontSize: 44,
-              fontWeight: 700,
-              color: "var(--tfm-near-black)",
-              lineHeight: 1,
-            }}>
-              {tier.amount}
+          <GiltCard key={tier.amount} style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+            padding: 32,
+            backgroundColor: "var(--tfm-parchment-card)",
+          }}>
+            {/* Amount with ref mark */}
+            <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 18, lineHeight: 1 }}>◆</span>
+              <div style={{
+                fontFamily: "var(--tfm-serif)",
+                fontSize: 40,
+                fontWeight: 700,
+                color: "var(--tfm-near-black)",
+                lineHeight: 1,
+              }}>
+                {tier.amount}
+              </div>
             </div>
 
-            <Rule width={40} />
-
             {/* Impact */}
-            <p style={{ ...s.bodyText, fontSize: 14, flex: 1 }}>
+            <p style={{ ...s.bodyText, fontSize: 15, lineHeight: 1.5, flex: 1, margin: "4px 0 0" }}>
               <strong style={{ color: "var(--tfm-near-black)", fontWeight: 600, display: "block", marginBottom: 4 }}>
                 {tier.strong}
               </strong>
@@ -471,13 +527,14 @@ function CashSection() {
                 alignItems: "center",
                 justifyContent: "center",
                 fontFamily: "var(--tfm-sans)",
-                fontSize: 10,
-                letterSpacing: "0.18em",
+                fontSize: 14,
+                fontWeight: 700,
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "var(--tfm-gold-deep)",
-                backgroundColor: "transparent",
-                border: "1px solid var(--tfm-gold-bright)",
-                padding: "10px 18px",
+                color: "var(--tfm-parchment)",
+                backgroundColor: "var(--tfm-near-black)",
+                border: "none",
+                padding: "12px 18px",
                 borderRadius: 2,
                 textDecoration: "none",
                 marginTop: 4,
@@ -533,37 +590,46 @@ function NotDoingSection() {
 
       <Proclamation
         as="h2"
-        size={34}
+        size={32}
         strong="What your money"
         italic="is not doing."
-        style={{ margin: "16px 0 8px" }}
+        style={{ margin: "16px 0 0" }}
       />
 
-      <div style={s.sectionRule} />
-
+      {/* Ledger rule — muted gold, 16px below headline */}
       <div style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "20px 48px",
-        marginTop: 36,
-      }}>
-        {items.map((text, i) => (
-          <div
-            key={i}
-            style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 14, alignItems: "baseline" }}
-          >
-            <Diamond size={9} color="var(--tfm-gold-bright)" />
-            <span style={{
-              fontFamily: "var(--tfm-sans)",
-              fontSize: 15,
-              lineHeight: 1.6,
-              color: "var(--tfm-warm-brown)",
-            }}>
-              {text}
-            </span>
-          </div>
-        ))}
-      </div>
+        width: "100%",
+        height: 1,
+        backgroundColor: "var(--tfm-gold-muted)",
+        margin: "16px 0 0",
+      }} />
+
+      {/* Bracketed list container */}
+      <Brackets padding={48}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px 40px",
+        }}>
+          {items.map((text, i) => (
+            <div
+              key={i}
+              style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 14, alignItems: "start" }}
+            >
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 12, lineHeight: 1.8 }}>◆</span>
+              <span style={{
+                fontFamily: "var(--tfm-serif)",
+                fontSize: 18,
+                fontWeight: 700,
+                lineHeight: 1.4,
+                color: "var(--tfm-near-black)",
+              }}>
+                {text}
+              </span>
+            </div>
+          ))}
+        </div>
+      </Brackets>
     </section>
   );
 }
@@ -573,57 +639,93 @@ function NotDoingSection() {
 function CloseSection() {
   return (
     <section style={{
-      padding: "80px 64px 80px 72px",
       backgroundColor: LEATHER_BG,
+      padding: "0 36px",
     }}>
-      <div style={{ ...s.eyebrowRow, marginBottom: 0 }}>
-        <span style={s.eyebrowRule} aria-hidden="true" />
-        <Eyebrow color="var(--tfm-gold-muted)">Give What You Have</Eyebrow>
-      </div>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
-      <h2 style={{
-        fontFamily: "var(--tfm-serif)",
-        fontSize: 40,
-        lineHeight: 1.15,
-        margin: "16px 0 24px",
-      }}>
-        <span style={{ fontWeight: 700, color: "var(--tfm-parchment)", display: "block" }}>
-          Give what you have.
-        </span>
-        <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-gold-bright)", display: "block", marginTop: 6 }}>
-          Either one reaches someone.
-        </em>
-      </h2>
+        {/* Top rule */}
+        <div style={{ height: 1, backgroundColor: "var(--tfm-gold-bright)" }} />
 
-      <Rule
-        width="full"
-        color={GOLD_DIM}
-        style={{ margin: "0 0 28px" }}
-      />
+        {/* Action bay */}
+        <div style={{ padding: "48px 0", textAlign: "center" }}>
 
-      <p style={{
-        fontFamily: "var(--tfm-sans)",
-        fontSize: 15,
-        lineHeight: 1.75,
-        color: DARK_BODY,
-        maxWidth: "48ch",
-        margin: "0 0 36px",
-      }}>
-        The machine you donate is the reason someone shows up. The cash you give is the drive
-        in their hand when they leave. Both matter. We will not tell you which one is worth
-        more. We already told you hardware is first.
-      </p>
+          <h2 style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 26,
+            lineHeight: 1.3,
+            margin: "0 0 24px",
+          }}>
+            <span style={{ fontWeight: 700, color: "var(--tfm-parchment)", display: "block" }}>
+              Give what you have.
+            </span>
+            <em style={{ fontWeight: 400, fontStyle: "italic", color: "var(--tfm-gold-bright)", display: "block", marginTop: 6 }}>
+              Either one reaches someone.
+            </em>
+          </h2>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-        <a
-          href="mailto:techfreedomministries@proton.me?subject=Hardware%20Donation"
-          style={s.cta}
-        >
-          Donate hardware &#8594;
-        </a>
-        <a href="#give-financially" style={s.ctaGhost}>
-          Give financially
-        </a>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 15,
+            lineHeight: 1.75,
+            color: DARK_BODY,
+            maxWidth: "48ch",
+            margin: "0 auto 36px",
+          }}>
+            The machine you donate is the reason someone shows up. The cash you give is the drive
+            in their hand when they leave. Both matter. We will not tell you which one is worth
+            more. We already told you hardware is first.
+          </p>
+
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="mailto:techfreedomministries@proton.me?subject=Hardware%20Donation"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                fontFamily: "var(--tfm-sans)",
+                fontSize: 14,
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--tfm-near-black)",
+                backgroundColor: "var(--tfm-gold-bright)",
+                padding: "13px 28px",
+                borderRadius: 2,
+                textDecoration: "none",
+              }}
+            >
+              Donate hardware &#8594;
+            </a>
+            <a
+              href="#give-financially"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                fontFamily: "var(--tfm-sans)",
+                fontSize: 14,
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--tfm-parchment)",
+                backgroundColor: "transparent",
+                border: "1px solid var(--tfm-parchment)",
+                padding: "13px 28px",
+                borderRadius: 2,
+                textDecoration: "none",
+              }}
+            >
+              Financial gift
+            </a>
+          </div>
+
+        </div>
+
+        {/* Bottom rule */}
+        <div style={{ height: 1, backgroundColor: "var(--tfm-gold-bright)" }} />
+
       </div>
     </section>
   );

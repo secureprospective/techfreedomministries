@@ -42,6 +42,9 @@ import Roadmap from '../components/Roadmap.jsx';
     </div>
   </section>
 
+  <!-- Section divider -->
+  <div class="section-diamond" aria-hidden="true">◆</div>
+
   <!-- Featured events -->
   <section class="home-events">
     <div class="home-events-header">
@@ -61,6 +64,10 @@ import Roadmap from '../components/Roadmap.jsx';
   <!-- Donation CTA band -->
   <section class="cta-band">
     <div class="cta-inner">
+      <span class="tfm-stamp-tl"></span>
+      <span class="tfm-stamp-tr"></span>
+      <span class="tfm-stamp-bl"></span>
+      <span class="tfm-stamp-br"></span>
       <div class="eyebrow cta-eyebrow">A note to whoever is reading this</div>
       <div class="cta-rule"></div>
       <h2 class="cta-headline">
@@ -102,19 +109,41 @@ import Roadmap from '../components/Roadmap.jsx';
   .explainer-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    gap: 24px;
     margin-top: 56px;
   }
 
   .explainer-step {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    background: var(--tfm-parchment-card);
+    padding: 24px;
+    border-top: 1px solid var(--tfm-parchment-edge);
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+    border-left: 1px solid var(--tfm-parchment-edge);
+    border-right: none;
+  }
+
+  .explainer-step::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,
+      var(--tfm-gold-bright),
+      var(--tfm-gold-deep),
+      var(--tfm-gold-bright)
+    );
+    pointer-events: none;
   }
 
   .step-marker {
     color: var(--tfm-gold-bright);
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1;
   }
 
@@ -179,6 +208,15 @@ import Roadmap from '../components/Roadmap.jsx';
     border-bottom-color: var(--tfm-near-black);
   }
 
+  /* Section diamond divider */
+  .section-diamond {
+    text-align: center;
+    color: var(--tfm-gold-bright);
+    font-size: 18px;
+    line-height: 1;
+    margin: 48px 0;
+  }
+
   /* CTA Band */
   .cta-band {
     background: var(--tfm-near-black);
@@ -188,8 +226,10 @@ import Roadmap from '../components/Roadmap.jsx';
   }
 
   .cta-inner {
+    position: relative;
     max-width: 720px;
     margin: 0 auto;
+    padding: 40px 0;
   }
 
   .cta-eyebrow {

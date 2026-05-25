@@ -162,6 +162,14 @@
     font-size: 28px !important;
   }
 
+  /* ── Donate: How It Works loop grid ─────────────────────────
+     Hook: tfm-dn-loop-grid */
+
+  .tfm-dn-loop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
   /* ── Donate: Cash Tiers ──────────────────────────────────────
      Hooks: tfm-dn-cash-grid, tfm-dn-cash-btn */
 
