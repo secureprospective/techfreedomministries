@@ -53,7 +53,7 @@ const s = {
 
 function HeroSection() {
   return (
-    <section style={{
+    <section className="tfm-vg-hero-section" style={{
       backgroundColor: "var(--tfm-near-black)",
       padding: "80px 64px 80px 72px",
       display: "grid",
@@ -68,7 +68,7 @@ function HeroSection() {
           <Eyebrow>Vanguard</Eyebrow>
         </div>
 
-        <h1 style={{
+        <h1 className="tfm-vg-hero-h1" style={{
           fontFamily: "var(--tfm-serif)",
           fontSize: 46,
           lineHeight: 1.1,
@@ -120,6 +120,7 @@ function HeroSection() {
       </div>
 
       {/* Right: credential stamp */}
+      <div className="tfm-vg-hero-stamp">
       <Brackets
         padding={28}
         style={{ borderColor: "var(--tfm-gold-bright)" }}
@@ -197,6 +198,7 @@ function HeroSection() {
           </div>
         </div>
       </Brackets>
+      </div>
     </section>
   );
 }
@@ -223,7 +225,7 @@ function MeansSection() {
   ];
 
   return (
-    <section style={s.section}>
+    <section className="tfm-vg-means-section" style={s.section}>
       <SectionEyebrow>What Vanguard Means</SectionEyebrow>
       <Proclamation
         as="h2"
@@ -234,7 +236,7 @@ function MeansSection() {
       />
       <div style={s.sectionRule} />
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
+      <div className="tfm-vg-means-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
         {cards.map((c) => (
           <GiltCard key={c.n}>
             <div style={{
@@ -301,7 +303,7 @@ function PathSection() {
   ];
 
   return (
-    <section style={s.section}>
+    <section className="tfm-vg-path-section" style={s.section}>
       <SectionEyebrow>How You Get Here</SectionEyebrow>
       <Proclamation
         as="h2"
@@ -437,7 +439,7 @@ function ApplySection() {
   ];
 
   return (
-    <section style={{
+    <section className="tfm-vg-apply-section" style={{
       padding: "80px 64px 80px 72px",
       backgroundColor: "var(--tfm-leather)",
       display: "grid",
@@ -504,6 +506,7 @@ function ApplySection() {
         />
 
         <a
+          className="tfm-vg-apply-cta"
           href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application"
           style={{
             display: "inline-flex",

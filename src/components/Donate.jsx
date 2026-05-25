@@ -109,6 +109,7 @@ function HeroSection() {
   return (
     <section
       id="give"
+      className="tfm-dn-hero-section"
       style={{
         padding: "80px 64px 80px 72px",
         borderBottom: "1px solid var(--tfm-parchment-edge)",
@@ -116,7 +117,7 @@ function HeroSection() {
     >
       <SectionEyebrow>Give</SectionEyebrow>
 
-      <h1 style={{
+      <h1 className="tfm-dn-hero-h1" style={{
         fontFamily: "var(--tfm-serif)",
         fontSize: 50,
         lineHeight: 1.08,
@@ -437,7 +438,7 @@ function CashSection() {
       </p>
 
       {/* Three tier cards */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
+      <div className="tfm-dn-cash-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
         {tiers.map((tier) => (
           <GiltCard key={tier.amount} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {/* Amount */}
@@ -463,6 +464,7 @@ function CashSection() {
 
             {/* Give button — TODO: STRIPE swap */}
             <a
+              className="tfm-dn-cash-btn"
               href={tier.href}
               style={{
                 display: "inline-flex",

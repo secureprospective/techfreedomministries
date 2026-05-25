@@ -101,4 +101,79 @@
     margin-top: 8px;
   }
 
+  /* ── Vanguard: Hero ──────────────────────────────────────────
+     Hooks: tfm-vg-hero-section, tfm-vg-hero-h1, tfm-vg-hero-stamp */
+
+  .tfm-vg-hero-section {
+    grid-template-columns: 1fr !important;
+    padding: 40px 16px !important;
+  }
+
+  .tfm-vg-hero-h1 {
+    font-size: 28px !important;
+  }
+
+  .tfm-vg-hero-stamp {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ── Vanguard: What Vanguard Means ───────────────────────────
+     Hooks: tfm-vg-means-section, tfm-vg-means-grid */
+
+  .tfm-vg-means-section {
+    padding: 40px 16px !important;
+  }
+
+  .tfm-vg-means-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Vanguard: How You Get Here ──────────────────────────────
+     Hook: tfm-vg-path-section */
+
+  .tfm-vg-path-section {
+    padding: 40px 16px !important;
+  }
+
+  /* ── Vanguard: Ready to Apply ────────────────────────────────
+     Hooks: tfm-vg-apply-section, tfm-vg-apply-cta */
+
+  .tfm-vg-apply-section {
+    grid-template-columns: 1fr !important;
+    padding: 40px 16px !important;
+  }
+
+  .tfm-vg-apply-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Donate: Hero ────────────────────────────────────────────
+     Hooks: tfm-dn-hero-section, tfm-dn-hero-h1 */
+
+  .tfm-dn-hero-section {
+    padding: 40px 16px !important;
+  }
+
+  .tfm-dn-hero-h1 {
+    font-size: 28px !important;
+  }
+
+  /* ── Donate: Cash Tiers ──────────────────────────────────────
+     Hooks: tfm-dn-cash-grid, tfm-dn-cash-btn */
+
+  .tfm-dn-cash-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tfm-dn-cash-btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
 }
