@@ -207,6 +207,7 @@ All TFM planning and reference documents live in `docs/`. Read these at the star
 - `docs/TFM_11_BIBLE_THEME.md` — Gilded Spine theme layer (tokens, elements, application)
 - `docs/TFM_12_CREATIVE_BRIEF.md` — full brand/mission brief for design work, visual AI, print media
 - `docs/TFM_13_DESIGN_STUDIO.md` — Claude.ai Design Studio master prompt (template system, logo rules, animation spec)
+- `docs/TFM_14_DUAL_AI_WORKFLOW.md` — dual-AI design workflow: division of labor, verification gate, opening session prompt template, known failure modes
 - `docs/TFM_05_WEBSITE_ARCHITECTURE.md` — page-by-page copy and content direction
 
 Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
