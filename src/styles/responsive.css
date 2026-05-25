@@ -184,4 +184,53 @@
     box-sizing: border-box !important;
   }
 
+  /* ── Donate: Loop section ────────────────────────────────────
+     Hook: tfm-dn-loop-section */
+
+  .tfm-dn-loop-section { padding: 40px 16px !important; }
+
+  /* ── Donate: Hardware section ────────────────────────────────
+     Hooks: tfm-dn-hw-section, tfm-dn-hw-grid,
+            tfm-dn-hw-cta-bar, tfm-dn-hw-btn */
+
+  .tfm-dn-hw-section { padding: 40px 16px !important; }
+
+  .tfm-dn-hw-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .tfm-dn-hw-cta-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 24px 0 !important;
+    gap: 16px !important;
+  }
+
+  .tfm-dn-hw-btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* ── Donate: Financial Giving section ────────────────────────
+     Hook: tfm-dn-cash-section */
+
+  .tfm-dn-cash-section { padding: 40px 16px !important; }
+
+  /* ── Donate: For the Record section ─────────────────────────
+     Hooks: tfm-dn-nd-section, tfm-dn-nd-brackets-wrap,
+            tfm-dn-nd-grid */
+
+  .tfm-dn-nd-section { padding: 40px 16px !important; }
+
+  .tfm-dn-nd-brackets-wrap > div { padding: 16px !important; }
+
+  .tfm-dn-nd-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
 }

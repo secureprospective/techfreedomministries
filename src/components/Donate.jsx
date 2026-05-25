@@ -186,7 +186,7 @@ function LoopSection() {
   ];
 
   return (
-    <section style={s.sectionDark}>
+    <section className="tfm-dn-loop-section" style={s.sectionDark}>
       <SectionEyebrow dark>How It Works</SectionEyebrow>
 
       <h2 style={{
@@ -294,7 +294,7 @@ function HardwareSection() {
   ];
 
   return (
-    <section id="hardware-donation" style={s.section}>
+    <section id="hardware-donation" className="tfm-dn-hw-section" style={s.section}>
       <SectionEyebrow>Hardware — The Primary Ask</SectionEyebrow>
 
       <Proclamation
@@ -313,7 +313,7 @@ function HardwareSection() {
         margin: "12px 0 36px",
       }} />
 
-      <div style={{
+      <div className="tfm-dn-hw-grid" style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gap: 32,
@@ -397,7 +397,7 @@ function HardwareSection() {
       </div>
 
       {/* Hardware CTA bar — top and bottom muted gold rules */}
-      <div style={{
+      <div className="tfm-dn-hw-cta-bar" style={{
         marginTop: 40,
         padding: "28px 32px",
         borderTop: "1px solid var(--tfm-gold-muted)",
@@ -423,6 +423,7 @@ function HardwareSection() {
         </div>
         <a
           href="mailto:techfreedomministries@proton.me?subject=Hardware%20Donation"
+          className="tfm-dn-hw-btn"
           style={s.cta}
         >
           Email to donate &#8594;
@@ -460,7 +461,7 @@ function CashSection() {
   ];
 
   return (
-    <section id="give-financially" style={s.sectionAlt}>
+    <section id="give-financially" className="tfm-dn-cash-section" style={s.sectionAlt}>
       <SectionEyebrow>Financial Giving</SectionEyebrow>
 
       <Proclamation
@@ -585,7 +586,7 @@ function NotDoingSection() {
   ];
 
   return (
-    <section style={s.section}>
+    <section className="tfm-dn-nd-section" style={s.section}>
       <SectionEyebrow>For the Record</SectionEyebrow>
 
       <Proclamation
@@ -605,8 +606,9 @@ function NotDoingSection() {
       }} />
 
       {/* Bracketed list container */}
+      <div className="tfm-dn-nd-brackets-wrap">
       <Brackets padding={48}>
-        <div style={{
+        <div className="tfm-dn-nd-grid" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "20px 40px",
@@ -630,6 +632,7 @@ function NotDoingSection() {
           ))}
         </div>
       </Brackets>
+      </div>
     </section>
   );
 }
