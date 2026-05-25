@@ -99,8 +99,8 @@ Phase 10 (full code audit): IN PROGRESS — branch session/full-code-audit
 | 2 — Token consolidation | ✅ DONE | 4 duplicate token pairs unified, --tfm-mono removed |
 | 3 — Component consolidation | ✅ DONE | GiltCard + SectionEyebrow into Atoms.jsx, ColophonOrnament deleted |
 | 4 — CSS architecture | ✅ DONE | responsive.css created, MOBILE_STYLES removed from components, Layout.astro cleaned |
-| 5 — Navigation gaps | ⏳ NEXT | About and Oath are built but not linked from nav or footer |
-| 6 — Broken behavior | ⏳ NEXT | public/_headers dead rules, RsvpModal submits nowhere, filter chip shows "TBD" |
+| 5 — Navigation gaps | ✅ DONE | About and Oath added to footer nav via separate footerLinks array |
+| 6 — Broken behavior | ✅ DONE | _headers cleaned, RsvpModal disabled, filter chip suppressed |
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
@@ -151,10 +151,8 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
-| Audit Phase 5 — Nav gaps | High | Add About and Oath to nav or footer. Decision needed: where do they land? |
-| Audit Phase 6 — Broken behavior | High | Fix public/_headers dead rules; RsvpModal wire or disable honestly; filter chip |
 | Mobile pass — Vanguard + Donate sections | High | Both pages still have 64-72px horizontal padding and unbreakpointed multi-column grids |
-| Wire RsvpModal to Formspree | Medium | Events RSVP form goes nowhere. Needs new Formspree endpoint (old mvzyorgw was Vanguard) |
+| Wire RsvpModal to Formspree | High | RSVP button currently disabled. Needs new Formspree endpoint (old mvzyorgw was Vanguard). Re-enable in EventCard + EventsList when ready. |
 | Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
 | Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
 

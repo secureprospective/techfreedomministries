@@ -4,7 +4,3 @@
   Content-Type: image/jpeg
 /fonts/*.ttf
   Content-Type: font/ttf
-/colors_and_type.css
-  Content-Type: text/css
-/*.jsx
-  Content-Type: application/javascript
