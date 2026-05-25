@@ -77,7 +77,7 @@ techfreedomministries/
 - npm run build: CLEAN (7 pages built)
 - Live site: CONFIRMED live at techfreedomministries.org
 - Cloudflare Pages build config: CONFIRMED correct (npm run build / dist)
-- Active branch: session/full-code-audit (4 of 6 audit phases complete — NOT merged to main yet)
+- Active branch: main (session/full-code-audit merged and deployed — May 25 2026)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
@@ -90,17 +90,13 @@ Phase 6 (donate page): COMPLETE (donate button placeholder until EIN — TODO: S
 Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no longer in Vanguard UI
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
 Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer
-Phase 10 (full code audit): IN PROGRESS — branch session/full-code-audit
-
-### Audit Phase Status (Phase 10)
-| Audit Phase | Status | Notes |
-|---|---|---|
-| 1 — Dead file deletion | ✅ DONE | Nav.jsx, Footer.jsx, src/README.md, root _headers, root assets/, 6 unused fonts |
-| 2 — Token consolidation | ✅ DONE | 4 duplicate token pairs unified, --tfm-mono removed |
-| 3 — Component consolidation | ✅ DONE | GiltCard + SectionEyebrow into Atoms.jsx, ColophonOrnament deleted |
-| 4 — CSS architecture | ✅ DONE | responsive.css created, MOBILE_STYLES removed from components, Layout.astro cleaned |
-| 5 — Navigation gaps | ✅ DONE | About and Oath added to footer nav via separate footerLinks array |
-| 6 — Broken behavior | ✅ DONE | _headers cleaned, RsvpModal disabled, filter chip suppressed |
+Phase 10 (full code audit): COMPLETE — merged to main May 25 2026
+- 14 dead files deleted, ~3.2MB unused fonts removed
+- 5 duplicate tokens eliminated, all usages unified
+- GiltCard + SectionEyebrow centralized in Atoms.jsx
+- responsive.css created — mobile styles out of JS bundles
+- About + Oath wired into footer nav
+- _headers cleaned, RsvpModal disabled, filter chip fixed
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
