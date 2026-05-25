@@ -9,7 +9,11 @@ import { Eyebrow, Proclamation, LevelBadge, Icon, Diamond, Button, Card } from '
 
 export default function EventCard({ event }) {
   return (
-    <Card style={{ padding: "22px 26px" }}>
+    <Card style={{ padding: "22px 26px", position: "relative" }}>
+        <span className="tfm-stamp-tl" aria-hidden="true" />
+        <span className="tfm-stamp-tr" aria-hidden="true" />
+        <span className="tfm-stamp-bl" aria-hidden="true" />
+        <span className="tfm-stamp-br" aria-hidden="true" />
         <div
           className="tfm-ec-grid"
           style={{

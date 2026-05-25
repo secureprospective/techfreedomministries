@@ -34,7 +34,7 @@ function HeroLeft() {
       className="tfm-hero-left"
       style={{
         flex: "1.1",
-        padding: "72px 48px 72px 56px",
+        padding: "56px 48px 56px 56px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
