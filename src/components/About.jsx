@@ -18,7 +18,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" style={{ padding: "96px 36px", maxWidth: 1100, margin: "0 auto" }}>
+    <section id="about" className="tfm-ab-section" style={{ padding: "96px 36px", maxWidth: 1100, margin: "0 auto" }}>
       <Eyebrow>About TFM</Eyebrow>
       <Rule style={{ margin: "14px 0 20px" }} />
       <Proclamation as="h2" size={42}
@@ -39,6 +39,7 @@ export default function About() {
       {/* Mission Statement */}
       <div style={{ marginTop: 48, marginBottom: 56 }}>
         <Eyebrow style={{ marginBottom: 16 }}>Mission Statement</Eyebrow>
+        <div className="tfm-ab-mission-wrap">
         <Brackets padding={40} style={{ maxWidth: 760 }}>
           <p style={{
             fontFamily: "var(--tfm-sans)",
@@ -68,9 +69,10 @@ export default function About() {
             </em>
           </p>
         </Brackets>
+        </div>
       </div>
 
-      <div style={{
+      <div className="tfm-ab-cards-grid" style={{
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28,
       }}>
         <Card hover={false} style={{ padding: "32px 36px" }}>

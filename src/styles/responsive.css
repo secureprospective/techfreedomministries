@@ -233,4 +233,16 @@
     gap: 14px !important;
   }
 
+  /* ── About ───────────────────────────────────────────────────
+     Hooks: tfm-ab-section, tfm-ab-mission-wrap, tfm-ab-cards-grid */
+
+  .tfm-ab-section { padding: 40px 16px !important; }
+
+  .tfm-ab-mission-wrap > div { padding: 16px !important; }
+
+  .tfm-ab-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
 }
