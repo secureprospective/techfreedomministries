@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Ghost page — not linked in nav or footer.
+// Purpose: Vanguard back office, documentation, communications.
+// Current state: placeholder. Flyer content drops into the marked section below.
+---
+<Layout title="The Vault — Tech Freedom Ministries">
+
+  <!-- Header -->
+  <section class="vault-header">
+    <div class="vault-header-inner">
+      <div class="vault-eyebrow">Vanguard Access</div>
+      <div class="vault-rule"></div>
+      <h1 class="vault-heading">
+        <span class="vault-heading-strong">The Vault.</span>
+        <em class="vault-heading-em">For those who completed the Roadmap.</em>
+      </h1>
+      <div class="vault-frame">
+        <span class="tfm-stamp-tl"></span>
+        <span class="tfm-stamp-tr"></span>
+        <span class="tfm-stamp-bl"></span>
+        <span class="tfm-stamp-br"></span>
+        <p class="vault-desc">
+          Documentation. Communications. The back office for Vanguards running their own events.
+          This room is being built. If you are here early, you are exactly who it is being built for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       VAULT CONTENT — drop assets here
+       ═══════════════════════════════════════════════════════ -->
+  <section class="vault-content">
+
+    <!-- FLYER SLOT — HTML flyer goes here -->
+
+  </section>
+
+</Layout>
+
+<style>
+  /* ── Header ── */
+  .vault-header {
+    background: var(--tfm-leather);
+    padding: 80px 36px;
+    border-bottom: 1px solid rgba(196, 168, 74, 0.25);
+    text-align: center;
+  }
+
+  .vault-header-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .vault-eyebrow {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-muted);
+    margin-bottom: 16px;
+  }
+
+  .vault-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--tfm-gold-bright);
+    margin: 0 auto 24px;
+  }
+
+  .vault-heading {
+    font-family: var(--tfm-serif);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.1;
+    margin: 0 0 32px;
+  }
+
+  .vault-heading-strong {
+    display: block;
+    font-weight: 700;
+    color: var(--tfm-parchment);
+  }
+
+  .vault-heading-em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--tfm-gold-deep);
+    margin-top: 8px;
+  }
+
+  /* Stamp frame — reuses the global tfm-stamp-* corner spans */
+  .vault-frame {
+    position: relative;
+    padding: 28px 36px;
+    display: inline-block;
+    max-width: 520px;
+  }
+
+  .vault-desc {
+    font-family: var(--tfm-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(244, 240, 230, 0.65);
+    margin: 0;
+  }
+
+  /* ── Content area ── */
+  .vault-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px;
+    min-height: 320px;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .vault-header { padding: 48px 16px; }
+    .vault-heading { font-size: 32px; }
+    .vault-heading-em { font-size: 18px; }
+    .vault-frame { padding: 20px 16px; }
+    .vault-content { padding: 40px 16px; }
+  }
+</style>
