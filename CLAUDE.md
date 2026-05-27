@@ -101,6 +101,7 @@ Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no 
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
 Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer, Vanguard, Donate, About
 Phase 10 (full code audit): COMPLETE — merged to main May 25 2026
+Phase 11 (Roadmap expansion): COMPLETE — all four level cards expandable with full detail content (Exodus, Catechism, Homestead, Great Commission)
 - 14 dead files deleted, ~3.2MB unused fonts removed
 - 5 duplicate tokens eliminated, all usages unified
 - GiltCard + SectionEyebrow centralized in Atoms.jsx
