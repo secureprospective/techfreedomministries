@@ -157,7 +157,7 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
-| Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
+| Delete legacy root assets/ and _headers | Low | Canonical location is public/assets/ and public/_headers |
 
 ### Suggested next branch
 `session/event-data` — once Install Party date/venue/city confirmed
@@ -226,7 +226,7 @@ Full document index is in `docs/TFM_01_MASTER_FRAMEWORK.md`.
 - Framework: Astro + @astrojs/react for interactive islands. No other JS frameworks.
 - Styling: CSS custom properties from src/styles/tokens.css only.
   No Tailwind. No component libraries.
-- Fonts: EB Garamond (self-hosted) + Cinzel (Google Fonts — header colophon only).
+- Fonts: EB Garamond (self-hosted) + Cinzel (self-hosted — header colophon only).
 - Border radius: 0px default. 2px on buttons and badges only.
 - No glass effects. No dark mode.
 - Gradients: permitted only for Gilded Spine theme elements (ribbon, spine, gilt edge, colophon rules, hemp texture). Not for general UI.
