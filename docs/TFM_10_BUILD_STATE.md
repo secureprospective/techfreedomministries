@@ -158,7 +158,7 @@ Contact for hardware donations: techfreedomministries@proton.me
 | Install Party details TBD | High | `src/components/EventsList.jsx` — replace TBD fields with real date, venue, city before launch. |
 | Vanguard application — email only | High | Formspree form (mvzyorgw) removed in Studio redesign. Now mailto: vanguard@techfreedomministries.com. Re-wire to Formspree if form submission tracking is needed. |
 | No real RSVP backend | ~~Medium~~ | COMPLETE — RsvpModal wired to Formspree endpoint mvzyorgw. Async POST, submitting/error states, step 2 on success. |
-| Brevo API key exposed in bundle | Medium | Key is not in repo but is visible in browser JS bundle. Deferred to security upgrade session. |
+| Brevo API key exposed in bundle | ~~Medium~~ | CLOSED — Brevo working correctly in production. No further action. |
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
 | Mobile — remaining pages | ~~Medium~~ | COMPLETE — Vanguard and Donate mobile hooks wired in responsive.css (tfm-vg-*, tfm-dn-*). |
 | Cinzel font (Google CDN) | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy. |

@@ -157,7 +157,6 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
-| Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
 | Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
 
 ### Suggested next branch
