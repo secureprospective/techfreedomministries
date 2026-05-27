@@ -1681,13 +1681,25 @@ export default function Roadmap() {
             </p>
           </Brackets>
 
+          {/* Click hint */}
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 13,
+            fontStyle: "italic",
+            color: "var(--tfm-gold-muted)",
+            letterSpacing: "0.02em",
+            margin: "20px 0 0",
+          }}>
+            Click a card to expand it.
+          </p>
+
           {/* Section transition divider */}
           <div style={{
             textAlign: "center",
             color: "var(--tfm-gold-bright)",
             fontSize: 18,
             lineHeight: 1,
-            margin: "48px 0 0",
+            margin: "28px 0 0",
           }} aria-hidden="true">◆</div>
         </div>
 
