@@ -9,7 +9,7 @@ Full session history is in git log.
 
 ## Current Build State
 
-**Last updated:** 2026-05-24 — Session 9 (Studio component redesigns + mobile responsiveness)
+**Last updated:** 2026-05-27 — Session 10 (Copy and UX polish)
 
 **Live URL:** https://techfreedomministries.org
 **Redirect:** techfreedomministries.com → techfreedomministries.org (301, all variants — naked + www)
@@ -23,13 +23,13 @@ Full session history is in git log.
 
 | Item | Spec (TFM_09) | Actual |
 |---|---|---|
-| Framework | Astro | Astro ✓ — 7 pages built |
+| Framework | Astro | Astro ✓ — 9 pages built |
 | CSS | tokens.css (custom built) | tokens.css — imported via Layout.astro ✓ |
 | Fonts | Self-hosted EB Garamond | Self-hosted from /fonts/ ✓ |
 | JS | Astro + React islands | @astrojs/react — client:load for interactive components |
 | Routing | Astro pages | Real URL routing ✓ |
 | Deployment | Astro build → dist/ | dist/ output — Cloudflare config confirmed ✓ |
-| Build command | npm run build | ✓ — 7 pages, clean build |
+| Build command | npm run build | ✓ — 9 pages, clean build |
 | Build output dir | dist/ | dist/ ✓ |
 | Formspree | Vanguard application form | ⚠️ REPLACED — Vanguard now uses email CTA (vanguard@techfreedomministries.com). Formspree endpoint mvzyorgw no longer active in the UI. |
 | Brevo | Email capture (footer) | Live — list ID 3, env vars in Cloudflare ✓ |
@@ -44,7 +44,9 @@ Full session history is in git log.
 |---|---|---|---|---|
 | Home | ✓ | ✓ | `/` | Complete ✓ — mobile responsive |
 | Events | ✓ | ✓ | `/events` | Placeholder ✓ — real data TBD |
-| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ — mobile responsive |
+| Roadmap | ✓ | ✓ | `/roadmap` | Complete ✓ — expandable cards, mobile responsive |
+| Flyer | Not in spec | ✓ | `/flyer` | Built (not in nav) |
+| Vault | Not in spec | ✓ | `/vault` | Ghost page, unlinked |
 | Vanguard | ✓ | ✓ | `/vanguard` | Complete ✓ — Studio redesign, email CTA |
 | Donate | ✓ | ✓ | `/donate` | Complete ✓ — Studio redesign, button placeholder until EIN |
 | The Oath | Not in spec | ✓ | `/oath` | Built (not in nav) |
@@ -158,10 +160,10 @@ Contact for hardware donations: techfreedomministries@proton.me
 | Install Party details TBD | High | `src/components/EventsList.jsx` — replace TBD fields with real date, venue, city before launch. |
 | Vanguard application — email only | High | Formspree form (mvzyorgw) removed in Studio redesign. Now mailto: vanguard@techfreedomministries.com. Re-wire to Formspree if form submission tracking is needed. |
 | No real RSVP backend | ~~Medium~~ | COMPLETE — RsvpModal wired to Formspree endpoint mvzyorgw. Async POST, submitting/error states, step 2 on success. |
+| Cinzel font (Google CDN) | ~~Low~~ | COMPLETE — Self-hosted. Cinzel v26 latin + latin-ext woff2 in public/fonts/. Google Fonts links removed from Layout.astro. |
 | Brevo API key exposed in bundle | ~~Medium~~ | CLOSED — Brevo working correctly in production. No further action. |
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
 | Mobile — remaining pages | ~~Medium~~ | COMPLETE — Vanguard and Donate mobile hooks wired in responsive.css (tfm-vg-*, tfm-dn-*). |
-| Cinzel font (Google CDN) | ~~Low~~ | COMPLETE — Self-hosted. Cinzel v26 latin + latin-ext woff2 in public/fonts/. Google Fonts links removed from Layout.astro. |
 | assets/ at repo root | ~~Low~~ | COMPLETE — Deleted in Phase 1 audit (commit 9976fda). |
 | _headers at repo root | ~~Low~~ | COMPLETE — Deleted in Phase 1 audit (commit 9976fda). |
 
@@ -170,15 +172,28 @@ Contact for hardware donations: techfreedomministries@proton.me
 ## What Comes Next (In Order)
 
 1. Fill in Install Party details in `src/components/EventsList.jsx` (date, venue, city)
-2. ~~Mobile pass — Vanguard and Donate page sections~~ — COMPLETE
-3. Re-wire Vanguard application to Formspree (or confirm email-only is intentional)
-4. ~~Wire RsvpModal to Formspree~~ — COMPLETE (endpoint mvzyorgw)
-5. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
-6. Wire donate button — swap TODO: STRIPE placeholders once EIN arrives
-7. Add EIN to footer once 501(c)(3) is filed
-8. Delete legacy files: root assets/, root _headers (after confirming live site is clean)
+2. Wire donate button — swap TODO: STRIPE placeholders once EIN arrives
+3. Add EIN to footer once 501(c)(3) is filed
 
 ---
 
-*Last updated: 2026-05-24 — Session 9*
+## Session 10 — What Changed (May 27 2026)
+
+**Copy and UX polish:**
+
+- RsvpModal wired to Formspree endpoint mvzyorgw — async POST, submitting/error states, step 2 on success
+- Cinzel self-hosted — Cinzel v26 latin + latin-ext woff2 in public/fonts/, Google Fonts CDN removed from Layout.astro
+- Em dashes scrubbed site-wide — all visible text across all components (Hero, Vanguard, About, Donate, Roadmap)
+- Homepage "Next Three Events" section removed — How It Works flows directly into Roadmap
+- Roadmap expand hint added — "Click a card to expand it. ↴" (13px italic EB Garamond, gold-muted, inline ↴ in gold-bright 20px)
+- Roadmap expandable cards — all four complete: Exodus, Catechism, Homestead, Great Commission
+  - Each card: dark leather header, parchment body, three movements, costs/changes grid, five milestones, stamp frame with scripture + send-off line, ghost button CTA
+  - index.astro and roadmap.astro: `<Roadmap client:load />` (React island)
+- TFM_15_ROADMAP_EXPANDED_COPY.md filed — governing principles, biblical framework, copy rules, locked send-off lines, banned words
+- Gemini_said_01.md filed — raw Gemini output from Roadmap creative session; "plantation" scrubbed → "cage"
+- Dev server pattern: use `cd dist && npx serve -l [port]` for all previewing; Astro dev server unreliable in this environment
+
+---
+
+*Last updated: 2026-05-27 — Session 10*
 *Built by: Christopher Campbell + Claude (Anthropic)*

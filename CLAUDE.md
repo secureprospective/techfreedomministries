@@ -58,7 +58,7 @@ techfreedomministries/
 │   │   ├── Hero.jsx        — two-column flex layout, dissolution hook (data-tfm-animate)
 │   │   ├── Oath.jsx
 │   │   ├── Roadmap.jsx     — mobile className hooks in responsive.css: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout
-│   │   ├── RsvpModal.jsx   — RSVP form UI (currently submits nowhere — see Open Items)
+│   │   ├── RsvpModal.jsx   — RSVP form UI — wired to Formspree endpoint mvzyorgw
 │   │   └── Vanguard.jsx    — application via mailto: vanguard@techfreedomministries.com
 │   ├── env.d.ts
 │   ├── layouts/
@@ -84,10 +84,10 @@ techfreedomministries/
 
 ## Current Build State
 
-- npm run build: CLEAN (7 pages built)
+- npm run build: CLEAN (9 pages built)
 - Live site: CONFIRMED live at techfreedomministries.org
 - Cloudflare Pages build config: CONFIRMED correct (npm run build / dist)
-- Active branch: main (session/full-code-audit merged and deployed — May 25 2026)
+- Active branch: main (May 27 2026)
 - index.html: REMOVED — Astro is now the site
 - Astro: ACTIVE — @astrojs/react wired, all components are ES modules
 
@@ -97,17 +97,25 @@ Phase 3 (events page): COMPLETE (Install Party placeholder — real data TBD)
 Phase 4 (roadmap page): COMPLETE
 Phase 5 (vanguard page): COMPLETE (Formspree form replaced by email CTA in Session 9)
 Phase 6 (donate page): COMPLETE (donate button placeholder until EIN — TODO: STRIPE markers in Donate.jsx)
-Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no longer in Vanguard UI
+Phase 7 (integrations): COMPLETE — Brevo live; RsvpModal wired to Formspree endpoint mvzyorgw
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
 Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer, Vanguard, Donate, About
 Phase 10 (full code audit): COMPLETE — merged to main May 25 2026
 Phase 11 (Roadmap expansion): COMPLETE — all four level cards expandable with full detail content (Exodus, Catechism, Homestead, Great Commission)
+Phase 12 (copy and UX polish): COMPLETE — May 27 2026
+- RsvpModal wired to Formspree endpoint mvzyorgw (async POST, submitting/error states)
+- Cinzel self-hosted — Google Fonts CDN removed; Cinzel v26 latin + latin-ext woff2 in public/fonts/
+- Em dashes scrubbed site-wide (all visible text in all components)
+- Homepage "Next Three Events" section removed — How It Works flows directly into Roadmap
+- Roadmap expand hint added: "Click a card to expand it. ↴" below intro Brackets frame
+- TFM_15_ROADMAP_EXPANDED_COPY.md filed — copy record, governing principles, locked send-off lines
+- Gemini_said_01.md filed — raw Gemini output from Roadmap creative session
 - 14 dead files deleted, ~3.2MB unused fonts removed
 - 5 duplicate tokens eliminated, all usages unified
 - GiltCard + SectionEyebrow centralized in Atoms.jsx
 - responsive.css created — mobile styles out of JS bundles
 - About + Oath wired into footer nav
-- _headers cleaned, RsvpModal disabled, filter chip fixed
+- _headers cleaned, filter chip fixed
 
 ## Hardware Donation Strategy — Read Before Any Donate or Events Work
 
