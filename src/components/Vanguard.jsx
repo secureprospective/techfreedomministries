@@ -355,7 +355,7 @@ function PathSection() {
                 lineHeight: 1.2,
                 marginBottom: 8,
               }}>
-                {step.n} — {step.title}
+                {step.n}. {step.title}
               </div>
               <p style={{
                 fontFamily: "var(--tfm-sans)",
@@ -444,7 +444,7 @@ function ApplySection() {
   const conditions = [
     "You have completed all four Roadmap levels",
     "You have a city in mind",
-    "You can find a room — church, library, community center",
+    "You can find a room: church, library, community center",
     "You are willing to teach, not just attend",
   ];
 

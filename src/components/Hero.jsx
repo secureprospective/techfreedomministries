@@ -103,8 +103,7 @@ function HeroLeft() {
         maxWidth: "480px",
         margin: "0 0 40px",
       }}>
-        Every device you think you own reports back. Your phone, computer and even your car —
-        do not belong to you. We run free events that replace it. You bring a laptop. You leave
+        Every device you think you own reports back. Your phone, computer and even your car do not belong to you. We run free events that replace it. You bring a laptop. You leave
         owning it. No experience needed. No cost. Ever.
       </p>
 

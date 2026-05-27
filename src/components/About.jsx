@@ -51,8 +51,8 @@ export default function About() {
             People cannot escape Big Tech surveillance without hands-on training and
             independent hardware. With faith as our backbone and an open door for everyone,
             Tech Freedom Ministries runs free Install Parties where people walk out owning
-            a laptop that is actually theirs — at zero cost. Every student follows a
-            four-level Roadmap; the ones who go all the way become Vanguards — teachers
+            a laptop that is actually theirs, at zero cost. Every student follows a
+            four-level Roadmap; the ones who go all the way become Vanguards, teachers
             who take the mission to their own city and run their own events.
           </p>
           <p style={{
@@ -95,7 +95,7 @@ export default function About() {
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
             {isnt.map((line, i) => (
               <li key={i} style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 12, alignItems: "baseline" }}>
-                <span style={{ color: "var(--tfm-warm-brown-soft)", fontFamily: "var(--tfm-serif)", fontStyle: "italic" }}>—</span>
+                <span style={{ color: "var(--tfm-warm-brown-soft)", fontFamily: "var(--tfm-serif)", fontStyle: "italic" }}>◆</span>
                 <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 15, color: "var(--tfm-warm-brown)", lineHeight: 1.55 }}>
                   {line}
                 </span>

@@ -295,7 +295,7 @@ function HardwareSection() {
 
   return (
     <section id="hardware-donation" className="tfm-dn-hw-section" style={s.section}>
-      <SectionEyebrow>Hardware — The Primary Ask</SectionEyebrow>
+      <SectionEyebrow>Hardware: The Primary Ask</SectionEyebrow>
 
       <Proclamation
         as="h2"
@@ -582,7 +582,7 @@ function NotDoingSection() {
     "Not asking for monthly subscriptions",
     "Not running ads",
     "Not building a central org that outlasts the Vanguards",
-    "Not keeping hardware — it goes directly to people at events",
+    "Not keeping hardware. It goes directly to people at events.",
   ];
 
   return (
