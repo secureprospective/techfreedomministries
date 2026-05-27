@@ -66,11 +66,11 @@ function ExodusDetail({ onClose }) {
     },
     {
       title: "The Red Sea",
-      body: "The screen goes dark. The room holds its breath. Then it comes back. Faster. Cleaner. Yours. That moment — when the path through opens and you walk across — is not a metaphor. It happens on a Saturday afternoon in a church hall, and the person next to you feels it too.",
+      body: "The screen goes dark. The room holds its breath. Then it comes back. Faster. Cleaner. Yours. That moment, when the path through opens and you walk across, is not a metaphor. It happens on a Saturday afternoon in a church hall, and the person next to you feels it too.",
     },
     {
       title: "The Commandments",
-      body: "When you finish, you don't get a certificate. You get a card. Printed on heavy stock. Four levels. Five milestones each. A covenant, not a trophy. It tells you exactly what a free person does to stay free — and it fits in your pocket.",
+      body: "When you finish, you don't get a certificate. You get a card. Printed on heavy stock. Four levels. Five milestones each. A covenant, not a trophy. It tells you exactly what a free person does to stay free. It fits in your pocket.",
     },
   ];
 
@@ -102,7 +102,7 @@ function ExodusDetail({ onClose }) {
           padding: "4px 12px",
           marginBottom: 14,
         }}>
-          Level 1 — The Exodus
+          Level 1: The Exodus
         </div>
 
         <h2 style={{
@@ -440,7 +440,7 @@ function CatechismDetail({ onClose }) {
   const movements = [
     {
       title: "The Fire",
-      body: "Live sessions. Real time. The founder teaches something. The room asks questions. Someone tries something on air and it breaks. Someone else fixes it. The session gets recorded. The archive becomes the pillar of cloud — always visible, marking the path for anyone who comes later and needs to find their way. The fire is lit on a schedule. Don't sit in the dark alone.",
+      body: "Live sessions. Real time. The founder teaches something. The room asks questions. Someone tries something on air and it breaks. Someone else fixes it. The session gets recorded. The archive becomes the pillar of cloud, always visible, marking the path for anyone who comes later and needs to find their way. The fire is lit on a schedule. Don't sit in the dark alone.",
     },
     {
       title: "The Voice",
@@ -448,7 +448,7 @@ function CatechismDetail({ onClose }) {
     },
     {
       title: "The Still Small Voice",
-      body: "At Level 2 you learn to build your own advisor. Not a corporate product. Not a data-harvesting cloud. A personal technical resource you construct yourself — context documents, agent frameworks, a tool that knows your machine because you taught it. At 11pm when the Wi-Fi drops and the house is quiet, you won't panic. You will listen, check the logs, and fix it yourself.",
+      body: "At Level 2 you learn to build your own advisor. Not a corporate product. Not a data-harvesting cloud. A personal technical resource you construct yourself: context documents, agent frameworks, a tool that knows your machine because you taught it. At 11pm when the Wi-Fi drops and the house is quiet, you won't panic. You will listen, check the logs, and fix it yourself.",
     },
   ];
 
@@ -488,7 +488,7 @@ function CatechismDetail({ onClose }) {
           padding: "4px 12px",
           marginBottom: 14,
         }}>
-          Level 2 — The Catechism
+          Level 2: The Catechism
         </div>
 
         <h2 style={{
@@ -540,7 +540,7 @@ function CatechismDetail({ onClose }) {
             color: "var(--tfm-near-black)",
             margin: "0 0 12px",
           }}>
-            Long before there were textbooks or schools, there was the human voice. The Greeks called it <em>katecheo</em> — to sound down into. To echo a truth until it resonates on its own. Until the student can answer without the teacher present.
+            Long before there were textbooks or schools, there was the human voice. The Greeks called it <em>katecheo</em>, to sound down into. To echo a truth until it resonates on its own. Until the student can answer without the teacher present.
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -806,7 +806,7 @@ function HomesteadDetail({ onClose }) {
   const movements = [
     {
       title: "The Land",
-      body: "You stopped being a tenant. No renting from Amazon. No storing on Google. Physical hardware humming in a room you pay for, running services you control. Your digital life now has an address that does not end in a corporate domain name. You are rooted in your own house. The day a peer looks at your network layout and says — you don't owe them anything anymore — that is the day you know you have land.",
+      body: "You stopped being a tenant. No renting from Amazon. No storing on Google. Physical hardware humming in a room you pay for, running services you control. Your digital life now has an address that does not end in a corporate domain name. You are rooted in your own house. The day a peer looks at your network layout and says you don't owe them anything anymore. That is the day you know you have land.",
     },
     {
       title: "The Harvest",
@@ -851,7 +851,7 @@ function HomesteadDetail({ onClose }) {
           padding: "4px 12px",
           marginBottom: 14,
         }}>
-          Level 3 — The Homestead
+          Level 3: The Homestead
         </div>
         <h2 style={{
           fontFamily: "var(--tfm-serif)",
@@ -895,7 +895,7 @@ function HomesteadDetail({ onClose }) {
           color: "var(--tfm-warm-brown)",
           margin: "0 0 16px",
         }}>
-          The midnight realization that your local DNS filter just blocked ten thousand corporate telemetry pings — and it did it because you built it that way. When you can show your system to another builder and walk them through your defense lines, you are a Homesteader. They will tell you you've arrived before you realize it yourself.
+          The midnight realization that your local DNS filter just blocked ten thousand corporate telemetry pings, and it did it because you built it that way. When you can show your system to another builder and walk them through your defense lines, you are a Homesteader. They will tell you you've arrived before you realize it yourself.
         </p>
 
         <p style={{
@@ -1138,11 +1138,11 @@ function CommissionDetail({ onClose }) {
     },
     {
       title: "The Mirror",
-      body: "You are the living proof that the mission works. When you explain the why of digital freedom to someone who has never heard of Linux, when you fix a Wi-Fi driver for someone who thought they were too old to learn — you are showing them that this is not for engineers. It is for anyone willing to do the work. Your presence in the room is the argument.",
+      body: "You are the living proof that the mission works. When you explain the why of digital freedom to someone who has never heard of Linux, when you fix a Wi-Fi driver for someone who thought they were too old to learn, you are showing them that this is not for engineers. It is for anyone willing to do the work. Your presence in the room is the argument.",
     },
     {
       title: "The Commission",
-      body: "Matthew 28:19. Go and make disciples. Not students. Disciples. People who become like their teacher and then go make more. You are only as free as the people around you. The person next to you at church, at work, at the dinner table — if they are still tracked and sold, your proximity to that system never fully ends. The fishing pole was never just for you.",
+      body: "Matthew 28:19. Go and make disciples. Not students. Disciples. People who become like their teacher and then go make more. You are only as free as the people around you. The person next to you at church, at work, at the dinner table, if they are still tracked and sold, your proximity to that system never fully ends. The fishing pole was never just for you.",
     },
   ];
 
@@ -1179,7 +1179,7 @@ function CommissionDetail({ onClose }) {
           padding: "4px 12px",
           marginBottom: 14,
         }}>
-          Level 4 — The Great Commission
+          Level 4: The Great Commission
         </div>
         <h2 style={{
           fontFamily: "var(--tfm-serif)",
