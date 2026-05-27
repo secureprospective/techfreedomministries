@@ -162,8 +162,8 @@ Contact for hardware donations: techfreedomministries@proton.me
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
 | Mobile — remaining pages | ~~Medium~~ | COMPLETE — Vanguard and Donate mobile hooks wired in responsive.css (tfm-vg-*, tfm-dn-*). |
 | Cinzel font (Google CDN) | ~~Low~~ | COMPLETE — Self-hosted. Cinzel v26 latin + latin-ext woff2 in public/fonts/. Google Fonts links removed from Layout.astro. |
-| assets/ at repo root | Low | Canonical location is public/assets/. Root assets/ can be deleted once confirmed. |
-| _headers at repo root | Low | Canonical location is public/_headers. Root _headers can be deleted once confirmed. |
+| assets/ at repo root | ~~Low~~ | COMPLETE — Deleted in Phase 1 audit (commit 9976fda). |
+| _headers at repo root | ~~Low~~ | COMPLETE — Deleted in Phase 1 audit (commit 9976fda). |
 
 ---
 

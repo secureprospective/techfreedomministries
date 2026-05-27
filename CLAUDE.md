@@ -155,9 +155,8 @@ Never lead with specs. Stakes first, specs second.
 | EIN in footer | 501c3 approved | `src/layouts/Layout.astro` |
 
 ### Ready to build (no external dependency)
-| Item | Priority | Notes |
-|---|---|---|
-| Delete legacy root assets/ and _headers | Low | Canonical location is public/assets/ and public/_headers |
+
+*No items — all unblocked work is complete.*
 
 ### Suggested next branch
 `session/event-data` — once Install Party date/venue/city confirmed
