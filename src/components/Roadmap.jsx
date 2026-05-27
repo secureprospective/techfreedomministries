@@ -1690,7 +1690,12 @@ export default function Roadmap() {
             letterSpacing: "0.02em",
             margin: "20px 0 0",
           }}>
-            Click a card to expand it.
+            Click a card to expand it.{" "}
+            <span style={{
+              fontStyle: "normal",
+              color: "var(--tfm-gold-bright)",
+              fontSize: 20,
+            }}>↴</span>
           </p>
 
           {/* Section transition divider */}
