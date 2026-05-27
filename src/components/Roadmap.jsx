@@ -1125,13 +1125,367 @@ function HomesteadDetail({ onClose }) {
   );
 }
 
+// ── Great Commission expanded detail ─────────────────────────────────────────
+
+function CommissionDetail({ onClose }) {
+  const L = LEVELS[3];
+  const COL_DIVIDER = "1px solid var(--tfm-parchment-edge)";
+
+  const movements = [
+    {
+      title: "The Return",
+      body: "You walk back into the room where you once sat scared. You stand in the back and scan the faces of the newcomers. You are looking for the person who is quietly staring at a black screen and has decided not to ask for help. You were that person once. You know exactly where they are sitting. Go find them.",
+    },
+    {
+      title: "The Mirror",
+      body: "You are the living proof that the mission works. When you explain the why of digital freedom to someone who has never heard of Linux, when you fix a Wi-Fi driver for someone who thought they were too old to learn — you are showing them that this is not for engineers. It is for anyone willing to do the work. Your presence in the room is the argument.",
+    },
+    {
+      title: "The Commission",
+      body: "Matthew 28:19. Go and make disciples. Not students. Disciples. People who become like their teacher and then go make more. You are only as free as the people around you. The person next to you at church, at work, at the dinner table — if they are still tracked and sold, your proximity to that system never fully ends. The fishing pole was never just for you.",
+    },
+  ];
+
+  const milestones = [
+    { title: "The Translator",       desc: "Can explain the why of TFM to someone who has never opened a terminal. The mission in plain language. No jargon required." },
+    { title: "The Guide",            desc: "Has successfully helped one other person through their first Install Party. Not observed it. Done it. Start to finish." },
+    { title: "The Troubleshooter",   desc: "Can fix a black screen or a Wi-Fi driver failure for a newcomer. Calmly. Without making them feel stupid for not knowing." },
+    { title: "The Community Pillar", desc: "Active in the forums and live sessions. Answers the questions they used to ask. Keeps the fire lit for the person hitting the wall at midnight." },
+    { title: "The Master Steward",   desc: "No longer a consumer of technology. A creator and protector of digital liberty. The Roadmap did not produce a graduate. It produced a Vanguard." },
+  ];
+
+  return (
+    <div style={{ borderTop: "1px solid rgba(196,168,74,0.25)" }}>
+
+      {/* ── Dark leather header ── */}
+      <div style={{
+        background: "var(--tfm-leather)",
+        padding: "28px 32px 24px",
+        borderBottom: "1px solid rgba(196,168,74,0.35)",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
+        </div>
+        <div style={{
+          display: "inline-block",
+          background: L.bg,
+          color: L.fg,
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 9,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          padding: "4px 12px",
+          marginBottom: 14,
+        }}>
+          Level 4 — The Great Commission
+        </div>
+        <h2 style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 32,
+          fontWeight: 700,
+          color: "var(--tfm-parchment)",
+          margin: "0 0 6px",
+          lineHeight: 1.2,
+        }}>
+          Freedom kept to yourself is just a larger cell.
+        </h2>
+        <p style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 17,
+          fontStyle: "italic",
+          color: "var(--tfm-gold-bright)",
+          margin: 0,
+          fontWeight: 400,
+        }}>
+          The Great Commission is not the end of the Roadmap. It is the beginning of someone else's Exodus.
+        </p>
+      </div>
+
+      {/* ── Parchment body ── */}
+      <div style={{ background: "var(--tfm-parchment)", padding: 32 }}>
+
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          color: "var(--tfm-warm-brown)",
+          margin: "0 0 16px",
+        }}>
+          Think back to your first Saturday. Your screen went black. You thought you ruined your computer. You were ready to walk out the door and give up. Someone leaned over your shoulder, typed three lines in the terminal, and handed your machine back to you. They didn't charge you. They didn't judge you.
+        </p>
+
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          color: "var(--tfm-warm-brown)",
+          margin: "0 0 28px",
+        }}>
+          This level is about becoming that person for someone else. Not because you know every line of the Linux kernel. Because you remember what it felt like before someone showed up. That memory is the only qualification that matters.
+        </p>
+
+        {/* Luke 6:40 block */}
+        <div style={{
+          borderLeft: "3px solid var(--tfm-gold-bright)",
+          padding: "16px 20px",
+          margin: "0 0 28px",
+          background: "var(--tfm-parchment-card)",
+        }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 14,
+            color: "var(--tfm-gold-muted)",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            margin: "0 0 8px",
+          }}>
+            ◆ Luke 6:40
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 16,
+            lineHeight: 1.65,
+            color: "var(--tfm-near-black)",
+            margin: "0 0 12px",
+          }}>
+            "A disciple is not above his teacher, but everyone when fully trained will be like his teacher."
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 15,
+            lineHeight: 1.65,
+            color: "var(--tfm-warm-brown)",
+            margin: 0,
+          }}>
+            You are not a superior with a title. You are a mirror turning around to show a newcomer exactly what they are about to become. The mission is only complete when the person you discipled finishes their Roadmap and turns around to disciple someone else. That is how TFM reaches cities the founder has never visited.
+          </p>
+        </div>
+
+        {/* The Three Movements */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 16px",
+          }}>
+            The Three Movements
+          </p>
+          <div style={{ display: "grid", gap: 12 }}>
+            {movements.map((m) => (
+              <div key={m.title} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                borderRight: "2px solid var(--tfm-gold-bright)",
+                padding: "16px 18px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "var(--tfm-gold-deep)",
+                  margin: "0 0 6px",
+                }}>
+                  {m.title}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  lineHeight: 1.6,
+                  color: "var(--tfm-warm-brown)",
+                  margin: 0,
+                }}>
+                  {m.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What The Great Commission Costs You */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            What The Great Commission Costs You
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            {[
+              { label: "What it costs",   body: "The comfort of being done. The satisfaction of finishing for yourself. The idea that your freedom is complete while the people around you are still inside." },
+              { label: "What it changes", body: "Your name goes on the Roadmap card you hand out at the door. You stop being a graduate. You become the reason someone else graduates." },
+            ].map((item) => (
+              <div key={item.label} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                padding: "14px 16px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  color: "var(--tfm-gold-deep)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  margin: "0 0 6px",
+                }}>
+                  {item.label}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  color: "var(--tfm-warm-brown)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* The Five Milestones */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            The Five Milestones
+          </p>
+          <div style={{ display: "grid", gap: 8 }}>
+            {milestones.map((m) => (
+              <div key={m.title} style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 12,
+                padding: "12px 16px",
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+              }}>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <div>
+                  <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, fontWeight: 700, color: "var(--tfm-near-black)", margin: "0 0 2px" }}>
+                    {m.title}
+                  </p>
+                  <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 13, color: "var(--tfm-warm-brown)", margin: 0 }}>
+                    {m.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Freeman's Commission bracket box */}
+        <div style={{
+          border: "1px solid var(--tfm-gold-bright)",
+          padding: 24,
+          margin: "0 0 28px",
+          position: "relative",
+        }}>
+          <span className="tfm-stamp-tl" aria-hidden="true" />
+          <span className="tfm-stamp-tr" aria-hidden="true" />
+          <span className="tfm-stamp-bl" aria-hidden="true" />
+          <span className="tfm-stamp-br" aria-hidden="true" />
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 10px",
+          }}>
+            ◆ The Freeman's Commission
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 17,
+            fontStyle: "italic",
+            lineHeight: 1.7,
+            color: "var(--tfm-near-black)",
+            margin: "0 0 16px",
+          }}>
+            "You escaped the cage. Now go back for the others."
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 18,
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            color: "var(--tfm-gold-deep)",
+            margin: 0,
+          }}>
+            Your name is on that piece of paper because you are the living proof that the exit exists.
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div style={{ borderTop: COL_DIVIDER, paddingTop: 20, display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <a
+            href="/vanguard"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "var(--tfm-near-black)",
+              color: "var(--tfm-parchment)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+          >
+            Become a Vanguard ↗
+          </a>
+          <button
+            onClick={onClose}
+            style={{
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "transparent",
+              color: "var(--tfm-near-black)",
+              border: "1px solid var(--tfm-near-black)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              cursor: "pointer",
+            }}
+          >
+            Close ↑
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 // ── LevelCard ─────────────────────────────────────────────────────────────────
 
 function LevelCard({ level, isOpen, onToggle }) {
   const L = LEVELS[level - 1];
   const copy = LEVEL_COPY[level - 1];
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
-  const hasDetail = level === 1 || level === 2 || level === 3;
+  const hasDetail = true;
 
   return (
     <div>
@@ -1277,6 +1631,7 @@ function LevelCard({ level, isOpen, onToggle }) {
       {isOpen && level === 1 && <ExodusDetail onClose={onToggle} />}
       {isOpen && level === 2 && <CatechismDetail onClose={onToggle} />}
       {isOpen && level === 3 && <HomesteadDetail onClose={onToggle} />}
+      {isOpen && level === 4 && <CommissionDetail onClose={onToggle} />}
     </div>
   );
 }
