@@ -431,13 +431,379 @@ function ExodusDetail({ onClose }) {
   );
 }
 
+// ── Catechism expanded detail ─────────────────────────────────────────────────
+
+function CatechismDetail({ onClose }) {
+  const L = LEVELS[1];
+  const COL_DIVIDER = "1px solid var(--tfm-parchment-edge)";
+
+  const movements = [
+    {
+      title: "The Fire",
+      body: "Live sessions. Real time. The founder teaches something. The room asks questions. Someone tries something on air and it breaks. Someone else fixes it. The session gets recorded. The archive becomes the pillar of cloud — always visible, marking the path for anyone who comes later and needs to find their way. The fire is lit on a schedule. Don't sit in the dark alone.",
+    },
+    {
+      title: "The Voice",
+      body: "The terminal is not a tool for programmers. It is a direct line to your own machine. No interface designed to distract you. No menu built to serve someone else's agenda. Just you and the command and the response. You will feel clumsy at first. Typos will matter. That friction is the point. Katecheo does not work without repetition.",
+    },
+    {
+      title: "The Still Small Voice",
+      body: "At Level 2 you learn to build your own advisor. Not a corporate product. Not a data-harvesting cloud. A personal technical resource you construct yourself — context documents, agent frameworks, a tool that knows your machine because you taught it. At 11pm when the Wi-Fi drops and the house is quiet, you won't panic. You will listen, check the logs, and fix it yourself.",
+    },
+  ];
+
+  const milestones = [
+    { title: "The Basic Commands",  desc: "Navigate folders and move files without a mouse. The machine responds to your voice now." },
+    { title: "Root Authority",       desc: "Understand what sudo means and when to use it carefully. You are the administrator. Act like it." },
+    { title: "The Package Master",   desc: "Install software from the terminal. No app store. No permission slip. Direct command, direct result." },
+    { title: "The Permission Slip",  desc: "Understand file permissions and ownership. Know exactly who can touch what on your machine." },
+    { title: "The Scripting Spark",  desc: "Run or write a simple shell script to automate a task. The machine now does what you tell it, even when you are not watching." },
+  ];
+
+  return (
+    <div style={{ borderTop: "1px solid rgba(196,168,74,0.25)" }}>
+
+      {/* ── Dark leather header ── */}
+      <div style={{
+        background: "var(--tfm-leather)",
+        padding: "28px 32px 24px",
+        borderBottom: "1px solid rgba(196,168,74,0.35)",
+      }}>
+        {/* Diamond rule */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
+        </div>
+
+        {/* Level badge — uses LEVELS[1] colors */}
+        <div style={{
+          display: "inline-block",
+          background: L.bg,
+          color: L.fg,
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 9,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          padding: "4px 12px",
+          marginBottom: 14,
+        }}>
+          Level 2 — The Catechism
+        </div>
+
+        <h2 style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 32,
+          fontWeight: 700,
+          color: "var(--tfm-parchment)",
+          margin: "0 0 6px",
+          lineHeight: 1.2,
+        }}>
+          The Exodus was about leaving.
+        </h2>
+        <p style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 17,
+          fontStyle: "italic",
+          color: "var(--tfm-gold-bright)",
+          margin: 0,
+          fontWeight: 400,
+        }}>
+          The Catechism is where we sit down together and learn how to stay free.
+        </p>
+      </div>
+
+      {/* ── Parchment body ── */}
+      <div style={{ background: "var(--tfm-parchment)", padding: 32 }}>
+
+        {/* Katecheo block */}
+        <div style={{
+          borderLeft: "3px solid var(--tfm-gold-bright)",
+          padding: "16px 20px",
+          margin: "0 0 28px",
+          background: "var(--tfm-parchment-card)",
+        }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 14,
+            color: "var(--tfm-gold-muted)",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            margin: "0 0 8px",
+          }}>
+            ◆ Katecheo
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 16,
+            lineHeight: 1.65,
+            color: "var(--tfm-near-black)",
+            margin: "0 0 12px",
+          }}>
+            Long before there were textbooks or schools, there was the human voice. The Greeks called it <em>katecheo</em> — to sound down into. To echo a truth until it resonates on its own. Until the student can answer without the teacher present.
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 16,
+            lineHeight: 1.65,
+            color: "var(--tfm-near-black)",
+            margin: 0,
+          }}>
+            The terminal screen is katecheo made digital. You type a command. The machine responds. You type again. It responds again. You repeat until your fingers know before your brain does. This is the oldest teaching method in human history running on the newest hardware in your house.
+          </p>
+        </div>
+
+        {/* Intro paragraph */}
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          color: "var(--tfm-warm-brown)",
+          margin: "0 0 28px",
+        }}>
+          Moses didn't teach the wilderness generation in a lecture hall. He taught them around fires, in tents, while they were still dirty from the road and figuring out how to live outside of Egypt. The learning happened in community, in real time, with the leader present and the questions coming from people who were actually lost. That is what this level is. You are not enrolling in a course. You are pulling up to the fire.
+        </p>
+
+        {/* The Three Movements */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 16px",
+          }}>
+            The Three Movements
+          </p>
+          <div style={{ display: "grid", gap: 12 }}>
+            {movements.map((m) => (
+              <div key={m.title} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                borderRight: "2px solid var(--tfm-gold-bright)",
+                padding: "16px 18px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "var(--tfm-gold-deep)",
+                  margin: "0 0 6px",
+                }}>
+                  {m.title}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  lineHeight: 1.6,
+                  color: "var(--tfm-warm-brown)",
+                  margin: 0,
+                }}>
+                  {m.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What Catechism Costs You */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            What Catechism Costs You
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            {[
+              { label: "What it costs",   body: "The safety of the mouse. Your impatience. The pride that keeps you from admitting in the room when something broke." },
+              { label: "What it changes", body: "Your fallback network. You stop looking to corporate help desks. You start looking to the person next to you in the chat." },
+            ].map((item) => (
+              <div key={item.label} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                padding: "14px 16px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  color: "var(--tfm-gold-deep)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  margin: "0 0 6px",
+                }}>
+                  {item.label}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  color: "var(--tfm-warm-brown)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* The Five Milestones */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            The Five Milestones
+          </p>
+          <div style={{ display: "grid", gap: 8 }}>
+            {milestones.map((m) => (
+              <div key={m.title} style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 12,
+                padding: "12px 16px",
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+              }}>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <div>
+                  <p style={{
+                    fontFamily: "var(--tfm-sans)",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: "var(--tfm-near-black)",
+                    margin: "0 0 2px",
+                  }}>
+                    {m.title}
+                  </p>
+                  <p style={{
+                    fontFamily: "var(--tfm-sans)",
+                    fontSize: 13,
+                    color: "var(--tfm-warm-brown)",
+                    margin: 0,
+                  }}>
+                    {m.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Level 2 Send-Off bracket box */}
+        <div style={{
+          border: "1px solid var(--tfm-gold-bright)",
+          padding: 24,
+          margin: "0 0 28px",
+          position: "relative",
+        }}>
+          <span className="tfm-stamp-tl" aria-hidden="true" />
+          <span className="tfm-stamp-tr" aria-hidden="true" />
+          <span className="tfm-stamp-bl" aria-hidden="true" />
+          <span className="tfm-stamp-br" aria-hidden="true" />
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 10px",
+          }}>
+            ◆ The Level 2 Send-Off
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 20,
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            color: "var(--tfm-near-black)",
+            margin: "0 0 8px",
+          }}>
+            "You become a leader the first time you answer someone else's question in the chat."
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 16,
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            color: "var(--tfm-gold-deep)",
+            margin: 0,
+          }}>
+            You don't just belong to this community now. This community belongs to you.
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div style={{
+          borderTop: COL_DIVIDER,
+          paddingTop: 20,
+          display: "flex",
+          gap: 12,
+          flexWrap: "wrap",
+        }}>
+          <a
+            href="/events"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "var(--tfm-near-black)",
+              color: "var(--tfm-parchment)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+          >
+            Join the community ↗
+          </a>
+          <button
+            onClick={onClose}
+            style={{
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "transparent",
+              color: "var(--tfm-near-black)",
+              border: "1px solid var(--tfm-near-black)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              cursor: "pointer",
+            }}
+          >
+            Close ↑
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 // ── LevelCard ─────────────────────────────────────────────────────────────────
 
 function LevelCard({ level, isOpen, onToggle }) {
   const L = LEVELS[level - 1];
   const copy = LEVEL_COPY[level - 1];
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
-  const hasDetail = level === 1;
+  const hasDetail = level === 1 || level === 2;
 
   return (
     <div>
@@ -579,10 +945,9 @@ function LevelCard({ level, isOpen, onToggle }) {
         </div>
       </article>
 
-      {/* Expanded detail — Exodus only for now */}
-      {isOpen && level === 1 && (
-        <ExodusDetail onClose={onToggle} />
-      )}
+      {/* Expanded detail */}
+      {isOpen && level === 1 && <ExodusDetail onClose={onToggle} />}
+      {isOpen && level === 2 && <CatechismDetail onClose={onToggle} />}
     </div>
   );
 }
