@@ -797,13 +797,341 @@ function CatechismDetail({ onClose }) {
   );
 }
 
+// ── Homestead expanded detail ─────────────────────────────────────────────────
+
+function HomesteadDetail({ onClose }) {
+  const L = LEVELS[2];
+  const COL_DIVIDER = "1px solid var(--tfm-parchment-edge)";
+
+  const movements = [
+    {
+      title: "The Land",
+      body: "You stopped being a tenant. No renting from Amazon. No storing on Google. Physical hardware humming in a room you pay for, running services you control. Your digital life now has an address that does not end in a corporate domain name. You are rooted in your own house. The day a peer looks at your network layout and says — you don't owe them anything anymore — that is the day you know you have land.",
+    },
+    {
+      title: "The Harvest",
+      body: "Proof of work made visible. You can show what you built. You can explain how it handles traffic and defend its configurations. If Microsoft or Apple changes their terms of service tomorrow, it does not change a single line of your life. The Homesteader does not just have a system. They can describe it, defend it, and hand the knowledge to someone else. That is what separates Level 3 from Level 2. Level 2 teaches you the language. Level 3 is what you build once you can speak it.",
+    },
+    {
+      title: "The Stewardship",
+      body: "Genesis 1:28 calls us to exercise responsible dominion. Not to conquer. To tend. A homestead that is not maintained gets overrun. When the service drops at 11pm you do not call a helpline. You check the logs. You fix it. You keep the garden fruitful. This is you subduing the telemetry, blocking the trackers, and accepting the daily weight of ownership over the digital land you have been given.",
+    },
+  ];
+
+  const milestones = [
+    { title: "The Hardware Sovereign", desc: "Troubleshoot your own hardware. Know your system specs. The machine has no mysteries left to hide from you." },
+    { title: "The Local Backup",       desc: "Physical backup of data you control. Not a corporate cloud. Your files live where you can see them." },
+    { title: "The Self-Host Pilot",    desc: "At least one local service running. Pi-Hole, Nextcloud, a local file share. Something real, something yours, something on." },
+    { title: "The Hardened Heart",     desc: "Privacy settings audited. Unnecessary telemetry disabled. You know what is leaving your network and you stopped most of it." },
+    { title: "The Daily Driver",       desc: "No Microsoft. No Apple. No Google desktop software. Your daily life runs entirely on what you control." },
+  ];
+
+  return (
+    <div style={{ borderTop: "1px solid rgba(196,168,74,0.25)" }}>
+
+      {/* ── Dark leather header ── */}
+      <div style={{
+        background: "var(--tfm-leather)",
+        padding: "28px 32px 24px",
+        borderBottom: "1px solid rgba(196,168,74,0.35)",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
+        </div>
+        <div style={{
+          display: "inline-block",
+          background: L.bg,
+          color: L.fg,
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 9,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          padding: "4px 12px",
+          marginBottom: 14,
+        }}>
+          Level 3 — The Homestead
+        </div>
+        <h2 style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 32,
+          fontWeight: 700,
+          color: "var(--tfm-parchment)",
+          margin: "0 0 6px",
+          lineHeight: 1.2,
+        }}>
+          You don't get a certificate when you finish this level.
+        </h2>
+        <p style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 17,
+          fontStyle: "italic",
+          color: "var(--tfm-gold-bright)",
+          margin: 0,
+          fontWeight: 400,
+        }}>
+          Nobody prints a badge. The room tells you when you've arrived.
+        </p>
+      </div>
+
+      {/* ── Parchment body ── */}
+      <div style={{ background: "var(--tfm-parchment)", padding: 32 }}>
+
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          color: "var(--tfm-warm-brown)",
+          margin: "0 0 16px",
+        }}>
+          There is a profound shift that happens when you pull your family's photos off a corporate cloud and put them on a drive spinning inside your own walls. It is the feeling of walking onto land you actually own. The Homestead is not a test you pass. It is the moment you stop acting like a digital tenant and start acting like a landlord.
+        </p>
+
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          color: "var(--tfm-warm-brown)",
+          margin: "0 0 16px",
+        }}>
+          The midnight realization that your local DNS filter just blocked ten thousand corporate telemetry pings — and it did it because you built it that way. When you can show your system to another builder and walk them through your defense lines, you are a Homesteader. They will tell you you've arrived before you realize it yourself.
+        </p>
+
+        <p style={{
+          fontFamily: "var(--tfm-serif)",
+          fontSize: 14,
+          lineHeight: 1.65,
+          color: "var(--tfm-gold-muted)",
+          fontStyle: "italic",
+          margin: "0 0 28px",
+        }}>
+          A Homestead can be built on a $35 single-board computer or an old desktop pulled from a closet. The work is what makes it a homestead. Not the budget.
+        </p>
+
+        {/* The Three Movements */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 16px",
+          }}>
+            The Three Movements
+          </p>
+          <div style={{ display: "grid", gap: 12 }}>
+            {movements.map((m) => (
+              <div key={m.title} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                borderRight: "2px solid var(--tfm-gold-bright)",
+                padding: "16px 18px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "var(--tfm-gold-deep)",
+                  margin: "0 0 6px",
+                }}>
+                  {m.title}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  lineHeight: 1.6,
+                  color: "var(--tfm-warm-brown)",
+                  margin: 0,
+                }}>
+                  {m.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What Homestead Costs You */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            What Homestead Costs You
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            {[
+              { label: "What it costs",   body: "The comfort of calling someone else when it breaks. The convenience of letting a corporation tend your land for you. The illusion that ownership without maintenance is possible." },
+              { label: "What it changes", body: "Your standing in the room. You move from student to builder. From someone who escaped to someone who built something worth protecting." },
+            ].map((item) => (
+              <div key={item.label} style={{
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+                padding: "14px 16px",
+              }}>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  color: "var(--tfm-gold-deep)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  margin: "0 0 6px",
+                }}>
+                  {item.label}
+                </p>
+                <p style={{
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 14,
+                  color: "var(--tfm-warm-brown)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* The Five Milestones */}
+        <div style={{ margin: "0 0 28px" }}>
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 14px",
+          }}>
+            The Five Milestones
+          </p>
+          <div style={{ display: "grid", gap: 8 }}>
+            {milestones.map((m) => (
+              <div key={m.title} style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 12,
+                padding: "12px 16px",
+                background: "var(--tfm-parchment-card)",
+                border: COL_DIVIDER,
+              }}>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <div>
+                  <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, fontWeight: 700, color: "var(--tfm-near-black)", margin: "0 0 2px" }}>
+                    {m.title}
+                  </p>
+                  <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 13, color: "var(--tfm-warm-brown)", margin: 0 }}>
+                    {m.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Genesis 1:28 bracket box */}
+        <div style={{
+          border: "1px solid var(--tfm-gold-bright)",
+          padding: 24,
+          margin: "0 0 28px",
+          position: "relative",
+        }}>
+          <span className="tfm-stamp-tl" aria-hidden="true" />
+          <span className="tfm-stamp-tr" aria-hidden="true" />
+          <span className="tfm-stamp-bl" aria-hidden="true" />
+          <span className="tfm-stamp-br" aria-hidden="true" />
+          <p style={{
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--tfm-gold-muted)",
+            margin: "0 0 10px",
+          }}>
+            ◆ Genesis 1:28
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 17,
+            fontStyle: "italic",
+            lineHeight: 1.7,
+            color: "var(--tfm-near-black)",
+            margin: "0 0 16px",
+          }}>
+            "God didn't hand Adam a checklist for subduing the earth. He gave him a garden and let the work define the man. Put your hands on the tools. Let the room see what you can build."
+          </p>
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 18,
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            color: "var(--tfm-gold-deep)",
+            margin: 0,
+          }}>
+            You didn't pass a test. You earned the respect of the room.
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div style={{ borderTop: COL_DIVIDER, paddingTop: 20, display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <a
+            href="/events"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "var(--tfm-near-black)",
+              color: "var(--tfm-parchment)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+          >
+            Start building ↗
+          </a>
+          <button
+            onClick={onClose}
+            style={{
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              background: "transparent",
+              color: "var(--tfm-near-black)",
+              border: "1px solid var(--tfm-near-black)",
+              padding: "12px 24px",
+              borderRadius: 2,
+              cursor: "pointer",
+            }}
+          >
+            Close ↑
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 // ── LevelCard ─────────────────────────────────────────────────────────────────
 
 function LevelCard({ level, isOpen, onToggle }) {
   const L = LEVELS[level - 1];
   const copy = LEVEL_COPY[level - 1];
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
-  const hasDetail = level === 1 || level === 2;
+  const hasDetail = level === 1 || level === 2 || level === 3;
 
   return (
     <div>
@@ -948,6 +1276,7 @@ function LevelCard({ level, isOpen, onToggle }) {
       {/* Expanded detail */}
       {isOpen && level === 1 && <ExodusDetail onClose={onToggle} />}
       {isOpen && level === 2 && <CatechismDetail onClose={onToggle} />}
+      {isOpen && level === 3 && <HomesteadDetail onClose={onToggle} />}
     </div>
   );
 }
