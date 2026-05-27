@@ -33,11 +33,15 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
   );
 }
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzyorgw";
+
 export default function RsvpModal({ event, onClose }) {
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [why, setWhy] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
@@ -102,12 +106,47 @@ export default function RsvpModal({ event, onClose }) {
               <Field label="Why are you coming?" value={why} onChange={setWhy} type="textarea"
                 placeholder="One or two sentences. Optional." />
             </div>
+            {error && (
+              <p style={{
+                fontFamily: "var(--tfm-sans)", fontSize: 12, color: "var(--tfm-crimson)",
+                marginTop: 16, marginBottom: 0,
+              }}>
+                {error}
+              </p>
+            )}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 28 }}>
               <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 12, color: "var(--tfm-warm-brown-soft)" }}>
                 We don't email you twice. We don't sell anything.
               </span>
-              <Button onClick={() => setStep(2)} disabled={!name || !email}>
-                Reserve a seat <Icon name="arrow" size={13} />
+              <Button
+                disabled={!name || !email || submitting}
+                onClick={async () => {
+                  setSubmitting(true);
+                  setError(null);
+                  try {
+                    const res = await fetch(FORMSPREE_ENDPOINT, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                      body: JSON.stringify({
+                        name,
+                        email,
+                        why: why || "(not provided)",
+                        event: `${event.city} — ${event.month} ${event.day} at ${event.venue}`,
+                      }),
+                    });
+                    if (res.ok) {
+                      setStep(2);
+                    } else {
+                      setError("Something went wrong. Try again or email us directly.");
+                    }
+                  } catch {
+                    setError("Could not reach the server. Check your connection and try again.");
+                  } finally {
+                    setSubmitting(false);
+                  }
+                }}
+              >
+                {submitting ? "Sending…" : <>{`Reserve a seat `}<Icon name="arrow" size={13} /></>}
               </Button>
             </div>
           </>

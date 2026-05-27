@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Eyebrow, Rule, Proclamation } from './Atoms.jsx';
 import EventCard from './EventCard.jsx';
-// RsvpModal import removed — RSVP disabled until wired to a real endpoint.
-// TODO: wire RsvpModal to Formspree (needs new endpoint — mvzyorgw was Vanguard).
-// Re-import RsvpModal and restore onRsvp/rsvpFor state when ready.
+import RsvpModal from './RsvpModal.jsx';
 
 // TODO: Replace placeholder fields with real Install Party details before launch.
 // Each field that needs a real value is marked with TODO.
@@ -26,6 +24,7 @@ export const EVENTS = [
 /* preview=true shows first 3 events without filter chips or section header */
 export default function EventsList({ preview }) {
   const [filter, setFilter] = useState("all");
+  const [rsvpFor, setRsvpFor] = useState(null);
 
   // Only include cities with real data — exclude placeholder "TBD" values.
   // Filter chips are suppressed entirely when no real city data exists.
@@ -79,9 +78,11 @@ export default function EventsList({ preview }) {
         )}
 
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          {shown.map(ev => <EventCard key={ev.id} event={ev} />)}
+          {shown.map(ev => <EventCard key={ev.id} event={ev} onRsvp={setRsvpFor} />)}
         </div>
       </section>
+
+      {rsvpFor && <RsvpModal event={rsvpFor} onClose={() => setRsvpFor(null)} />}
     </>
   );
 }

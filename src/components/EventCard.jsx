@@ -7,7 +7,7 @@ import { Eyebrow, Proclamation, LevelBadge, Icon, Diamond, Button, Card } from '
 // Mobile overrides live in src/styles/responsive.css.
 // Class name hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action.
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, onRsvp }) {
   return (
     <Card style={{ padding: "22px 26px", position: "relative" }}>
         <span className="tfm-stamp-tl" aria-hidden="true" />
@@ -89,9 +89,9 @@ export default function EventCard({ event }) {
             </div>
           </div>
 
-          {/* Action — disabled until RsvpModal is wired to a real endpoint */}
+          {/* Action */}
           <div className="tfm-ec-action">
-            <Button disabled>RSVP</Button>
+            <Button onClick={() => onRsvp && onRsvp(event)}>RSVP</Button>
           </div>
 
         </div>
