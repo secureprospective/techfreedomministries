@@ -157,10 +157,10 @@ Contact for hardware donations: techfreedomministries@proton.me
 | No EIN / donate button disabled | High | TODO: STRIPE markers in `src/components/Donate.jsx` — swap for Stripe/PayPal once 501(c)(3) filed. |
 | Install Party details TBD | High | `src/components/EventsList.jsx` — replace TBD fields with real date, venue, city before launch. |
 | Vanguard application — email only | High | Formspree form (mvzyorgw) removed in Studio redesign. Now mailto: vanguard@techfreedomministries.com. Re-wire to Formspree if form submission tracking is needed. |
-| No real RSVP backend | Medium | RsvpModal form goes nowhere. Needs Formspree endpoint (separate from old Vanguard endpoint). |
+| No real RSVP backend | ~~Medium~~ | COMPLETE — RsvpModal wired to Formspree endpoint mvzyorgw. Async POST, submitting/error states, step 2 on success. |
 | Brevo API key exposed in bundle | Medium | Key is not in repo but is visible in browser JS bundle. Deferred to security upgrade session. |
 | No EIN in footer | Medium | Add real EIN to Layout.astro footer once 501(c)(3) is filed. |
-| Mobile — remaining pages | Medium | Vanguard and Donate pages need full mobile pass (sections still have 64-72px horizontal padding, multi-column grids not yet collapsed on mobile). |
+| Mobile — remaining pages | ~~Medium~~ | COMPLETE — Vanguard and Donate mobile hooks wired in responsive.css (tfm-vg-*, tfm-dn-*). |
 | Cinzel font (Google CDN) | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy. |
 | assets/ at repo root | Low | Canonical location is public/assets/. Root assets/ can be deleted once confirmed. |
 | _headers at repo root | Low | Canonical location is public/_headers. Root _headers can be deleted once confirmed. |
@@ -170,9 +170,9 @@ Contact for hardware donations: techfreedomministries@proton.me
 ## What Comes Next (In Order)
 
 1. Fill in Install Party details in `src/components/EventsList.jsx` (date, venue, city)
-2. Mobile pass — Vanguard and Donate page sections (padding, multi-column grids)
+2. ~~Mobile pass — Vanguard and Donate page sections~~ — COMPLETE
 3. Re-wire Vanguard application to Formspree (or confirm email-only is intentional)
-4. Wire RsvpModal to Formspree (new endpoint — old endpoint was Vanguard)
+4. ~~Wire RsvpModal to Formspree~~ — COMPLETE (endpoint mvzyorgw)
 5. Security upgrade session — move Brevo API key behind Cloudflare Pages Function
 6. Wire donate button — swap TODO: STRIPE placeholders once EIN arrives
 7. Add EIN to footer once 501(c)(3) is filed

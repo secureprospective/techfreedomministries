@@ -99,7 +99,7 @@ Phase 5 (vanguard page): COMPLETE (Formspree form replaced by email CTA in Sessi
 Phase 6 (donate page): COMPLETE (donate button placeholder until EIN — TODO: STRIPE markers in Donate.jsx)
 Phase 7 (integrations): COMPLETE — Brevo live; Formspree endpoint mvzyorgw no longer in Vanguard UI
 Phase 8 (Gilded Spine theme): COMPLETE — see docs/TFM_11_BIBLE_THEME.md
-Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer
+Phase 9 (mobile responsiveness): COMPLETE — nav, hero, explainer, event card, roadmap, footer, Vanguard, Donate, About
 Phase 10 (full code audit): COMPLETE — merged to main May 25 2026
 - 14 dead files deleted, ~3.2MB unused fonts removed
 - 5 duplicate tokens eliminated, all usages unified
@@ -157,8 +157,6 @@ Never lead with specs. Stakes first, specs second.
 ### Ready to build (no external dependency)
 | Item | Priority | Notes |
 |---|---|---|
-| Mobile pass — Vanguard + Donate sections | High | Both pages still have 64-72px horizontal padding and unbreakpointed multi-column grids |
-| Wire RsvpModal to Formspree | High | RSVP button currently disabled. Needs new Formspree endpoint (old mvzyorgw was Vanguard). Re-enable in EventCard + EventsList when ready. |
 | Brevo API key security | Medium | Move key behind Cloudflare Pages Function — currently visible in browser bundle |
 | Self-host Cinzel font | Low | Currently loaded from Google Fonts — inconsistent with EB Garamond self-hosting policy |
 
