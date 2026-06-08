@@ -27,6 +27,20 @@ Domain: techfreedomministries.org (live — Cloudflare Pages, auto-deploy from m
 Redirect: techfreedomministries.com → techfreedomministries.org (301, all variants)
 Repo: github.com/secureprospective/techfreedomministries
 Local path: /mnt/storage/claudebox/techfreedomministries/
+Build command: `npm run build`
+
+---
+
+## Current Build State
+
+- Last clean build: 9 pages, May 27 2026
+- Live: techfreedomministries.org (Cloudflare Pages, auto-deploy from main)
+- Phases 1–12 complete. Last closed: copy and UX polish, May 27 2026.
+- Brevo live; RsvpModal → Formspree mvzyorgw; Cinzel self-hosted; Google Fonts CDN removed
+
+**Pending manual action:** Brevo env vars must be set in Cloudflare Pages before BrevoSignup works in production: `PUBLIC_BREVO_API_KEY` + `PUBLIC_BREVO_LIST_ID=3`
+
+**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed
 
 ---
 
@@ -69,8 +83,35 @@ techfreedomministries/
 | Donate button | EIN arrives (501c3 filing in progress) | `src/components/Donate.jsx` |
 | EIN in footer | 501c3 approved | `src/layouts/Layout.astro` |
 
-**Load the TFM project segment before any session:** `/root/.claude/memory/segments/tfm-project.md`
-Build state, hardware donation strategy, and next-branch recommendation live there.
+---
+
+## Hardware Donation Strategy
+
+**Primary ask is hardware, not cash.**
+
+The conditional promise: TFM cannot guarantee a free laptop at every Install Party without a hardware supply. Correct framing: "We can't give free laptops without your generosity." Never write the free laptop as a guarantee — it is a donation-enabled promise.
+
+The self-feeding loop: Donor gives obsolete hardware → Install Party → student follows Roadmap → becomes Vanguard → runs own events → needs hardware. The loop restarts.
+
+Hardware feeds all four Roadmap levels:
+- Exodus: The donated machine someone leaves with
+- Catechism: The terminal they learn on
+- Homestead: Home server from donated SBCs or mini PCs
+- Great Commission: Machines a Vanguard needs to run their own Exodus event
+
+Church/rural model: A church anywhere can host if TFM supplies the hardware. Venue + community + faith context already there.
+
+Contact: techfreedomministries@proton.me
+Accepted (priority order): Laptops → Workstation PCs → Mini PCs → Old gaming desktops → Tablets → SBCs
+
+**Voice rule:** Lead with what is impossible without the donation. Stakes first, specs second.
+
+---
+
+## Reference Docs
+
+Full index: `docs/TFM_01_MASTER_FRAMEWORK.md`
+Load for specific work: TFM_08 (design), TFM_09 (build spec), TFM_11 (theme), TFM_12 (creative brief), TFM_15 (Roadmap copy)
 
 ---
 
