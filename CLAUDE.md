@@ -87,31 +87,25 @@ techfreedomministries/
 
 ## Hardware Donation Strategy
 
-**Primary ask is hardware, not cash.**
+Primary ask is hardware, not cash. Never frame the free laptop as a guarantee — it is a
+donation-enabled promise. Voice: stakes first, specs second.
 
-The conditional promise: TFM cannot guarantee a free laptop at every Install Party without a hardware supply. Correct framing: "We can't give free laptops without your generosity." Never write the free laptop as a guarantee — it is a donation-enabled promise.
-
-The self-feeding loop: Donor gives obsolete hardware → Install Party → student follows Roadmap → becomes Vanguard → runs own events → needs hardware. The loop restarts.
-
-Hardware feeds all four Roadmap levels:
-- Exodus: The donated machine someone leaves with
-- Catechism: The terminal they learn on
-- Homestead: Home server from donated SBCs or mini PCs
-- Great Commission: Machines a Vanguard needs to run their own Exodus event
-
-Church/rural model: A church anywhere can host if TFM supplies the hardware. Venue + community + faith context already there.
-
-Contact: techfreedomministries@proton.me
-Accepted (priority order): Laptops → Workstation PCs → Mini PCs → Old gaming desktops → Tablets → SBCs
-
-**Voice rule:** Lead with what is impossible without the donation. Stakes first, specs second.
+Full strategy (self-feeding loop, Roadmap hardware mapping, church model, accepted-item
+priority order, contact `techfreedomministries@proton.me`): `docs/TFM_16_HARDWARE_DONATION.md`.
 
 ---
 
 ## Reference Docs
 
-Full index: `docs/TFM_01_MASTER_FRAMEWORK.md`
-Load for specific work: TFM_08 (design), TFM_09 (build spec), TFM_11 (theme), TFM_12 (creative brief), TFM_15 (Roadmap copy)
+| When working on | Load |
+|---|---|
+| Design / layout / visual system | `docs/TFM_08_DESIGN_SYSTEM.md` |
+| Build spec / site structure | `docs/TFM_09_WEBSITE_BUILD.md` |
+| Bible theme / Gilded Spine | `docs/TFM_11_BIBLE_THEME.md` |
+| Creative brief / copy voice | `docs/TFM_12_CREATIVE_BRIEF.md` |
+| Roadmap copy | `docs/TFM_15_ROADMAP_EXPANDED_COPY.md` |
+| Hardware donation strategy | `docs/TFM_16_HARDWARE_DONATION.md` |
+| Full framework index | `docs/TFM_01_MASTER_FRAMEWORK.md` |
 
 ---
 
