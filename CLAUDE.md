@@ -26,7 +26,7 @@ Tagline: "Giving freedom with a fishing pole."
 Domain: techfreedomministries.org (live — Cloudflare Pages, auto-deploy from main)
 Redirect: techfreedomministries.com → techfreedomministries.org (301, all variants)
 Repo: github.com/secureprospective/techfreedomministries
-Local path: /mnt/storage/claudebox/techfreedomministries/
+Local path: /mnt/storage/claudebox/projects/techfreedomministries/
 Build command: `npm run build`
 
 ---
@@ -41,6 +41,28 @@ Build command: `npm run build`
 **Pending manual action:** Brevo env vars must be set in Cloudflare Pages before BrevoSignup works in production: `PUBLIC_BREVO_API_KEY` + `PUBLIC_BREVO_LIST_ID=3`
 
 **Next branch:** `session/event-data` — once Install Party date/venue/city confirmed
+
+---
+
+## Social Media (started 2026-06-20)
+
+New workstream: TFM channels on **YouTube, LinkedIn, X**. Assets + finalized copy live in
+`social/` (see `social/README.md` for the tree and `social/COPY.md` for all copy). Imagery
+is generated in **Gemini** (Christopher's account, limited tokens), then finished here on
+CT105 with Python/Pillow. The TFM logo IS the cross-on-circuit-mound motif (no separate
+wordmark glyph in the logo files).
+
+**Shipped (ready to upload):**
+- YouTube banner — `social/youtube/youtube-banner-2048x1152.png`
+- Profile avatar (LinkedIn + X) — `social/shared/avatar-800x800.png`
+- X header — `social/x/x-header-1500x500.png`
+- All copy (YT description, LinkedIn overview+specialties, X bio/handle/pinned post) — `social/COPY.md`
+
+**Pending:** LinkedIn company cover (1128×191); first-week post drafts; confirm @handle
+availability on X; X Professional/Non-Profit account (gated until account ages + profile complete).
+
+**Note:** `social/` assets are currently **untracked in git** (large PNGs). Decide before
+committing whether to track finals only, gitignore `_source/`, or keep the whole folder out of the repo.
 
 ---
 
