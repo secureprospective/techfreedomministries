@@ -61,8 +61,13 @@ wordmark glyph in the logo files).
 **Pending:** LinkedIn company cover (1128×191); first-week post drafts; confirm @handle
 availability on X; X Professional/Non-Profit account (gated until account ages + profile complete).
 
-**Note:** `social/` assets are currently **untracked in git** (large PNGs). Decide before
-committing whether to track finals only, gitignore `_source/`, or keep the whole folder out of the repo.
+**Git:** finals + `README.md`/`COPY.md` are tracked; raw gens `social/_source/` are gitignored
+(kept on disk). Committed on branch `session/social-launch-assets` (d4c1be5) — **not yet merged
+to main**. Merging + pushing main triggers a Cloudflare rebuild (harmless: `social/` is outside the Astro build).
+
+**Location note (2026-06-20):** project relocated from top-level to
+`/mnt/storage/claudebox/projects/techfreedomministries/` to match the projects/ convention.
+Build re-verified clean (9 pages) after the move.
 
 ---
 
