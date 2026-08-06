@@ -33,14 +33,23 @@ Build command: `npm run build`
 
 ## Current Build State
 
-- Last clean build: 9 pages, May 27 2026
+- Last clean build: 9 pages, 2026-08-06
 - Live: techfreedomministries.org (Cloudflare Pages, auto-deploy from main)
 - Phases 1–12 complete. Last closed: copy and UX polish, May 27 2026.
 - Brevo live; RsvpModal → Formspree mvzyorgw; Cinzel self-hosted; Google Fonts CDN removed
 
 **Pending manual action:** Brevo env vars must be set in Cloudflare Pages before BrevoSignup works in production: `PUBLIC_BREVO_API_KEY` + `PUBLIC_BREVO_LIST_ID=3`
 
-**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed
+**2026-08-06 session — Impeccable installed, first critique run and fixed, merged to `main` (`966ccb1`) and pushed.** Full detail in memory `project_tfm`; summary:
+- `PRODUCT.md` and `DESIGN.md` written for the first time (North Star "The Gilded Spine"), from the real live tokens/CSS plus a confirmed **Sanctuary Voice** brand commitment: name the real encroachment plainly, then resolve every passage to agency/ownership/community — never leave the reader in the threat. See PRODUCT.md's Brand Commitments for the full reasoning.
+- First `/impeccable critique` on the homepage: 25/32 (Good), dual-agent, source-level (no browser automation configured for this project — snapshot at `.impeccable/critique/2026-08-06T13-58-29Z__src-pages-index-astro.md`).
+- Fixed same session: P0 Roadmap level-card keyboard/screen-reader accessibility (real button semantics, `aria-expanded`, focus-visible, `aria-hidden` on decorative ◆ glyphs sitewide); P1 Hero stakes-clause scope gap (phone/car surveillance named but unresolved); P2 collapsed Roadmap cards reordered to lead with plain language over mythology vocabulary; P2 expanded detail panels got a top-of-panel Collapse control. Also corrected a real DESIGN.md-vs-CLAUDE.md button-radius conflict in favor of the live code (2px on buttons, confirmed in `Atoms.jsx`'s `btnBase`) and documented the left-border narrative callouts as a named component ("Marginalia Callout").
+
+**⚠️ Open, needs a decision next session:** `--tfm-gold-muted` (#8B7355) fails WCAG AA contrast (4.5:1) against every background it's used on — 4.11:1 near-black, 3.94:1 parchment, 3.60:1 parchment-card, hand-calculated and verified. It's the site's standing eyebrow-label color (25+ uses in `Roadmap.jsx` alone, plus the global `.eyebrow` class in `tokens.css`) — a token-level decision, not fixed unilaterally. Options: redefine the token itself, or add a separate AA-safe color for small text specifically.
+
+**⚠️ Functional/visual gate not yet performed:** the push to `main` was made and Cloudflare auto-deploy triggered, but Christopher has not yet confirmed the live result in-browser — session closed before that check per his explicit direction ("push to live, session-close after that... pick this up tonight"). Confirm live at techfreedomministries.org before treating this round of fixes as fully done.
+
+**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed. Pick up the gold-muted contrast decision and the live-site confirmation first when the session resumes.
 
 ---
 
