@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-06T13:49:22Z",
+  "title": "Design System: Tech Freedom Ministries",
+  "extensions": {
+    "colorMeta": {
+      "parchment": { "role": "neutral", "displayName": "Parchment", "canonical": "#F4F0E6" },
+      "parchment-card": { "role": "neutral", "displayName": "Parchment Card", "canonical": "#ECE6D6" },
+      "parchment-edge": { "role": "neutral", "displayName": "Parchment Edge", "canonical": "#D9D0B8" },
+      "near-black": { "role": "neutral", "displayName": "Near Black", "canonical": "#1C1209" },
+      "warm-brown": { "role": "neutral", "displayName": "Warm Brown", "canonical": "#4A3F2F" },
+      "warm-brown-soft": { "role": "neutral", "displayName": "Warm Brown Soft", "canonical": "#6E5F4A" },
+      "gold-deep": { "role": "primary", "displayName": "Gold Deep", "canonical": "#8B6914" },
+      "gold-bright": { "role": "primary", "displayName": "Gold Bright", "canonical": "#C4A84A" },
+      "gold-muted": { "role": "neutral", "displayName": "Gold Muted", "canonical": "#8B7355" },
+      "leather": { "role": "neutral", "displayName": "Leather", "canonical": "#2A1F0E" },
+      "leather-mid": { "role": "neutral", "displayName": "Leather Mid", "canonical": "#1E160A" },
+      "crimson": { "role": "tertiary", "displayName": "Crimson Ribbon", "canonical": "#8B1A1A" },
+      "crimson-deep": { "role": "tertiary", "displayName": "Crimson Deep", "canonical": "#6B1212" },
+      "level-1-bg": { "role": "secondary", "displayName": "Exodus Green", "canonical": "#1D4D2A" },
+      "level-1-text": { "role": "secondary", "displayName": "Exodus Green Text", "canonical": "#A8D4B2" },
+      "level-2-bg": { "role": "secondary", "displayName": "Catechism Gold-Brown", "canonical": "#5C4500" },
+      "level-2-text": { "role": "secondary", "displayName": "Catechism Text", "canonical": "#F0C85A" },
+      "level-3-bg": { "role": "secondary", "displayName": "Homestead Crimson", "canonical": "#5C1A1A" },
+      "level-3-text": { "role": "secondary", "displayName": "Homestead Text", "canonical": "#F0A8A8" },
+      "level-4-bg": { "role": "secondary", "displayName": "Great Commission Olive", "canonical": "#2C2C1A" },
+      "level-4-text": { "role": "secondary", "displayName": "Great Commission Text", "canonical": "#C8C890" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (EB Garamond)", "purpose": "Hero and page-level proclamations." },
+      "headline": { "displayName": "Headline (EB Garamond)", "purpose": "Major section openers." },
+      "title": { "displayName": "Title (EB Garamond)", "purpose": "Sub-section headers, Roadmap detail panel headers." },
+      "body": { "displayName": "Body (Inter)", "purpose": "All paragraph copy." },
+      "label": { "displayName": "Label (Inter)", "purpose": "Eyebrows, reference marks, nav, buttons." },
+      "colophon": { "displayName": "Colophon (Cinzel)", "purpose": "Header wordmark only. Never spreads to body headlines." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(.2,0,.2,1)", "purpose": "Default easing for button/link hover transitions (220ms)." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "768px" },
+      { "name": "small", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action. Square corners, near-black fill, gold-deep hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Find an event near you</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #1C1209; color: #fff; padding: 12px 24px; border: none; border-radius: 0; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-primary:hover { background: #8B6914; } .ds-btn-primary:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary call-to-action. Transparent fill, near-black border, gold-deep hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">See how it works</a>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #1C1209; padding: 12px 24px; border: 1px solid #1C1209; border-radius: 0; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 220ms cubic-bezier(.2,0,.2,1), color 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-ghost:hover { border-color: #8B6914; color: #8B6914; } .ds-btn-ghost:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Level Badge",
+      "kind": "chip",
+      "refersTo": "badge-level",
+      "description": "Pill-shaped badge marking a Roadmap level; each level has its own saturated bg/text color pair. Shown here as Level 1: The Exodus.",
+      "html": "<span class=\"ds-badge-level-1\">Level 1: The Exodus</span>",
+      "css": ".ds-badge-level-1 { display: inline-block; padding: 4px 12px; border-radius: 999px; font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.20em; text-transform: uppercase; background: #1D4D2A; color: #A8D4B2; }"
+    },
+    {
+      "name": "Vanguard Badge",
+      "kind": "chip",
+      "refersTo": "badge-vanguard",
+      "description": "Pill-shaped badge for Vanguard status, deliberately outside the four level colors.",
+      "html": "<span class=\"ds-badge-vanguard\">Vanguard</span>",
+      "css": ".ds-badge-vanguard { display: inline-block; padding: 4px 12px; border-radius: 999px; border: 1px solid #C4A84A; color: #8B6914; font-family: Inter, system-ui, sans-serif; font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase; background: transparent; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Default content card. Flat, square corners, parchment-card surface, gold-deep border on hover. No shadow.",
+      "html": "<div class=\"ds-card\">Card content</div>",
+      "css": ".ds-card { background: #ECE6D6; border: 1px solid #D9D0B8; border-radius: 0; padding: 32px; transition: border-color 220ms cubic-bezier(.2,0,.2,1); } .ds-card:hover { border-color: #8B6914; }"
+    },
+    {
+      "name": "Gilt Edge Card",
+      "kind": "custom",
+      "refersTo": "gilt-edge",
+      "description": "Signature component. A default Card with the gilt page-edge accent on its right side, simulating a leather-bound book's gilt edge.",
+      "html": "<div class=\"ds-card ds-gilt-edge\">Card content</div>",
+      "css": ".ds-gilt-edge { position: relative; } .ds-gilt-edge::after { content: ''; position: absolute; top: 0; right: -3px; width: 3px; height: 100%; background: linear-gradient(180deg, #8B6914 0%, #C4A84A 30%, #8B6914 55%, #C4A84A 80%, #8B6914 100%); pointer-events: none; }"
+    },
+    {
+      "name": "Stamp Frame (light)",
+      "kind": "custom",
+      "refersTo": "stamp-light",
+      "description": "Signature component. Diagonal corner-bracket frame (top-left + bottom-right only) reading as military-coordinate/field-manual marks. Light variant has no full border, used in Hero/CTA contexts.",
+      "html": "<div class=\"ds-stamp-light\">Framed content</div>",
+      "css": ".ds-stamp-light { position: relative; padding: 24px; margin: 32px 0; } .ds-stamp-light::before { content: ''; position: absolute; top: -5px; left: -5px; width: 16px; height: 16px; border-top: 1px solid #C4A84A; border-left: 1px solid #C4A84A; } .ds-stamp-light::after { content: ''; position: absolute; bottom: -5px; right: -5px; width: 16px; height: 16px; border-bottom: 1px solid #C4A84A; border-right: 1px solid #C4A84A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Gilded Spine",
+    "overview": "TFM's visual language is a leather-bound Bible — a document of lasting consequence, handled repeatedly, passed from person to person. Every page is a page in that book: parchment ground, hand-tooled leather header, gilt page-edge on cards, a crimson ribbon bookmark, a gold spine strip running the full height of the viewport. The system reads as issued and earned, never sold — closer to a field manual or a credential than a product marketing site. The voice this system carries is the Sanctuary Voice: real threats named plainly, resolved to agency and ownership rather than left in dread. Visually this means the system can go dark and heavy (the leather header, the near-black CTA bands) without ever reading as menacing — the gold accents and parchment warmth are the sanctuary the dark sections resolve into.",
+    "keyCharacteristics": [
+      "Parchment-and-leather material world: warm off-white pages, dark leather surfaces, gold gilt accents, crimson as a single sparing highlight.",
+      "Sharp corners everywhere except pill-shaped badges (the one deliberate exception).",
+      "Serif (EB Garamond) for weight-bearing text, sans (Inter) for labels/body/UI, Cinzel reserved for the header wordmark only.",
+      "The ◆ diamond is the recurring reference mark.",
+      "Four Roadmap levels each carry their own saturated bg/text color pair, distinct from the core palette."
+    ],
+    "rules": [
+      { "name": "The Leather Rule", "body": "Dark surfaces (#2A1F0E) are reserved for header, footer, and register-shift section bands — never a default background.", "section": "colors" },
+      { "name": "The Crimson Rule", "body": "Crimson appears only as the ribbon-bookmark motif, never as a general accent, button, link, or badge color.", "section": "colors" },
+      { "name": "The Proclamation Rule", "body": "A heading pairs a bold, near-black declarative clause with an italic, gold-deep resolution clause below it — the visual form of the Sanctuary Voice's stakes-then-agency pattern.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Never add box-shadow for elevation. Use the gilt-edge treatment or a stamp-frame instead.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use EB Garamond for anything meant to feel earned, historical, or declarative.",
+      "Do use the ◆ diamond as the recurring mark for reference points, dividers, and list bullets.",
+      "Do reserve Cinzel exclusively for the header wordmark.",
+      "Do use the gilt-edge or stamp-frame treatments for anything that needs to read as elevated or important.",
+      "Do give Level badges their own saturated bg/text color pair per level, kept out of the rest of the palette."
+    ],
+    "donts": [
+      "Don't add box-shadow anywhere for elevation.",
+      "Don't round corners on buttons or cards — pill badges are the one confirmed exception.",
+      "Don't use blue, pastels, gradients outside the gilt/gold system, glassmorphism, or full-bleed stock photography.",
+      "Don't use crimson as a general accent.",
+      "Don't let Sanctuary Voice stakes language go unresolved on a page — every dark/heavy visual passage should carry copy that resolves to agency, matching the visual resolution from leather back to parchment/gold."
+    ]
+  }
+}
