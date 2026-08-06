@@ -182,6 +182,19 @@
 }
 
 
+/* ── FOCUS VISIBLE ──────────────────────────────────────────────
+   Applied to elements that carry role="button" on a non-native
+   element (e.g. .tfm-rm-level-card, the Roadmap level cards).
+   Native interactive elements (a, button) already get a browser
+   default outline; this rule is only for the ARIA-button case.
+   ─────────────────────────────────────────────────────────────── */
+
+.tfm-rm-level-card:focus-visible {
+  outline: 2px solid var(--tfm-gold-bright);
+  outline-offset: -2px;
+}
+
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .tfm-stamp {

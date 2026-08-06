@@ -58,6 +58,7 @@ typography:
     letterSpacing: "0.20em"
 rounded:
   none: "0px"
+  button: "2px"
   pill: "999px"
 spacing:
   s1: "4px"
@@ -73,14 +74,14 @@ components:
   button-primary:
     backgroundColor: "{colors.near-black}"
     textColor: "#FFFFFF"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.button}"
     padding: "12px 24px"
   button-primary-hover:
     backgroundColor: "{colors.gold-deep}"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.near-black}"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.button}"
     padding: "12px 24px"
   button-ghost-hover:
     textColor: "{colors.gold-deep}"
@@ -167,15 +168,18 @@ Flat by default — no drop shadows anywhere in the system. Depth and hierarchy 
 
 ## Shapes
 
-Sharp, ledger-like geometry everywhere except one deliberate exception. Buttons and cards use `border-radius: 0`. Level badges and the Vanguard badge are the single exception at `border-radius: 999px` (full pill) — read as a wax-seal/credential mark, not a UI affordance, so the exception doesn't erode the sharp-corner rule elsewhere. Corner-bracket "stamp" frames (`.tfm-stamp` / `.tfm-stamp--light`) use diagonal asymmetry — bracket detail top-left and bottom-right only — deliberately reading as military coordinates/field-manual marks rather than a symmetric frame.
+Sharp, ledger-like geometry with two confirmed exceptions. Cards use `border-radius: 0` with no exception. Buttons (the shared `btnBase` style in `Atoms.jsx`, plus the homepage's scoped `.cta-btn-primary`/`.cta-btn-ghost`) use a slight `2px` radius — enough to soften a clickable target without reading as a rounded-pill UI convention. Level badges and the Vanguard badge go further, at `border-radius: 999px` (full pill) — read as a wax-seal/credential mark, not a UI affordance. (Note: `tokens.css`'s standalone `.btn-primary`/`.btn-ghost` classes document `border-radius: 0` but are dead code — no component in the codebase references them; the real, live button radius is the `2px` used everywhere buttons actually render.) Corner-bracket "stamp" frames (`.tfm-stamp` / `.tfm-stamp--light`) use diagonal asymmetry — bracket detail top-left and bottom-right only — deliberately reading as military coordinates/field-manual marks rather than a symmetric frame.
 
 ## Components
 
 ### Buttons
-- **Shape:** square corners (0px radius), no exceptions.
-- **Primary:** near-black background (`#1C1209`), white text, `12px 24px` padding, Inter 14px with `0.08em` letter-spacing.
+- **Shape:** slight `2px` radius (the one confirmed rounding exception outside pill badges — see Shapes).
+- **Primary:** near-black background (`#1C1209`), white text, `12-13px 22-28px` padding depending on context, Inter 13-14px with wide letter-spacing.
 - **Hover:** background shifts to Gold Deep (`#8B6914`).
 - **Ghost:** transparent background, near-black text, `1px solid near-black` border; hover shifts border and text color to Gold Deep.
+
+### Marginalia Callout (signature component)
+A `borderLeft: 3px solid` Gold Bright accent on a Parchment Card background, used inline within long-form Roadmap detail copy to set off a specific narrative beat or scripture reference (e.g. "The Eviction," the Katecheo block, the Luke 6:40 block in `Roadmap.jsx`). Reads as marginalia in the Gilded Spine's field-manual/document metaphor — a handwritten note in the margin of a long page — distinct from the Gilt Edge (card-level, right-side, book-page metaphor) and the Stamp Frame (corner-bracket, credential metaphor). Reserve it for a single called-out passage within body copy, not as a general card border.
 
 ### Badges
 - **Level badges (1-4):** pill-shaped (999px), each level has its own bg/text color pair (see Colors frontmatter `level-1` through `level-4`) — distinct from the core palette, the system's one place for saturated jewel-tone color.

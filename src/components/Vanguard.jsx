@@ -253,7 +253,7 @@ function MeansSection() {
           <GiltCard key={c.n} style={{ padding: 32, backgroundColor: "var(--tfm-parchment-card)" }}>
             {/* Ref mark + title */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1, flexShrink: 0 }}>◆</span>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1, flexShrink: 0 }} aria-hidden="true">◆</span>
               <div style={{
                 fontFamily: "var(--tfm-serif)",
                 fontSize: 22,
@@ -345,7 +345,7 @@ function PathSection() {
               fontSize: 12,
               lineHeight: 1.8,
               flexShrink: 0,
-            }}>◆</span>
+            }} aria-hidden="true">◆</span>
             <div>
               <div style={{
                 fontFamily: "var(--tfm-serif)",

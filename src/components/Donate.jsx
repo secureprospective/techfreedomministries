@@ -336,7 +336,7 @@ function HardwareSection() {
         <GiltCard>
           {/* Title with ref mark */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-            <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1 }}>◆</span>
+            <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, lineHeight: 1 }} aria-hidden="true">◆</span>
             <div style={{
               fontFamily: "var(--tfm-serif)",
               fontSize: 20,
@@ -499,7 +499,7 @@ function CashSection() {
           }}>
             {/* Amount with ref mark */}
             <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 18, lineHeight: 1 }}>◆</span>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 18, lineHeight: 1 }} aria-hidden="true">◆</span>
               <div style={{
                 fontFamily: "var(--tfm-serif)",
                 fontSize: 40,
@@ -618,7 +618,7 @@ function NotDoingSection() {
               key={i}
               style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 14, alignItems: "start" }}
             >
-              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 12, lineHeight: 1.8 }}>◆</span>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 12, lineHeight: 1.8 }} aria-hidden="true">◆</span>
               <span style={{
                 fontFamily: "var(--tfm-serif)",
                 fontSize: 18,

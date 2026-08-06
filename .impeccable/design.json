@@ -48,17 +48,25 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Main call-to-action. Square corners, near-black fill, gold-deep hover.",
+      "description": "Main call-to-action. 2px radius (the confirmed button-only rounding exception), near-black fill, gold-deep hover.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Find an event near you</a>",
-      "css": ".ds-btn-primary { display: inline-block; background: #1C1209; color: #fff; padding: 12px 24px; border: none; border-radius: 0; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-primary:hover { background: #8B6914; } .ds-btn-primary:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
+      "css": ".ds-btn-primary { display: inline-block; background: #1C1209; color: #fff; padding: 12px 24px; border: none; border-radius: 2px; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-primary:hover { background: #8B6914; } .ds-btn-primary:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Secondary call-to-action. Transparent fill, near-black border, gold-deep hover.",
+      "description": "Secondary call-to-action. 2px radius, transparent fill, near-black border, gold-deep hover.",
       "html": "<a class=\"ds-btn-ghost\" href=\"#\">See how it works</a>",
-      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #1C1209; padding: 12px 24px; border: 1px solid #1C1209; border-radius: 0; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 220ms cubic-bezier(.2,0,.2,1), color 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-ghost:hover { border-color: #8B6914; color: #8B6914; } .ds-btn-ghost:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #1C1209; padding: 12px 24px; border: 1px solid #1C1209; border-radius: 2px; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 220ms cubic-bezier(.2,0,.2,1), color 220ms cubic-bezier(.2,0,.2,1); } .ds-btn-ghost:hover { border-color: #8B6914; color: #8B6914; } .ds-btn-ghost:focus-visible { outline: 2px solid #C4A84A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Marginalia Callout",
+      "kind": "custom",
+      "refersTo": "marginalia-callout",
+      "description": "Signature component. A 3px gold left-border on a parchment-card background, setting off one narrative beat or scripture reference within long-form Roadmap detail copy. Distinct from the Gilt Edge (card-level, right-side) and Stamp Frame (corner-bracket).",
+      "html": "<div class=\"ds-marginalia\"><p class=\"ds-marginalia-label\">The Eviction</p><p class=\"ds-marginalia-body\">You just kicked a massive corporate tenant out of your property.</p></div>",
+      "css": ".ds-marginalia { border-left: 3px solid #C4A84A; padding: 16px 20px; background: #ECE6D6; } .ds-marginalia-label { font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #8B7355; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 8px; } .ds-marginalia-body { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #1C1209; margin: 0; }"
     },
     {
       "name": "Level Badge",
@@ -126,7 +134,7 @@
     ],
     "donts": [
       "Don't add box-shadow anywhere for elevation.",
-      "Don't round corners on buttons or cards — pill badges are the one confirmed exception.",
+      "Don't round card corners at all; buttons get a slight 2px radius (the one confirmed exception besides pill badges) — don't add box-shadow anywhere, including buttons.",
       "Don't use blue, pastels, gradients outside the gilt/gold system, glassmorphism, or full-bleed stock photography.",
       "Don't use crimson as a general accent.",
       "Don't let Sanctuary Voice stakes language go unresolved on a page — every dark/heavy visual passage should carry copy that resolves to agency, matching the visual resolution from leather back to parchment/gold."

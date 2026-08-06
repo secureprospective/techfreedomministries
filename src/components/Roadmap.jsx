@@ -4,6 +4,37 @@ import { Eyebrow, Proclamation, Diamond, Brackets, LEVELS } from './Atoms.jsx';
 // Mobile overrides live in src/styles/responsive.css.
 // Class name hooks: tfm-rm-level-card, tfm-rm-level-name, tfm-rm-callout.
 
+// ── Shared: top-of-panel collapse control ───────────────────────────────────────
+// Detail panels are long; the bottom "Close" button alone means a visitor who
+// opens out of curiosity has no quick exit without a long scroll. This mirrors
+// that control at the top of the leather header.
+
+function TopCollapse({ onClose }) {
+  return (
+    <button
+      type="button"
+      onClick={onClose}
+      style={{
+        position: "absolute",
+        top: 20,
+        right: 24,
+        background: "transparent",
+        border: "1px solid rgba(196,168,74,0.4)",
+        color: "var(--tfm-gold-bright)",
+        fontFamily: "var(--tfm-sans)",
+        fontSize: 11,
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        padding: "6px 12px",
+        borderRadius: 2,
+        cursor: "pointer",
+      }}
+    >
+      Collapse ↑
+    </button>
+  );
+}
+
 // ── Level copy ────────────────────────────────────────────────────────────────
 
 const LEVEL_COPY = [
@@ -79,14 +110,16 @@ function ExodusDetail({ onClose }) {
 
       {/* ── Dark leather header ── */}
       <div style={{
+        position: "relative",
         background: "var(--tfm-leather)",
         padding: "28px 32px 24px",
         borderBottom: "1px solid rgba(196,168,74,0.35)",
       }}>
+        <TopCollapse onClose={onClose} />
         {/* Diamond rule */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
-          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }} aria-hidden="true">◆</span>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
         </div>
 
@@ -314,7 +347,7 @@ function ExodusDetail({ onClose }) {
                 background: "var(--tfm-parchment-card)",
                 border: COL_DIVIDER,
               }}>
-                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }} aria-hidden="true">◆</span>
                 <div>
                   <p style={{
                     fontFamily: "var(--tfm-sans)",
@@ -465,14 +498,16 @@ function CatechismDetail({ onClose }) {
 
       {/* ── Dark leather header ── */}
       <div style={{
+        position: "relative",
         background: "var(--tfm-leather)",
         padding: "28px 32px 24px",
         borderBottom: "1px solid rgba(196,168,74,0.35)",
       }}>
+        <TopCollapse onClose={onClose} />
         {/* Diamond rule */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
-          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }} aria-hidden="true">◆</span>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
         </div>
 
@@ -676,7 +711,7 @@ function CatechismDetail({ onClose }) {
                 background: "var(--tfm-parchment-card)",
                 border: COL_DIVIDER,
               }}>
-                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }} aria-hidden="true">◆</span>
                 <div>
                   <p style={{
                     fontFamily: "var(--tfm-sans)",
@@ -831,13 +866,15 @@ function HomesteadDetail({ onClose }) {
 
       {/* ── Dark leather header ── */}
       <div style={{
+        position: "relative",
         background: "var(--tfm-leather)",
         padding: "28px 32px 24px",
         borderBottom: "1px solid rgba(196,168,74,0.35)",
       }}>
+        <TopCollapse onClose={onClose} />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
-          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }} aria-hidden="true">◆</span>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
         </div>
         <div style={{
@@ -1021,7 +1058,7 @@ function HomesteadDetail({ onClose }) {
                 background: "var(--tfm-parchment-card)",
                 border: COL_DIVIDER,
               }}>
-                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }} aria-hidden="true">◆</span>
                 <div>
                   <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, fontWeight: 700, color: "var(--tfm-near-black)", margin: "0 0 2px" }}>
                     {m.title}
@@ -1159,13 +1196,15 @@ function CommissionDetail({ onClose }) {
 
       {/* ── Dark leather header ── */}
       <div style={{
+        position: "relative",
         background: "var(--tfm-leather)",
         padding: "28px 32px 24px",
         borderBottom: "1px solid rgba(196,168,74,0.35)",
       }}>
+        <TopCollapse onClose={onClose} />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to right, transparent, var(--tfm-gold-bright))" }} />
-          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }}>◆</span>
+          <span style={{ color: "var(--tfm-gold-bright)", fontSize: 10 }} aria-hidden="true">◆</span>
           <div style={{ height: 1, width: 36, background: "linear-gradient(to left, transparent, var(--tfm-gold-bright))" }} />
         </div>
         <div style={{
@@ -1375,7 +1414,7 @@ function CommissionDetail({ onClose }) {
                 background: "var(--tfm-parchment-card)",
                 border: COL_DIVIDER,
               }}>
-                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span>
+                <span style={{ color: "var(--tfm-gold-bright)", fontSize: 14, marginTop: 2, flexShrink: 0 }} aria-hidden="true">◆</span>
                 <div>
                   <p style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, fontWeight: 700, color: "var(--tfm-near-black)", margin: "0 0 2px" }}>
                     {m.title}
@@ -1487,25 +1526,53 @@ function LevelCard({ level, isOpen, onToggle }) {
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
   const hasDetail = true;
 
+  const handleKeyDown = (e) => {
+    if (!hasDetail) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onToggle();
+    }
+  };
+
   return (
     <div>
       <article
         className="tfm-rm-level-card tfm-gilt-edge"
         onClick={hasDetail ? onToggle : undefined}
+        onKeyDown={hasDetail ? handleKeyDown : undefined}
+        role={hasDetail ? "button" : undefined}
+        tabIndex={hasDetail ? 0 : undefined}
+        aria-expanded={hasDetail ? isOpen : undefined}
+        aria-label={hasDetail ? `Level ${L.n}: ${L.name}. ${isOpen ? "Collapse" : "Read more"}.` : undefined}
         style={{
           position: "relative",
           background: L.bg,
           color: L.fg,
           padding: "44px 48px",
           display: "grid",
-          gridTemplateColumns: "180px 1fr 1fr",
+          gridTemplateColumns: "1fr 180px 1fr",
           gap: 0,
           alignItems: "start",
           cursor: hasDetail ? "pointer" : "default",
         }}
       >
-        {/* Column 1: Level number + name in Brackets */}
-        <div style={{ paddingRight: 32 }}>
+        {/* Column 1: Blurb — plain language leads, per the Sanctuary Voice's
+            Layer 2 rule: first-timers should meet the plain description
+            before the mythology name. */}
+        <p style={{
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 15,
+          lineHeight: 1.7,
+          opacity: 0.92,
+          margin: 0,
+          color: "inherit",
+          paddingRight: 32,
+        }}>
+          {copy.blurb}
+        </p>
+
+        {/* Column 2: Level number + name in Brackets — secondary, the mythology label */}
+        <div style={{ borderLeft: COL_DIVIDER, paddingLeft: 32, paddingRight: 32 }}>
           <div style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 11,
@@ -1545,21 +1612,6 @@ function LevelCard({ level, isOpen, onToggle }) {
           )}
         </div>
 
-        {/* Column 2: Blurb */}
-        <p style={{
-          fontFamily: "var(--tfm-sans)",
-          fontSize: 15,
-          lineHeight: 1.7,
-          opacity: 0.92,
-          margin: 0,
-          color: "inherit",
-          borderLeft: COL_DIVIDER,
-          paddingLeft: 32,
-          paddingRight: 32,
-        }}>
-          {copy.blurb}
-        </p>
-
         {/* Column 3: Steps */}
         <ol style={{
           listStyle: "none",
@@ -1581,7 +1633,7 @@ function LevelCard({ level, isOpen, onToggle }) {
                 alignItems: "baseline",
               }}
             >
-              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 12, lineHeight: 1.8 }}>◆</span>
+              <span style={{ color: "var(--tfm-gold-bright)", fontSize: 12, lineHeight: 1.8 }} aria-hidden="true">◆</span>
               <span style={{
                 fontFamily: "var(--tfm-sans)",
                 fontSize: 14,
@@ -1613,7 +1665,7 @@ function LevelCard({ level, isOpen, onToggle }) {
             fontSize: 12,
             flexShrink: 0,
             paddingTop: 2,
-          }}>◆</span>
+          }} aria-hidden="true">◆</span>
           <p style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 14,
