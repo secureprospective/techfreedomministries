@@ -1574,7 +1574,7 @@ function LevelCard({ level, isOpen, onToggle }) {
           color: L.fg,
           padding: "44px 48px",
           display: "grid",
-          gridTemplateColumns: "1fr 180px 1fr",
+          gridTemplateColumns: "1fr 220px 1fr",
           gap: 0,
           alignItems: "start",
           cursor: hasDetail ? "pointer" : "default",
@@ -1596,7 +1596,7 @@ function LevelCard({ level, isOpen, onToggle }) {
         </p>
 
         {/* Column 2: Level number + name in Brackets — secondary, the mythology label */}
-        <div style={{ borderLeft: COL_DIVIDER, paddingLeft: 32, paddingRight: 32 }}>
+        <div style={{ borderLeft: COL_DIVIDER, paddingLeft: 20, paddingRight: 20 }}>
           <div style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 11,
@@ -1607,15 +1607,17 @@ function LevelCard({ level, isOpen, onToggle }) {
           }}>
             Level 0{L.n}
           </div>
-          <Brackets padding={22}>
+          <Brackets padding={14}>
             <div
               className="tfm-rm-level-name"
               style={{
                 fontFamily: "var(--tfm-serif)",
                 fontWeight: 700,
-                fontSize: 24,
-                lineHeight: 1.35,
+                fontSize: 20,
+                lineHeight: 1.3,
                 color: L.fg,
+                whiteSpace: "normal",
+                textAlign: "center",
               }}
             >
               {L.name}
