@@ -4,6 +4,7 @@ import '../styles/tokens.css';
 import '../styles/accents.css';
 import '../styles/responsive.css';
 import BrevoSignup from '../components/BrevoSignup.jsx';
+import HeaderAuthButton from '../components/HeaderAuthButton.jsx';
 
 const { title = "Tech Freedom Ministries — Break from the digital grid.", hideNewsletter = false } = Astro.props;
 const { pathname } = Astro.url;
@@ -67,7 +68,7 @@ const footerLinks = [
           ))}
         </nav>
 
-        <a href="/events" class="header-cta">Find an event</a>
+        <HeaderAuthButton client:load />
       </div>
     </header>
 

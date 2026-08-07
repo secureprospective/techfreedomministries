@@ -1,0 +1,42 @@
+/* Visual parity with the former static "Find an event" header CTA (Layout.astro
+   .header-cta, now rendered as a native <button> by the React island).
+   Scoped to the island because Astro's Layout-scoped styles don't reach
+   React-rendered DOM; this replicates the anchor's look 1:1. */
+.header-auth-cta {
+  font-family: var(--tfm-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 9px 18px;
+  background: rgba(196, 168, 74, 0.14);
+  color: var(--tfm-parchment);
+  text-decoration: none;
+  border: 1px solid rgba(196, 168, 74, 0.5);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all 220ms cubic-bezier(.2, 0, .2, 1);
+  /* Native <button> resets so it renders like the <a> it replaces */
+  margin: 0;
+  line-height: normal;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  text-transform: none;
+}
+
+.header-auth-cta:hover {
+  background: rgba(196, 168, 74, 0.24);
+  border-color: rgba(196, 168, 74, 0.8);
+  color: #fff;
+}
+
+.header-auth-cta:focus-visible {
+  outline: 1px solid var(--tfm-gold-bright);
+  outline-offset: 2px;
+}
+
+/* Mobile: same behavior as the old CTA — hidden below 768px (mobile nav
+   doesn't show it). Keep for now; login-on-mobile is a separate follow-up. */
+@media (max-width: 768px) {
+  .header-auth-cta { display: none; }
+}
