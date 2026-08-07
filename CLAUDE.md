@@ -121,6 +121,7 @@ techfreedomministries/
 | Install Party details | Christopher confirms date, venue, city | `src/components/EventsList.jsx` |
 | Donate button | EIN arrives (501c3 filing in progress) | `src/components/Donate.jsx` |
 | EIN in footer | 501c3 approved | `src/layouts/Layout.astro` |
+| Members area (login + Buzz community front end) | Two decisions pending: (1) public Buzz URL — Christopher named `tfm.communities.buzz.xyz`, domain ownership unverified against CF inventory, needs confirmation; (2) TeamAi engagement scope for this build (full fleet build vs. grunt-work-only vs. Claude drafts specs for separate execution) | n/a, build not started |
 
 ---
 
