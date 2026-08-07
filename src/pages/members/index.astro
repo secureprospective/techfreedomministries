@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PersonalRoadmap, CommunityCard, VanguardTeaser } from '../../components/MembersArea.jsx';
+
+// MOCK DATA: replace with real session lookup once D1 auth lands
+const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
+---
+<Layout title="Members Area — Tech Freedom Ministries">
+
+  <!-- Members Area — welcome header -->
+  <section class="members-hero">
+    <div class="members-hero-inner">
+      <div class="eyebrow">Members Area</div>
+      <div class="members-hero-rule"></div>
+      <h1 class="members-hero-title">Your copy of the Roadmap.</h1>
+      <p class="members-hero-body">
+        Welcome, <strong>Alex Rivera</strong>. This page is a companion to your physical Roadmap
+        card — a mirror you can reach from your own machine. It is not a replacement. The card you
+        carry was issued to you by hand, and checking a box on paper is a promise your hand keeps
+        differently than a screen ever will. This view is simply your progress in a form you can
+        bring with you: what you have earned, the step ahead of you, and the people on the path
+        with you.
+      </p>
+    </div>
+  </section>
+
+  <PersonalRoadmap member={mockMember} client:load />
+  <CommunityCard member={mockMember} client:load />
+  <VanguardTeaser member={mockMember} client:load />
+
+</Layout>
+
+<style>
+  /* Members Area — welcome header */
+  .members-hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 36px;
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+  }
+
+  .members-hero-inner {
+    max-width: 640px;
+  }
+
+  .members-hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--tfm-gold-bright);
+    margin: 14px 0 24px;
+  }
+
+  .members-hero-title {
+    font-family: var(--tfm-serif);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--tfm-near-black);
+    margin: 0 0 20px;
+  }
+
+  .members-hero-body {
+    font-family: var(--tfm-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--tfm-warm-brown);
+    margin: 0;
+  }
+
+  .members-hero-body strong {
+    font-weight: 600;
+    color: var(--tfm-near-black);
+  }
+
+  @media (max-width: 768px) {
+    .members-hero {
+      padding: 64px 20px;
+    }
+
+    .members-hero-title {
+      font-size: 34px;
+    }
+  }
+</style>
