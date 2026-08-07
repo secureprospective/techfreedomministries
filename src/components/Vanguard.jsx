@@ -292,7 +292,7 @@ function PathSection() {
         <>
           All four levels. The Exodus, the Catechism, the Homestead, the Great Commission. Each
           one earned at a real event, not checked off on a screen. Not sure where you stand?{" "}
-          <a href="/roadmap" style={{ color: "var(--tfm-gold-deep)", textDecoration: "underline" }}>
+          <a href="/roadmap" className="tfm-ink-link" style={{ color: "var(--tfm-gold-deep)" }}>
             Check the Roadmap.
           </a>
         </>

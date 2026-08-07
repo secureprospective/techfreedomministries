@@ -67,7 +67,7 @@ export default function Oath() {
         fontFamily: "var(--tfm-sans)", fontSize: 14, color: "var(--tfm-warm-brown-soft)",
         marginTop: 32,
       }}>
-        <a href="/roadmap" style={{ color: "inherit", textDecoration: "underline" }}>
+        <a href="/roadmap" className="tfm-ink-link" style={{ color: "inherit" }}>
           See the Roadmap that leads here →
         </a>
       </p>

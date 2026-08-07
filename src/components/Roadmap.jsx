@@ -1706,10 +1706,14 @@ function LevelCard({ level, isOpen, onToggle }) {
       </article>
 
       {/* Expanded detail */}
-      {isOpen && level === 1 && <ExodusDetail onClose={onToggle} />}
-      {isOpen && level === 2 && <CatechismDetail onClose={onToggle} />}
-      {isOpen && level === 3 && <HomesteadDetail onClose={onToggle} />}
-      {isOpen && level === 4 && <CommissionDetail onClose={onToggle} />}
+      {isOpen && (
+        <div className="tfm-rm-unfurl">
+          {level === 1 && <ExodusDetail onClose={onToggle} />}
+          {level === 2 && <CatechismDetail onClose={onToggle} />}
+          {level === 3 && <HomesteadDetail onClose={onToggle} />}
+          {level === 4 && <CommissionDetail onClose={onToggle} />}
+        </div>
+      )}
     </div>
   );
 }

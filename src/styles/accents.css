@@ -179,6 +179,56 @@
     var(--tfm-gilt-deep) 100%
   );
   pointer-events: none;
+  filter: brightness(1);
+  transition: filter 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tfm-gilt-edge:hover::after {
+  filter: brightness(1.35);
+}
+
+
+/* ── INK-CATCH LINK ────────────────────────────────────────────
+   Apply .tfm-ink-link to narrative inline links that move the
+   reader to agency (About/Vanguard/Oath resolution links). Uses
+   currentColor so it works against any text color the link
+   already carries. Not for nav or footer labels — those are
+   Label-style uppercase and keep their own hover treatment.
+   ─────────────────────────────────────────────────────────────── */
+
+.tfm-ink-link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tfm-ink-link:hover,
+.tfm-ink-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+
+/* ── ROADMAP DETAIL UNFURL ────────────────────────────────────────
+   Applied to the expanded Roadmap detail panel on mount — a brief
+   settle (opacity + upward origin) rather than an instant snap.
+   Mirrors the RsvpModal entrance timing/easing for one consistent
+   sitewide "content arriving" feel.
+   ─────────────────────────────────────────────────────────────── */
+
+.tfm-rm-unfurl {
+  animation: tfm-rm-unfurl 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes tfm-rm-unfurl {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tfm-rm-unfurl { animation: none; }
 }
 
 

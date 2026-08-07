@@ -105,7 +105,7 @@ export default function About() {
             fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.5,
             color: "var(--tfm-warm-brown-soft)", margin: "18px 0 0",
           }}>
-            <a href="/roadmap" style={{ color: "var(--tfm-gold-deep)", textDecoration: "underline" }}>
+            <a href="/roadmap" className="tfm-ink-link" style={{ color: "var(--tfm-gold-deep)" }}>
               See what TFM actually offers →
             </a>
           </p>

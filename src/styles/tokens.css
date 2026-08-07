@@ -70,6 +70,43 @@ body {
     repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,100,0.045) 27px, rgba(180,160,100,0.045) 28px);
 }
 
+/* Opening light sweep — the book's cover catching light as the page settles.
+   Plays once on load across the hemp weave; a diagonal gold band travels
+   the full viewport, then is gone. Blend mode keeps it a light catch on the
+   material rather than a wash over content. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(196, 168, 74, 0.16) 48%,
+    rgba(244, 224, 160, 0.26) 50%,
+    rgba(196, 168, 74, 0.16) 52%,
+    transparent 58%,
+    transparent 100%
+  );
+  background-size: 280% 280%;
+  background-position: -90% -90%;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  animation: tfm-hemp-sweep 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s 1 both;
+}
+
+@keyframes tfm-hemp-sweep {
+  0%   { opacity: 0;   background-position: -90% -90%; }
+  12%  { opacity: 1; }
+  82%  { opacity: 1; }
+  100% { opacity: 0;   background-position: 150% 150%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; display: none; }
+}
+
 /* Typography */
 h1, h2, h3, h4 { font-family: var(--tfm-serif); color: var(--tfm-near-black); line-height: 1.2; }
 h1 { font-size: 48px; font-weight: 700; }
