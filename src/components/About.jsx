@@ -32,8 +32,7 @@ export default function About() {
       }}>
         TFM was founded on a simple conviction: digital sovereignty is a stewardship
         question, not a consumer question. We don't sell software. We don't sell
-        anything. What we offer is three hours, a small room, and someone who will
-        sit beside you while you install Linux on a real machine.
+        anything.
       </p>
 
       {/* Mission Statement */}
@@ -102,6 +101,14 @@ export default function About() {
               </li>
             ))}
           </ul>
+          <p style={{
+            fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.5,
+            color: "var(--tfm-warm-brown-soft)", margin: "18px 0 0",
+          }}>
+            <a href="/roadmap" style={{ color: "var(--tfm-gold-deep)", textDecoration: "underline" }}>
+              See what TFM actually offers →
+            </a>
+          </p>
         </Card>
       </div>
     </section>

@@ -10,12 +10,12 @@ export const EVENTS = [
     id: 1,
     month: "TBD",       // TODO: e.g. "June"
     day: "TBD",         // TODO: e.g. 14
-    dow: "Saturday",    // TODO: day of week
-    time: "1pm",        // TODO: start time
+    dow: "TBD",         // TODO: e.g. "Saturday"
+    time: "TBD",        // TODO: e.g. "1pm"
     level: 1,
     city: "TBD",        // TODO: e.g. "St. Louis, MO"
     venue: "TBD",       // TODO: venue name
-    duration: "3 hours",// TODO: duration
+    duration: "TBD",    // TODO: e.g. "3 hours"
     titleStrong: "An Exodus Night.",
     titleItalic: "Install Linux.",
   },

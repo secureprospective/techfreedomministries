@@ -100,6 +100,7 @@ function HeroSection() {
         </p>
 
         <a
+          className="tfm-vg-hero-cta"
           href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application&body=Hi%20TFM%2C%0D%0A%0D%0ACity%20I%27d%20cover%3A%20%0D%0ARoadmap%20level%3A%20%0D%0ARoom%20I%20can%20access%3A%20%0D%0A"
           style={{
             display: "inline-flex",
@@ -180,8 +181,7 @@ function HeroSection() {
             textAlign: "center",
             margin: "0 0 20px",
           }}>
-            I will teach what I have learned. I will find the next person. I will not hold
-            this knowledge alone.
+            "I will teach the next person what I was taught."
           </p>
 
           {/* Divider */}

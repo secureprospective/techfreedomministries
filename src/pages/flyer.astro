@@ -74,6 +74,13 @@
       letter-spacing: 0.08em;
     }
     .back-link:hover { color: rgba(244,240,230,0.90); }
+    .noscript-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: rgba(244,240,230,0.85);
+      text-align: center;
+      max-width: 420px;
+    }
 
     @page {
       size: letter;
@@ -84,6 +91,7 @@
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       body { background: none; padding: 0; gap: 0; }
       .print-bar { display: none; }
+      .noscript-note { display: none; }
       .flyer { box-shadow: none; }
     }
 
@@ -181,6 +189,9 @@
     <button class="print-btn" onclick="window.print()">Print Flyer</button>
     <a href="/vault" class="back-link">← Back to Vault</a>
   </div>
+  <noscript>
+    <p class="noscript-note">JavaScript is off, so the Print Flyer button won't work. Use your browser's Print command instead (Ctrl/Cmd+P).</p>
+  </noscript>
 
   <div class="flyer">
     <div class="spine"></div>

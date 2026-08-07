@@ -113,6 +113,13 @@
     font-size: 28px !important;
   }
 
+  .tfm-vg-hero-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+
   .tfm-vg-hero-stamp {
     display: flex;
     justify-content: center;
