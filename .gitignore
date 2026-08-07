@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 # Social raw source generations (kept on disk, too large for git)
 social/_source/
+
+# Local wrangler/D1 dev state (miniflare sqlite, never committed)
+.wrangler/
