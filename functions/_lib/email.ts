@@ -8,7 +8,11 @@
 // Request shape cross-checked against Nexus's live API research
 // (tfm-members-area channel, 2026-08-07) before this went live.
 
-const SENDER = { name: "Tech Freedom Ministries", email: "no-reply@techfreedomministries.org" };
+// Uses the sender already verified in Brevo (Settings -> Senders) rather
+// than a new no-reply@techfreedomministries.org, which would need its own
+// domain DNS (SPF/DKIM/DMARC) or a real mailbox to receive Brevo's
+// verification link — neither exists yet for this domain.
+const SENDER = { name: "Tech Freedom Ministries", email: "techfreedomministries@proton.me" };
 
 export async function sendVerificationCodeEmail(
   apiKey: string,
