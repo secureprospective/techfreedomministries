@@ -493,10 +493,24 @@ function CashSection() {
         color: "var(--tfm-warm-brown-soft)",
         lineHeight: 1.6,
         maxWidth: "52ch",
-        margin: "0 0 24px",
+        margin: "0 0 12px",
       }}>
         Online giving is coming. For now every tier below opens an email — tell us the amount
         and we will send you a way to send it.
+      </p>
+
+      {/* Disclosure moved here (above the buttons, not below) so a visitor sees it
+          before clicking, not only if they scroll past the grid afterward. */}
+      <p style={{
+        fontFamily: "var(--tfm-sans)",
+        fontSize: 12,
+        color: "var(--tfm-warm-brown-soft)",
+        lineHeight: 1.6,
+        maxWidth: "52ch",
+        margin: "0 0 24px",
+      }}>
+        Tech Freedom Ministries is pursuing 501(c)(3) status. Donations are not yet
+        tax-deductible.
       </p>
 
       {/* Three tier cards */}
@@ -553,8 +567,17 @@ function CashSection() {
                 marginTop: 4,
               }}
             >
-              Give {tier.amount}
+              Email to give {tier.amount}
             </a>
+            <p style={{
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 11,
+              color: "var(--tfm-warm-brown-soft)",
+              textAlign: "center",
+              margin: "6px 0 0",
+            }}>
+              Opens your email app
+            </p>
           </GiltCard>
         ))}
       </div>
@@ -573,23 +596,6 @@ function CashSection() {
         </strong>{" "}
         Give once. Give what you have. TFM is not funded by any platform it teaches people
         to leave.
-      </p>
-
-      {/*
-        TODO: 501C3 — replace this interim line with the confirmed disclosure
-        once the EIN and 501(c)(3) status are confirmed. Consult a tax
-        professional before publishing the final wording.
-      */}
-      <p style={{
-        fontFamily: "var(--tfm-sans)",
-        fontSize: 12,
-        color: "var(--tfm-warm-brown-soft)",
-        lineHeight: 1.6,
-        maxWidth: "52ch",
-        margin: "16px 0 0",
-      }}>
-        Tech Freedom Ministries is pursuing 501(c)(3) status. Donations are not yet
-        tax-deductible.
       </p>
     </section>
   );

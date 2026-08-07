@@ -1532,11 +1532,11 @@ function CommissionDetail({ onClose }) {
 
 // ── LevelCard ─────────────────────────────────────────────────────────────────
 
-function LevelCard({ level, isOpen, onToggle }) {
+function LevelCard({ level, isOpen, onToggle, teaser = false }) {
   const L = LEVELS[level - 1];
   const copy = LEVEL_COPY[level - 1];
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
-  const hasDetail = true;
+  const hasDetail = !teaser;
   const blurbId = useId();
   const articleRef = useRef(null);
   const wasOpen = useRef(false);
@@ -1548,11 +1548,22 @@ function LevelCard({ level, isOpen, onToggle }) {
     wasOpen.current = isOpen;
   }, [isOpen]);
 
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const onEscape = (e) => {
+      if (e.key === "Escape") onToggle();
+    };
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, [isOpen, onToggle]);
+
+  const goToRoadmap = () => { window.location.href = "/roadmap"; };
+
   const handleKeyDown = (e) => {
-    if (!hasDetail) return;
+    if (!hasDetail && !teaser) return;
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      onToggle();
+      teaser ? goToRoadmap() : onToggle();
     }
   };
 
@@ -1561,12 +1572,12 @@ function LevelCard({ level, isOpen, onToggle }) {
       <article
         ref={articleRef}
         className="tfm-rm-level-card tfm-gilt-edge"
-        onClick={hasDetail ? onToggle : undefined}
-        onKeyDown={hasDetail ? handleKeyDown : undefined}
-        role={hasDetail ? "button" : undefined}
-        tabIndex={hasDetail ? 0 : undefined}
+        onClick={hasDetail ? onToggle : (teaser ? goToRoadmap : undefined)}
+        onKeyDown={(hasDetail || teaser) ? handleKeyDown : undefined}
+        role={hasDetail ? "button" : (teaser ? "link" : undefined)}
+        tabIndex={(hasDetail || teaser) ? 0 : undefined}
         aria-expanded={hasDetail ? isOpen : undefined}
-        aria-label={hasDetail ? `Level ${L.n}: ${L.name}` : undefined}
+        aria-label={hasDetail ? `Level ${L.n}: ${L.name}` : (teaser ? `Level ${L.n}: ${L.name} — see the full Roadmap` : undefined)}
         aria-describedby={hasDetail ? blurbId : undefined}
         style={{
           position: "relative",
@@ -1577,7 +1588,7 @@ function LevelCard({ level, isOpen, onToggle }) {
           gridTemplateColumns: "1fr 220px 1fr",
           gap: 0,
           alignItems: "start",
-          cursor: hasDetail ? "pointer" : "default",
+          cursor: (hasDetail || teaser) ? "pointer" : "default",
         }}
       >
         {/* Column 1: Blurb — plain language leads, per the Sanctuary Voice's
@@ -1720,7 +1731,7 @@ function LevelCard({ level, isOpen, onToggle }) {
 
 // ── Default export ────────────────────────────────────────────────────────────
 
-export default function Roadmap({ standalone = false } = {}) {
+export default function Roadmap({ standalone = false, teaser = false } = {}) {
   const [openLevel, setOpenLevel] = useState(null);
 
   const handleToggle = (level) => {
@@ -1772,12 +1783,23 @@ export default function Roadmap({ standalone = false } = {}) {
             letterSpacing: "0.02em",
             margin: "20px 0 0",
           }}>
-            Click a card to expand it.{" "}
-            <span style={{
-              fontStyle: "normal",
-              color: "var(--tfm-gold-bright)",
-              fontSize: 20,
-            }}>↴</span>
+            {teaser ? (
+              <>
+                See the full Roadmap for milestones, cost, and what changes at each level.{" "}
+                <a href="/roadmap" className="tfm-ink-link" style={{ color: "inherit", fontStyle: "normal" }}>
+                  Read the whole map →
+                </a>
+              </>
+            ) : (
+              <>
+                Click a card to expand it.{" "}
+                <span style={{
+                  fontStyle: "normal",
+                  color: "var(--tfm-gold-bright)",
+                  fontSize: 20,
+                }}>↴</span>
+              </>
+            )}
           </p>
 
           {/* Section transition divider */}
@@ -1813,6 +1835,7 @@ export default function Roadmap({ standalone = false } = {}) {
                 level={n}
                 isOpen={openLevel === n}
                 onToggle={() => handleToggle(n)}
+                teaser={teaser}
               />
             </React.Fragment>
           ))}
