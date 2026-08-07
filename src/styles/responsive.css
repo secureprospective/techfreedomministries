@@ -245,4 +245,11 @@
     gap: 16px !important;
   }
 
+  /* ── Oath ────────────────────────────────────────────────────
+     Hooks: tfm-oath-brackets-wrap */
+
+  .tfm-oath-brackets-wrap > div {
+    padding: 16px !important;
+  }
+
 }

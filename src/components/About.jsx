@@ -21,7 +21,7 @@ export default function About() {
     <section id="about" className="tfm-ab-section" style={{ padding: "96px 36px", maxWidth: 1100, margin: "0 auto" }}>
       <Eyebrow>About TFM</Eyebrow>
       <Rule style={{ margin: "14px 0 20px" }} />
-      <Proclamation as="h2" size={42}
+      <Proclamation as="h1" size={42}
         className="tfm-ledger-rule"
         strong="We teach people to own their machines."
         italic="Then we teach them to teach others."
@@ -95,7 +95,7 @@ export default function About() {
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
             {isnt.map((line, i) => (
               <li key={i} style={{ display: "grid", gridTemplateColumns: "16px 1fr", gap: 12, alignItems: "baseline" }}>
-                <span style={{ color: "var(--tfm-warm-brown-soft)", fontFamily: "var(--tfm-serif)", fontStyle: "italic" }} aria-hidden="true">◆</span>
+                <Diamond size={9} color="var(--tfm-warm-brown-soft)" style={{ fontStyle: "italic", paddingTop: 2 }} />
                 <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 15, color: "var(--tfm-warm-brown)", lineHeight: 1.55 }}>
                   {line}
                 </span>

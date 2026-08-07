@@ -8,12 +8,20 @@ export default function Oath() {
       <div style={{ display: "flex", justifyContent: "center", margin: "16px 0 24px" }}>
         <Rule width={40} />
       </div>
-      <Proclamation as="h2" size={36}
+      <Proclamation as="h1" size={36}
         strong="An oath, not a sign-up."
         italic="Read it before you take it."
         style={{ textAlign: "center" }}
       />
+      <p style={{
+        fontFamily: "var(--tfm-sans)", fontSize: 15, lineHeight: 1.65,
+        color: "var(--tfm-warm-brown)", maxWidth: "56ch", margin: "18px auto 0",
+      }}>
+        Taken in person, out loud, at Level 4 — after the Roadmap, not before it. It's printed
+        on the back of every Vanguard's Roadmap card.
+      </p>
       <div style={{ height: 28 }} />
+      <div className="tfm-oath-brackets-wrap">
       <Brackets style={{ background: "var(--tfm-parchment-card)", padding: "48px 56px", textAlign: "left" }}>
         <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 26 }}>
           {[
@@ -25,7 +33,7 @@ export default function Oath() {
           ].map((line, i) => (
             <li key={i} style={{ display: "grid", gridTemplateColumns: "40px 1fr", gap: 18, alignItems: "baseline" }}>
               <span style={{
-                fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 18,
+                fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 19, fontWeight: 700,
                 color: "var(--tfm-gold-deep)", textAlign: "right",
               }}>
                 {String(i + 1).padStart(2, "0")}
@@ -46,7 +54,7 @@ export default function Oath() {
           fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 15,
           color: "var(--tfm-warm-brown)", margin: 0,
         }}>
-          "For freedom Christ has set us free; stand firm, therefore, and do not submit again to a yoke of slavery."
+          "For freedom Christ has set us free; stand firm, therefore."
           <span style={{ display: "block", marginTop: 6, fontStyle: "normal",
             fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.20em",
             textTransform: "uppercase", color: "var(--tfm-gold-deep)" }}>
@@ -54,6 +62,15 @@ export default function Oath() {
           </span>
         </p>
       </Brackets>
+      </div>
+      <p style={{
+        fontFamily: "var(--tfm-sans)", fontSize: 14, color: "var(--tfm-warm-brown-soft)",
+        marginTop: 32,
+      }}>
+        <a href="/roadmap" style={{ color: "inherit", textDecoration: "underline" }}>
+          See the Roadmap that leads here →
+        </a>
+      </p>
     </section>
   );
 }

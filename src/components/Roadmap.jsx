@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId, useRef } from 'react';
 import { Eyebrow, Proclamation, Diamond, Brackets, LEVELS } from './Atoms.jsx';
 
 // Mobile overrides live in src/styles/responsive.css.
@@ -204,7 +204,8 @@ function ExodusDetail({ onClose }) {
 
         {/* The Three Movements */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -213,7 +214,7 @@ function ExodusDetail({ onClose }) {
             margin: "0 0 16px",
           }}>
             The Three Movements
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 12 }}>
             {movements.map((m) => (
               <div key={m.title} style={{
@@ -281,7 +282,8 @@ function ExodusDetail({ onClose }) {
 
         {/* What Exodus Costs You */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -290,7 +292,7 @@ function ExodusDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             What Exodus Costs You
-          </p>
+          </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
             {[
               { label: "What it costs",   body: "The lazy comfort of the default setting. The illusion that convenience is free. The menu that used to be there." },
@@ -327,7 +329,8 @@ function ExodusDetail({ onClose }) {
 
         {/* The Five Milestones */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -336,7 +339,7 @@ function ExodusDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             The Five Milestones
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 8 }}>
             {milestones.map((m) => (
               <div key={m.title} style={{
@@ -601,7 +604,8 @@ function CatechismDetail({ onClose }) {
 
         {/* The Three Movements */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -610,7 +614,7 @@ function CatechismDetail({ onClose }) {
             margin: "0 0 16px",
           }}>
             The Three Movements
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 12 }}>
             {movements.map((m) => (
               <div key={m.title} style={{
@@ -645,7 +649,8 @@ function CatechismDetail({ onClose }) {
 
         {/* What Catechism Costs You */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -654,7 +659,7 @@ function CatechismDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             What Catechism Costs You
-          </p>
+          </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
             {[
               { label: "What it costs",   body: "The safety of the mouse. Your impatience. The pride that keeps you from admitting in the room when something broke." },
@@ -691,7 +696,8 @@ function CatechismDetail({ onClose }) {
 
         {/* The Five Milestones */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -700,7 +706,7 @@ function CatechismDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             The Five Milestones
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 8 }}>
             {milestones.map((m) => (
               <div key={m.title} style={{
@@ -948,7 +954,8 @@ function HomesteadDetail({ onClose }) {
 
         {/* The Three Movements */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -957,7 +964,7 @@ function HomesteadDetail({ onClose }) {
             margin: "0 0 16px",
           }}>
             The Three Movements
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 12 }}>
             {movements.map((m) => (
               <div key={m.title} style={{
@@ -992,7 +999,8 @@ function HomesteadDetail({ onClose }) {
 
         {/* What Homestead Costs You */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -1001,7 +1009,7 @@ function HomesteadDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             What Homestead Costs You
-          </p>
+          </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
             {[
               { label: "What it costs",   body: "The comfort of calling someone else when it breaks. The convenience of letting a corporation tend your land for you. The illusion that ownership without maintenance is possible." },
@@ -1038,7 +1046,8 @@ function HomesteadDetail({ onClose }) {
 
         {/* The Five Milestones */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -1047,7 +1056,7 @@ function HomesteadDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             The Five Milestones
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 8 }}>
             {milestones.map((m) => (
               <div key={m.title} style={{
@@ -1304,7 +1313,8 @@ function CommissionDetail({ onClose }) {
 
         {/* The Three Movements */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -1313,7 +1323,7 @@ function CommissionDetail({ onClose }) {
             margin: "0 0 16px",
           }}>
             The Three Movements
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 12 }}>
             {movements.map((m) => (
               <div key={m.title} style={{
@@ -1348,7 +1358,8 @@ function CommissionDetail({ onClose }) {
 
         {/* What The Great Commission Costs You */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -1357,7 +1368,7 @@ function CommissionDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             What The Great Commission Costs You
-          </p>
+          </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
             {[
               { label: "What it costs",   body: "The comfort of being done. The satisfaction of finishing for yourself. The idea that your freedom is complete while the people around you are still inside." },
@@ -1394,7 +1405,8 @@ function CommissionDetail({ onClose }) {
 
         {/* The Five Milestones */}
         <div style={{ margin: "0 0 28px" }}>
-          <p style={{
+          <h3 style={{
+            fontWeight: 400,
             fontFamily: "var(--tfm-sans)",
             fontSize: 10,
             letterSpacing: "0.2em",
@@ -1403,7 +1415,7 @@ function CommissionDetail({ onClose }) {
             margin: "0 0 14px",
           }}>
             The Five Milestones
-          </p>
+          </h3>
           <div style={{ display: "grid", gap: 8 }}>
             {milestones.map((m) => (
               <div key={m.title} style={{
@@ -1525,6 +1537,16 @@ function LevelCard({ level, isOpen, onToggle }) {
   const copy = LEVEL_COPY[level - 1];
   const COL_DIVIDER = "1px solid rgba(139, 115, 85, 0.30)";
   const hasDetail = true;
+  const blurbId = useId();
+  const articleRef = useRef(null);
+  const wasOpen = useRef(false);
+
+  React.useEffect(() => {
+    if (wasOpen.current && !isOpen) {
+      articleRef.current?.focus();
+    }
+    wasOpen.current = isOpen;
+  }, [isOpen]);
 
   const handleKeyDown = (e) => {
     if (!hasDetail) return;
@@ -1537,13 +1559,15 @@ function LevelCard({ level, isOpen, onToggle }) {
   return (
     <div>
       <article
+        ref={articleRef}
         className="tfm-rm-level-card tfm-gilt-edge"
         onClick={hasDetail ? onToggle : undefined}
         onKeyDown={hasDetail ? handleKeyDown : undefined}
         role={hasDetail ? "button" : undefined}
         tabIndex={hasDetail ? 0 : undefined}
         aria-expanded={hasDetail ? isOpen : undefined}
-        aria-label={hasDetail ? `Level ${L.n}: ${L.name}. ${isOpen ? "Collapse" : "Read more"}.` : undefined}
+        aria-label={hasDetail ? `Level ${L.n}: ${L.name}` : undefined}
+        aria-describedby={hasDetail ? blurbId : undefined}
         style={{
           position: "relative",
           background: L.bg,
@@ -1559,7 +1583,7 @@ function LevelCard({ level, isOpen, onToggle }) {
         {/* Column 1: Blurb — plain language leads, per the Sanctuary Voice's
             Layer 2 rule: first-timers should meet the plain description
             before the mythology name. */}
-        <p style={{
+        <p id={blurbId} style={{
           fontFamily: "var(--tfm-sans)",
           fontSize: 15,
           lineHeight: 1.7,
@@ -1690,7 +1714,7 @@ function LevelCard({ level, isOpen, onToggle }) {
 
 // ── Default export ────────────────────────────────────────────────────────────
 
-export default function Roadmap() {
+export default function Roadmap({ standalone = false } = {}) {
   const [openLevel, setOpenLevel] = useState(null);
 
   const handleToggle = (level) => {
@@ -1703,7 +1727,7 @@ export default function Roadmap() {
           <Eyebrow color="var(--tfm-gold-deep)" style={{ fontSize: 13 }}>The Member Journey</Eyebrow>
 
           <Proclamation
-            as="h2"
+            as={standalone ? "h1" : "h2"}
             size={38}
             strong="From Digital Subject"
             italic="to Digital Steward."
