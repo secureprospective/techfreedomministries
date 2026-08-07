@@ -33,23 +33,26 @@ Build command: `npm run build`
 
 ## Current Build State
 
-- Last clean build: 9 pages, 2026-08-06
-- Live: techfreedomministries.org (Cloudflare Pages, auto-deploy from main)
-- Phases 1–12 complete. Last closed: copy and UX polish, May 27 2026.
+- Last clean build: 9 pages, 2026-08-07
+- Live: techfreedomministries.org (Cloudflare Pages, auto-deploy from main), confirmed live and verified via direct fetch of the deployed bundle, not just a 200 check
+- Phases 1–12 complete. Last closed: full-site Impeccable critique round 2 + P0 fix pass, 2026-08-07.
 - Brevo live; RsvpModal → Formspree mvzyorgw; Cinzel self-hosted; Google Fonts CDN removed
+- `--tfm-gold-muted` contrast issue **RESOLVED** (was open as of 2026-08-06): split into `--tfm-gold-muted-on-light` (#796449) and `--tfm-gold-muted-on-dark` (#9A855F), both AA-verified, all sitewide usages updated. Do not re-flag this as open — a prior version of this doc kept stating it as pending after the fix landed; if a critique or review references it as still-open, that's stale context, verify against `tokens.css` directly.
 
 **Pending manual action:** Brevo env vars must be set in Cloudflare Pages before BrevoSignup works in production: `PUBLIC_BREVO_API_KEY` + `PUBLIC_BREVO_LIST_ID=3`
 
-**2026-08-06 session — Impeccable installed, first critique run and fixed, merged to `main` (`966ccb1`) and pushed.** Full detail in memory `project_tfm`; summary:
-- `PRODUCT.md` and `DESIGN.md` written for the first time (North Star "The Gilded Spine"), from the real live tokens/CSS plus a confirmed **Sanctuary Voice** brand commitment: name the real encroachment plainly, then resolve every passage to agency/ownership/community — never leave the reader in the threat. See PRODUCT.md's Brand Commitments for the full reasoning.
-- First `/impeccable critique` on the homepage: 25/32 (Good), dual-agent, source-level (no browser automation configured for this project — snapshot at `.impeccable/critique/2026-08-06T13-58-29Z__src-pages-index-astro.md`).
-- Fixed same session: P0 Roadmap level-card keyboard/screen-reader accessibility (real button semantics, `aria-expanded`, focus-visible, `aria-hidden` on decorative ◆ glyphs sitewide); P1 Hero stakes-clause scope gap (phone/car surveillance named but unresolved); P2 collapsed Roadmap cards reordered to lead with plain language over mythology vocabulary; P2 expanded detail panels got a top-of-panel Collapse control. Also corrected a real DESIGN.md-vs-CLAUDE.md button-radius conflict in favor of the live code (2px on buttons, confirmed in `Atoms.jsx`'s `btnBase`) and documented the left-border narrative callouts as a named component ("Marginalia Callout").
+**2026-08-07 session — subtle site animations + full-site Impeccable critique round 2, both merged to `main` and confirmed live.**
+- **Animation pass** (`session/animations`, merged `d6c2ae4`): one-time hemp-weave "light sweep" on page load (`body::before`, 5.1s, respects reduced-motion), Roadmap detail-panel `.tfm-rm-unfurl` entrance (620ms), `.tfm-gilt-edge` hover shimmer (brightness+width), `.tfm-ink-link` underline draw-in on narrative resolution links (About/Vanguard/Oath). Timing was tuned down twice live per direct feedback before landing.
+- **Critique round 2** (`session/critique-round2`, merged `4f17b84`): dual-agent Impeccable critique across all 9 pages post-animation. Every sub-agent claim was independently verified against source/live measurement before being trusted (several turned out false — see `.impeccable/critique/` snapshots for the full record of what was checked and how). Found and fixed all 6 P0s:
+  - Homepage no longer duplicates the full Roadmap page content (was rendering all 4 expanded detail panels in front of the CTA) — `Roadmap.jsx` now takes a `teaser` prop; homepage passes it, cards become simple links to `/roadmap` instead of expanding inline.
+  - Roadmap detail panels now close on Escape (previously only had Close buttons, no keyboard escape hatch).
+  - Gilt-edge hover shimmer's `box-shadow` was removed — it violated DESIGN.md's own No-Shadow Rule, introduced by the animation pass itself.
+  - Donate's tax-deductibility disclosure moved above the cash-tier button grid (previously below it, easy to miss); buttons relabeled "Email to give $X" + "Opens your email app" microcopy so they read as email, not a payment checkout.
+  - `flyer.astro` (a standalone page that never imports `tokens.css`) had a raw, unfixed `#8B7355` gold-muted hex on every eyebrow label — the exact contrast bug fixed everywhere else on the site, missed here because this page duplicates colors as hardcoded hex. Fixed to the correct on-light/on-dark values directly.
+  - `flyer.astro` print output overflowed onto a second page (1022px content vs 960px printable height under real `@media print` emulation) — trimmed spacing, now fits at 910px.
+- 13 P1/P2/P3 findings remain open by choice (not requested to fix this round) — full list in each page's `.impeccable/critique/*.md` snapshot. Notable ones: `Brackets` component (Atoms.jsx) is fully symmetric, contradicting DESIGN.md's diagonal Stamp Frame asymmetry rule, sitewide not just on Oath; Vanguard hero's "debt has a name" metaphor doesn't land for cold readers; About/Oath lack a stakes clause before their resolution copy.
 
-**⚠️ Open, needs a decision next session:** `--tfm-gold-muted` (#8B7355) fails WCAG AA contrast (4.5:1) against every background it's used on — 4.11:1 near-black, 3.94:1 parchment, 3.60:1 parchment-card, hand-calculated and verified. It's the site's standing eyebrow-label color (25+ uses in `Roadmap.jsx` alone, plus the global `.eyebrow` class in `tokens.css`) — a token-level decision, not fixed unilaterally. Options: redefine the token itself, or add a separate AA-safe color for small text specifically.
-
-**⚠️ Functional/visual gate not yet performed:** the push to `main` was made and Cloudflare auto-deploy triggered, but Christopher has not yet confirmed the live result in-browser — session closed before that check per his explicit direction ("push to live, session-close after that... pick this up tonight"). Confirm live at techfreedomministries.org before treating this round of fixes as fully done.
-
-**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed. Pick up the gold-muted contrast decision and the live-site confirmation first when the session resumes.
+**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed.
 
 ---
 
