@@ -1,7 +1,7 @@
 ---
 // Standalone flyer page — no Layout wrapper.
 // URL: techfreedomministries.org/flyer
-// QR code: place file at public/assets/qr-code.png
+// QR code lives at public/assets/qr-code.png (already in place).
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hardware Donation Flyer — Tech Freedom Ministries</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* Self-hosted, matching the rest of the site — no Google Fonts CDN.
+       'Inter' (used below via var(--tfm-sans) elsewhere) is not self-hosted
+       anywhere on TFM; it falls back to the system sans stack, same as
+       every other page. */
+    @font-face {
+      font-family: 'EB Garamond';
+      src: url('/fonts/EBGaramond-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      src: url('/fonts/EBGaramond-Italic.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      src: url('/fonts/EBGaramond-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      src: url('/fonts/EBGaramond-BoldItalic.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body { background: #777; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; min-height: 100vh; gap: 20px; }
@@ -43,7 +75,13 @@
     }
     .back-link:hover { color: rgba(244,240,230,0.90); }
 
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
     @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       body { background: none; padding: 0; gap: 0; }
       .print-bar { display: none; }
       .flyer { box-shadow: none; }
