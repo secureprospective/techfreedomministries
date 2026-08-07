@@ -180,11 +180,16 @@
   );
   pointer-events: none;
   filter: brightness(1);
-  transition: filter 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 0 rgba(196, 168, 74, 0);
+  transition: filter 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              width 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tfm-gilt-edge:hover::after {
-  filter: brightness(1.35);
+  width: 5px;
+  filter: brightness(1.5);
+  box-shadow: 0 0 8px rgba(196, 168, 74, 0.55);
 }
 
 
@@ -219,11 +224,12 @@
    ─────────────────────────────────────────────────────────────── */
 
 .tfm-rm-unfurl {
-  animation: tfm-rm-unfurl 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: tfm-rm-unfurl 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top center;
 }
 
 @keyframes tfm-rm-unfurl {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(-22px) scaleY(0.97); }
   to   { opacity: 1; transform: none; }
 }
 
