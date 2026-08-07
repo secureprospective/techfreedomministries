@@ -35,8 +35,27 @@
   outline-offset: 2px;
 }
 
-/* Mobile: same behavior as the old CTA — hidden below 768px (mobile nav
-   doesn't show it). Keep for now; login-on-mobile is a separate follow-up. */
+.header-auth-cta--placeholder {
+  min-width: 68px;
+  visibility: hidden;
+}
+
+/* Mobile: Login/Sign out needs a real entry point here — unlike the old
+   static "Find an event" CTA it replaced, this one gates an entire page, so
+   it can't just disappear below 768px. Shrunk to match the mobile nav-link
+   sizing instead of the full desktop button treatment. */
 @media (max-width: 768px) {
-  .header-auth-cta { display: none; }
+  .header-auth-cta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    color: var(--tfm-gold-deep);
+    background: transparent;
+    border-color: rgba(196, 168, 74, 0.5);
+  }
+
+  .header-auth-cta--placeholder {
+    min-width: 50px;
+  }
 }

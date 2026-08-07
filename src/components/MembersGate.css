@@ -1,0 +1,113 @@
+/* MembersGate renders inside a React island (client:load), so Astro's
+   scoped <style> blocks never reach this markup — same reason
+   HeaderAuthButton.css exists as a standalone file. Styles below are the
+   members-area hero/container rules formerly scoped in
+   src/pages/members/index.astro, moved here unchanged. */
+
+.members-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 36px;
+  border-bottom: 1px solid var(--tfm-parchment-edge);
+}
+
+.members-hero-inner {
+  max-width: 640px;
+}
+
+.members-hero-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--tfm-gold-bright);
+  margin: 14px 0 24px;
+}
+
+.members-hero-title {
+  font-family: var(--tfm-serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--tfm-near-black);
+  margin: 0 0 20px;
+}
+
+.members-hero-body {
+  font-family: var(--tfm-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--tfm-warm-brown);
+  margin: 0;
+}
+
+.members-hero-body strong {
+  font-weight: 600;
+  color: var(--tfm-near-black);
+}
+
+.members-hero-status {
+  font-family: var(--tfm-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tfm-gold-deep);
+  margin: 0 0 14px;
+}
+
+.members-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+.members-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--tfm-parchment-edge);
+}
+
+.members-section:last-child {
+  border-bottom: none;
+}
+
+/* Loading state: brief skeleton bar while /api/auth/me resolves, sized to
+   roughly match the hero so there's no layout jump once content lands. */
+.members-gate-loading {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 36px;
+}
+
+.members-gate-loading-bar {
+  width: 60%;
+  max-width: 480px;
+  height: 14px;
+  background: var(--tfm-parchment-edge);
+  animation: members-gate-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes members-gate-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .members-gate-loading-bar { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .members-hero {
+    padding: 64px 20px;
+  }
+
+  .members-hero-title {
+    font-size: 34px;
+  }
+
+  .members-container {
+    padding: 0 20px;
+  }
+
+  .members-section {
+    padding: 32px 0;
+  }
+}
