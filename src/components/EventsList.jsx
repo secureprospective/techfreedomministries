@@ -33,6 +33,7 @@ export default function EventsList({ preview }) {
   const shown = preview
     ? EVENTS.slice(0, 3)
     : (filter === "all" ? EVENTS : EVENTS.filter(e => e.city === filter));
+  const allPlaceholder = shown.length > 0 && shown.every(e => e.city === "TBD");
 
   return (
     <>
@@ -75,6 +76,18 @@ export default function EventsList({ preview }) {
               </div>
             )}
           </>
+        )}
+
+        {allPlaceholder && !preview && (
+          <p style={{
+            fontFamily: "var(--tfm-serif)",
+            fontSize: 14,
+            fontStyle: "italic",
+            color: "var(--tfm-warm-brown-soft)",
+            margin: "0 0 20px",
+          }}>
+            No dates are set yet — the first Install Party is being planned. Check back soon.
+          </p>
         )}
 
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>

@@ -8,6 +8,7 @@ import { Eyebrow, Proclamation, LevelBadge, Icon, Diamond, Button, Card } from '
 // Class name hooks: tfm-ec-grid, tfm-ec-date, tfm-ec-day, tfm-ec-action.
 
 export default function EventCard({ event, onRsvp }) {
+  const isPlaceholder = event.city === "TBD" || event.day === "TBD";
   return (
     <Card style={{ padding: "22px 26px", position: "relative" }}>
         <span className="tfm-stamp-tl" aria-hidden="true" />
@@ -91,7 +92,22 @@ export default function EventCard({ event, onRsvp }) {
 
           {/* Action */}
           <div className="tfm-ec-action">
-            <Button onClick={() => onRsvp && onRsvp(event)}>RSVP</Button>
+            {isPlaceholder ? (
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  fontFamily: "var(--tfm-sans)",
+                  fontSize: 12,
+                  fontStyle: "italic",
+                  color: "var(--tfm-warm-brown-soft)",
+                }}
+              >
+                Date not yet set
+              </span>
+            ) : (
+              <Button onClick={() => onRsvp && onRsvp(event)}>RSVP</Button>
+            )}
           </div>
 
         </div>

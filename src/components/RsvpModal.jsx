@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useId } from 'react';
 import { Eyebrow, Rule, Proclamation, Button, GhostButton, Icon } from './Atoms.jsx';
 
 function Field({ label, type = "text", value, onChange, placeholder }) {
   const [focus, setFocus] = useState(false);
+  const id = useId();
   const InputTag = type === "textarea" ? "textarea" : "input";
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-      <label style={{
+      <label htmlFor={id} style={{
         fontFamily: "var(--tfm-sans)", fontSize: 10, letterSpacing: "0.20em",
         textTransform: "uppercase", color: "var(--tfm-gold-muted-on-light)",
       }}>{label}</label>
       <InputTag
+        id={id}
         type={type === "textarea" ? undefined : type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -34,6 +36,55 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
   );
 }
 
+/* Best-effort parse of the event's free-text month/day/time fields into a
+   local Date. Returns null if the fields don't parse cleanly — the .ics
+   still downloads without DTSTART/DTEND rather than failing outright. */
+function parseEventStart(event) {
+  const parsed = Date.parse(`${event.month} ${event.day}, ${new Date().getFullYear()} ${event.time}`);
+  return Number.isNaN(parsed) ? null : new Date(parsed);
+}
+
+function toIcsStamp(date) {
+  return date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+}
+
+/* Builds a minimal .ics file and triggers a download — no server round-trip needed. */
+function downloadIcs(event) {
+  const now = toIcsStamp(new Date());
+  const start = parseEventStart(event);
+  const summary = `TFM Install Party — ${event.city}`;
+  const description = `${event.titleStrong} ${event.titleItalic}`.trim();
+  const location = `${event.venue}, ${event.city}`;
+  const lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Tech Freedom Ministries//RSVP//EN",
+    "BEGIN:VEVENT",
+    `UID:${now}-tfm@techfreedomministries.org`,
+    `DTSTAMP:${now}`,
+  ];
+  if (start) {
+    lines.push(`DTSTART:${toIcsStamp(start)}`);
+    lines.push(`DTEND:${toIcsStamp(new Date(start.getTime() + 3 * 60 * 60 * 1000))}`);
+  }
+  lines.push(
+    `SUMMARY:${summary}`,
+    `DESCRIPTION:${description} — ${event.month} ${event.day}, ${event.dow} ${event.time}`,
+    `LOCATION:${location}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  );
+  const blob = new Blob([lines.join("\r\n")], { type: "text/calendar" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "tfm-install-party.ics";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzyorgw";
 
 export default function RsvpModal({ event, onClose }) {
@@ -43,12 +94,44 @@ export default function RsvpModal({ event, onClose }) {
   const [why, setWhy] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const titleId = useId();
+  const panelRef = useRef(null);
+  const previouslyFocused = useRef(null);
 
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useEffect(() => {
+    previouslyFocused.current = document.activeElement;
+    const focusable = panelRef.current?.querySelector(
+      'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    focusable?.focus();
+    return () => {
+      if (previouslyFocused.current instanceof HTMLElement) {
+        previouslyFocused.current.focus();
+      }
+    };
+  }, []);
 
   if (!event) return null;
 
@@ -63,6 +146,10 @@ export default function RsvpModal({ event, onClose }) {
       }}
     >
       <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
         onClick={(e) => e.stopPropagation()}
         style={{
           background: "var(--tfm-parchment)",
@@ -89,7 +176,7 @@ export default function RsvpModal({ event, onClose }) {
 
         {step === 1 && (
           <>
-            <Eyebrow>RSVP · {event.city}</Eyebrow>
+            <Eyebrow id={titleId}>RSVP · {event.city}</Eyebrow>
             <Rule style={{ margin: "12px 0 18px" }} />
             <Proclamation as="h3" size={28}
               strong={event.titleStrong}
@@ -108,7 +195,7 @@ export default function RsvpModal({ event, onClose }) {
                 placeholder="One or two sentences. Optional." />
             </div>
             {error && (
-              <p style={{
+              <p role="alert" aria-live="polite" style={{
                 fontFamily: "var(--tfm-sans)", fontSize: 12, color: "var(--tfm-crimson)",
                 marginTop: 16, marginBottom: 0,
               }}>
@@ -155,7 +242,7 @@ export default function RsvpModal({ event, onClose }) {
 
         {step === 2 && (
           <div style={{ textAlign: "center", padding: "12px 0 6px" }}>
-            <Eyebrow style={{ display: "inline-block" }}>Reserved</Eyebrow>
+            <Eyebrow id={titleId} style={{ display: "inline-block" }}>Reserved</Eyebrow>
             <div style={{ display: "flex", justifyContent: "center", margin: "12px 0 22px" }}><Rule width={40} /></div>
             <Proclamation as="h3" size={30}
               strong="You're on the list."
@@ -169,7 +256,7 @@ export default function RsvpModal({ event, onClose }) {
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
               <GhostButton onClick={onClose}>Close</GhostButton>
-              <Button onClick={onClose}>
+              <Button onClick={() => downloadIcs(event)}>
                 <Icon name="download" size={13} /> Add to calendar
               </Button>
             </div>
