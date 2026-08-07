@@ -1,5 +1,5 @@
 import React from 'react';
-import { LEVELS, LevelBadge, Card, Brackets, Button, Diamond } from './Atoms.jsx';
+import { LEVELS, LevelBadge, Card, Button, Diamond, ExpandableCard } from './Atoms.jsx';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    MEMBERS AREA — three presentational building blocks for the member dashboard.
@@ -14,10 +14,13 @@ import { LEVELS, LevelBadge, Card, Brackets, Button, Diamond } from './Atoms.jsx
    ───────────────────────────────────────────────────────────────────────────── */
 
 /* Buzz has no web client — it's a desktop app that connects to the relay
-   address below. This points members at an in-house instructions page
-   (src/pages/members/community.astro), not the raw relay URL, which only
+   address below. The Community card's expanded state walks the same three
+   steps as the standalone instructions page (src/pages/members/community.astro,
+   kept as a shareable/email-friendly copy); the raw relay URL only ever
    answers with NIP-11 relay-info JSON when opened in a browser. */
-const COMMUNITY_ACCESS_URL = "/members/community";
+const COMMUNITY_INSTRUCTIONS_URL = "/members/community";
+const BUZZ_RELAY_URL = "wss://tfm.communities.buzz.xyz";
+const BUZZ_APP_DOWNLOAD_URL = "https://github.com/block/buzz/releases/download/desktop-v0.5.5/Buzz_0.5.5_amd64.AppImage";
 
 /* Current-level detail copy. L1/L2/L4 are the goals from TFM_03 (kept to
    agency, never leaving the reader in dread). L3 is the peer-recognized case
@@ -217,37 +220,61 @@ export function CommunityCard({ member }) {
   }
 
   return (
-    <Brackets padding={30}>
-      <div
+    <ExpandableCard
+      stamp
+      title="The Community"
+      openLabel="See how to join →"
+      closeLabel="Collapse ↑"
+      teaser={
+        <span style={{ fontFamily: "var(--tfm-serif)", fontStyle: "italic", fontSize: 17, lineHeight: 1.5, color: "var(--tfm-warm-brown)", maxWidth: "36ch", display: "block" }}>
+          You don&rsquo;t just belong to this community now. This community belongs to you.
+        </span>
+      }
+    >
+      <p
         style={{
-          fontFamily: "var(--tfm-serif)",
-          fontWeight: 700,
-          fontSize: 24,
-          color: "var(--tfm-near-black)",
-          lineHeight: 1.2,
-        }}
-      >
-        The Community
-      </div>
-      <div
-        style={{
-          fontFamily: "var(--tfm-serif)",
-          fontSize: 17,
-          fontStyle: "italic",
-          lineHeight: 1.5,
+          fontFamily: "var(--tfm-sans)",
+          fontSize: 14,
+          lineHeight: 1.6,
           color: "var(--tfm-warm-brown)",
-          marginTop: 12,
-          maxWidth: "36ch",
+          margin: "0 0 18px",
         }}
       >
-        You don&rsquo;t just belong to this community now. This community belongs to you.
-      </div>
-      <div style={{ marginTop: 20 }}>
-        <Button onClick={() => { window.location.href = COMMUNITY_ACCESS_URL; }}>
-          Open the Community
+        The community runs on <strong style={{ color: "var(--tfm-near-black)" }}>Buzz</strong>, a
+        small, open-source app &mdash; not another website. Three steps in:
+      </p>
+
+      <ol style={{ listStyle: "none", margin: "0 0 18px", padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+        <li style={{ display: "flex", gap: 12 }}>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.14em", color: "var(--tfm-gold-deep)", flexShrink: 0, paddingTop: 2 }}>01</span>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.55, color: "var(--tfm-warm-brown)" }}>
+            <a href={BUZZ_APP_DOWNLOAD_URL} className="tfm-ink-link" style={{ color: "var(--tfm-gold-deep)", fontWeight: 600 }}>Download Buzz</a> &mdash; free, open source, Linux only for now.
+          </span>
+        </li>
+        <li style={{ display: "flex", gap: 12 }}>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.14em", color: "var(--tfm-gold-deep)", flexShrink: 0, paddingTop: 2 }}>02</span>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.55, color: "var(--tfm-warm-brown)" }}>
+            Point it at our room:{" "}
+            <code style={{ fontFamily: "monospace", fontSize: 13, background: "var(--tfm-parchment)", border: "1px solid var(--tfm-parchment-edge)", padding: "2px 6px" }}>{BUZZ_RELAY_URL}</code>
+          </span>
+        </li>
+        <li style={{ display: "flex", gap: 12 }}>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 11, letterSpacing: "0.14em", color: "var(--tfm-gold-deep)", flexShrink: 0, paddingTop: 2 }}>03</span>
+          <span style={{ fontFamily: "var(--tfm-sans)", fontSize: 14, lineHeight: 1.55, color: "var(--tfm-warm-brown)" }}>
+            Buzz makes you a key on first connect &mdash; that&rsquo;s your identity, no password. You&rsquo;re in.
+          </span>
+        </li>
+      </ol>
+
+      <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+        <Button onClick={() => { window.open(BUZZ_APP_DOWNLOAD_URL, "_blank", "noopener"); }}>
+          Download Buzz
         </Button>
+        <a href={COMMUNITY_INSTRUCTIONS_URL} className="tfm-ink-link" style={{ color: "var(--tfm-gold-deep)", fontSize: 13 }}>
+          Full instructions →
+        </a>
       </div>
-    </Brackets>
+    </ExpandableCard>
   );
 }
 
