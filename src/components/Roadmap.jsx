@@ -1607,14 +1607,14 @@ function LevelCard({ level, isOpen, onToggle }) {
           }}>
             Level 0{L.n}
           </div>
-          <Brackets padding={16}>
+          <Brackets padding={16} style={{ paddingBottom: 26 }}>
             <div
               className="tfm-rm-level-name"
               style={{
                 fontFamily: "var(--tfm-serif)",
                 fontWeight: 700,
                 fontSize: 24,
-                lineHeight: 1.1,
+                lineHeight: 1.25,
                 color: L.fg,
               }}
             >

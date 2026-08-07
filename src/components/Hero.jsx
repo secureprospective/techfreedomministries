@@ -212,18 +212,6 @@ function HeroRight() {
         }}>
           It is for freedom that Christ has set us free. Stand firm, then, and do not let
           yourselves be burdened again by a yoke of slavery.
-          <span style={{
-            display: "block",
-            marginTop: 12,
-            fontStyle: "normal",
-            fontFamily: "var(--tfm-sans)",
-            fontSize: 15,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "var(--tfm-gold-deep)",
-          }}>
-            Galatians 5:1
-          </span>
         </p>
       </Brackets>
     </div>
