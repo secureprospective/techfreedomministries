@@ -440,21 +440,21 @@ function CashSection() {
     {
       amount: "$25",
       // TODO: STRIPE — replace href with Stripe/PayPal link when 501(c)(3) is confirmed
-      href: "#give-placeholder",
+      href: "mailto:techfreedomministries@proton.me?subject=Financial%20Gift%20—%20%2425",
       strong: "A bootable drive.",
       body: "Every Install Party needs USB sticks loaded with Linux installers. This is one of them. It goes in someone's hand at the door.",
     },
     {
       amount: "$100",
       // TODO: STRIPE — replace href with Stripe/PayPal link when 501(c)(3) is confirmed
-      href: "#give-placeholder",
+      href: "mailto:techfreedomministries@proton.me?subject=Financial%20Gift%20—%20%24100",
       strong: "One event's materials.",
       body: "Roadmap cards, drives, printed handouts. Everything handed to every person who walks in the door.",
     },
     {
       amount: "$500",
       // TODO: STRIPE — replace href with Stripe/PayPal link when 501(c)(3) is confirmed
-      href: "#give-placeholder",
+      href: "mailto:techfreedomministries@proton.me?subject=Financial%20Gift%20—%20%24500",
       strong: "A full event in a new city.",
       body: "Room, materials, and logistics for a Vanguard running their first Exodus from scratch. This is how TFM reaches a city it has never touched.",
     },
@@ -485,6 +485,18 @@ function CashSection() {
         handed out at every event, the room rental when a church cannot host for free, and the
         shipping when hardware needs to move between cities. It does not replace hardware. It
         makes hardware matter.
+      </p>
+
+      <p style={{
+        fontFamily: "var(--tfm-sans)",
+        fontSize: 13,
+        color: "var(--tfm-warm-brown-soft)",
+        lineHeight: 1.6,
+        maxWidth: "52ch",
+        margin: "0 0 24px",
+      }}>
+        Online giving is coming. For now every tier below opens an email — tell us the amount
+        and we will send you a way to send it.
       </p>
 
       {/* Three tier cards */}
@@ -564,11 +576,21 @@ function CashSection() {
       </p>
 
       {/*
-        TODO: 501C3 — This disclosure is pending EIN filing and 501(c)(3) confirmation.
-        Update copy and consult a tax professional before publishing.
-        Draft: "Tech Freedom Ministries is a 501(c)(3) nonprofit organization.
-        Donations are tax-deductible to the extent permitted by law. EIN: [PENDING]."
+        TODO: 501C3 — replace this interim line with the confirmed disclosure
+        once the EIN and 501(c)(3) status are confirmed. Consult a tax
+        professional before publishing the final wording.
       */}
+      <p style={{
+        fontFamily: "var(--tfm-sans)",
+        fontSize: 12,
+        color: "var(--tfm-warm-brown-soft)",
+        lineHeight: 1.6,
+        maxWidth: "52ch",
+        margin: "16px 0 0",
+      }}>
+        Tech Freedom Ministries is pursuing 501(c)(3) status. Donations are not yet
+        tax-deductible.
+      </p>
     </section>
   );
 }
