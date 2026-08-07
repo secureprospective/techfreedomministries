@@ -4,8 +4,9 @@ import '../styles/tokens.css';
 import '../styles/accents.css';
 import '../styles/responsive.css';
 import BrevoSignup from '../components/BrevoSignup.jsx';
+import HeaderAuthButton from '../components/HeaderAuthButton.jsx';
 
-const { title = "Tech Freedom Ministries — Break from the digital grid." } = Astro.props;
+const { title = "Tech Freedom Ministries — Break from the digital grid.", hideNewsletter = false } = Astro.props;
 const { pathname } = Astro.url;
 
 const navLinks = [
@@ -67,7 +68,7 @@ const footerLinks = [
           ))}
         </nav>
 
-        <a href="/events" class="header-cta">Find an event</a>
+        <HeaderAuthButton client:load />
       </div>
     </header>
 
@@ -76,9 +77,11 @@ const footerLinks = [
     </main>
 
     <footer class="site-footer">
-      <div class="footer-email-row">
-        <BrevoSignup client:visible />
-      </div>
+      {!hideNewsletter && (
+        <div class="footer-email-row">
+          <BrevoSignup client:visible />
+        </div>
+      )}
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="/assets/tfm-logo-nearblack.png" alt="" class="footer-logo" />

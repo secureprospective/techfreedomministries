@@ -1,0 +1,12 @@
+name = "techfreedomministries"
+compatibility_date = "2026-05-03"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+# tfm-members-db belongs to Tech Freedom Ministries ONLY. Never bind this
+# database to any other business's Pages project. See
+# feedback_tfm_sp_data_separation in the backbone memory.
+[[d1_databases]]
+binding = "USERS_DB"
+database_name = "tfm-members-db"
+database_id = "b27f6a37-18a0-4bf7-8e74-4dd2522fe4c8"

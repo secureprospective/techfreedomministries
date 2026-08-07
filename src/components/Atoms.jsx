@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId, useRef, useEffect } from 'react';
 
 /* ---------- Eyebrow ---------- */
 export function Eyebrow({ children, color, style, ...rest }) {
@@ -240,6 +240,154 @@ export function Brackets({ children, padding = 28, style }) {
   );
 }
 
+/* ---------- ExpandableCard (signature interaction) ----------
+   Click-to-expand card: the whole header is the toggle (native
+   <button>, no icon-only affordance — the label names the action
+   per Sanctuary Voice), body reveals with a grid-rows animation,
+   closes on Escape, and returns focus to the card on close. Mirrors
+   the detail-panel pattern already proven on the public Roadmap
+   page (Roadmap.jsx's tfm-rm-level-card), pulled into a reusable
+   primitive so every card that needs progressive disclosure — the
+   members-area Community card today, others to follow — shares one
+   implementation instead of re-deriving the interaction each time.
+   `stamp` swaps the plain bordered surface for the corner-bracket
+   "issued" treatment (.tfm-stamp-tl/tr/bl/br, same spans vault.astro
+   uses) instead of a full 1px border. */
+export function ExpandableCard({
+  badge,
+  title,
+  teaser,
+  openLabel = "See how →",
+  closeLabel = "Collapse ↑",
+  defaultOpen = false,
+  dimmed = false,
+  stamp = false,
+  children,
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+  const headingId = useId();
+  const bodyId = useId();
+  const cardRef = useRef(null);
+  const wasOpen = useRef(defaultOpen);
+
+  useEffect(() => {
+    if (wasOpen.current && !open) cardRef.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onEscape = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, [open]);
+
+  return (
+    <div
+      ref={cardRef}
+      tabIndex={-1}
+      className="tfm-gilt-edge"
+      style={{
+        position: "relative",
+        background: "var(--tfm-parchment-card)",
+        border: stamp ? "none" : "1px solid var(--tfm-parchment-edge)",
+        padding: "26px 26px",
+        opacity: dimmed ? 0.72 : 1,
+      }}
+    >
+      {stamp && (
+        <>
+          <span className="tfm-stamp-tl" aria-hidden="true"></span>
+          <span className="tfm-stamp-tr" aria-hidden="true"></span>
+          <span className="tfm-stamp-bl" aria-hidden="true"></span>
+          <span className="tfm-stamp-br" aria-hidden="true"></span>
+        </>
+      )}
+
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-controls={bodyId}
+        style={{
+          display: "block",
+          width: "100%",
+          textAlign: "left",
+          background: "none",
+          border: "none",
+          padding: 0,
+          margin: 0,
+          font: "inherit",
+          cursor: "pointer",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          {badge}
+          <span
+            id={headingId}
+            style={{
+              fontFamily: "var(--tfm-serif)",
+              fontWeight: 700,
+              fontSize: 20,
+              color: "var(--tfm-near-black)",
+              lineHeight: 1.2,
+            }}
+          >
+            {title}
+          </span>
+        </div>
+
+        {teaser && (
+          <div
+            style={{
+              fontFamily: "var(--tfm-sans)",
+              fontSize: 14,
+              lineHeight: 1.55,
+              color: "var(--tfm-warm-brown)",
+              marginTop: 12,
+            }}
+          >
+            {teaser}
+          </div>
+        )}
+
+        <span
+          className="tfm-ink-link"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            marginTop: 14,
+            fontFamily: "var(--tfm-sans)",
+            fontSize: 13,
+            fontWeight: 500,
+            color: "var(--tfm-gold-deep)",
+          }}
+        >
+          {open ? closeLabel : openLabel}
+        </span>
+      </button>
+
+      <div
+        id={bodyId}
+        role="region"
+        aria-labelledby={headingId}
+        style={{
+          display: "grid",
+          gridTemplateRows: open ? "1fr" : "0fr",
+          transition: "grid-template-rows 320ms cubic-bezier(.2,0,.2,1)",
+        }}
+      >
+        <div style={{ overflow: "hidden", minHeight: 0 }}>
+          <div className={open ? "tfm-rm-unfurl" : undefined} style={{ paddingTop: 18 }}>
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ---------- Icon (Lucide-style inline stroke) ---------- */
 export function Icon({ name, size = 16, color = "currentColor", style }) {
   const stroke = {
@@ -305,7 +453,6 @@ export function Card({ children, hover: hoverable = true, style }) {
         position: "relative",
         background: "var(--tfm-parchment-card)",
         border: `1px solid ${hover ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)"}`,
-        boxShadow: "0 1px 0 rgba(28,18,9,.04), 0 1px 2px rgba(28,18,9,.06)",
         padding: "22px 24px",
         transition: "border-color 220ms cubic-bezier(.2,0,.2,1)",
         ...style,
