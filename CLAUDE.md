@@ -52,7 +52,46 @@ Build command: `npm run build`
   - `flyer.astro` print output overflowed onto a second page (1022px content vs 960px printable height under real `@media print` emulation) — trimmed spacing, now fits at 910px.
 - 13 P1/P2/P3 findings remain open by choice (not requested to fix this round) — full list in each page's `.impeccable/critique/*.md` snapshot. Notable ones: `Brackets` component (Atoms.jsx) is fully symmetric, contradicting DESIGN.md's diagonal Stamp Frame asymmetry rule, sitewide not just on Oath; Vanguard hero's "debt has a name" metaphor doesn't land for cold readers; About/Oath lack a stakes clause before their resolution copy.
 
-**Next branch:** `session/event-data` — once Install Party date/venue/city confirmed.
+**2026-08-07 session — members login built and merged to `main`, live in production.**
+- Full Cloudflare Pages Functions + D1 auth backend (`functions/`): register,
+  login, logout, verify-email, resend-code, me. scrypt password hashing,
+  HttpOnly/SameSite=Lax/Secure session cookies (DB stores sha256(token) only,
+  30-day TTL with sliding renewal), enumeration-safe error messages, 6-digit
+  email verification codes via Brevo transactional API. D1 database
+  `tfm-members-db` (id `b27f6a37-18a0-4bf7-8e74-4dd2522fe4c8`) — **TFM-only,
+  never shared with SecureProspective or any other business**, see
+  `feedback_tfm_sp_data_separation` in the backbone memory.
+- `AuthModal.jsx` (login/register/verify, wired to the real endpoints),
+  `HeaderAuthButton.jsx` (Login/Sign out reflecting real session state,
+  visible on mobile), `MembersGate.jsx` (replaces old hardcoded mock member
+  data on `/members` with a real `GET /api/auth/me` check — locked view
+  until authenticated).
+- `ExpandableCard` (Atoms.jsx) — reusable click-to-expand primitive, base
+  architecture for future member-area cards.
+- Cloudflare config live on Production: `nodejs_compat` flag, `USERS_DB`
+  D1 binding, `BREVO_PRIVATE_API_KEY` secret (private, separate from the
+  client-exposed `PUBLIC_BREVO_API_KEY`). Sender is
+  `techfreedomministries@proton.me` (already-verified in Brevo — avoided
+  needing new DNS mail records for a `no-reply@techfreedomministries.org`
+  address that doesn't exist yet).
+- Verified live: locked `/members` when logged out, header Login/Sign-out
+  state, registration creates a real account in production D1, session
+  cookie set/cleared correctly, `/members` unlocks with the real session.
+- **Known bug, not yet fixed:** Brevo transactional send fails in
+  production (`register` returns `codeSent:false`) even though the sender
+  shows Verified in Brevo's dashboard. Root cause not yet found — likely
+  either the `BREVO_PRIVATE_API_KEY` secret value or a Brevo-side rejection
+  not visible from the `ok`/`status` the code currently returns. Check
+  Brevo's Transactional > Logs/Email Activity for the actual error before
+  guessing further. Accounts still get created and codes still get stored
+  correctly either way — only the email delivery leg is broken.
+- Full reusable-pattern writeup (for the upcoming SecureProspective members
+  vault, which needs a fully separate D1 instance per the nonnegotiable
+  data-separation rule): see `reference_cloudflare_d1_auth_pattern` in the
+  backbone memory.
+
+**Next branch:** fix the Brevo send bug, then `session/event-data` once
+Install Party date/venue/city confirmed.
 
 ---
 
@@ -121,7 +160,7 @@ techfreedomministries/
 | Install Party details | Christopher confirms date, venue, city | `src/components/EventsList.jsx` |
 | Donate button | EIN arrives (501c3 filing in progress) | `src/components/Donate.jsx` |
 | EIN in footer | 501c3 approved | `src/layouts/Layout.astro` |
-| Members area (login + Buzz community front end) | Two decisions pending: (1) public Buzz URL — Christopher named `tfm.communities.buzz.xyz`, domain ownership unverified against CF inventory, needs confirmation; (2) TeamAi engagement scope for this build (full fleet build vs. grunt-work-only vs. Claude drafts specs for separate execution) | n/a, build not started |
+| Members login backend | Brevo transactional send failing in production (`codeSent:false`) — see 2026-08-07 session note above | `functions/api/auth/register.ts`, `functions/_lib/email.ts` |
 
 ---
 
