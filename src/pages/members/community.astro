@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const RELAY_URL = "wss://tfm.communities.buzz.xyz";
+const APP_DOWNLOAD_URL = "https://github.com/block/buzz/releases/download/desktop-v0.5.5/Buzz_0.5.5_amd64.AppImage";
+---
+<Layout title="Join the Community — Tech Freedom Ministries" hideNewsletter>
+
+  <section class="community-hero">
+    <div class="community-hero-inner">
+      <div class="eyebrow">The Community</div>
+      <div class="community-rule"></div>
+      <h1 class="community-heading">Three steps in.</h1>
+      <p class="community-body">
+        The community runs on <strong>Buzz</strong>, a small, open-source app built for
+        rooms like ours &mdash; not another social feed. It is not a website; it lives on
+        your machine, the same way the terminal you learned in The Catechism does. Here
+        is exactly how to get in.
+      </p>
+    </div>
+  </section>
+
+  <div class="community-container">
+    <ol class="community-steps">
+      <li class="community-step">
+        <span class="tfm-stamp-tl" aria-hidden="true"></span>
+        <span class="tfm-stamp-tr" aria-hidden="true"></span>
+        <span class="tfm-stamp-bl" aria-hidden="true"></span>
+        <span class="tfm-stamp-br" aria-hidden="true"></span>
+        <div class="community-step-num">01</div>
+        <div class="community-step-title">Get Buzz</div>
+        <p class="community-step-body">
+          Download the app &mdash; it's free and open source, built by the team at Block.
+          Linux only for now.
+        </p>
+        <a class="community-step-link" href={APP_DOWNLOAD_URL}>Download for Linux &rarr;</a>
+      </li>
+
+      <li class="community-step">
+        <span class="tfm-stamp-tl" aria-hidden="true"></span>
+        <span class="tfm-stamp-tr" aria-hidden="true"></span>
+        <span class="tfm-stamp-bl" aria-hidden="true"></span>
+        <span class="tfm-stamp-br" aria-hidden="true"></span>
+        <div class="community-step-num">02</div>
+        <div class="community-step-title">Connect to the TFM room</div>
+        <p class="community-step-body">
+          Open Buzz and point it at our address:
+        </p>
+        <code class="community-step-code">{RELAY_URL}</code>
+      </li>
+
+      <li class="community-step">
+        <span class="tfm-stamp-tl" aria-hidden="true"></span>
+        <span class="tfm-stamp-tr" aria-hidden="true"></span>
+        <span class="tfm-stamp-bl" aria-hidden="true"></span>
+        <span class="tfm-stamp-br" aria-hidden="true"></span>
+        <div class="community-step-num">03</div>
+        <div class="community-step-title">You're in</div>
+        <p class="community-step-body">
+          Buzz makes you a key the first time you connect &mdash; that's your identity here,
+          no password to remember. From there, you're in the room with the rest of us.
+        </p>
+      </li>
+    </ol>
+
+    <p class="community-footnote">
+      Stuck, or on a different machine? <a href="mailto:techfreedomministries@proton.me" class="tfm-ink-link">Email us</a>
+      and we'll walk you through it.
+    </p>
+  </div>
+
+</Layout>
+
+<style>
+  .community-hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 36px;
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+  }
+
+  .community-hero-inner {
+    max-width: 640px;
+  }
+
+  .community-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--tfm-gold-bright);
+    margin: 14px 0 24px;
+  }
+
+  .community-heading {
+    font-family: var(--tfm-serif);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--tfm-near-black);
+    margin: 0 0 20px;
+  }
+
+  .community-body {
+    font-family: var(--tfm-sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--tfm-warm-brown);
+    margin: 0;
+  }
+
+  .community-body strong {
+    font-weight: 600;
+    color: var(--tfm-near-black);
+  }
+
+  .community-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 96px;
+  }
+
+  .community-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .community-step {
+    position: relative;
+    background: var(--tfm-parchment-card);
+    border: 1px solid var(--tfm-parchment-edge);
+    padding: 28px 26px;
+  }
+
+  .community-step-num {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--tfm-gold-muted-on-light);
+    margin-bottom: 10px;
+  }
+
+  .community-step-title {
+    font-family: var(--tfm-serif);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--tfm-near-black);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .community-step-body {
+    font-family: var(--tfm-sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tfm-warm-brown);
+    margin: 0 0 14px;
+  }
+
+  .community-step-link {
+    font-family: var(--tfm-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tfm-gold-deep);
+    text-decoration: none;
+  }
+
+  .community-step-link:hover {
+    text-decoration: underline;
+  }
+
+  .community-step-code {
+    display: block;
+    font-family: monospace;
+    font-size: 13px;
+    background: var(--tfm-parchment);
+    border: 1px solid var(--tfm-parchment-edge);
+    padding: 10px 12px;
+    color: var(--tfm-near-black);
+    word-break: break-all;
+  }
+
+  .community-footnote {
+    font-family: var(--tfm-sans);
+    font-size: 13px;
+    color: var(--tfm-warm-brown-soft);
+    margin: 40px 0 0;
+  }
+
+  @media (max-width: 768px) {
+    .community-hero {
+      padding: 64px 20px;
+    }
+
+    .community-heading {
+      font-size: 34px;
+    }
+
+    .community-container {
+      padding: 48px 20px 64px;
+    }
+  }
+</style>

@@ -13,7 +13,11 @@ import { LEVELS, LevelBadge, Card, Brackets, Button, Diamond } from './Atoms.jsx
    member shape: { name: string, level: 1|2|3|4, vanguard: boolean }
    ───────────────────────────────────────────────────────────────────────────── */
 
-const COMMUNITY_URL = "https://tfm.communities.buzz.xyz";
+/* Buzz has no web client — it's a desktop app that connects to the relay
+   address below. This points members at an in-house instructions page
+   (src/pages/members/community.astro), not the raw relay URL, which only
+   answers with NIP-11 relay-info JSON when opened in a browser. */
+const COMMUNITY_ACCESS_URL = "/members/community";
 
 /* Current-level detail copy. L1/L2/L4 are the goals from TFM_03 (kept to
    agency, never leaving the reader in dread). L3 is the peer-recognized case
@@ -239,7 +243,7 @@ export function CommunityCard({ member }) {
         You don&rsquo;t just belong to this community now. This community belongs to you.
       </div>
       <div style={{ marginTop: 20 }}>
-        <Button onClick={() => window.open(COMMUNITY_URL, "_blank", "noopener")}>
+        <Button onClick={() => { window.location.href = COMMUNITY_ACCESS_URL; }}>
           Open the Community
         </Button>
       </div>
