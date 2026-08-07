@@ -184,7 +184,7 @@ function ExodusDetail({ onClose }) {
           <p style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 14,
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             margin: "0 0 8px",
@@ -209,7 +209,7 @@ function ExodusDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 16px",
           }}>
             The Three Movements
@@ -262,10 +262,10 @@ function ExodusDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 10px",
           }}>
-            ◆ Galatians 5:1
+            <span aria-hidden="true">◆</span> Galatians 5:1
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -286,7 +286,7 @@ function ExodusDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             What Exodus Costs You
@@ -332,7 +332,7 @@ function ExodusDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             The Five Milestones
@@ -383,7 +383,7 @@ function ExodusDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-dark)",
             margin: "0 0 10px",
           }}>
             What we tell every room before they start
@@ -561,12 +561,12 @@ function CatechismDetail({ onClose }) {
           <p style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 14,
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             margin: "0 0 8px",
           }}>
-            ◆ Katecheo
+            <span aria-hidden="true">◆</span> Katecheo
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -606,7 +606,7 @@ function CatechismDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 16px",
           }}>
             The Three Movements
@@ -650,7 +650,7 @@ function CatechismDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             What Catechism Costs You
@@ -696,7 +696,7 @@ function CatechismDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             The Five Milestones
@@ -752,10 +752,10 @@ function CatechismDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-dark)",
             margin: "0 0 10px",
           }}>
-            ◆ The Level 2 Send-Off
+            <span aria-hidden="true">◆</span> The Level 2 Send-Off
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -939,7 +939,7 @@ function HomesteadDetail({ onClose }) {
           fontFamily: "var(--tfm-serif)",
           fontSize: 14,
           lineHeight: 1.65,
-          color: "var(--tfm-gold-muted)",
+          color: "var(--tfm-gold-muted-on-light)",
           fontStyle: "italic",
           margin: "0 0 28px",
         }}>
@@ -953,7 +953,7 @@ function HomesteadDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 16px",
           }}>
             The Three Movements
@@ -997,7 +997,7 @@ function HomesteadDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             What Homestead Costs You
@@ -1043,7 +1043,7 @@ function HomesteadDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             The Five Milestones
@@ -1088,10 +1088,10 @@ function HomesteadDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 10px",
           }}>
-            ◆ Genesis 1:28
+            <span aria-hidden="true">◆</span> Genesis 1:28
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -1275,12 +1275,12 @@ function CommissionDetail({ onClose }) {
           <p style={{
             fontFamily: "var(--tfm-sans)",
             fontSize: 14,
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             margin: "0 0 8px",
           }}>
-            ◆ Luke 6:40
+            <span aria-hidden="true">◆</span> Luke 6:40
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -1309,7 +1309,7 @@ function CommissionDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 16px",
           }}>
             The Three Movements
@@ -1353,7 +1353,7 @@ function CommissionDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             What The Great Commission Costs You
@@ -1399,7 +1399,7 @@ function CommissionDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 14px",
           }}>
             The Five Milestones
@@ -1444,10 +1444,10 @@ function CommissionDetail({ onClose }) {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             margin: "0 0 10px",
           }}>
-            ◆ The Freeman's Commission
+            <span aria-hidden="true">◆</span> The Freeman's Commission
           </p>
           <p style={{
             fontFamily: "var(--tfm-serif)",
@@ -1607,7 +1607,7 @@ function LevelCard({ level, isOpen, onToggle }) {
               opacity: 0.55,
               marginTop: 16,
             }}>
-              {isOpen ? "◆ Collapse" : "◆ Read more"}
+              <span aria-hidden="true">◆</span> {isOpen ? "Collapse" : "Read more"}
             </div>
           )}
         </div>
@@ -1738,7 +1738,7 @@ export default function Roadmap() {
             fontFamily: "var(--tfm-serif)",
             fontSize: 13,
             fontStyle: "italic",
-            color: "var(--tfm-gold-muted)",
+            color: "var(--tfm-gold-muted-on-light)",
             letterSpacing: "0.02em",
             margin: "20px 0 0",
           }}>

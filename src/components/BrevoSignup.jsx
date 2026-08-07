@@ -32,7 +32,7 @@ export default function BrevoSignup() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div style={{ fontFamily: 'var(--tfm-sans)', fontSize: 11, letterSpacing: '0.20em', textTransform: 'uppercase', color: 'var(--tfm-gold-muted)', marginBottom: 4 }}>
+      <div style={{ fontFamily: 'var(--tfm-sans)', fontSize: 11, letterSpacing: '0.20em', textTransform: 'uppercase', color: 'var(--tfm-gold-muted-on-light)', marginBottom: 4 }}>
         Stay in the loop
       </div>
       <p style={{ fontFamily: 'var(--tfm-serif)', fontSize: 22, fontWeight: 700, color: 'var(--tfm-near-black)', lineHeight: 1.15, margin: '0 0 2px' }}>

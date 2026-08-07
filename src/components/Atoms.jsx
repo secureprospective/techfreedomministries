@@ -11,7 +11,7 @@ export function Eyebrow({ children, color, style, ...rest }) {
         fontWeight: 400,
         letterSpacing: "0.20em",
         textTransform: "uppercase",
-        color: color || "var(--tfm-gold-muted)",
+        color: color || "var(--tfm-gold-muted-on-light)",
         lineHeight: 1,
         ...style,
       }}
@@ -39,6 +39,7 @@ export function Rule({ width = 40, color, style }) {
 export function Diamond({ size = 10, color, style }) {
   return (
     <span
+      aria-hidden="true"
       style={{
         color: color || "var(--tfm-gold-bright)",
         fontSize: size,

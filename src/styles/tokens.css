@@ -10,7 +10,14 @@
   --tfm-warm-brown-soft: #6E5F4A;
   --tfm-gold-deep: #8B6914;
   --tfm-gold-bright: #C4A84A;
+  /* --tfm-gold-muted stays for decorative-only uses (rules, dividers,
+     borders — not held to text-contrast rules). For readable TEXT, use
+     one of the two variants below instead: no single hex can pass WCAG
+     AA (4.5:1) against both this palette's light and dark backgrounds
+     at once, which is why the original text usages failed at 3.60–4.11:1. */
   --tfm-gold-muted: #8B7355;
+  --tfm-gold-muted-on-light: #796449; /* text on parchment / parchment-card — 4.94:1 / 4.52:1 */
+  --tfm-gold-muted-on-dark: #9A855F;  /* text on near-black / leather — 5.17:1 / 4.53:1 */
 
   /* Color — Level System */
   --tfm-level-1-bg: #1D4D2A;
@@ -76,7 +83,7 @@ h4 { font-size: 19px; font-weight: 700; }
   font-weight: 400;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--tfm-gold-muted);
+  color: var(--tfm-gold-muted-on-light);
   line-height: 1;
 }
 

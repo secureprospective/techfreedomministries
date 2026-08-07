@@ -8,7 +8,7 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <label style={{
         fontFamily: "var(--tfm-sans)", fontSize: 10, letterSpacing: "0.20em",
-        textTransform: "uppercase", color: "var(--tfm-gold-muted)",
+        textTransform: "uppercase", color: "var(--tfm-gold-muted-on-light)",
       }}>{label}</label>
       <InputTag
         type={type === "textarea" ? undefined : type}
@@ -24,8 +24,9 @@ function Field({ label, type = "text", value, onChange, placeholder }) {
           background: "var(--tfm-parchment)",
           border: `1px solid ${focus ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)"}`,
           color: "var(--tfm-near-black)",
-          borderRadius: 2, outline: "none",
-          transition: "border-color 220ms cubic-bezier(.2,0,.2,1)",
+          borderRadius: 2,
+          boxShadow: focus ? "0 0 0 2px var(--tfm-gold-bright)" : "none",
+          transition: "border-color 220ms cubic-bezier(.2,0,.2,1), box-shadow 220ms cubic-bezier(.2,0,.2,1)",
           resize: type === "textarea" ? "vertical" : undefined,
         }}
       />

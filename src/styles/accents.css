@@ -183,14 +183,25 @@
 
 
 /* ── FOCUS VISIBLE ──────────────────────────────────────────────
-   Applied to elements that carry role="button" on a non-native
-   element (e.g. .tfm-rm-level-card, the Roadmap level cards).
-   Native interactive elements (a, button) already get a browser
-   default outline; this rule is only for the ARIA-button case.
+   Sitewide gold-accent focus ring for every native interactive
+   element (a, button, input, textarea, select), plus ARIA-button
+   elements like .tfm-rm-level-card. Browser default outlines are
+   inconsistent in contrast against the leather/near-black and
+   parchment backgrounds used across TFM — this replaces them with
+   one branded, reliably visible ring everywhere.
    ─────────────────────────────────────────────────────────────── */
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
 .tfm-rm-level-card:focus-visible {
   outline: 2px solid var(--tfm-gold-bright);
+  outline-offset: 2px;
+}
+
+.tfm-rm-level-card:focus-visible {
   outline-offset: -2px;
 }
 

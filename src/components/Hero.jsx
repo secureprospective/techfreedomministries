@@ -58,7 +58,7 @@ function HeroLeft() {
           fontFamily: "var(--tfm-sans)",
           fontSize: 13,
           fontWeight: 400,
-          color: "var(--tfm-gold-muted)",
+          color: "var(--tfm-gold-muted-on-light)",
           letterSpacing: "0.04em",
           // Not all-caps — this is a statement, not a label
         }}>
@@ -199,14 +199,14 @@ function HeroRight() {
           display: "block",
           marginBottom: 12,
         }}>
-          ◆ &nbsp; Galatians 5:1
+          <span aria-hidden="true">◆</span> &nbsp; Galatians 5:1
         </span>
 
         <p style={{
           fontFamily: "var(--tfm-serif)",
           fontSize: 22,
           fontStyle: "italic",
-          color: "var(--tfm-gold-muted)",
+          color: "var(--tfm-gold-muted-on-dark)",
           lineHeight: 1.6,
           margin: 0,
         }}>

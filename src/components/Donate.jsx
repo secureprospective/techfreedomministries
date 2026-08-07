@@ -119,7 +119,7 @@ function HeroSection() {
         <Brackets padding={40}>
 
           {/* Ref mark */}
-          <div style={{
+          <div aria-hidden="true" style={{
             textAlign: "center",
             color: "var(--tfm-gold-bright)",
             fontSize: 16,
@@ -368,7 +368,7 @@ function HardwareSection() {
                   fontFamily: "var(--tfm-serif)",
                   fontSize: 13,
                   fontStyle: "italic",
-                  color: "var(--tfm-gold-muted)",
+                  color: "var(--tfm-gold-muted-on-light)",
                 }}>
                   {p.n}
                 </span>

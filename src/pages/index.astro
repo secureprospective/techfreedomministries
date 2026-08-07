@@ -18,21 +18,21 @@ import Roadmap from '../components/Roadmap.jsx';
     </div>
     <div class="explainer-steps">
       <div class="explainer-step">
-        <div class="step-marker">◆</div>
+        <div class="step-marker" aria-hidden="true">◆</div>
         <p class="step-copy">
           <strong>Come to an Install Party.</strong>{" "}
           Bring a laptop if you have one. If you don't, tell us when you RSVP. We keep a hardware pool from donated machines for exactly that reason. No experience needed.
         </p>
       </div>
       <div class="explainer-step">
-        <div class="step-marker">◆</div>
+        <div class="step-marker" aria-hidden="true">◆</div>
         <p class="step-copy">
           <strong>Follow the Roadmap.</strong>{" "}
           Four levels. Each one earned, not bought. You move at your pace with a community behind you.
         </p>
       </div>
       <div class="explainer-step">
-        <div class="step-marker">◆</div>
+        <div class="step-marker" aria-hidden="true">◆</div>
         <p class="step-copy">
           <strong>Become a Vanguard.</strong>{" "}
           Once you have the skills, you come back and give them away. That is how TFM grows. Graduate to graduate, city to city.
@@ -46,10 +46,10 @@ import Roadmap from '../components/Roadmap.jsx';
   <!-- Donation CTA band -->
   <section class="cta-band">
     <div class="cta-inner">
-      <span class="tfm-stamp-tl"></span>
-      <span class="tfm-stamp-tr"></span>
-      <span class="tfm-stamp-bl"></span>
-      <span class="tfm-stamp-br"></span>
+      <span class="tfm-stamp-tl" aria-hidden="true"></span>
+      <span class="tfm-stamp-tr" aria-hidden="true"></span>
+      <span class="tfm-stamp-bl" aria-hidden="true"></span>
+      <span class="tfm-stamp-br" aria-hidden="true"></span>
       <div class="eyebrow cta-eyebrow">A note to whoever is reading this</div>
       <div class="cta-rule"></div>
       <h2 class="cta-headline">
@@ -162,7 +162,7 @@ import Roadmap from '../components/Roadmap.jsx';
   }
 
   .cta-eyebrow {
-    color: var(--tfm-gold-muted);
+    color: var(--tfm-gold-muted-on-dark);
   }
 
   .cta-rule {

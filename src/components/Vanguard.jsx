@@ -426,7 +426,7 @@ function NetworkSection({ roster }) {
                 fontSize: 12,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "var(--tfm-gold-muted)",
+                color: "var(--tfm-gold-muted-on-light)",
               }}>
                 {member.city}
               </div>
@@ -461,7 +461,7 @@ function ApplySection() {
       <div>
         <div style={{ ...s.eyebrowRow, marginBottom: 14 }}>
           <span style={s.eyebrowRule} aria-hidden="true" />
-          <Eyebrow>Ready to Apply</Eyebrow>
+          <Eyebrow color="var(--tfm-gold-muted-on-dark)">Ready to Apply</Eyebrow>
         </div>
 
         <h2 style={{
