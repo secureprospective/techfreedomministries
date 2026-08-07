@@ -1,11 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { PersonalRoadmap, CommunityCard, VanguardTeaser } from '../../components/MembersArea.jsx';
+import { LEVELS } from '../../components/Atoms.jsx';
 
 // MOCK DATA: replace with real session lookup once D1 auth lands
 const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
+const currentLevel = LEVELS.find((L) => L.n === mockMember.level);
 ---
-<Layout title="Members Area — Tech Freedom Ministries">
+<Layout title="Members Area — Tech Freedom Ministries" hideNewsletter>
 
   <!-- Members Area — welcome header -->
   <section class="members-hero">
@@ -13,6 +15,9 @@ const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
       <div class="eyebrow">Members Area</div>
       <div class="members-hero-rule"></div>
       <h1 class="members-hero-title">Your copy of the Roadmap.</h1>
+      <p class="members-hero-status">
+        You&rsquo;re at Level {currentLevel.n} &mdash; {currentLevel.name}.
+      </p>
       <p class="members-hero-body">
         Welcome, <strong>Alex Rivera</strong>. This page is a companion to your physical Roadmap
         card — a mirror you can reach from your own machine. It is not a replacement. The card you
@@ -24,9 +29,21 @@ const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
     </div>
   </section>
 
-  <PersonalRoadmap member={mockMember} client:load />
-  <CommunityCard member={mockMember} client:load />
-  <VanguardTeaser member={mockMember} client:load />
+  <div class="members-container">
+    <section class="members-section">
+      <PersonalRoadmap member={mockMember} client:load />
+    </section>
+
+    <section class="members-section">
+      <CommunityCard member={mockMember} client:load />
+    </section>
+
+    {mockMember.level >= 3 && (
+      <section class="members-section">
+        <VanguardTeaser member={mockMember} client:load />
+      </section>
+    )}
+  </div>
 
 </Layout>
 
@@ -72,6 +89,32 @@ const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
     color: var(--tfm-near-black);
   }
 
+  .members-hero-status {
+    font-family: var(--tfm-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tfm-gold-deep);
+    margin: 0 0 14px;
+  }
+
+  /* Members Area — section container, matches the hero's 1100px/36px rule */
+  .members-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 36px;
+  }
+
+  .members-section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--tfm-parchment-edge);
+  }
+
+  .members-section:last-child {
+    border-bottom: none;
+  }
+
   @media (max-width: 768px) {
     .members-hero {
       padding: 64px 20px;
@@ -79,6 +122,14 @@ const mockMember = { name: "Alex Rivera", level: 2, vanguard: false };
 
     .members-hero-title {
       font-size: 34px;
+    }
+
+    .members-container {
+      padding: 0 20px;
+    }
+
+    .members-section {
+      padding: 32px 0;
     }
   }
 </style>

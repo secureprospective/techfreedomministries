@@ -203,6 +203,11 @@ export function CommunityCard({ member }) {
         >
           Unlocks at The Catechism (Level 2).
         </div>
+        <div style={{ marginTop: 10 }}>
+          <a href="/roadmap" className="tfm-ink-link" style={{ color: "var(--tfm-gold-deep)", fontSize: 13 }}>
+            See what The Catechism asks of you →
+          </a>
+        </div>
       </Card>
     );
   }

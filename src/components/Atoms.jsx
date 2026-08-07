@@ -305,7 +305,6 @@ export function Card({ children, hover: hoverable = true, style }) {
         position: "relative",
         background: "var(--tfm-parchment-card)",
         border: `1px solid ${hover ? "var(--tfm-gold-deep)" : "var(--tfm-parchment-edge)"}`,
-        boxShadow: "0 1px 0 rgba(28,18,9,.04), 0 1px 2px rgba(28,18,9,.06)",
         padding: "22px 24px",
         transition: "border-color 220ms cubic-bezier(.2,0,.2,1)",
         ...style,
