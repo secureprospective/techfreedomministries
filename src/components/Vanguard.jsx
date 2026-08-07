@@ -94,12 +94,13 @@ function HeroSection() {
           margin: "0 0 36px",
         }}>
           You installed the OS. You learned the terminal. You built the homestead. You know how
-          surveillance works and how to walk away from it. Most people never get here. The ones
-          who do have two choices. Keep it. Or give it away. Vanguard is the second choice.
+          surveillance works and how to walk away from it. Most people never get here. If they
+          keep it, the loop stops with them — TFM stays one city, one org, one bottleneck. The
+          ones who do have two choices. Keep it. Or give it away. Vanguard is the second choice.
         </p>
 
         <a
-          href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application"
+          href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application&body=Hi%20TFM%2C%0D%0A%0D%0ACity%20I%27d%20cover%3A%20%0D%0ARoadmap%20level%3A%20%0D%0ARoom%20I%20can%20access%3A%20%0D%0A"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -116,7 +117,7 @@ function HeroSection() {
             textDecoration: "none",
           }}
         >
-          Write to us
+          Apply to Become a Vanguard
           <Icon name="arrow" size={13} color="var(--tfm-near-black)" />
         </a>
       </div>
@@ -287,7 +288,15 @@ function PathSection() {
     {
       n: "01",
       title: "Complete the Roadmap",
-      body: "All four levels. The Exodus, the Catechism, the Homestead, the Great Commission. Each one earned at a real event, not checked off on a screen.",
+      body: (
+        <>
+          All four levels. The Exodus, the Catechism, the Homestead, the Great Commission. Each
+          one earned at a real event, not checked off on a screen. Not sure where you stand?{" "}
+          <a href="/roadmap" style={{ color: "var(--tfm-gold-deep)", textDecoration: "underline" }}>
+            Check the Roadmap.
+          </a>
+        </>
+      ),
     },
     {
       n: "02",
@@ -517,7 +526,7 @@ function ApplySection() {
 
         <a
           className="tfm-vg-apply-cta"
-          href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application"
+          href="mailto:vanguard@techfreedomministries.com?subject=Vanguard%20Application&body=Hi%20TFM%2C%0D%0A%0D%0ACity%20I%27d%20cover%3A%20%0D%0ARoadmap%20level%3A%20%0D%0ARoom%20I%20can%20access%3A%20%0D%0A"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -533,7 +542,7 @@ function ApplySection() {
             textDecoration: "none",
           }}
         >
-          Email to apply
+          Apply to Become a Vanguard
           <Icon name="arrow" size={13} color="var(--tfm-near-black)" />
         </a>
 
