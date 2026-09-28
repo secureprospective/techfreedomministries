@@ -10,3 +10,10 @@ pages_build_output_dir = "dist"
 binding = "USERS_DB"
 database_name = "tfm-members-db"
 database_id = "b27f6a37-18a0-4bf7-8e74-4dd2522fe4c8"
+
+# Preview deployments get their own empty members database, so a branch build
+# can never read or write real member rows. Created 2026-09-28 with 0001 applied.
+[[env.preview.d1_databases]]
+binding = "USERS_DB"
+database_name = "tfm-members-db-preview"
+database_id = "c7bb3e48-af6a-4459-8d16-42cf2b16da04"
