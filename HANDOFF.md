@@ -1,20 +1,20 @@
 # HANDOFF
 
-- **Baton:** Beelink (active) — 2026-08-30
+- **Baton:** Beelink (active) — 2026-09-28
 - **Branch:** `main`  ·  upstream `origin/main`
 
 ## Where it stands
 
-Dormant. Last commit 2026-08-07 (22d ago) on `main`. No active baton.
+Live. Members login (register, email code, login, logout) runs on Pages Functions against the
+`tfm-members-db` D1 (`USERS_DB`). Builds use pnpm. Impeccable skill is 4.3.1.
 
-Recent commits:
-- docs: log members-area initiative as open item, blocked on domain + TeamAi scope
-- Session close: update build state for animation pass + critique round 2
-- Fix all P0s from the round-2 Impeccable critique
+2026-09-28 preview lockdown: preview builds are off, `*.techfreedomministries.pages.dev` is behind
+Cloudflare Access, and `[[env.preview.d1_databases]]` in `wrangler.toml` binds preview to the empty
+`tfm-members-db-preview`. Proven with a throwaway preview deploy, then deleted.
 
 ## Next move
 
-None queued. Anyone may pick this up — update this file when you do.
+None queued. Feature worktrees (members-area-*) predate these changes; merge main into them first.
 
 ## Blocked on
 
