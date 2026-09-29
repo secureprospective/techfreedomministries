@@ -33,6 +33,12 @@ Build command: `npm run build`
 
 ## Current Build State
 
+### 2026-09-28 — preview lockdown (T290)
+- Preview builds are OFF (`preview_deployment_setting: none`); `*.techfreedomministries.pages.dev` is behind Cloudflare Access ("Christopher only").
+- Preview binds its own empty `tfm-members-db-preview` (c7bb3e48) via `[[env.preview.d1_databases]]` in `wrangler.toml`; production stays on `tfm-members-db` (b27f6a37). Never bind production data to previews.
+- Proven by a throwaway preview deploy (its deployment `d1_databases` = c7bb3e48), then deleted. Impeccable skill is 4.3.1.
+
+
 - Last clean build: 9 pages, 2026-08-07
 - Live: techfreedomministries.org (Cloudflare Pages, auto-deploy from main), confirmed live and verified via direct fetch of the deployed bundle, not just a 200 check
 - Phases 1–12 complete. Last closed: full-site Impeccable critique round 2 + P0 fix pass, 2026-08-07.
